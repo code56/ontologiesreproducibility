@@ -4,7 +4,9 @@
 #next step make this work for more than one papers. Read & work on papers in a folder automatically 
 #also, need to have the CO and PO to query the document by. (at the moment is matching against PO db)
 
-import os, os.path, sys, pdftotext, nltk
+import pandas as pd
+import os, os.path, sys, pdftotext, nltk, re, string
+
 
 from pathlib import Path
 
@@ -80,10 +82,17 @@ with open('output.txt') as f:
 text_article = ''
 for line in log:
 	text_article += line
+
 #print('this is the text version of the pdf journal article after being converted with pdftotext to text', text_article) #the text version of the pdf article
 
 #create an empty dictionary to fit the key-values from the Plant Ontology database text file 
 #downloaded from: https://raw.githubusercontent.com/Planteome/plant-ontology/master/plant-ontology.txt
+
+stopwords = nltk.corpus.stopwords.words('english')
+ps = nltk.PorterStemmer()
+
+tokenised_data = nltk.word_tokenize(text_article)
+
 
 onto = {}
 
