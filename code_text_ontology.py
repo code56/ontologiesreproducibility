@@ -72,7 +72,6 @@ print('this is words', words[:100])
 
 #works
 
-
 from sklearn.feature_extraction.text import CountVectorizer
 from nltk.tokenize import RegexpTokenizer
 #tokenizer to remove unwanted elements from out data like symbols and numbers
@@ -150,8 +149,6 @@ mystr = 'This is a string, with words!'
 wordList = re.sub("[^\w]", " ",  mystr).split()
 '''
 
-
-
 #for bigram (i.e.token pair), onto_id in onto.items:
     #if bigram in list_of_bigrams:
       #  print(bigram, onto_id)
@@ -227,9 +224,6 @@ bigrams=[('more', 'is'), ('is', 'said'), ('said', 'than'), ('than', 'done')]
 for a, b in bigrams:
     print(a)
     print(b)
-
-
-
 
 #read text
 #raw data is the PO ontology file
@@ -321,7 +315,6 @@ def get_all_phrases_containing_tar_wrd(target_word, tar_passage, left_margin=10,
         left_margin and right_margin allocate the number of words/pununciation before and after target word
         Left margin will take note of the beginning of the text
     """
-
     ## Create list of tokens using nltk function
     tokens = nltk.word_tokenize(tar_passage)
 
@@ -339,41 +332,13 @@ def get_all_phrases_containing_tar_wrd(target_word, tar_passage, left_margin=10,
     ## join the sentences for each of the target phrase and return it
     return [''.join([x + ' ' for x in con_sub]) for con_sub in concordance_txt]
 
+data_reproducibility_keywords = ['accession', 'data', 'available', 'repository', 'GO', 'EBI', 'ArrayExpress', 'PO', 'sequences', 'expression', 'snps', 'genes', 'wheat', 'rice']
+phrases_from_article = []
+print('the type of text_article', type(text_article))
 
-## Test the function
-
-## sample text from http://www.shol.com/agita/pigs.htm
-raw = """The little pig saw the wolf climb up on the roof and lit a roaring fire in the fireplace and\
-          placed on it a large kettle of water.When the wolf finally found the hole in the chimney he crawled down\
-          and KERSPLASH right into that kettle of water and that was the end of his troubles with the big bad wolf.\
-          The next day the little pig invited his mother over . She said &amp;amp;quot;You see it is just as I told you. \
-          The way to get along in the world is to do things as well as you can.&amp;amp;quot; Fortunately for that little pig,\
-          he learned that lesson. And he just lived happily ever after!"""
-
-print('type of raw', type(raw))
-
-tokens = nltk.word_tokenize(raw)
-text = nltk.Text(tokens)
-text.concordance('wolf')  # default text.concordance output
-
-## output:
-## Displaying 3 of 3 matches:
-## The little pig saw the wolf climb up on the roof and lit a roari
-##  it a large kettle of water.When the wolf finally found the hole in the chimne
-## end of his troubles with the big bad wolf . The next day the little pig invite
-
-print('Results from function')
-results = get_all_phrases_containing_tar_wrd('next', raw)
-for result in results:
-    print(result)
-
-
-## output:
-## Results from function
-## The little pig saw the wolf climb up on the roof and lit a roaring
-## large kettle of water.When the wolf finally found the hole in the chimney he crawled
-
-
+for word in data_reproducibility_keywords:
+    phrases_from_article = get_all_phrases_containing_tar_wrd(word, text_article)
+    print('phrases from text article', word, phrases_from_article)
 
 '''
 def extract_phases(tokens, wordlist):
@@ -386,22 +351,3 @@ def extract_phases(tokens, wordlist):
     print('all word list')
     return all_phrases
 '''
-
-#base_phases = extract_phases(tokens, wordlist)
-wordlist = ['climb', 'next', 'roof']
-phrases = []
-for word in wordlist:
-    phrases = get_all_phrases_containing_tar_wrd(word, raw)
-    print ('phrases', phrases)
-
-#print('this is log', log)
-#print(type(log))
-#print('this is text_article', text_article)
-
-data_reproducibility_keywords = ['accession', 'number', 'data', 'available']
-phrases_from_article = []
-print('the type of text_article', type(text_article))
-
-for word in data_reproducibility_keywords:
-    phrases_from_article = get_all_phrases_containing_tar_wrd(word, text_article)
-    print('phrases from text article', phrases_from_article)
