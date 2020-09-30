@@ -6,7 +6,7 @@
 import pandas as pd
 import re
 import string
-import nltk, argparse
+import nltk, argparse,sys
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.tokenize.treebank import TreebankWordDetokenizer
@@ -35,14 +35,12 @@ ps = nltk.PorterStemmer()
 
 #should i have applied the removal of punctuation first before tokenisation?
 
-
 tokenised_data = nltk.word_tokenize(text_article) #parsed_data1 instead of text_article?
 print('tokenised data', tokenised_data)
 
 #aim convert tokenized data which is  a list into a string
 # for i in word_tokenize(raw_data):
 # print (i)
-
 
 # Text cleaning: remove stop words.
 # stopwords = nltk.corpus.stopwords.words('english')
@@ -84,6 +82,7 @@ cv = CountVectorizer(lowercase=True, ngram_range=(1, 4), tokenizer=token.tokeniz
 
 X = cv.fit(words)
 #print(X.vocubulary_)
+print('am printing cv.get_feature_names')
 print(cv.get_feature_names())
 
 X = cv.transform(words)
@@ -108,7 +107,7 @@ print(list_of_bigrams)
 # i.e not two tokens. Then how do I do the comparison by ignoring the comma? Would I have to make a new onto dictionary
 # with tokens separated by coma for the keys? or can I make a new list of bigrams NOT separated by commas?
 
-#working on the PO ontology development file
+#working on the plant-ontology-dev.txt
 #examples of keywords in the onto {} (Plant ontologies dictionary) which have punctuation
 #'root-derived cultured plant cell': 'PO:0000008'
 #create a dictionary with keys the name of the plant ontology and value the PO term.
@@ -121,13 +120,37 @@ for line in open('plant-ontology-dev.txt'):
 	if len(split) > 2:
 		onto[split[1]] = split[0]
 print (onto)
+'''
+f = open("dictionary_out.txt", "a")
+print('this is ontologies dictionary', file=f)
+print(onto, file=f)
+f.close()
+'''
 
+#this only returns one word matches for keys, e.g. cotyledon: PO:0020030
+for query, onto_id in onto.items():
+	if query in text_article:
+		print('found query', query, onto_id)
 
-text = 'asdfsdkjfhskjh, plant embryo proper'
 
 for query, onto_id in onto.items():
-	if query in text:
-		print(query, onto_id)
+    wordlist = re.sub("[^\w]"," ", query).split()
+    for word in wordlist:
+        if word in words: #tokenised journal article
+            print('found the word in manuscript:', word + " | " + 'query: ' + query + " | " + 'onto_id: ' + onto_id)
+
+
+#lateral root, vs lateral root tip, vs all occurances of keys with the word lateral in it
+string = 'plant embryo proper'
+arr = [x.strip() for x in string.strip('[]').split(' ')]
+#result -> ['plant', 'embryo', 'proper']
+
+'''
+mystr = 'This is a string, with words!'
+wordList = re.sub("[^\w]", " ",  mystr).split()
+'''
+
+
 
 #for bigram (i.e.token pair), onto_id in onto.items:
     #if bigram in list_of_bigrams:
@@ -135,6 +158,7 @@ for query, onto_id in onto.items():
 list_of_bigrams_testing = [('microsporangium', 'wall'), ('whole', 'plant')]
 for query1, onto_id in onto.items():
     for a, b in list_of_bigrams_testing:
+        print(a,b)
         if query1 in a:
             print(a, onto_id)
         elif query1 in b:
@@ -162,15 +186,16 @@ for p in list_of_bigrams_testing:
 #whole plant
 
 combined_bigram = []
-for p in list_of_bigrams_testing:
+for p in list_of_bigrams_testing:  #microsporangium wall #whole plant
     combined_bigram = [('{} {}'.format(p[0], p[1]))]
-    print(combined_bigram)
+    print('this is combined bigram', combined_bigram)
+    print('this is p in combined_bigram', p)
 #['microsporangium wall']
 #['whole plant']
 
-for a, b in combined_bigram:
+for a in combined_bigram:
     print('this is the first bigram in the tuple', a)
-    print(b)
+    #print(b)
 '''
 for query1, onto_id in onto.items():
     for a in combined_bigram:
@@ -186,7 +211,15 @@ for query1, onto_id in onto.items():
 else:
     print('combined bigram list match not found')
 
+for query1, onto_id in onto.items():
+    if query1 in combined_bigram:
+        print('found it', query1, onto_id)
 
+'''
+for query, onto_id in onto.items():
+	if query in text:
+		print(query, onto_id)
+'''
 
 #but want to be adding to have a final result combined_bigram = [('microspangiu wall'), ('whole plant')]
 
@@ -270,3 +303,105 @@ def replace_certain_punctuations(list):
 name_list1 = replace_certain_punctuations(name_list)
 print('name_list1', name_list1)
 
+####################################
+#read text, find and print the phrases which include the data_reproducibility_keywords.
+#if any such data_reproducibility_keywords have been found, then add a point to the reproducibility metrics score
+
+# how to calculate the reproducibility metrics score.
+# add one point each time in the manuscript is found: data_reproducibility_keywords,
+
+#from https://simply-python.com/2014/03/14/saving-output-of-nltk-text-concordance/
+
+def get_all_phrases_containing_tar_wrd(target_word, tar_passage, left_margin=10, right_margin=10):
+    """
+        Function to get all the phases that contain the target word in a text/passage tar_passage.
+        Workaround to save the output given by nltk Concordance function
+
+        str target_word, str tar_passage int left_margin int right_margin --> list of str
+        left_margin and right_margin allocate the number of words/pununciation before and after target word
+        Left margin will take note of the beginning of the text
+    """
+
+    ## Create list of tokens using nltk function
+    tokens = nltk.word_tokenize(tar_passage)
+
+    ## Create the text of tokens
+    text = nltk.Text(tokens)
+
+    ## Collect all the index or offset position of the target word
+    c = nltk.ConcordanceIndex(text.tokens, key=lambda s: s.lower())
+
+    ## Collect the range of the words that is within the target word by using text.tokens[start;end].
+    ## The map function is use so that when the offset position - the target range < 0, it will be default to zero
+    concordance_txt = ([text.tokens[list(map(lambda x: x - 5 if (x - left_margin) > 0 else 0, [offset]))[0]:offset + right_margin]
+     for offset in c.offsets(target_word)])
+
+    ## join the sentences for each of the target phrase and return it
+    return [''.join([x + ' ' for x in con_sub]) for con_sub in concordance_txt]
+
+
+## Test the function
+
+## sample text from http://www.shol.com/agita/pigs.htm
+raw = """The little pig saw the wolf climb up on the roof and lit a roaring fire in the fireplace and\
+          placed on it a large kettle of water.When the wolf finally found the hole in the chimney he crawled down\
+          and KERSPLASH right into that kettle of water and that was the end of his troubles with the big bad wolf.\
+          The next day the little pig invited his mother over . She said &amp;amp;quot;You see it is just as I told you. \
+          The way to get along in the world is to do things as well as you can.&amp;amp;quot; Fortunately for that little pig,\
+          he learned that lesson. And he just lived happily ever after!"""
+
+print('type of raw', type(raw))
+
+tokens = nltk.word_tokenize(raw)
+text = nltk.Text(tokens)
+text.concordance('wolf')  # default text.concordance output
+
+## output:
+## Displaying 3 of 3 matches:
+## The little pig saw the wolf climb up on the roof and lit a roari
+##  it a large kettle of water.When the wolf finally found the hole in the chimne
+## end of his troubles with the big bad wolf . The next day the little pig invite
+
+print('Results from function')
+results = get_all_phrases_containing_tar_wrd('next', raw)
+for result in results:
+    print(result)
+
+
+## output:
+## Results from function
+## The little pig saw the wolf climb up on the roof and lit a roaring
+## large kettle of water.When the wolf finally found the hole in the chimney he crawled
+
+
+
+'''
+def extract_phases(tokens, wordlist):
+    all_phrases = []
+    text = nltk.Text(tokens)
+    for word in wordlist:
+        phrases = get_all_phrases_containing_tar_wrd(word, text)
+        if phrases:
+            all_phrases.append(phrases)
+    print('all word list')
+    return all_phrases
+'''
+
+#base_phases = extract_phases(tokens, wordlist)
+wordlist = ['climb', 'next', 'roof']
+phrases = []
+for word in wordlist:
+    phrases = get_all_phrases_containing_tar_wrd(word, raw)
+    print ('phrases', phrases)
+
+#print('this is log', log)
+#print(type(log))
+#print('this is text_article', text_article)
+
+data_reproducibility_keywords = ['accession', 'number', 'data', 'available']
+phrases_from_article = []
+print('the type of text_article', type(text_article))
+
+for word in data_reproducibility_keywords:
+    phrases_from_article = get_all_phrases_containing_tar_wrd(word, text_article)
+    print('phrases from text article', phrases_from_article)
