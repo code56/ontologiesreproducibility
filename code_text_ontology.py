@@ -1,15 +1,40 @@
+__author__ = 'Evanthia_Kaimaklioti Samota'
+
 #!/usr/bin/env python
 # coding: utf-8
 
 # In[7]:
 
 import pandas as pd
-import re
-import string
-import nltk, argparse,sys
+import os, os.path, pdftotext, re, string, nltk, argparse,sys
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.tokenize.treebank import TreebankWordDetokenizer
+from pathlib import Path
+
+#put this in a function that will read many articles, not just one.
+#add the code of converting the pdf to text
+
+yourpath = os.getcwd()
+
+data_folder = Path("papers_collection_folder") #can be changed to user input data
+folder = yourpath / Path(data_folder)
+print("this is directory_to_folder", folder)
+files_in_folder = data_folder.iterdir()
+for item in files_in_folder:
+    if item.is_file():
+        print(item.name)
+    with open(item, 'rb') as f:
+        pdf = pdftotext.PDF(f, 'secret')
+        for page in pdf:
+            # print(page)
+            f = open('%s.txt'% item.name, "w+") #must make it so the name changes each time
+            f.write("\n\n".join(pdf))
+            f.close()
+        print('done writing to ' + '%s.txt'%item.name + ' file')
+
+#should I put this all inside the loop above?
+# with open('%s.txt'%item.name
 
 with open('output.txt') as f:
     log = f.readlines()
@@ -332,13 +357,13 @@ def get_all_phrases_containing_tar_wrd(target_word, tar_passage, left_margin=10,
     ## join the sentences for each of the target phrase and return it
     return [''.join([x + ' ' for x in con_sub]) for con_sub in concordance_txt]
 
+
 data_reproducibility_keywords = ['accession', 'data', 'available', 'repository', 'GO', 'EBI', 'ArrayExpress', 'PO', 'sequences', 'expression', 'snps', 'genes', 'wheat', 'rice']
 phrases_from_article = []
-print('the type of text_article', type(text_article))
-
 for word in data_reproducibility_keywords:
     phrases_from_article = get_all_phrases_containing_tar_wrd(word, text_article)
     print('phrases from text article', word, phrases_from_article)
+
 
 '''
 def extract_phases(tokens, wordlist):

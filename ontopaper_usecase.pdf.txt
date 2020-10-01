@@ -1,0 +1,856 @@
+Kugler et al. BMC Genomics 2013, 14:728
+http://www.biomedcentral.com/1471-2164/14/728
+  RESEARCH ARTICLE                                                                                                                                     Open Access
+Quantitative trait loci-dependent analysis of a
+gene co-expression network associated with
+Fusarium head blight resistance in bread wheat
+(Triticum aestivum L.)
+Karl G Kugler1†, Gerald Siegwart2†, Thomas Nussbaumer1, Christian Ametz2, Manuel Spannagl1, Barbara Steiner2,
+Marc Lemmens2, Klaus FX Mayer1, Hermann Buerstmayr2 and Wolfgang Schweiger2*
+   Abstract
+   Background: Fusarium head blight (FHB) caused by Fusarium graminearum Schwabe is one of the most prevalent
+   diseases of wheat (Triticum aestivum L.) and other small grain cereals. Resistance against the fungus is quantitative
+   and more than 100 quantitative trait loci (QTL) have been described. Two well-validated and highly reproducible QTL,
+   Fhb1 and Qfhs.ifa-5A have been widely investigated, but to date the underlying genes have not been identified.
+   Results: We have investigated a gene co-expression network activated in response to F. graminearum using RNA-seq
+   data from near-isogenic lines, harboring either the resistant or the susceptible allele for Fhb1 and Qfhs.ifa-5A. The
+   network identified pathogen-responsive modules, which were enriched for differentially expressed genes between
+   genotypes or different time points after inoculation with the pathogen. Central gene analysis identified transcripts
+   associated with either QTL within the network. Moreover, we present a detailed gene expression analysis of four gene
+   families (glucanases, NBS-LRR, WRKY transcription factors and UDP-glycosyltransferases), which take prominent roles in
+   the pathogen response.
+   Conclusions: A combination of a network-driven approach and differential gene expression analysis identified genes
+   and pathways associated with Fhb1 and Qfhs.ifa-5A. We find G-protein coupled receptor kinases and biosynthesis genes
+   for jasmonate and ethylene earlier induced for Fhb1. Similarly, we find genes involved in the biosynthesis and
+   metabolism of riboflavin more abundant for Qfhs.ifa-5A.
+   Keywords: Triticum aestivum, Bread wheat, Fusarium graminearum, Fusarium head blight, Fhb1, Qfhs.ifa-5A,
+   Transcriptome, Gene co-expression network, RNA-seq
+Background                                                                                 world. Especially under humid weather conditions spores
+Bread wheat (Triticum aestivum L.) is one of the most im-                                  that have overwintered in remaining plant debris on the
+portant food crops worldwide. 20% of the human calorie                                     field reach the flowering wheat head via splash water,
+and protein uptake derive from wheat. One of its most                                      from where the germinating fungus penetrates the more
+prevalent and destructive pathogens is the fungus Fusar-                                   susceptible floral tissue. The resulting disease Fusarium
+ium graminearum (teleomorph Gibberella zeae, Schwabe)                                      head blight (FHB) annually accounts for severe losses in
+[1,2]. F. graminearum frequently infects wheat and other                                   grain yield and also quality due to the contamination
+small grain cereals in temperate regions throughout the                                    with mycotoxins produced by the fungus. Among these
+                                                                                           deoxynivalenol (DON) holds a key position. DON is a po-
+                                                                                           tent inhibitor of protein biosynthesis and constitutes a ser-
+* Correspondence: wolfgang.schweiger@boku.ac.at                                            ious threat to human and animal health in food and feed
+†
+ Equal contributors
+2
+ Institute for Biotechnology in Plant Production, IFA-Tulln, University of                 [3]. This has, among others, prompted the European
+Natural Resources and Life Sciences, A-3430 Tulln, Austria                                 Union to enact maximum tolerated levels in food [4] and
+Full list of author information is available at the end of the article
+                                            © 2013 Kugler et al.; licensee BioMed Central Ltd. This is an open access article distributed under the terms of the Creative
+                                            Commons Attribution License (http://creativecommons.org/licenses/by/2.0), which permits unrestricted use, distribution, and
+                                            reproduction in any medium, provided the original work is properly cited.
+
+
+Kugler et al. BMC Genomics 2013, 14:728                                                                           Page 2 of 15
+http://www.biomedcentral.com/1471-2164/14/728
+advisory levels were issued by the Food and Drug Adminis-    (LCG) assembly [5], generated from 454 sequences and
+tration in the United States. Consequently, developing high  reference as well as progenitor genomes, which provides
+yielding and F. graminearum resistant varieties is of high   partial sequences of an estimated number of 94 - 96 k
+priority for breeders. Despite its economic relevance, the   genes. In addition, the transcriptome of the close relative
+genomic sequence of wheat is not yet available due to its    barley (Hordeum vulgare L.) comprising more than 26 k
+sheer size (~ 17 Gb) and its highly repetitive nature [5,6]. genes has been annotated on a WGS assembly and an-
+However, a large body of publications aiming towards gen-    chored to the physical map [20]. These data, the wheat
+etic mapping of resistance genes against F. graminearum      LCG assembly and the homology to the complete barley
+has been published in the last 14 years and so far over 100  gene space provide a novel and unique reference for RNA-
+quantitative trait loci (QTL) have been described to con-    profiling studies, allowing a high specificity and coverage
+tribute to resistance [7]. Two highly reproducible and       of the transcriptome.
+large-effect QTL are Fhb1 located on the short arm of           To gain novel insights into the defense response of
+chromosome 3B [8] and Qfhs.ifa-5A on chromosome 5A           wheat against F. graminearum using these newly avail-
+[9]. Depending on the genetic background both reduce dis-    able data resources, we have sequenced the transcrip-
+ease symptoms by 20–25% and confer either type II resist-    tome of five differently resistant genotypes, comprising a
+ance against spreading of the disease (Fhb1) or type I       set of four near-isogenic lines (NILs) harboring either,
+resistance against initial penetration (Qfhs.ifa-5A) [9,10]. both or none of the resistance alleles of Fhb1 and Qhfs.
+Fhb1 was linked to the higher ability to enzymatically in-   ifa-5A in the susceptible background of the German
+activate DON by glycosylation [11], but recent reports       spring wheat cultivar Remus and the highly resistant
+also associate the higher formation of phenylpropanoids      QTL-donor line CM-82036. While most of the existing,
+[12] or a non-responsive susceptibility factor, WFhb1_c1     microarray-based analyses aimed at analyzing single genes,
+[13] with the activity of the QTL. No functional evidence    we here provide a transcriptome-wide approach and focus
+has been proposed for Qfhs.ifa-5A. A donor of both QTL       on investigating the interaction of genes. Several studies
+is the CIMMYT (http://www.cimmyt.org) derived line           have demonstrated the power of co-expression networks
+CM-82036, a progeny of the prominent resistance source       for detecting groups of genes that react in a coordinated
+Sumai-3. CM-82036 also encodes for multiple minor ef-        effort against pathogen response, e.g. in cucumber and rice
+fect resistance QTL, which provide the line with a sig-      [21,22]. In the present study we introduce a network-
+nificantly higher level of resistance when compared to a     driven approach, which led to the identification of groups
+near-isogenic line stacking both Fhb1 and Qfhs.ifa-5A        of genes that form functional clusters of co-expressed
+resistance alleles in a susceptible background [10,14].      genes. Additionally, we screened for single genes that
+Recent years have seen multiple transcriptomic and           occupy central positions within the newly established
+proteomic studies investigating the F. graminearum/wheat-    network (e.g. hub genes). We find that these putative key
+interaction, which have helped developing an understand-     genes in the response to F. graminearum are members of
+ing of the general response against the fungus (reviewed in  prominent pathogenesis-related gene families. We fur-
+[2]), but these did not lead to the identification of QTL-   ther investigate differential expression patterns observed
+related resistance genes so far.                             for the glucanase, nucleotide-binding site leucine-rich
+   RNA-sequencing technology is well established as an       repeat (NBS-LRR), WRKY and UDP-glycosyltransferase
+alternative to microarrays. The major obstacle for the       (UGT) gene families, which hold relevant positions in
+analysis of the entire wheat transcriptome is the avail-     our analysis.
+ability of a suitable mapping reference covering the gene
+space of the yet unsequenced species. Establishing the       Results
+gene-space as a reference is even more challenging as        Data harvesting, processing and quality control
+the three homeologous genomes of polyploid bread             We extracted RNA from spike tissue of five different
+wheat share a high level of sequence similarity. A recent    wheat genotypes that were treated with a F. graminearum
+study [15] tried to overcome these limitations by com-       spore suspension or mock 30 and 50 hours after inocula-
+bining short reads from Illumina technology with 454         tion (hai). All lines showed distinct levels of resistance after
+data in a two-stage assembly. The TriFLDB [16] database      point inoculation in green house trials [10,14]. The lines
+collected available full-length coding sequences from        comprised a set of four NILs that harbor either of the
+wheat over the last years. Currently, efforts are underway   F. graminearum-resistance QTL Fhb1 (NIL2, moderately
+to assemble the wheat genome entirely using chromo-          resistant) or Qfhs.ifa-5A (NIL3, moderately resistant), both
+some arm sorting [17], genotyping by sequencing [18]         of these QTL (NIL1, resistant) or none of them (NIL4,
+and whole genome profiling approaches [19]. The most         susceptible) in the genetic background of the F. grami-
+complete assembly of the T. aestivum gene space is de-       nearum susceptible German spring wheat cultivar Remus.
+scribed by the released wheat low-copy-number genome         These lines are at least 96% isogenic as shown with DArT
+
+
+Kugler et al. BMC Genomics 2013, 14:728                                                                                          Page 3 of 15
+http://www.biomedcentral.com/1471-2164/14/728
+markers [14], but do contain QTL-unrelated, yet linked                        impacts: It drastically reduces the number of analyzed tran-
+genes from the original QTL donor in the introgressed sec-                    scripts in the analysis and also wheat-specific genes with
+tion. Additional samples were collected from the highly re-                   no barley homologs may be lost. Moreover, a differen-
+sistant QTL-donor line CM-82036, which encodes in                             tiation between homeologous genes from different ge-
+addition to Fhb1 and Qfhs.ifa-5A for multiple minor-effect                    nomes is not always possible. However, the remaining
+QTL. Samples were sequenced on an Illumina HiSeq2000                          transcripts have a higher quality in terms of gene calling
+platform, which summed up to a total of 1,827 Gb raw                          confidence. Additionally, for these data trustworthy sets of
+sequences (Additional file 1). RNA-Seq reads were com-                        Gene Ontology (GO) and Interpro annotations exist for
+pared against public wheat full-length cDNA [16] to en-                       analyzing the remaining transcripts. Overall these sets
+sure the quality and coverage of genes along the entire                       comprised 9,776 genes with GO annotations and 14,164
+length (Additional file 2). This allowed to map reads on                      genes with Interpro annotations. Therefore, we performed
+the LCG assembly [5] resulting in 233,780 Cuffmerge                           the subsequent enrichment analyses and network infer-
+transcripts, out of which 151,853 (65%) transcripts                           ence on the barley BBH reduced subset.
+are expressed in all five genotypes (Table 1). To assess
+the progress of the disease, reads were compared to the                       Genotype-specific differentially expressed genes link Fhb1
+F. graminearum transcriptome [23]. In average 87 k reads                      to early induction of jasmonate and ethylene biosynthesis
+(0.3% from the average of total reads) were matching                          and Qfhs.ifa-5A to riboflavin biosynthesis and lipid binding
+F. graminearum genes for samples inoculated with spore                        With Cuffcompare 233 k cufflinks genes were com-
+suspensions and no more than about 1.8 k reads in the                         bined and tested for differential expression by comparing
+mock-treated samples (Additional file 3). This observation                    F. graminearum inoculated samples with the respective
+can be explained by contaminations, mapping errors or                         mock-treated sample (FDR adjusted p-value < 0.1). Per
+conserved domains. One particular mock treated sample                         genotype between 183,540 (CM-82036) to 196,078 (NIL2)
+(NIL2, 50 hai, replicate 3) contained an unexpected high                      Cufflinks genes were assembled. BBH assigned barley
+number of reads (10.7 k reads) that matched F. grami-                         genes were found for 15,360 (CM-82036) to 15,797 (NIL1)
+nearum genes and was therefore excluded from further                          Cufflinks genes. In average 8% of those genes were differ-
+analysis. While samples taken at 50 hai showed in gen-                        entially expressed, for Cufflinks genes with BBH linkage
+eral a higher abundance of F. graminearum-mapped                              11-13%. To provide a more granular insight into differen-
+reads than 30 hai samples, we could not detect significant                    tially expressed genes, we analyzed common differentially
+differences between the infected lines at any time point                      expressed genes (DEG) for 30 hai and 50 hai separately. A
+(Additional file 4).                                                          list of all analyzed differentially expressed genes is pro-
+    Cuffdiff [24] was used to extract differentially expressed                vided in Additional file 5.
+genes (Benjamini-Hochberg correction [25] (BH); p < 0.1;                         The earlier sampling time point 30 hai was character-
+see Methods). As the LCG contigs are in general short                         ized by a pronounced response of the resistant CM-
+(average length: 714 bp) and represent only partial genes                     82036 (Figure 1a). From the 1,302 DEG identified in total,
+due to the high (genic) sequence redundancy in hexaploid                      289 were differentially expressed only for CM-82036 com-
+wheat, we used the recently published barley high                             pared to 114 DEG, which were shared between all five
+confidence genes (N = 26,159, [18]) to filter the previ-                      genotypes. The group of DEG shared only between NILs
+ously generated fragmented Cufflinks transcripts for gene                     1–4 and also the number of DEG specific for each NIL
+candidates. Thereby, with the barley best bidirectional                       comprised only few genes (10 to 41). 50 hai a large part
+hit (BBH), we were able to link 16,964 transcripts to                         (618) of the 2,470 DEG was significantly changed for all ge-
+barley genes. Mapping to barley homologs has two major                        notypes. At this time point, in contrast to 30 hai, all geno-
+                                                                              types exhibited a similarly strong response in terms of
+                                                                              DEGs (Figure 1b). Also a large group of DEG was shared
+Table 1 Mapping of RNA-seq data                                               between the four NILs (114) representing the response of
+     Line             Cufflinks         Barley BBH          DEG (barley BBH)  genes in the genetic background of the susceptible recur-
+CM-82036               183,540            15,360                1,956 (13%)   rent parent Remus.
+     NIL1              189,486            15,797                1,781 (11%)      GO terms obtained via topGO [26] for these con-
+                                                                              trasts represented genotype dependent defense responses
+     NIL2              196,078            15,734                2,067 (13%)
+                                                                              (Additional file 6 for 30 hai and Additional file 7 for
+     NIL3              192,584            15,676                1,954 (12%)
+                                                                              50 hai). Regardless of QTL all genotypes shared essential
+     NIL4              186,755            15,680                2,005 (13%)   pathogenesis associated pathways at 30 hai: These included
+Overview of generated cufflinks genes with the corresponding number of        the biosynthesis of phenylpropanoids and polyamins and
+barley best bi-directional hits (BBH) as well as the number of differentially
+expressed genes (DEG) is given. Overall 233,780 cufflinks genes were found in
+                                                                              also genes involved in the reduction of oxidative stress
+all five lines, with 151,853 genes in common.                                 and chitinases. We also found a glutamate synthase more
+
+
+Kugler et al. BMC Genomics 2013, 14:728                                                                                                                                  Page 4 of 15
+http://www.biomedcentral.com/1471-2164/14/728
+                        a) 30 hai                                                               b) 50 hai
+                                                          NIL1                                                                    NIL1
+                                                          (Fhb1, Qfhs.ifa-5A)                                                     (Fhb1, Qfhs.ifa-5A)
+                        CM-82036                                                                 CM-82036
+                                                             41
+                        (resistant QTL donor)                                                    (resistant QTL donor)            110
+                                                  20                                  NIL2
+                                                                  4                                                        25             36                   NIL2
+                                                18                                    (Fhb1)                             28
+                                                            10                                                                     18                          (Fhb1)
+                                          22                            6                                                                       33
+                                                    18                     3                                     30         70
+                              289                                   7
+                                                                                                      185
+                                                                                                                                             43
+                                                                                                                                                    20
+                                            9                                                                      23
+                                                                                      37
+                                                                                                                                                             267
+                                                                          13                                                                       27
+                                   12
+                                            5
+                                                         114                                                22                  618
+                                     12                                        35                                  48                                   41
+                                                                                                              33
+                                                                      11    13                                                                44
+                                        7                                                                                                            13
+                                              1                            9                                   66     72                            47
+                                                      10
+                                                                 4
+                                                                                                                              114        37
+                                                   2 4                                                                      32 52
+                                       22                      8                                                147                   32
+                                                                     37                                                                       137
+                                    NIL4
+                                                                                                           NIL4
+                                    (no QTL)                                      NIL3                                                                     NIL3
+                                                                                                           (no QTL)
+                                                                                  (Qfhs.ifa-5A)                                                            (Qfhs.ifa-5A)
+                                                                                                                                                     Fhb1
+                                                                                                                                                    Qfhs.ifa-5A
+  Figure 1 Differentially expressed genes per line. Venn diagrams showing unique F. graminearum responsive genes at 30 hours after
+  inoculation (hai) (a) and 50 hai (b) for the investigated genotypes (CM-82036, NIL1 (harboring both resistance QTL, Fhb1 and Qfhs.ifa-5A), NIL2
+  (Fhb1), NIL3 (Qhfs.ifa-5A) and NIL4 (no QTL)) as well as genes shared between them in the respective intersections. Intersections of lines sharing
+  either of the two QTL harbor genes associated with these QTL. These are highlighted in cyan (Fhb1) or magenta (Qfhs.ifa-5A).
+abundant 30 hai and an amino acid transporter more                                                differentially expressed genes unique for the genotypes
+abundant at 50 hai. Both may be linked to multiple                                                harboring only either of both QTL (NIL2 and NIL3),
+pathogen-induced reactions in the primary and secondary                                           as the activity of QTL-related genes might not be simi-
+metabolism [27,28]. Moreover, an UDP-N-acetylmuramate                                             larly significantly changed at the observed time point in
+dehydrogenase was also upregulated 30 hai, which poten-                                           all lines harboring these QTL due to the different resist-
+tially acts in biosynthesis of amino sugars used for post-                                        ance levels.
+translational protein modification. 50 hai we observed                                               The specific response of the NIL2 containing Fhb1
+additional terms related to ubiquitination and the biosyn-                                        was characterized by the early upregulation of transcrip-
+thesis of tryptophan.                                                                             tion factors and biosynthesis genes for jasmonic acid
+   The response unique for CM-82036 comprised a high                                              (JA) and ethylene (ET). Both signaling molecules regu-
+number of terms corresponding to signaling events and                                             late defense responses in plants against biotic stresses.
+transcription factors at the early time point and also                                            At 50 hai we found terms related to translation, protein
+terms corresponding to the biosynthesis of trehalose and                                          folding and ribosomal protein more abundant. For tran-
+terpenoids. The response at 50 hai included UGTs, cyto-                                           scripts shared between lines with Fhb1 we identified GO
+chrome P450 monooxygenases (CYP) and terms related                                                terms relating to protein secretion and signal transduc-
+to the primary metabolism involved in amino acid bio-                                             tion (G protein-related) at 30 hai and terms related to
+synthesis and gluconeogenesis.                                                                    the metabolism of glutamine at 50 hai. Lines containing
+   Genes associated with the activity of Fhb1 or Qfhs.ifa-                                        Qfhs.ifa-5A (NIL1 and NIL3) showed higher abundance
+5A should be represented by DEG shared by NILs har-                                               of gene transcripts related to the tryptophan biosynthesis
+boring these QTL (highlighted sections in Figure 1). In                                           pathway already at 30 hai and for genes related to lipid
+the section shared by NIL2 (resistant allele of Fhb1) and                                         binding at 50 hai. GO terms identified in the shared sec-
+NIL1 (both QTL) and in the section shared by both                                                 tions are involved in riboflavin production and ET bio-
+NILs and CM-82036 we identified 16 genes collectively                                             synthesis (30 hai). We also found a transcript encoding a
+at 30 hai and 47 at 50 hai. Similarly, 26 and 60 genes                                            glutamate-gated ion channel (30 hai), which controls
+were shared in lines harboring the resistance allele of                                           Ca2+-influx into the cell. Similarly to Fhb1, these sec-
+Qfhs.ifa-5A (NIL1 and NIL3 containing Qfhs.ifa-5A                                                 tions also included terms for ribosome biogenesis and
+only and optionally CM-82036). We also looked at the                                              protein translation.
+
+
+Kugler et al. BMC Genomics 2013, 14:728                                                                                    Page 5 of 15
+http://www.biomedcentral.com/1471-2164/14/728
+Gene co-expression network analysis identifies                          treatment or time point. A one-sided Fisher’s exact test
+defense-associated modules                                              (significance threshold for Bonferroni adjusted p-values
+We analyzed the co-expression data from the barley-                     set to 0.05) was applied to test whether these modules
+mapped transcripts of all samples to infer a gene co-                   showed a higher ratio of DEG than expected by chance.
+expression network specific for the observed conditions.                At 30 hai module B was strongly enriched for DEG for all
+In contrast to the detection of single DEG, this approach               five lines (Figure 2a) with CM-82036 exhibiting the highest
+takes into account all 20 experimental conditions (covered              relative amount of DEG (p = 7.0 e-48). This changed at 50
+by 59 samples) simultaneously and allows detecting groups               hai where all four NILs show a higher level of enrichment
+of genes that show similar expression patterns in an                    compared to CM-82036 (maximum p = 3.6 e-65; Figure 2b).
+untargeted approach. The resulting network contained                    Also, 50 hai all lines exhibited a higher ratio of DEG for
+3,412 genes after filtering using the coefficient of vari-              module G (maximum p = 1.7 e-02). Module H showed
+ation. The co-expressions of these genes were then fitted               enrichment for CM-82036 at 30 hai (p = 1.9 e-02) as well
+against a power-law model using the WGCNA package                       as 50 hai (p = 2.7 e-07). We analyzed these data with GO
+in R [29]. We extracted eight modules (designated mod-                  and Interpro terms to obtain functional annotations for
+ule A to module H) from our network, each represented                   the modules. Among others, DEG in the F. graminearum
+by a group of genes that share similar expression patterns              responsive module B encoded glutathione S-transferases
+(Figure 2; Additional file 8). Module sizes ranged from 109             (GST), UGTs, glucanases, protein kinases and WRKY
+(module G) to 1,148 genes (module B), while 139 genes                   transcription factors (Additional file 11). For the CM-
+could not be assigned to any module. (Additional file 9).               82036 related Module H and also for module G the few
+   By using the module eigengenes [30,31] we found                      available GO terms did not provide sufficient meaning-
+that modules B, G, and H were strongly linked to                        ful annotations to predict specific molecular functions
+F. graminearum-inoculated samples (Additional file 10).                 (Additional file 11).
+Of these modules two exhibited a general association to                    Since module B is the by far largest module and highly
+all genotypes at either both time points (module B) or                  enriched for F. graminearum responsive genes across all
+only 50 hai (module G). Module H was strongly linked to                 five lines, we further analyzed this module by splitting it
+the specific defense response of CM-82036 at 50 hai.                    into smaller submodules (deepsplit = 4; minimum module
+Module A was also specific for CM-82036, but not for                    size = 10). The two largest submodules comprised 475
+                                                                        (B-sub1) and 397 genes (B-sub2), respectively. Submodule
+                                                                        B-sub1 was significantly enriched for DEG in all genotypes
+                                                                        at 50 hai but only few DEG (between 5% and 10% of mod-
+   a)                                                                   ule size) were identified at 30 hai (Additional file 12). The
+                                                                        relatively highest amount of DEG was found for the sus-
+                                                                        ceptible NIL4 and the moderately resistant NIL2. Only few
+                                                                        GO terms were identified for this submodule (Additional
+                                                                        file 13). B-sub2 showed a strong enrichment for DEG at 30
+                                                                        hai for all genotypes (minimal p = 2.8 e-07). This enrich-
+                                                                        ment was slightly more pronounced for CM-82036, NIL1
+                                                                        and NIL3. These three genotypes share the resistant allele
+                                                                        of Qfhs.ifa-5A. Consequently, B-sub2 may be associated to
+   b)                                                                   the activity of Qfhs.ifa-5A. The majority of GO terms for
+                                                                        DEG in this submodule were similar to the terms identified
+                                                                        for the pool of DEG shared by genotypes harboring Qfhs.
+                                                                        ifa-5A (see previous section). These corresponded to kin-
+                                                                        ase activity, glutamate-gated ion channels and tRNA
+                                                                        aminoacylation (Additional file 13).
+                                                                        Defense-related central genes in the co-expression network
+                                                                        A gene network allows quantifying the relative import-
+  Figure 2 Differentially expressed genes per module. The bar
+  plots indicate the ratio of F. graminearum responsive differentially  ance of single genes (nodes) by making use of local cen-
+  expressed genes (DEG) per network module for 30 hours after           trality measures [32-34]. Multiple methods exist for
+  inoculation (hai) (a) and 50 hai (b). To test whether the number of   assessing the centrality of nodes. Here we applied two
+  DEG genes was significantly higher than expected by chance we         methods for ranking the genes by their relative importance
+  applied a one-sided Fisher’s exact test. Stars indicate a significant
+                                                                        within the network: The degree centrality ranks nodes by
+  enrichment at a Bonferroni adjusted p-value smaller than 0.05.
+                                                                        the number of adjacent nodes within the network, which
+
+
+Kugler et al. BMC Genomics 2013, 14:728                                                                         Page 6 of 15
+http://www.biomedcentral.com/1471-2164/14/728
+allows selecting so called hub genes. These hub genes often   UGT, an NBS-LRR and a putative disease resistance gene
+play important roles in the regulation of gene expression     as earlier induced in lines containing Fhb1.
+and may provide valuable insight into stress response or
+genome evolution [35-37]. For our analysis we applied a       Gene family specific differential expression profiles
+weighted version of this measure as implemented in the        The arms race between plants and pathogens has led to
+igraph package [38]. Additionally, we also made use of the    the rapid evolution of genes involved in the interaction
+eigenvector centrality [39], which is related to eigenvectors with the pathogen and consequently to an increase in
+of the largest eigenvalue of the adjacency matrix. To filter  copy numbers to form large gene families. This allows
+for the most important nodes from these two measures we       plants to adapt to new challenges or to overcome detri-
+used the 90% percentile and deemed nodes with values          mental effects of random mutagenesis by redundant gene
+higher than this threshold as being central within the net-   function. The present study has among others identified
+work. We will further refer to degree centrality selected     glucanases, NBS-LRR proteins, WRKY transcription fac-
+genes as DCG, and to Eigenvector centrality derived genes     tors and UGTs as relevant factors in the F. graminearum/
+as ECG.                                                       wheat interaction – each representing a certain stage in
+   In our network 218 central genes (ECG + DCG) were          the host defense response (recognition, signal transduction,
+significantly regulated after F. graminearum inoculation      defense regulation and toxin inactivation). To further eluci-
+and thus hold prominent roles in the wheat response to        date genotype and time point specific abundance of such
+the pathogen. These central genes were also more likely       transcripts we expanded our analysis by taking into ac-
+differentially expressed in response to the pathogen than     count the entire gene families.
+non-central genes in the network (Fisher’s Exact Test,           We extracted Cufflinks genes encoding glucanases,
+BH-adjusted p < 0.05). Most belong to module B and            NBS-LRR proteins, WRKYs and UGT using either do-
+only few were identified in other modules. These genes        main specific motifs or homology information, clustered
+were highly enriched for GO terms associated with sig-        the acquired sequences using CLUSTALX N-J bootstrap-
+naling, ubiquitination, hypersensitive response and ATP       ping [40] and added genotype-specific DEG information
+binding. The latter two are GO terms commonly used to         (Table 2). Using this approach we identified 568 putative
+describe NBS-LRR resistance genes, which play crucial         wheat glucanase genes via mapping against barley genes
+roles in pathogen reception and signal transduction.          that contained the Interpro domain IPR008985. Given
+Additional terms corresponded to nucleotide binding,          the hexaploid nature of wheat, a reasonable high number
+suggesting the involvement of transcription factors           compared to the 262 putative glucanases in barley [20].
+(including WRKY, for which we found also terms in             Similarly, we identified 246 NBS-LRR genes via mapping
+module B). Interpro annotations further identified GSTs,      against 267 barley genes (www.vmatch.de), 116 WRKY
+CYPs, glucanases and UGTs (Additional file 14). Both          transcription factors (74 in barley) via mapping against
+DCG and ECG are highly connected to other genes.              a conserved motif (WRKYGQK) and 222 putative UGTs
+Their expression behavior may have a strong impact on         (159 predicted functional genes in Brachypodium dis-
+the global expression pattern within the network. When        tachyon Beauv., [41]) by searching for the conserved sig-
+looking at genotype specific changes in expression of         nature motifs [42,43].
+central genes, we found a group of 34 genes that were            The DEG profiles for the NBS-LRR and glucanase
+earlier differentially expressed for CM-82036 compared        genes showed dramatic differences between CM-82036
+to the NILs. Three central genes, for which we could not      and the NILs at 30 hai: 36 of 44 differentially expressed
+retrieve annotations, were only transiently expressed.        NBS-LRR genes and 83 of 112 differentially expressed
+They were significantly changed for 30 hai but not 50 hai     glucanases were found changed for CM-82036 and about
+for CM-86036, while in the NILs these genes were differ-      half of those genes were only changed for this genotype
+entially expressed only 50 hai. Yet, we detected no central   and not for the NILs. In contrast only 7 to 11 of the
+genes that were only changed for CM-82036 but not for         NBS-LRR and 35 to 48 of the glucanases were differen-
+the NILs. On the other hand, 35 genes were differentially     tially expressed for the NILs. 50 hai all genotypes showed
+expressed exclusively for the NILs (Additional file 15).      an equally high number of upregulated NBS-LRR and
+When regarding genotypes differing in the presence of ei-     glucanase genes (up to 35% of the total number of identi-
+ther QTL, we found five central genes earlier induced for     fied NBS-LRR and glucanase genes). The dominance in
+Qfhs.ifa-5A: These encode four protein kinases and a          gene numbers and genotype specific genes for CM-82036
+CYP. Three of these are also present in the Qhfs.ifa-5A-      at 30 hai was not observed at 50 hai. Neither for glucanases
+associated submodule B-sub2. One of these genes               (Additional file 16), nor for NBS-LRR (Additional file 17)
+XLOC_099598 encoding a protein kinase ranked third            we observed differential expression patterns that would
+within the DCG, making it one of the highest connected        suggest an Fhb1- or Qfhs.ifa-5A-dependent upregulation
+central genes in our network. Similarly, we identified a      of genes.
+
+
+Kugler et al. BMC Genomics 2013, 14:728                                                                                                                   Page 7 of 15
+http://www.biomedcentral.com/1471-2164/14/728
+Table 2 Differential expression of pathogen-induced gene families
+                                                                               30 hai
+                     Total          CM-82036            NIL1          NIL2         NIL3            NIL4          all lines         CM-82036 only               NILs only
+glucanases            112                83              40            41            48              35              13                    37                        4
+   UGTs                36                31              15            13            20              15               7                    13                        2
+  WRKYs                21                14              10             3             5               6               1                     8                        1
+ NBS-LRR               44                36               8             9            11               7               2                    26                        0
+                                                                               50 hai
+                     Total          CM-82036            NIL1          NIL2         NIL3            NIL4          all lines         CM-82036 only               NILs only
+glucanases            304               178             184           214           190             179              91                    23                       27
+   UGTs                79                27              17            24            21              19              10                     7                        0
+  WRKYs                44                23              19            23            19              17               5                     8                        1
+ NBS-LRR              144                83              76            86            86              76              34                    13                        8
+Genotype specific differential expression of genes from selected gene families at 30 hours after inoculation with F. graminearum (hai) and 50 hai. Column ‘total’
+describes the total number of differentially expressed genes at a certain time point. ”All lines” refers to genes that were differentially expressed for all five lines.
+   Members of the WRKY transcription factors play a de-                              depicted for 30 hai in Figure 3a and for 50 hai in Figure 3b).
+cisive role in regulating response to abiotic and biotic                             Potentially, the activity of both QTL leads to the (stacked)
+stresses [42]. While CM-82036 showed a stronger re-                                  activation of multiple WRKY genes. In contrast to the
+sponse at 30 hai (14 genes), we also found a relatively                              NBS-LRR and glucanase gene families we found relatively
+high number (10) of WRKY upregulated for the more the                                less WRKY genes differentially expressed at 50 hai: No
+resistant NIL1 (containing Fhb1 and Qfhs-ifa.5A) com-                                more than 20% of the 116 identified WRKY genes were dif-
+pared to the moderately to susceptible NILs (NIL2-4), as                             ferentially expressed for any genotype.
+  Figure 3 Regulation of WRKY genes at different time points. Dendrograms display differential expression of WRKY genes (a) 30 and (b) 50 hours
+  after inoculation (hai) with F. graminearum spores. Genes that are significantly changed for the given genetic background (NIL1-NIL4, CM-82036) in
+  response to F. graminearum are indicated in the respective color. Note that the clades within dendrogram do not necessarily reflect groups or families
+  of related genes, but are only used for presentation purposes.
+
+
+Kugler et al. BMC Genomics 2013, 14:728                                                                                                        Page 8 of 15
+http://www.biomedcentral.com/1471-2164/14/728
+   UGTs have been shown to encode the ability to inacti-                           Discussion
+vate the F. graminearum toxin DON by formation of                                  The defense response of wheat to one of its most devas-
+DON-3-glucoside in Arabidopsis thaliana Heynh. (D3G,                               tating pathogens F. graminearum has been investigated
+[44]) and such genes also exist in monocotyledoneous                               in multiple transcriptome profiling studies, which com-
+species, where they are specifically upregulated in re-                            pared differentially resistant genotypes [46-48] or reported
+sponse to the toxin [41,45]. Our analysis found relatively                         on the specific response to DON [49-51]. The general un-
+few UGTs responsive to F. graminearum compared to                                  derstanding of the wheat/F. graminearum interaction has
+the total of 222 identified putative UGTs (Figure 4). We                           been further expanded by proteomic and metabolomic
+found no specific upregulation of UGTs in lines sharing                            studies [12,52]. Statistics on large-scale data often rely on
+Fhb1, the QTL associated with detoxification by glyco-                             the detection of isolated significantly changed genes.
+conjugation of the F. graminearum toxin DON ([11]).                                These genes represent only a fraction of the entire defense
+However, 50 hai, besides CM-82036 (27 differential                                 response and potentially might not include the causative
+expressed genes), NIL2, harboring Fhb1 only, exhibited                             gene for mounting the resistant reaction. Here we present
+the highest number of significantly changed UGTs (24).                             a co-expressed gene network, which enabled us to detect
+Also, while most of the DEG were found in more than                                gene modules that are active in the susceptible and/or
+just one NIL, 6 UGTs are only differentially expressed                             resistant genotypes. A network-driven approach has the
+for NIL2. Recently, we have characterized a monocotyle-                            advantage of describing coordinated gene expression
+donous UGT gene family, which encodes isozymes cap-                                changes in a holistic manner [53]. The interaction informa-
+able of inactivating the toxin [41]. We have identified                            tion can then be analyzed using mathematical approaches
+nine putative orthologs to this gene family in our data                            that can select features of interest for the subsequent ana-
+(highlighted in Figure 4a and 4b) of which 2 were again                            lyses, e.g. [54,55]. Integration of DEG information into the
+specifically changed only for NIL2 at 50 hai (Figure 4b),                          gene co-expression network allowed for observing geno-
+while the others were either not differentially expressed                          type specific dynamics in the response. In the work at hand
+at all (3) or upregulated in more than one genotype                                we analyzed the effect of two major QTL by analyzing gene
+without exhibiting any QTL dependent patterns (4).                                 expression profiles of NILs segregating for either QTL.
+  Figure 4 Regulation of UGT genes at different time points. Dendrograms display differential expression of UGT genes (a) 30 and (b) 50 hours
+  after inoculation (hai) with F. graminearum spores. Genes that are significantly changed for the given genetic background (NIL1-NIL4, CM-82036) in
+  response to F. graminearum are indicated in the respective colour. UGT genes homologous to the previously identified DON-detoxification UGTs in
+  B. distachyon are highlighted. Note that the clades within dendrogram do not necessarily reflect groups or families of related genes, but are only used
+  for presentation purposes.
+
+
+Kugler et al. BMC Genomics 2013, 14:728                                                                        Page 9 of 15
+http://www.biomedcentral.com/1471-2164/14/728
+The identified modules comprise groups of genes that act    replenish energy equivalents from carbohydrates (reviewed
+in concerted manner in reaction to the pathogen – and in    in [28]). The glycolysis-generated NADPH could also be
+part are also specific for genotype or the QTL. It needs    used to fuel the production of reactive oxygen species.
+however to be noted that these effects may also be          However, we do not find terms for the central enzyme in
+influenced by the activity of closely linked, yet QTL inde- production of reactive oxygen species (ROS), NADPH oxi-
+pendent genes, that have been introgressed with the QTL     dase in our analysis. Acquisition of the required hexoses
+during the generation of the near-isogenic material. To     heavily relies on the activity of cell wall invertases, which
+understand the functional background of these modules it    have also not been detected in our analysis. Transient si-
+will be necessary to combine information about the genes    lencing of a tobacco invertase, severely reduces the expres-
+in these modules and their interactions with additional     sion of defense-related genes [59]. However, invertase
+data, which will be part of future studies. The publication activity might not be sufficient to meet the increased re-
+of the bread wheat genome will contribute to this challenge quirements. The citric acid cycle can be replenished via the
+by allowing to further split the network into subgenome-    GABA-shunt, which utilizes glutamate as substrate [29].
+specific partitions.                                        We find GO terms for glutamate synthases and glutamine
+  The time points we chose to collect samples after in-     metabolic processes abundant already 30 hai, which could
+oculation with F. graminearum reflect crucial stages of     be upregulated to support the GABA-shunt. An alternative
+the initial biotrophic growth phase of F. graminearum       explanation suggests an indirect role in the production of
+(30 hai) and in the onset of necrotrophic growth (50 hai):  secondary metabolites: Glutamine synthase have been
+Germination and hyphae development occurs within 24         shown upregulated in concert with phenylalanine ammo-
+hai and the formation of infection hyphae has been ob-      nia lyases (PAL), which catalyse the transformation of
+served at 36 hai [56]. The colonization of cells and spread phenylalanine to trans-cinnamate and represent the first
+into rachis and adjacent spikelet is reported to occur at   dedicated step in the biosynthesis of phenylpropanoids and
+about 48 hai [57]. Significant levels of DON were only      lignin. Ammonium is a side product of this process and
+found after this time point [14,46]. We observed two dis-   may be reutilized by glutamine synthases also in order to
+tinct defense-related modules in the gene co-expression     prevent the accumulation to toxic levels.
+network, which showed a time point dependent enrich-
+ment with DEG. Module B, comprising well over 1,000         The resistant CM-82036 exerts its successful defense by
+genes in our network, was significantly enriched for genes  reacting earlier and with a specific subnetwork
+upregulated in presence of the pathogen already at 30 hai   The unique response of CM-82036 was already reflected
+and more so at 50 hai. In contrast module G was signifi-    in the high number of DEG at 30 hai in comparison to the
+cantly enriched for DEG only at 50 hai. Potentially, module four NILs. Also for CM-82036 a much higher number of
+G could reflect reaction to the transformation of the fun-  glucanases, NBS-LRR and WRKY genes were activated
+gus into the necrotrophic stage and possibly to DON,        earlier. The faster response in comparison to susceptible
+which is not likely to be present earlier. Module G was     genotypes has been previously observed [57]. Not only
+higher enriched for the more susceptible genotypes NIL2     transcript levels of putative resistance genes but also faster
+(Fhb1) and NIL4 (no QTL) but also for CM-82036. NIL2        induction of such genes seem to be a decisive factor in
+and NIL4 lack the resistance against initial infection con- mounting a successful defense response [48,52]. What dis-
+ferred by Qfhs.ifa-5A and consequently a higher infection   tinguished the response of CM-82036 was also a unique
+rate could have elicited a stronger response in these geno- response module (Figure 2 Module H), which was not ob-
+types. The enrichment for CM-82036 may correspond to a      served for any of the other lines. Besides genes involved in
+general faster induction of defense mechanisms.             signaling and control of gene expression GO annotations
+                                                            of this module highlight terms for terpenoid and trehalose
+Activation of glycolysis and amino acid biosynthesis in     biosynthesis at 30 hai. The role of the disaccharide tre-
+response to F. graminearum                                  halose in plant defense has been recently reviewed [60].
+Our analysis finds genes involved in the pentose phos-      Trehalose has been reported as a ROS quencher in wheat
+phate pathway and citric acid cycle upreguated in re-       [61] and induces the expression of a WRKY6 gene and a
+sponse to the pathogen in all genotypes. Additional         glucanase gene in A. thaliana [28]. Treatment with trehal-
+terms for the pentose phosphate pathway and also for        ose confers partial protection against Blumeria graminis
+the glutathione-mediated detoxification of the toxic res-   Speer to wheat [62]. The present study also found a con-
+piration biproduct methylglyoxal (glyoxylase I, [58]) have  siderable higher number of glucanase genes significantly
+been found for NIL3. These findings demonstrate the         changed for the earlier time point compared to the other
+elevated demand of carbohydrates and energy equiva-         investigated genotypes, which could relate to trehalose ac-
+lents during the resistance response and also the prob-     tivity. However, it remains unclear as how the sugar exerts
+able breakdown of photosynthesis, which is required to      these functions.
+
+
+Kugler et al. BMC Genomics 2013, 14:728                                                                         Page 10 of 15
+http://www.biomedcentral.com/1471-2164/14/728
+A diacylglycerol kinase and early induction of JA and ET      abundance of transcripts corresponding to JA biosynthesis
+biosynthesis are associated with lines harboring Fhb1         genes, but hypothesize that JA signaling in the deletion
+We have observed effects of Fhb1 in different genetic         line is impaired, since downstream targets of JA are in-
+backgrounds by identifying F. graminearum responsive          duced in the wildtype but not in the deletion line [61].
+transcripts that are changed only for lines harboring the     These findings may be related to the Fhb1-associated G
+resistant Fhb1 allele. Among the few shared transcripts       protein coupled kinase, which could be involved in trans-
+we found terms for G protein coupled signaling and di-        mitting JA signals.
+acylglycerol kinase activity (describing the same gene, 30       Fhb1 confers resistance against spreading of the disease
+and 50 hai). Loss of G protein dependent phosphatidic         [9]. The QTL also co-localizes with resistance against
+acid signaling leads to reduced accumulation of defense-      DON – a virulence factor for F. graminearum [11] and it is
+associated transcripts: Plant G proteins act in reception     very likely that both QTL relate to the same causal gene.
+and translation of extracellular cues into intracellular      Consequently, the QTL may exert its function only in the
+second messengers. In rice the expression of the G pro-       necrotrophic growth phase of the fungus. The resistant re-
+tein α subunit RGA1 is R-gene dependent and rga1 mu-          sponse in NIL2 appears delayed when observing dynamics
+tants show a delayed production of ROS in response to         of gene expression for four closer characterized gene fam-
+Magnaporthe grisea Barr elicitors [63]. The same au-          ilies (Figures 3 and 4, Additional files 16 and 17). While
+thors could later show that a mitogen-activated protein       CM-82036 exhibits the highest number of DEG at 30 hai
+kinase is the downstream target of RGA1. Silencing this       for glucanase, NBS-LRR, WRKY and UGT genes, NIL2
+kinase leads to reduced levels of PR proteins and PAL [64].   and NIL4 show fewer DEG than the other lines at this time
+A role for phosphatidic acid signaling in F. graminearum      point. At 50 hai many more genes are upregulated for all
+resistance was previously suggested by Ding and associates    genotypes (Table 2). By then, NIL2 has caught up and ex-
+[52]. In this proteomic/transcriptomic study the authors      hibits a similar strong response as CM-82036, while NIL4
+find among other transcripts also diacylglycerol kinase       still contains among the lowest number of DEG. The
+and phospholipase D less abundant in a F. graminearum-        stronger response for NIL2 at 50 hai, could suggest the
+susceptible mutant of the Fhb1-harboring resistant line       requirement of additional environmental cues such as
+Wangshuibai. Also in A. thaliana mutants of the G protein     penetration of host tissue/DON accumulation, which
+β subunit ABG1 were shown more susceptible to a var-          may not be present at 30 hai. Especially the UGT gene
+iety of fungal pathogens, including Fusarium oxysporum        family is interesting in respect of Fhb1: Lines harboring
+Schltdl. [65].                                                the QTL contain a higher ratio of the UGT-mediated
+   The expression of Fhb1-related genes could be coupled      DON detoxification product DON-3-glucoside [11]. Wheat
+to disease development/presence of DON and hence to the       UGTs orthologous to a recently described gene cluster of
+overall resistance conferred by the respective genotype,      B. distachyon [41] harboring DON-detoxification UGTs
+which may delay disease development to a certain extent.      potentially share this ability. Our analysis identified 9 close
+The lines containing Fbh1 exhibit broad differences in        homologs, which are likely candidates for future functional
+FHB resistance: The highly resistant CM-82036 develops        analysis. 2 and 7 of these homologs are expressed 30 and
+disease symptoms exclusively on the infected spikelets,       50 hai, respectively, which is in line with the observation
+while NIL1 (both QTL) and NIL2 (only Fhb1) exhibit just       that these UGTs are not induced by F. graminearum but
+an intermediate level of resistance [14]. Consequently,       specifically for the toxin [41]. However, only few genes are
+Fhb1-associated transcripts are not necessarily significantly specifically induced in lines with Fhb1 or NIL2 only.
+changed for all these lines at a given time point. To reduce
+complexity, we have also investigated DEG for NIL2 only,      Lines harboring Qfhs.ifa-5A exhibited higher activity in
+which harbors Fhb1 in a susceptible background. DEG           defense module B-sub2 and were associated with calcium
+encoded for proteins involved in the biosynthesis of biotic   signaling and riboflavin biosynthesis
+stress response hormones JA and ET already at 30 hai.         In contrast to Fhb1, Qfhs.ifa-5A confers type I resistance
+Both have been implicated with resistance mediated by         against initial infection of F. graminearum [9]. Although
+the QTL donor line Sumai-3 [66]. Recent work using            the infection method used in this study favors the
+Virus-induced gene silencing in wheat showed that             phenotypic assessment of type II resistance, the resist-
+plants impaired in the production of ET are more suscep-      ance mediated by Qfhs.ifa-5A can be assessed using this
+tible to the disease [67]. JA has also received some atten-   technique, and consequently also the QTL-specific tran-
+tion in respect of Fhb1 recently: The QTL was associated      scriptional response may be captured. In this study we
+with a higher abundance of JA in a proteomic study using      found more genes in the defense-associated network
+a NIL pair differing in Fhb1 [50]. In the first transcrip-    module B-sub2 differentially expressed for lines harbor-
+tome sequencing study investigating an Fhb1-deletion          ing Qfhs.ifa-5A at 30 hai (CM-82036, NIL1, NIL3) than
+line of Wangshuibai, the authors find no difference in the    for lines without the QTL. While this may not represent
+
+
+Kugler et al. BMC Genomics 2013, 14:728                                                                       Page 11 of 15
+http://www.biomedcentral.com/1471-2164/14/728
+a QTL-specific gene subnetwork, we suggest that these       F. graminearum. We find G-protein coupled receptor ki-
+genes were faster or stronger differentially expressed for  nases and biosynthesis genes for jasmonate and ethylene
+these lines due to the activity of the Qfhs.ifa-5A. We      earlier induced for NILs harboring Fhb1 and genes
+identified a group of central genes encoding protein ki-    involved in the biosynthesis and metabolism of ribo-
+nases and a CYP gene within this module, which were         flavin were found more abundant after infection in
+earlier induced for Qfhs.ifa-5A lines. These all are likely lines harboring Qfhs.ifa-5A. By combining a gene co-
+candidates for future functional analysis. Submodule        expression network approach with differential gene
+B-sub2 comprised 397 genes and included kinases activ-      expression analysis we identified genes and pathways
+ity, glutamate-gated ion channels and genes involved in     associated with the investigated NILs and the resist-
+tRNA processing (Additional file 13). Elevated tRNA         ant parent CM-82036. Central genes within the net-
+abundance has been previously linked to the response        work may be promising candidate genes for functional
+to DON in barley [68] and other abiotic stresses [69].      testing. Revisiting these and other data after the complete
+Higher translational activity could be a secondary effect   wheat genes are available will provide even higher resolved
+to the toxin and not an active resistance response. Since,  insights into the defense response dynamics within the
+tRNA related terms are only found in the core set of        gene co-expression network.
+DEG shared by all genotypes (Figure 1), we conclude that
+these most likely are not related to the resistance con-    Methods
+ferred by Qfhs.ifa-5A. In contrast, the glutamate-gated     Plant material and inoculation experiment
+ion channel identified in the submodule was also            Four NILs previously generated from a cross of the resist-
+changed only for lines sharing the QTL in the DEG ana-      ant spring wheat line CM-82036 and Remus, a susceptible
+lysis at 30 hai. Endogenous or environmental factors trig-  German spring wheat cultivar [14] were investigated in
+ger changes in apoplasmatic glutamate concentration,        these experiments and also the resistant parent CM-
+which leads to the activation of these channels and sub-    82036. The NILs have been developed from one BC5F1
+sequently to an intracellular increase of Ca2+ [70]. Ca2+   plant with Remus as the recurrent parent (5 backcrosses).
+influx is associated with early defense signalling [71].    In the BC5F2 lines that contain the resistance alleles from
+Overexpression of ionotrophic glutamate receptors in A.     CM-82036 of both Fhb1 and Qfhs.ifa-5A (NIL1), or either
+thaliana leads to an increase in Ca2+ influx and conse-     Fhb1 (NIL2) or Qfhs.ifa-5A (NIL3) or none (NIL4) have
+quently to a delayed infection with Botrytis cinerea Pers.  been selected. F. graminearum conidia spores required for
+[72]. Downstream targets of Ca2+ signaling such as          inoculation were produced on defined SNA medium under
+ATPases or calmodulin are frequently reported as in-        UV-light at 25°C. After two weeks conidia were harvested
+duced by F. graminearum (e.g. [52]). Genotypes harbor-      and diluted to 50,000 conidia/mL in water. Aliquots were
+ing Qfhs.ifa-5A also share GO terms relating to the         stored at −80°C [10].
+biosynthesis and the metabolism of riboflavin (30 hai).        Plant growth conditions and the inoculation of flow-
+Riboflavin has been reported to induce resistance to fun-   ering plants with F. graminearum spores were described
+gal and other pathogens [73], potentially by recruiting     previously [14]. Briefly, 12 florets per head (from 6 central
+NPR1, the essential regulator of systemic acquired resist-  spikelets, the two basal florets) were inoculated at anthesis
+ance, independently from the defense-signaling hormone      with 10 μl of a F. graminearum conidia spore suspension
+salicylic acid, which is strongly associated with NPR1      (500 conidia, concentration 50.000 conidia / mL) or mock
+[74]. Riboflavin is also implicated in the activation of    by cautiously inserting a droplet onto the generative part
+ethylene biosynthesis [73] and we also find genes related   of each floret without wounding the tissue. The treated
+to ethylene biosynthesis in the section shared by lines     heads were moistened with water and covered in plastic
+harboring Qfhs.ifa-5A (Additional file 6, 30 hai).          bags for 24 hours to provide humid conditions favorable
+   Taken together this study provides insights into resist- for infection with the pathogen. Only palea and lemma
+ance response of differentially resistant wheat genotypes   of the inoculated florets were sampled including the re-
+to F. graminearum. By combining a gene co-expression        spective part of the rachis. For each of the 60 samples
+network approach with differential gene expression ana-     (five genotypes, F. graminearum/mock treatment, two time
+lysis we were able to make observation of genes and path-   points 30 and 50 hai, three replicates) 12 heads were used
+ways associated with two prominent resistance QTL, Fhb1     and pooled into one combined sample and stored at −80°C
+and Qfhs.ifa-5A. Central genes within the network may be    until use.
+valid candidate genes for functional testing.
+                                                            RNA-extraction and sequencing
+Conclusions                                                 To eliminate RNases, metal jars with inherent metal
+This RNA-seq study provides insights into the QTL-          spheres for Retsch-mill (MM 301, Haan, Germany) were
+dependent defense response of bread wheat against           sterilized at 180°C for 3 h and then stored at −80°C. All
+
+
+Kugler et al. BMC Genomics 2013, 14:728                                                                                       Page 12 of 15
+http://www.biomedcentral.com/1471-2164/14/728
+tissue belonging to one sample was pooled in one pre-         weighted network. Within the network, clusters of genes
+cooled jar and clamped in Retsch-mill. Grinding was           with similar expression patterns, so called modules, were
+performed for 30 seconds at full speed to obtain a fine tis-  then inferred using a clustering of the Topological Overlay
+sue powder and immediately put back at −80°C. Total-          Matrix (cutreeDynamic method; deepSplit = 2, minimal
+RNA was extracted from 100 mg of frozen tissue powder         module size = 40, merging similar modules with parameter
+using the RNeasy Plant Mini Kit (#74903, Qiagen, Venlo,       cut height = 0.2). The module eigengene (ME, [30]) of a
+Netherlands) according to manufacturer’s instructions.        given module is defined by the first principal component
+The extracted RNA was checked for quality and quantity        of the module expression matrix and can be regarded as
+on an automated electrophoresis-system (Experion, #701-       the representative of the gene expression in a module [31].
+7000, Bio-Rad, Hercules, CA, US). Sequencing was per-         By using the ME we could quantify the association be-
+formed on an Illumina HiSeq2000 machine using 8x              tween a module and the samples, with larger values indi-
+multiplexing, theoretically generating 22 M reads per         cating a stronger association with a module.
+sample by the sequencing-provider GATC (Konstanz,
+Germany). The respective data sets are available in the       GO and interpro enrichment analyses
+EBI ArrayExpress (www.ebi.ac.uk/arrayexpress/) repository     GO terms and Interpro domains for the BBH transcripts
+under the accession number E-MTAB-1729.                       were extracted from the barley repository (ftp://ftpmips.
+                                                              gsf.de/plants/barley/public_data/). GO enrichment ana-
+Data processing and mapping                                   lyses were performed using the topGO package [26], using
+The recently published LCG wheat assembly [5] was used        Fisher’s exact test. To reduce the number of false positive
+to identify RNA-Seq transcripts with Tophat and Cufflinks     findings the elim algorithm was applied and reported
+[24]. We removed one mock-treatment sample from               p-values smaller than 0.05 were kept for further analyses.
+genotype NIL2 (50 hai) as it did not pass quality control.    Interpro terms were tested for enrichment using one-sided
+Transcripts were combined with Cuffcompare and were           Fisher’s exact test, keeping Benjamini-Hochberg [25] ad-
+mapped against barley high confidence genes [18] with         justed p-values smaller than 0.05.
+Vmatch (www.vmatch.de) (exdrop = 3, seedlength = 12, hit
+length = 100 bp, identity > 85%) requiring a BBH and by
+taking the longest transcript of each reported gene loci.     Additional files
+Transcripts with existing BBH to a barley gene served as
+                                                                Additional file 1: Raw read counts per sample. The number of
+input for network analysis and enrichment analyses.             mapped reads per sample.
+                                                                Additional file 2: Quality and Coverage of RNA-seq reads. Coverage
+Statistical analysis of differential gene expression            of RNA-seq along published wheat fl-cDNA.
+Differentially expressed genes (DEG) were detected with         Additional file 3: Fusarium graminearum mapped read counts.
+Cuffdiff [24] between treatments in pair-wise comparisons.      Mapping of RNA-seq against Fusarium graminearum genes.
+These were performed for samples from the same geno-            Additional file 4: Comparison of Fusarium graminearum mapped
+                                                                reads. Statistical overview of mapped reads against Fusarium
+type but for different treatments or time-points. Thus we       graminearum per sample and condition.
+compared mock-inoculation against Fusarium-inoculation          Additional file 5: List of differentially expressed genes. A summary
+(M/F) at 30 hai and 50 hai. Additionally, we compared           of differentialy expressed genes.
+mock-inoculation at 30 hai with 50 hai (M/M). Cuffdiff          Additional file 6: Enrichment analyses of DEG at 30 hai. Results of
+default parameters were applied and the FDR-adjusted            GO and Interpro enrichment analyses for DEG at 30 hai.
+p-value was taken as a cut-off, keeping values below 0.1 as     Additional file 7: Enrichment analyses of DEG at 50 hai. Results of
+                                                                GO and Interpro enrichment analyses for DEG at 50 hai.
+DEG. Genes that were significantly differentially expressed
+                                                                Additional file 8: Module inference. Colored dendrogram showing the
+in M/M were not considered as differentially expressed in       modules as inferred from the co-expression network.
+M/F comparison and vice versa.                                  Additional file 9: Gene module membership. The module membership
+                                                                of the analyzed genes as well as the contig mapping information.
+Co-expression network and module detection                      Additional file 10: Module eigengenes. Summary of the module
+Gene expression values (FPKM) were taken to infer a gene        eigengenes.
+co-expression network. We used the log2-transformed             Additional file 11: Enrichment analyses for modules. Results of GO
+                                                                and Interpro enrichment analyses for modules B, G, and H.
+FPKM values, and replaced values smaller than one by
+                                                                Additional file 12: DEG in submodules of module B. Similar to
+zero. In order to keep only the most active genes we ap-        Figure 2 the ratio of DEG in the submodules of module B is depicted.
+plied a coefficient of variation filter with a threshold of 1   Additional file 13: Enrichment analyses for modules of module B.
+across the different conditions. In order to infer a network,   Results of GO and Interpro enrichment analyses for module B
+we made use of the WGCNA package [29] with the soft-            submodules 1 and 2.
+thresholding parameter beta set to 4 and absolute Pearson’s     Additional file 14: Enrichment analyses for central genes. Results of
+                                                                GO and Interpro enrichment analyses for central genes.
+correlation coefficient. Thereby, we inferred an undirected,
+
+
+Kugler et al. BMC Genomics 2013, 14:728                                                                                                                  Page 13 of 15
+http://www.biomedcentral.com/1471-2164/14/728
+  Additional file 15: Differentially expressed central genes.                            resistance in spring wheat. I. Resistance to fungal spread (Type II resistance).
+  Differentially expressed central genes and annotations with frequently                 Theor Appl Genet 2002, 104:84–91.
+  observed GO terms.                                                                 10. Buerstmayr H, Steiner B, Hartl L, Griesser M, Angerer N, Lengauer D,
+                                                                                         Miedaner T, Schneider B, Lemmens M: Molecular mapping of QTLs for
+  Additional file 16: Regulation of NBS-LRR genes at different time                      fusarium head blight resistance in spring wheat. II. Resistance to fungal
+  points. The line-specific regulation of NBS-LRR genes at different time                penetration and spread. Theor Appl Genet 2003, 107:503–508.
+  points.                                                                            11. Lemmens M, Scholz U, Berthiller F, Dall’Asta C, Koutnik A, Schuhmacher R,
+  Additional file 17: Regulation of glucanases at different time points.                 Adam G, Buerstmayr H, Mesterhazy A, Krska R, Ruckenbauer P: The ability to
+  The line-specific regulation of glucanases at different time points.                   detoxify the mycotoxin deoxynivalenol colocalizes with a major quantitative
+                                                                                         trait locus for fusarium head blight resistance in wheat. Mol Plant-Microbe
+                                                                                         Interact 2005, 18:1318–1324.
+Competing interests
+                                                                                     12. Gunnaiah R, Kushalappa AC, Duggavathi R, Fox S, Somers DJ: Integrated
+The authors declare no competing interests.
+                                                                                         metabolo-proteomic approach to decipher the mechanisms by which
+                                                                                         wheat QTL (Fhb1) contributes to resistance against Fusarium
+Authors’ contributions
+                                                                                         graminearum. PloS one 2012, 7:e40695.
+KK, KM, WS, HB designed the research; KK, GS, TN, BS, ML performed the
+                                                                                     13. Zhuang Y, Gala A, Yen Y: Identification of functional genic
+research; KK, TN, CA, MS, WS analyzed the data; KK, GS, TN, WS wrote the
+                                                                                         components of major Fusarium head blight resistance quantitative
+paper. All authors read and approved the final manuscript.
+                                                                                         trait loci in wheat cultivar Sumai 3. Mol Plant-Microbe Interact 2013,
+                                                                                         26:442–450.
+Acknowledgements
+                                                                                     14. Schweiger W, Steiner B, Ametz C, Siegwart G, Wiesenberger G, Berthiller F,
+We thank Mina Samad Zamini, Morgane Roth, Erik Sam, and Maria Buerstmayr
+                                                                                         Lemmens M, Jia H, Adam G, Muehlbauer GJ, Kreil DP, Buerstmayr H:
+for assisting in the climatic chamber experiments and Imer Maloku for the
+                                                                                         Transcriptomic characterization of two major fusarium resistance QTL,
+preparation of the F. graminearum inoculum. This work was supported by the
+                                                                                         Fhb1 and Qfhs.ifa-5A, identifies novel candidate genes. Mol Plant Pathol
+Austrian Science Fund projects #F3711-B11 and #F3711-B05.
+                                                                                         2013, 14:772–785.
+                                                                                     15. Schreiber A, Hayden M, Forrest K, Kong S, Langridge P, Baumann U:
+Supporting data
+                                                                                         Transcriptome-scale homoeolog-specific transcript assemblies of bread
+The data set supporting the results of this article is available in the ArrayExpress
+                                                                                         wheat. BMC Genom 2012, 13:492.
+repository (www.ebi.ac.uk/arrayexpress), accession number E-MTAB-1729.
+                                                                                     16. Mochida K, Yoshida T, Sakurai T, Ogihara Y, Shinozaki K: TriFLDB: a
+                                                                                         database of clustered full-length coding sequences from Triticeae with
+Author details
+1                                                                                        applications to comparative grass genomics. Plant Physiol 2009,
+ Munich Information Center for Protein Sequences/Institute for
+                                                                                         150:1135–1146.
+Bioinformatics and Systems Biology, Helmholtz Center Munich, D-85764
+Neuherberg, Germany. 2Institute for Biotechnology in Plant Production, IFA-          17. Kubalakova M, Vrana J, Cihalikova J, Simkova H, Dolezel J: Flow karyotyping
+Tulln, University of Natural Resources and Life Sciences, A-3430 Tulln, Austria.         and chromosome sorting in bread wheat (Triticum aestivum L.). Theor Appl
+                                                                                         Genet 2002, 104:1362–1372.
+Received: 25 June 2013 Accepted: 14 October 2013                                     18. Poland JA, Brown PJ, Sorrells ME, Jannink JL: Development of high-density
+Published: 24 October 2013                                                               genetic maps for barley and wheat using a novel two-enzyme
+                                                                                         genotyping-by-sequencing approach. PloS one 2012, 7:e32253.
+References                                                                           19. Philippe R, Choulet F, Paux E, van Oeveren J, Tang J, Wittenberg AH,
+1. Cuomo CA, Guldener U, Xu JR, Trail F, Turgeon BG, Di Pietro A, Walton JD,             Janssen A, van Eijk MJ, Stormo K, Alberti A, Wincker P, Akhunov E,
+      Ma LJ, Baker SE, Rep M, Adam G, Antoniw J, Baldwin T, Calvo S, Chang Y-L,          van der Vossen E, Feuillet C: Whole genome profiling provides a robust
+      DeCaprio D, Gale KR, Gnerre S, Goswami RS, Hammond-Kosack K, Harris LJ,            framework for physical mapping and sequencing in the highly complex
+      Hilburn K, Kennell JC, Kroken S, Magnuson JK, Mannhaupt G, Mauceli E,              and repetitive wheat genome. BMC genom 2012, 13:47.
+      Mewes H-W, Mitterbauer R, Muehlbauer G, et al: The Fusarium                    20. The International Barley Genome Sequencing Consortium: A physical,
+      graminearum genome reveals a link between localized polymorphism                   genetic and functional sequence assembly of the barley genome. Nature
+      and pathogen specialization. Science 2007, 317:1400–1402.                          2012, 491:711–716.
+2. Walter S, Nicholson P, Doohan FM: Action and reaction of host and                 21. Adhikari BN, Savory EA, Vaillancourt B, Childs KL, Hamilton JP, Day B, Buell CR:
+      pathogen during Fusarium head blight disease. New Phytol 2010,                     Expression profiling of Cucumis sativus in response to infection by
+      185:54–66.                                                                         Pseudoperonospora cubensis. PloS one 2012, 7:e34954.
+3. Pestka JJ: Deoxynivalenol: mechanisms of action, human exposure, and              22. Bagnaresi P, Biselli C, Orru L, Urso S, Crispino L, Abbruscato P, Piffanelli P,
+      toxicological relevance. Arch Toxicol 2010, 84:663–679.                            Lupotto E, Cattivelli L, Vale G: Comparative transcriptome profiling of the
+4. The European Commission: Commission recommendation (EC) no. 1881/                     early response to Magnaporthe oryzae in durable resistant vs susceptible
+      2006 of 19 December 2006 setting maximum levels for certain                        rice (Oryza sativa L.) genotypes. PloS one 2012, 7:e51609.
+      contaminants in foodstuffs. Off J Eur Union 2006, 364:5–24.                    23. Wong P, Walter M, Lee W, Mannhaupt G, Munsterkotter M, Mewes HW,
+5. Brenchley R, Spannagl M, Pfeifer M, Barker GL, D’Amore R, Allen AM,                   Adam G, Guldener U: FGDB: revisiting the genome annotation of
+      McKenzie N, Kramer M, Kerhornou A, Bolser D, Kay S, Waite D, Trick M,              the plant pathogen fusarium graminearum. Nuc Acids Res 2011,
+      Bancroft I, Gu Y, Huo N, Luo M-C, Sehgal S, Gill B, Kianian S, Anderson O,         39:D637–D639.
+      Kersey P, Dvorak J, McCombie WR, Hall A, Mayer FKX, Edwards KJ, Bevan MW,      24. Trapnell C, Roberts A, Goff L, Pertea G, Kim D, Kelley DR, Pimentel H,
+      Hall N: Analysis of the bread wheat genome using whole-genome shotgun              Salzberg SL, Rinn JL, Pachter L: Differential gene and transcript expression
+      sequencing. Nature 2012, 491:705–710.                                              analysis of RNA-seq experiments with TopHat and cufflinks. Nat Protoc
+6. Paux E, Roger D, Badaeva E, Gay G, Bernard M, Sourdille P, Feuillet C:                2012, 7:562–578.
+      Characterizing the composition and evolution of homoeologous                   25. Benjamini Y, Hochberg Y: Controlling the false discovery rate: a practical
+      genomes in hexaploid wheat through BAC-end sequencing on                           and powerful approach to multiple testing. J R Stat Soc Ser B Stat
+      chromosome 3B. Plant J 2006, 48:463–474.                                           Methodol 1995, 57:289–300.
+7. Buerstmayr H, Ban T, Anderson JA: QTL mapping and marker-assisted                 26. Alexa A, Rahnenführer J, Lengauer T: Improved scoring of functional
+      selection for fusarium head blight resistance in wheat: a review.                  groups from gene expression data by decorrelating GO graph structure.
+      Plant Breed 2009, 128:1–26.                                                        Bioinformatics 2006, 22:1600–1607.
+8. Waldron BL, Moreno-Sevilla B, Anderson JA, Stack RW, Frohberg RC: RFLP            27. Bolton MD: Primary metabolism and plant defense—fuel for the fire.
+      mapping of QTL for fusarium head blight resistance in wheat. Crop Sci              Mol Plant-Microbe Interact 2009, 22:487–497.
+      1999, 39:805–811.                                                              28. Seifi HS, Van Bockhaven J, Angenon G, Hofte M: Glutamate metabolism in
+9. Buerstmayr H, Lemmens M, Hartl L, Doldi L, Steiner B, Stierschneider M,               plant disease and defense: friend or foe? Mol Plant-Microbe Interact 2013,
+      Ruckenbauer P: Molecular mapping of QTLs for fusarium head blight                  26:475–485.
+
+
+Kugler et al. BMC Genomics 2013, 14:728                                                                                                              Page 14 of 15
+http://www.biomedcentral.com/1471-2164/14/728
+29. Langfelder P, Horvath S: WGCNA: an R package for weighted correlation         52. Ding L, Xu H, Yi H, Yang L, Kong Z, Zhand L, Xue S, Jia H: Resistance to
+     network analysis. BMC bioinformatics 2008, 9:559.                                hemi-biotrophic F. graminearum infection is associated with coordinated
+30. Langfelder P, Horvath S: Eigengene networks for studying the                      and ordered expression of diverse defense signaling pathways. PloS one
+     relationships between co-expression modules. BMC Syst Biol 2007, 1:54.           2011, 6:e19008.
+31. Langfelder P, Luo R, Oldham MC, Horvath S: Is my network module               53. Emmert-Streib F, Dehmer M: Networks for systems biology: conceptual
+     preserved and reproducible? PLoS Comput Biol 2011, 7:e1001057.                   connection of data and function. IET Syst Biol 2011, 5:185–207.
+32. Freeman L: Centrality in social networks: conceptual clarification. Soc       54. Todeschini R, Consonni V: Handbook of Molecular Descriptors. Weilheim:
+     Networks 1979, 1:215–239.                                                        WILEY-VCH; 2008.
+33. Wasserman SFK: Social network analysis : methods and applications.            55. Mueller LA, Kugler KG, Dander A, Graber A, Dehmer M: QuACN: an R
+     Cambridge, New York: Cambridge University Press; 1994.                           package for analyzing complex biological networks quantitatively.
+34. Hage P, Harary F: Eccentricity and centrality in networks. Soc Networks           Bioinformatics 2011, 27:140–141.
+     1995, 17:57–63.                                                              56. Seong KY, Zhao X, Xu JR, Guldener U, Kistler HC: Conidial germination in
+35. Jeong H, Mason SP, Barabasi AL, Oltvai ZN: Lethality and centrality in            the filamentous fungus Fusarium graminearum. Fung Genet Biol 2008,
+     protein networks. Nature 2001, 411:41–42.                                        45:389–399.
+36. Filteau M, Pavey SA, St-Cyr J, Bernatchez L: Gene coexpression networks       57. Pritsch C, Muehlbauer GJ, Bushnell WR, Somers DA, Vance CP: Fungal
+     reveal key drivers of phenotypic divergence in lake whitefish. Mol Biol          development and induction of defense response genes during early
+     Evol 2013, 30:1384–1396.                                                         infection of wheat spikes by Fusarium graminearum. Mol Plant-Microbe
+37. Ferreira RM, Rybarczyk-Filho JL, Dalmolin RJ, Castro MA, Moreira JC,              Interact 2000, 13:159–169.
+     Brunnet LG, de Almeida RM: Preferential duplication of intermodular          58. Dixon DP, Cummins I, Cole DJ, Edwards R: Glutathione-mediated
+     hub genes: an evolutionary signature in eukaryotes genome networks.              detoxification systems in plants. Curr Opin Plant Biol 1998,
+     PloS one 2013, 8:e56579.                                                         1:258–266.
+38. Csardi G, Nepusz T: The igraph software package for complex network           59. Essmann J, Schmitz-Thom I, Schon H, Sonnewald S, Weis E, Scharte J: RNA
+     research. InterJournal 2006, Complex Systems:1695.                               interference-mediated repression of cell wall invertase impairs defense
+39. Bonacich P: Power and centrality: a family of measures. Am J Sociol 1987,         in source leaves of tobacco. Plant physiol 2008, 147:1288–1299.
+     92:1170–1182.                                                                60. Fernandez O, Bethencourt L, Quero A, Sangwan RS, Clement C: Trehalose
+40. Larkin MA, Blackshields G, Brown NP, Chenna R, McGettigan PA,                     and plant stress responses: friend or foe? Trends Plant Sci 2010,
+     McWilliam H, Valentin F, Wallace IM, Wilm A, Lopez R, Thompson JD,               15:409–417.
+     Gibson TJ, Higgins DG: Clustal w and clustal x version 2.0.                  61. Luo Y, Li W-M, Wang W: Trehalose: protector of antioxidant enzymes or
+     Bioinformatics 2007, 23:2947–2948.                                               reactive oxygen species scavenger under heat stress? Environ Exper Bot
+41. Schweiger W, Pasquet JC, Nussbaumer T, Kovalsky Paris MP, Wiesenberger G,         2008, 63:378–384.
+     Macadre C, Ametz C, Berthiller F, Lemmens M, Saindrenan P, Mewes HW,         62. Renard-Merlier D, Randoux B, Nowak E, Farcy F, Durand R, Reignault P:
+     Mayer KF, Dufresne M, Adam G: Functional characterization of two                 Iodus 40, salicylic acid, heptanoyl salicylic acid and trehalose exhibit
+     clusters of Brachypodium distachyon UDP-glycosyltransferases encoding            different efficacies and defence targets during a wheat/powdery mildew
+     putative deoxynivalenol detoxification genes. Mol Plant-Microbe Interact         interaction. Phytochem 2007, 68:1156–1164.
+     2013, 26:781–792.                                                            63. Suharsono U, Fujisawa Y, Kawasaki T, Iwasaki Y, Satoh H, Shimamoto K: The
+42. Eulgem T, Rushton PJ, Robatzek S, Somssich IE: The WRKY superfamily of            heterotrimeric G protein alpha subunit acts upstream of the small
+     plant transcription factors. Trends Plant Sci 2000, 5:199–206.                   GTPase Rac in disease resistance of rice. Proc Natl Acad Sci U S A 2002,
+43. Vogt T, Jones P: Glycosyltransferases in plant natural product                    99:13307–13312.
+     synthesis: characterization of a supergene family. Trends Plant Sci          64. Lieberherr D, Thao NP, Nakashima A, Umemura K, Kawasaki T, Shimamoto K:
+     2000, 5:1360–1385.                                                               A sphingolipid elicitor-inducible mitogen-activated protein kinase is
+44. Poppenberger B, Berthiller F, Lucyshyn D, Sieberer T, Schuhmacher R, Krska R,     regulated by the small GTPase OsRac1 and heterotrimeric G-protein in
+     Kuchler K, Glossl J, Luschnig C, Adam G: Detoxification of the fusarium          rice 1[w]. Plant Physiol 2005, 138:1644–1652.
+     mycotoxin deoxynivalenol by a UDP-glucosyltransferase from Arabidopsis       65. Trusov Y, Rookes JE, Chakravorty D, Armour D, Schenk PM, Botella JR:
+     thaliana. J Biol Chem 2003, 278:47905–47914.                                     Heterotrimeric G proteins facilitate arabidopsis resistance to
+45. Schweiger W, Boddu J, Shin S, Poppenberger B, Berthiller F, Lemmens M,            necrotrophic pathogens and are involved in jasmonate signaling.
+     Muehlbauer GJ, Adam G: Validation of a candidate deoxynivalenol-                 Plant Physiol 2006, 140:210–220.
+     inactivating UDP-glucosyltransferase from barley by heterologous             66. Li G, Yen Y: Jasmonate and ethylene signaling pathway may
+     expression in yeast. Mol Plant-Microbe Interact 2010, 23:977–986.                mediate fusarium head blight resistance in wheat. Crop Sci 2008,
+46. Jia H, Cho S, Muehlbauer GJ: Transcriptome analysis of a wheat near-isogenic      48:1888–1896.
+     line pair carrying fusarium head blight–resistant and –susceptible alleles.  67. Gillespie ME, Brandt AS, Scofield SR: Ethylene-signaling is essential for
+     Mol Plant-Microbe Interact 2009, 22:1366–1378.                                   basal resistance to Fusarium head blight in wheat. In Proceedings of the
+47. Foroud NA, Ouellet T, Laroche A, Oosterveen B, Jordan MC, Ellis BE, Eudes F:      National Fusarium Head Blight Forum: 4-6 December 2012; Orlando, FL. Edited
+     Differential transcriptome analyses of three wheat genotypes reveal              by Canty S. East Lansing, MI/Lexington, KY: US Wheat & Barley Scab
+     different host response pathways associated with fusarium head blight            Initiative; 2012:135.
+     and trichothecene resistance. Plant Pathol 2012, 61:296–314.                 68. Gardiner S, Boddu J, Berthiller F, Hametner C, Stupar R, Adam G,
+48. Gottwald S, Samans B, Luck S, Friedt W: Jasmonate and ethylene                    Muehlbauer G: Transcriptome analysis of the barley-deoxynivalenol
+     dependent defence gene expression and suppression of fungal                      interaction: evidence for a role of glutathione in deoxynivalenol
+     virulence factors: two essential mechanisms of fusarium head blight              detoxification. Mol Plant-Microbe Interact 2010, 23:962–976.
+     resistance in wheat? BMC genomics 2012, 13:369.                              69. Wu XR, Kenzior A, Willmot D, Scanlon S, Chen Z, Topin A, He SH, Acevedo A,
+49. Walter S, Brennan J, Trognitz F, Trognitz B, Leonard G, Egan D, Doohan F:         Folk WR: Altered expression of plant lysyl tRNA synthetase promotes
+     Components of the gene network associated with genotype-dependent                tRNA misacylation and translational recoding of lysine. Plant J 2007,
+     response of wheat to the fusarium mycotoxin deoxynivalenol. Funct Integr         50:627–636.
+     Genomics 2008, 8:421–427.                                                    70. Dennison KL, Spalding EP: Glutamate-gated calcium fluxes in arabidopsis.
+50. Lulin M, Yi S, Aizhong C, Zengjun Q, Liping X, Peidu C, Dajun L, Xiu EW:          Plant Physiol 2000, 124:1511–1514.
+     Molecular cloning and characterization of an up-regulated UDP-               71. Lecourieux D, Mazars C, Pauly N, Ranjeva R, Pugin A: Analysis and effects
+     glucosyltransferase gene induced by DON from Triticum aestivum L.                of cytosolic free calcium increases in response to elicitors in Nicotiana
+     cv. Wangshuibai. Mol Biol Rep 2010, 37:785–795.                                  plumbaginifolia cells. Plant Cell 2002, 14:2627–2641.
+51. Ansari KI, Walter S, Brennan JM, Lemmens M, Kessans S, McGahern A, Egan D,    72. Kang S, Kim HB, Lee H, Choi JY, Heu S, Oh CJ, Kwon SI, An CS: Overexpression
+     Doohan FM: Retrotransposon and gene activation in wheat in response to           in arabidopsis of a plasma membrane-targeting glutamate receptor from
+     mycotoxigenic and non-mycotoxigenic-associated fusarium stress. Theor Appl       small radish increases glutamate-mediated Ca2+ influx and delays fungal
+     Genet 2007, 114:927–937.                                                         infection. Mol Cells 2006, 21:418–427.
+
+
+Kugler et al. BMC Genomics 2013, 14:728                                                                                                Page 15 of 15
+http://www.biomedcentral.com/1471-2164/14/728
+73. Dong H, Beer SV: Riboflavin induces disease resistance in plants by
+     activating a novel signal transduction pathway. Phytopathol 2000,
+     90(8):801–811.
+74. Zhang S, Yang X, Sun M, Sun F, Deng S, Dong H: Riboflavin-induced
+     priming for pathogen defense in Arabidopsis thaliana. J Integr Plant Biol
+     2009, 51:167–174.
+  doi:10.1186/1471-2164-14-728
+  Cite this article as: Kugler et al.: Quantitative trait loci-dependent
+  analysis of a gene co-expression network associated with Fusarium
+  head blight resistance in bread wheat (Triticum aestivum L.). BMC
+  Genomics 2013 14:728.
+                                                                               Submit your next manuscript to BioMed Central
+                                                                               and take full advantage of:
+                                                                               • Convenient online submission
+                                                                               • Thorough peer review
+                                                                               • No space constraints or color figure charges
+                                                                               • Immediate publication on acceptance
+                                                                               • Inclusion in PubMed, CAS, Scopus and Google Scholar
+                                                                               • Research which is freely available for redistribution
+                                                                               Submit your manuscript at
+                                                                               www.biomedcentral.com/submit
