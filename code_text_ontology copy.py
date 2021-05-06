@@ -12,15 +12,7 @@ from nltk.util import ngrams
 from nltk.corpus import stopwords
 from nltk.tokenize.treebank import TreebankWordDetokenizer
 from pathlib import Path
-import urllib.request, urllib.error, urllib.parse, urllib
-from pandas import read_html
-import html5lib
-from bs4 import BeautifulSoup
-
-
-url = 'https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-14-728'
-
-
+import urllib.request, urllib.error, urllib.parse
 
 
 #need to work with an html file format of the paper
@@ -28,30 +20,32 @@ url = 'https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-14-728'
 def fromurltotext(url):
     response = urllib.request.urlopen(url)
     webContent = response.read()
-    text_article = ''
 
+    # print(webContent)
     # save the HTML file locally
+
     f = open('paper.html', 'wb')
     f.write(webContent)
 
     # Python - How to read HTML line by line into a list
     with open("paper.html") as f:
         content = f.readlines()
-
     # you may also want to remove whitespace characters like `\n` at the end of each line
     content = [x.strip() for x in content]
+    # print(content) #works
 
     # want to get the text from the HTML
-    f1 = open('hello.txt', "w+")  # must make it so the name changes each time
-    #text_article = f1.write(str(content))  # I dont want new lines so f.write("\n\n".join(pdf))
-    text_article = f1.write("\n\n".join(content))  # I dont want new lines so f.write("\n\n".join(pdf))
+    with open('paper.html') as f:
+        log = f.readlines()
 
-    #print(text_article)
-    f1.close()
+    new_log = ''
+    for line in log:
+        new_log += line
+
+    f = open('hello.txt', "w+")  # must make it so the name changes each time
+    f.write(" ".join(log))  # I dont want new lines so f.write("\n\n".join(pdf))
     f.close()
     print('done writing to hello.txt')
-    return(text_article)
-
     # print("this is new log")
     # print(new_log) #-this works
 
@@ -60,9 +54,8 @@ def fromurltotext(url):
 
 
 url = 'https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-14-728'
-text = fromurltotext(url)
+fromurltotext(url)
 
-'''
 yourpath = os.getcwd()
 
 data_folder = Path("papers_collection_folder") #can be changed to user input data
@@ -86,9 +79,6 @@ for item in files_in_folder:
 # open files in folder ; convert to text ; manipulate the text all separate functions
 # with open('%s.txt'%item.name
 
-'''
-
-'''
 with open('output.txt') as f:
     log = f.readlines()
 
@@ -100,32 +90,8 @@ for line in log:
 
 # pre-processing of text_article data
 # remove punctuation
-'''
 
 
-def nlp_text_processing(txt):
-
-    txt_nopunct = "".join([c for c in txt if c not in string.punctuation])
-    stopwords = nltk.corpus.stopwords.words('english')
-    ps = nltk.PorterStemmer()
-    tokenised_data = nltk.word_tokenize(txt)  # parsed_data1 instead of text_article?
-    #print('tokenised data', tokenised_data)
-    return (tokenised_data)
-
-
-with open ('hello.txt') as f:
-    log = f.readlines()
-    text_article = ''
-    for line in log:
-        text_article += line
-
-#print('this is text_article', text_article)
-
-nlp_processed_text = nlp_text_processing(text_article) #function passes/works
-
-#But need to get rid of div, and < > and /html and all the other html markup
-
-''' 
 def remove_punctuation(txt):
     txt_nopunct = "".join([c for c in txt if c not in string.punctuation])
     return txt_nopunct
@@ -140,12 +106,7 @@ ps = nltk.PorterStemmer()
 tokenised_data = nltk.word_tokenize(text_article) #parsed_data1 instead of text_article?
 print('tokenised data', tokenised_data)
 
-'''
-
-bigram = list(ngrams(nlp_processed_text, 2))
-
-
-#bigram = list(ngrams(tokenised_data, 2))
+bigram = list(ngrams(tokenised_data, 2))
 print('this is bigram before removing punctuation from article text', bigram)
 
 '''

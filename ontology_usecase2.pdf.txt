@@ -45,9 +45,7 @@ Full list of author information is available at the end of the article          
                                            © 2011 Cantu et al; licensee BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative Commons
                                            Attribution License (http://creativecommons.org/licenses/by/2.0), which permits unrestricted use, distribution, and reproduction in
                                            any medium, provided the original work is properly cited.
-
-
-Cantu et al. BMC Genomics 2011, 12:492                                                                         Page 2 of 17
+ Cantu et al. BMC Genomics 2011, 12:492                                                                         Page 2 of 17
 http://www.biomedcentral.com/1471-2164/12/492
 is a coordinated process acting at the whole-plant level,    involved in the initiation and progression of senescence
 during which genetically-programmed and developmen-          makes it hard to decipher the interactions between indi-
@@ -103,9 +101,7 @@ expression of hundreds of senescence associated genes        Results
 (SAGs) illustrating how nutrient salvage requires a com-     De novo transcriptome assembly
 plex array of regulatory networks and metabolic path-        The over-expression of the GPC-RNAi construct, under
 ways [7]. The complexity of the multiple gene networks       the regulation of the 35S promoter, reduced the
-
-
-Cantu et al. BMC Genomics 2011, 12:492                                                                                Page 3 of 17
+ Cantu et al. BMC Genomics 2011, 12:492                                                                                Page 3 of 17
 http://www.biomedcentral.com/1471-2164/12/492
 transcript levels of all homoeologous copies of GPC-1
 and its close paralog GPC-2 (henceforth, GPC) by
@@ -164,9 +160,7 @@ sequences; BLASTN, E-value ≤ e -10 ) or rice proteins       represents the hie
 BLASTX, E-value ≤ e-10). The sequences of the 146,671       of the Euclidean distance matrix (from red for zero distance to
                                                             white for large distance).
 singletons that show similarities to either of these
-
-
-Cantu et al. BMC Genomics 2011, 12:492                                                                     Page 4 of 17
+ Cantu et al. BMC Genomics 2011, 12:492                                                                     Page 4 of 17
 http://www.biomedcentral.com/1471-2164/12/492
 databases are available as a multi-fasta file in Supple-  expected, zero reads were mapped to the vector
 mental Online Materials (Additional file 2). The residual sequence in the sequences obtained from wild type sam-
@@ -222,9 +216,7 @@ pMCG161 RNAi vector but absent in the wheat gen-          between the read count
 ome. On average, 858 reads mapped to the waxy-a           gene as a scaling factor for each library ([33]; Additional
 intron for the four GPC-RNAi samples, with no gaps        file 1 figure S4). All the statistical analyses described
 and no mismatches allowed using Bowtie [32]. As           below use the normalized data sets.
-
-
-Cantu et al. BMC Genomics 2011, 12:492                                                                                    Page 5 of 17
+ Cantu et al. BMC Genomics 2011, 12:492                                                                                    Page 5 of 17
 http://www.biomedcentral.com/1471-2164/12/492
 Global characterization of Illumina counts                              [33]. Biological replicates were separated into two major
 We observed a high Pearson’s product moment correlation                 clusters, one including the four GPC-RNAi samples and
@@ -284,9 +276,7 @@ tion ‘getVarianceStabilizedData’ in the DESeq package                   fere
   down-regulated isogroups significant at both edgeR (P≤0.01) and       15 ± 4 isogroups on average were identified as signifi-
   MWW testing (P ≤ 0.05).
                                                                         cantly differentially regulated. These permutation
-
-
-Cantu et al. BMC Genomics 2011, 12:492                                                                                            Page 6 of 17
+ Cantu et al. BMC Genomics 2011, 12:492                                                                                            Page 6 of 17
 http://www.biomedcentral.com/1471-2164/12/492
                                                                       These included isogroups covering a range of different
                                                                       expression ratios between genotypes and genes which
@@ -345,9 +335,7 @@ MWW≤0.05; Additional file 7). From the 431 isogroups                    gene e
 fulfilling all four criteria we selected 10 up-regulated
                                                                         graph is 1 (no change in relative expression).
 and 12 down-regulated genes for further validation.
-
-
-Cantu et al. BMC Genomics 2011, 12:492                                                                                      Page 7 of 17
+ Cantu et al. BMC Genomics 2011, 12:492                                                                                      Page 7 of 17
 http://www.biomedcentral.com/1471-2164/12/492
 Table 1 Comparison of the ratios of transcript levels                       genes that showed differences between the two geno-
 between WT and GPC-RNAi in the Illumina (12 DAA) and                        types larger than 2.5 fold at 12 and 22 DAA.
@@ -415,9 +403,7 @@ cance for some of the selected genes (Table 1).
     Taken together, results from our qRT-PCR experi-                        Gene ontology annotation
 ments show a high correlation between qRT-PCR and                           To obtain a broad classification of gene functions, GO-
 Illumina results, with a good validation rate among                         slim annotation was assigned based on the GO-slim
-
-
-Cantu et al. BMC Genomics 2011, 12:492                                                                                                  Page 8 of 17
+ Cantu et al. BMC Genomics 2011, 12:492                                                                                                  Page 8 of 17
 http://www.biomedcentral.com/1471-2164/12/492
   Figure 5 Transcript levels of selected isogroups across a senescence leaf time course. Expression levels in WT and GPC-RNAi plants were
   determined using qRT-PCR at four points across a senescing leaf time course (H = heading, D = days after anthesis). Transcript levels are
@@ -453,9 +439,7 @@ compared to the distribution of classes of all annotated                      at
 isogroups (Kolmogorov-Smirnov test: P = 0.0001), which                        8). In both datasets, the number of repetitive elements up-
 indicates an enrichment of specific functional classes as                     regulated during senescence (87% among isogroups and
 the transcript levels of the GPC gene increase during                         93% among singletons) largely exceeded the number of
-
-
-Cantu et al. BMC Genomics 2011, 12:492                                                                                         Page 9 of 17
+ Cantu et al. BMC Genomics 2011, 12:492                                                                                         Page 9 of 17
 http://www.biomedcentral.com/1471-2164/12/492
 Table 2 Distribution of the functional grouping of the assembled isogroups based on GO-slim annotation
                                                                                                                   a                    a
@@ -511,9 +495,7 @@ Global analysis of gene expression during early                                p
 senescence                                                                     However, we currently do not know if the genes affected
 Based on the early up-regulation of GPC after anthesis                         by the RNAi down-regulation of the GPC genes include
 and the delayed senescence of the GPC-RNAi plants [3],                         the complete set of genes differentially regulated during
-
-
-Cantu et al. BMC Genomics 2011, 12:492                                                                    Page 10 of 17
+ Cantu et al. BMC Genomics 2011, 12:492                                                                    Page 10 of 17
 http://www.biomedcentral.com/1471-2164/12/492
 senescence or just a subset of them. This will depend on    are derived from flag leaves collected after anthesis and
 how early the GPC gene is located within the hierarchy      there are only two annotated wheat SAGs present in the
@@ -569,9 +551,7 @@ the limited current sequence information of wheat genes     ent homoeologous gro
 expressed during senescence and the lack of an                 Based on the observed Ct values from qRT-PCR
 assembled wheat genome. Of the 1,071,335 wheat ESTs         experiments, the assembled transcriptome includes
 present in GenBank at the time of this analysis, none       genes with transcript levels as low as 1/36 of ACTIN
-
-
-Cantu et al. BMC Genomics 2011, 12:492                                                                     Page 11 of 17
+ Cantu et al. BMC Genomics 2011, 12:492                                                                     Page 11 of 17
 http://www.biomedcentral.com/1471-2164/12/492
 transcript levels (e.g. isogroup 12718). Even though we    as read count increases (Figure 2B). 454 data displayed a
 obtained 12-16 million reads per sample, ~38% of the       low coverage, with small counts particularly for genes
@@ -627,9 +607,7 @@ our results it is evident that expression level and        tion in wheat. Howeve
 sequencing coverage are both important determinants of     tion for a large fraction of the differentially regulated
 the precision of the gene expression measurement since     transcripts limited our ability to perform a more com-
 the variation in read counts between libraries is reduced  prehensive bioinformatics analysis of the biochemical
-
-
-Cantu et al. BMC Genomics 2011, 12:492                                                                    Page 12 of 17
+ Cantu et al. BMC Genomics 2011, 12:492                                                                    Page 12 of 17
 http://www.biomedcentral.com/1471-2164/12/492
 and signaling pathways differentially regulated during     identified in independent microarray studies [55-57]
 senescence. Because of this limitation, the following dis- including several genes in the jacalin lectin gene family.
@@ -685,9 +663,7 @@ for the GPC transcripts (Figure 1D). Jasmonic acid has     (naturally-induced mo
 been shown to induce leaf senescence in Arabidopsis        girdling induced senescence). Alternatively, it is possible
 [10] and several JA biosynthetic genes are up-regulated    that GPC plays a limited role in the up-regulation of
 during senescence [53]. JA-responsive SAGs have been       proteases and that, at 12 DAA, the genes coding for
-
-
-Cantu et al. BMC Genomics 2011, 12:492                                                                       Page 13 of 17
+ Cantu et al. BMC Genomics 2011, 12:492                                                                       Page 13 of 17
 http://www.biomedcentral.com/1471-2164/12/492
 other proteases are not yet differentially regulated. Since networks and metabolic and physiological events asso-
 visible signs of senescence in the leaves are still absent  ciated with monocarpic wheat senescence and nutrient
@@ -743,9 +719,7 @@ sequences will be necessary to address this question        (12 DAA) and immedia
 Conclusions                                                 biological replicates for library construction and a total
 The comprehensive overview provided by mRNA-seq is          of ten biological replicates for the qRT-PCR validation
 well-suited to explore the complexity of the regulatory     experiments. The leaves were ground and RNA samples
-
-
-Cantu et al. BMC Genomics 2011, 12:492                                                                     Page 14 of 17
+ Cantu et al. BMC Genomics 2011, 12:492                                                                     Page 14 of 17
 http://www.biomedcentral.com/1471-2164/12/492
 were extracted using the RNeasy Plant Mini Kit (QIA-      subsequence analyses. Sequencing was carried out on an
 GEN). Concentration and purity of total RNA was           Illumina Genome Analyzer II at the DNA Technologies
@@ -801,9 +775,7 @@ the mRNA sequencing protocol from Illumina (Part #        Primer3 software (http
 material. The initial targeted insert size ranged between consensus sequences from ESTs or contigs from the dif-
 150 to 250 bp, but shorter fragments were incorporated    ferent wheat genomes. Therefore, the transcription pro-
 during the purification process as reflected in the       files presented here represent the integration of the
-
-
-Cantu et al. BMC Genomics 2011, 12:492                                                                                                         Page 15 of 17
+ Cantu et al. BMC Genomics 2011, 12:492                                                                                                         Page 15 of 17
 http://www.biomedcentral.com/1471-2164/12/492
 transcript levels of different homeologs of each gene.                         GOSlim terms. Cell color-coding: red color corresponds to ≥2 fold up-
 Primer efficiencies were calculated using five 4-fold                          regulation, green color corresponds to ≥ 2 fold down-regulation, yellow
@@ -879,9 +851,7 @@ Additional material                                                          Bin
   454 contigs with calculated P-values for MWW, edgeR and DESeq                    concentrations in seeds of wild, primitive, and modern wheats. Food
   statistical analyses. The table includes also isotigs and contigs IDs with       Nutr Bull 2000, 21:401-403.
   the corresponding GenBank accession number and the associated
-
-
-Cantu et al. BMC Genomics 2011, 12:492                                                                                                                Page 16 of 17
+ Cantu et al. BMC Genomics 2011, 12:492                                                                                                                Page 16 of 17
 http://www.biomedcentral.com/1471-2164/12/492
 2.   Kichey T, Hirel B, Heumez E, Dubois F, Le Gouis J: In winter wheat (Triticum   27. Guo Y, Gan S: AtNAP, a NAC family transcription factor, has an important
      aestivum L.), post- anthesis nitrogen uptake and remobilisation to the             role in leaf senescence. Plant J 2006, 46:601-612.
@@ -953,9 +923,7 @@ http://www.biomedcentral.com/1471-2164/12/492
 26.  Balazadeh S, Riaño-Pachón DM, Mueller-Roeber B: Transcription factors              comparison and cross-validation of the Affymetrix and Illumina gene
      regulating leaf senescence in Arabidopsis thaliana. Plant Biol 2008,               expression analysis platforms. Nucleic Acids Res 2005, 33:5914-5923.
      10:63-75.
-
-
-Cantu et al. BMC Genomics 2011, 12:492                                                                                                    Page 17 of 17
+ Cantu et al. BMC Genomics 2011, 12:492                                                                                                    Page 17 of 17
 http://www.biomedcentral.com/1471-2164/12/492
 52. Marioni JC, Mason CE, Mane SM, Stephens M, Gilad Y: RNA-seq: An
      assessment of technical reproducibility and comparison with gene

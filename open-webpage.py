@@ -3,7 +3,7 @@
 import urllib.request, urllib.error, urllib.parse
 
 url = 'https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-14-728'
-
+'''
 response = urllib.request.urlopen(url)
 webContent = response.read()
 
@@ -30,7 +30,7 @@ new_log = ''
 for line in log:
 	new_log += line
 #print("this is new log")
-#print(new_log) -this works
+#print(new_log) #-this works
 
 #create an empty dictionary to fit the key-values from the Plant Ontology database text file
 #downloaded from: ....???
@@ -57,5 +57,28 @@ for query, onto_id in onto.items():
         print(query, onto_id)
 
 #must find a way to record from where in the HTML structure the match was found.
+'''
+
+from bs4 import BeautifulSoup
+from bs4 import SoupStrainer
+
+def has_class_but_no_id(tag):
+    return tag.has_attr('main-content') and not tag.has_attr('Bib1-section')
+
+with open('paper.html') as f:
+    #soup = BeautifulSoup(f, 'html.parser')
+    #print(soup.prettify())
+    # Will parse only the below mentioned "ids".
+    parse_only = SoupStrainer(id=["main-content"]) #but want to exclude Bib1-section (bibliography)
+    soup = BeautifulSoup(f, "html.parser", parse_only=parse_only)
+    hello = soup.find_all(has_class_but_no_id)
+    print(hello)
+    #print(soup.get_text())
 
 
+1. Want to parse between main - content and bib1 - section:
+2. if not a set function as is, then could I use regex to state start reading after you read string Abstract and
+stop when you see word reference?
+3. I can parse the whole thing and then delete the sections
+if not needed:
+4. for better performance I make variables dont_parse = regex if id=[Bib1-section] tag['id'] = 'verybold'

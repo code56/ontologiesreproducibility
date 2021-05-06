@@ -102,7 +102,7 @@ for line in open('plant-ontology-dev.txt'):
 #create a dictionary with keys the name of the plant ontology and value the PO term. 
 	if len(split) > 2:
 		onto[split[1]] = split[0]
-print('this is the Plant Ontologies constructed dictionary', onto)
+#print('this is the Plant Ontologies constructed dictionary', onto)
 
 import re
 
@@ -112,7 +112,7 @@ occurrences = {}
 for key in onto:
     m = re.findall(key, text_article, re.IGNORECASE)
     occurrences[key] = len(m)
-print('this is the occurrences', occurrences)
+#print('this is the occurrences', occurrences)
 
 
 #must split the article document text into words otherwise, it might find matches from within text
