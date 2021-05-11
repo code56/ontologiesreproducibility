@@ -30,7 +30,7 @@ def fromurltotext(url):
     # Python - How to read HTML line by line into a list
     with open("paper.html") as f:
         content = f.readlines()
-    # you may also want to remove whitespace characters like `\n` at the end of each line
+    # remove whitespace characters like `\n` at the end of each line
     content = [x.strip() for x in content]
     # print(content) #works
 
@@ -91,7 +91,6 @@ for line in log:
 # pre-processing of text_article data
 # remove punctuation
 
-
 def remove_punctuation(txt):
     txt_nopunct = "".join([c for c in txt if c not in string.punctuation])
     return txt_nopunct
@@ -109,14 +108,6 @@ print('tokenised data', tokenised_data)
 bigram = list(ngrams(tokenised_data, 2))
 print('this is bigram before removing punctuation from article text', bigram)
 
-'''
-#example
-word_data = "The best performance can bring in sky high success."
-nltk_tokens = nltk.word_tokenize(word_data)
-list_of_bigrams = list(nltk.bigrams(nltk_tokens))
-print(list_of_bigrams)
-'''
-
 #aim convert tokenized data which is  a list into a string
 # for i in word_tokenize(raw_data):
 # print (i)
@@ -125,19 +116,10 @@ print(list_of_bigrams)
 # stopwords = nltk.corpus.stopwords.words('english')
 # ps = nltk.PorterStemmer()
 
-'''
-def remove_punctuation(txt):
-    txt_nopunt = "".join([c for c in txt if c not in string.punctuation])
-    tokens = re.split('\W+', txt)
-    txt = " ".join([ps.stem(word) for word in tokens if word not in stopwords])
-    return txt_nopunt
-'''
-
 tokens = word_tokenize(parsed_data1)
 print('this is tokens', tokens[:100]) #list structure
 
 # Filter out stop words
-
 
 # remove remaining tokens that are not alphabetic
 words = [word for word in tokens if word.isalpha()]
@@ -155,27 +137,6 @@ from sklearn.feature_extraction.text import CountVectorizer
 from nltk.tokenize import RegexpTokenizer
 #tokenizer to remove unwanted elements from out data like symbols and numbers
 token = RegexpTokenizer(r'[a-zA-Z]+')
-
-'''
-cv = CountVectorizer(lowercase=True, ngram_range=(1, 4), tokenizer=token.tokenize)
-
-X = cv.fit(words)
-#print(X.vocubulary_)
-print('am printing cv.get_feature_names')
-print(cv.get_feature_names())
-
-X = cv.transform(words)
-# X = cv.fit_transform(words)
-
-#what is the purpose of these?
-#print("X.shape", X.shape)
-#print("X", X)
-#print("X.toarray()", X.toarray())
-
-
-df = pd.DataFrame(X.toarray(), columns=cv.get_feature_names())
-#print('df', df)
-'''
 
 #compare a list_of_bigrams with the plant ontology dictionary. However, the keys in the onto{} are not bigrams -
 # i.e not two tokens. Then how do I do the comparison by ignoring the comma? Would I have to make a new onto dictionary
@@ -195,21 +156,14 @@ for line in open('plant-ontology-dev.txt'):
 		onto[split[1]] = split[0]
 print('plant ontology dictionary', onto)
 
-'''
-f = open("dictionary_out.txt", "a")
-print('this is ontologies dictionary', file=f)
-print(onto, file=f)
-f.close()
-'''
-
 
 #would be good to be searching for terms in whole text except in the references.
 
 
-#this only returns one word matches for keys, e.g. found query lemma PO:0009037
 for query, onto_id in onto.items():
-	if query in tokenised_data:
-		print('found single word matches', query, onto_id)
+    if query in tokenised_data:
+	    print('found single word matches', query, onto_id)
+#this only returns one word matches for keys, e.g. found query lemma PO:0009037
 
 
 '''
@@ -230,6 +184,7 @@ for query, onto_id in onto.items():
 
 res = [' '.join(tups) for tups in bigram]
 print("The joined data res is : " + str(res))
+#result--> The joined data res is : ['Kugler et', 'et al', 'al .', '. BMC', 'BMC Genomics', 'Genomics 2013']
 
 '''
 for query, onto_id in onto.items():
@@ -237,17 +192,15 @@ for query, onto_id in onto.items():
         print('found query match in bigrams', query)
 '''
 
-#lateral root, vs lateral root tip, vs all occurances of keys with the word lateqral in it
+#lateral root, vs lateral root tip, vs all occurances of keys with the word lateral in it
 string = 'plant embryo proper'
 arr = [x.strip() for x in string.strip('[]').split(' ')]
 #result -> ['plant', 'embryo', 'proper']
 
-'''
+
 mystr = 'This is a string, with words!'
 wordList = re.sub("[^\w]", " ",  mystr).split()
-'''
-
-
+print('this is wordList', wordList)
 
 #This is the wall of the microsporangium.
 #vs I found in my garden wall a microsporangium (not wanted).
@@ -257,7 +210,8 @@ for query, onto_id in onto.items():
     res = [' '.join(tups) for tups in list_of_bigrams_testing]
     if query in res:
         print('found query in the res', query, onto_id)
-print('this is res tuple', res)
+
+#print('this is res', res)
         #if query in a:
         #    print(a, onto_id)
        # elif query in b:
@@ -279,41 +233,22 @@ print(TreebankWordDetokenizer().detokenize(['the', 'quick', 'brown']))
 #join = "".join([" "+i if not i.startswith("'") and i not in string.punctuation else i for i in list_of_bigrams_testing]).strip()
 
 #iterating over the list of tuples and joining the words
-for p in list_of_bigrams_testing:
-    print('{} {}'.format(p[0], p[1]))
-#microsporangium wall
-#whole plant
 
 combined_bigram = []
-for p in list_of_bigrams_testing:  #microsporangium wall #whole plant
-    combined_bigram = [('{} {}'.format(p[0], p[1]))]
-    print('this is combined bigram', combined_bigram)
-    print('this is p in combined_bigram', p)
-#['microsporangium wall']
-#['whole plant']
+for p in list_of_bigrams_testing:
+    #microsporangium wall #whole plant
+    combined_bigram.append('{} {}'.format(p[0], p[1]))
+print('this is combined bigram', combined_bigram) #combined bigram = ['microsporangium wall', 'whole plant']
+
 
 for a in combined_bigram:
-    print('this is the first bigram in the tuple', a)
-    #print(b)
-'''
-for query1, onto_id in onto.items():
-    for a in combined_bigram:
-        if query1 in a:
-            print(a, onto_id)
-        else:
-            print('combined bigram list match not found')
-'''
+    print('this is the first bigram in the tuple:', a)
 
 
 for query1, onto_id in onto.items():
     if query1 in combined_bigram:
         print('found it', query1, onto_id)
 
-'''
-for query, onto_id in onto.items():
-	if query in text:
-		print(query, onto_id)
-'''
 
 #but want to be adding to have a final result combined_bigram = [('microspangiu wall'), ('whole plant')]
 '''
@@ -466,4 +401,40 @@ def extract_phases(tokens, wordlist):
             all_phrases.append(phrases)
     print('all word list')
     return all_phrases
+'''
+
+
+sentence = 'this is a foo bar sentences and i want to ngramize it'
+
+n = 6
+sixgrams = ngrams(sentence.split(), n)
+
+for grams in sixgrams:
+    print(grams)
+
+n = 3
+threegrams = ngrams(text_article.split(), n)
+#threegrams1 = list(ngrams(text_article.split(), n))
+
+ok = []
+for grams1 in threegrams:
+    #print(grams1)
+    ok.append(grams1) #[('Kugler', 'et', 'al.'), ('et', 'al.', 'BMC'), ('al.', 'BMC', 'Genomics'), ('BMC', 'Genomics', '2013,'), ('Genomics', '2013,', '14:728')
+    #so in order to find matches of onto dictionary and the 3grams, the 3grams must not be separated by comma. So need to join.
+print(ok)
+
+onto_items_dummy = {'name': 'id', 'plant embryo proper': 'PO:0000001', ('Kugler','et', 'al.'): 'hello'}
+for query1, onto_id in onto_items_dummy.items():
+    if query1 in ok:
+        print('found it', query1, onto_id)
+  #  else:
+  #      print('didnt find a matching ontology term')
+
+'''
+
+    for query1, onto_id in onto.items():
+         if query1 in grams1:
+            print('found it', query1, onto_id)
+
+    print('didnt find a match')
 '''

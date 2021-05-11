@@ -21,8 +21,6 @@ from bs4 import BeautifulSoup
 url = 'https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-14-728'
 
 
-
-
 #need to work with an html file format of the paper
 
 def fromurltotext(url):
@@ -507,3 +505,4 @@ def extract_phases(tokens, wordlist):
     return all_phrases
 '''
 
+#testing hello
