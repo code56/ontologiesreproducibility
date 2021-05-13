@@ -15,7 +15,7 @@ from pathlib import Path
 import urllib.request, urllib.error, urllib.parse
 
 
-#need to work with an html file format of the paper
+#work with an html version of the paper
 
 def fromurltotext(url):
     response = urllib.request.urlopen(url)
@@ -32,7 +32,6 @@ def fromurltotext(url):
         content = f.readlines()
     # remove whitespace characters like `\n` at the end of each line
     content = [x.strip() for x in content]
-    # print(content) #works
 
     # want to get the text from the HTML
     with open('paper.html') as f:
@@ -88,7 +87,7 @@ for line in log:
     text_article += line
 
 
-# pre-processing of text_article data
+# pre-processing of text_article
 # remove punctuation
 
 def remove_punctuation(txt):
@@ -105,8 +104,6 @@ ps = nltk.PorterStemmer()
 tokenised_data = nltk.word_tokenize(text_article) #parsed_data1 instead of text_article?
 print('tokenised data', tokenised_data)
 
-bigram = list(ngrams(tokenised_data, 2))
-print('this is bigram before removing punctuation from article text', bigram)
 
 #aim convert tokenized data which is  a list into a string
 # for i in word_tokenize(raw_data):
@@ -119,19 +116,15 @@ print('this is bigram before removing punctuation from article text', bigram)
 tokens = word_tokenize(parsed_data1)
 print('this is tokens', tokens[:100]) #list structure
 
-# Filter out stop words
-
 # remove remaining tokens that are not alphabetic
 words = [word for word in tokens if word.isalpha()]
-# filter out stop words
 
+# filter out stop words
 words = [w for w in tokens if not w in stopwords]
 print('this is words after removing stop words', words[:100])
 
 # https://machinelearningmastery.com/clean-text-machine-learning-python/
 
-
-#works
 
 from sklearn.feature_extraction.text import CountVectorizer
 from nltk.tokenize import RegexpTokenizer
@@ -166,33 +159,54 @@ for query, onto_id in onto.items():
 #this only returns one word matches for keys, e.g. found query lemma PO:0009037
 
 
-'''
+matches_list = []
 for query, onto_id in onto.items():
-    wordlist = re.sub("[^\w]"," ", query).split()
+    wordlist = re.sub("[^\w]"," ", query).split() #separate the individual words in query into tokens
+                                                  #e.g.query = 'palea development stage' --> 'palea', 'development', 'stage'
     for word in wordlist:
         if word in words: #words is the tokenised journal article
-            print('found the word in manuscript:', word + " | " + 'query: ' + query + " | " + 'onto_id: ' + onto_id)
+            matches_list.append(word + " | " + query + " | " + onto_id)
+#print('this is the matches list', matches_list)
 
-#this results in a lot of false positives
-#found the word in manuscript: whole | query: whole plant fruit formation stage 70% to final size | onto_id: PO:0007027
-'''
+# this results in fussy matching
+# found the word in manuscript: whole | query: whole plant fruit formation stage 70% to final size | onto_id: PO:0007027
+# maybe also include the complete sentence this matching came from in order to
+# allow the reader to assess if it is to their interest that sentence or not.
 
 #match the bigrams and the keys in the onto dictionary
 
-# joining tuple elements
+
+#compare a list_of_bigrams with the plant ontology dictionary. However, the keys in the onto{} are not bigrams -
+# i.e not two tokens. Then how do I do the comparison by ignoring the comma? Would I have to make a new onto dictionary
+# with tokens separated by coma for the keys? or can I make a new list of bigrams NOT separated by commas?
+
+# joining tuple elements (i.e. removing the separating commas)
 # using join() + list comprehension
+
+bigram = list(ngrams(tokenised_data, 2))
+#print('this is bigram before removing punctuation from article text', bigram)
 
 res = [' '.join(tups) for tups in bigram]
 print("The joined data res is : " + str(res))
-#result--> The joined data res is : ['Kugler et', 'et al', 'al .', '. BMC', 'BMC Genomics', 'Genomics 2013']
+#result --> The joined data res is : ['. BMC', 'BMC Genomics', 'Genomics 2013', 'RESEARCH ARTICLE', 'ARTICLE Open']
+# find matches between the onto_dict and the res
+print(type(res))
 
-'''
+new_res_testing = ['Kugler et', 'et al', 'al .', '. BMC', 'BMC Genomics', 'whole plant', 'plant is']
+#new_res = []
+#new_res = res.append('whole plant')
+
 for query, onto_id in onto.items():
-    if query in res:
-        print('found query match in bigrams', query)
-'''
+    for words in new_res_testing:
+        if query in words:
+            print('found query match in res bigrams', " | " + words + " | " + query)
+
+
+
+
 
 #lateral root, vs lateral root tip, vs all occurances of keys with the word lateral in it
+
 string = 'plant embryo proper'
 arr = [x.strip() for x in string.strip('[]').split(' ')]
 #result -> ['plant', 'embryo', 'proper']
@@ -258,6 +272,44 @@ for a, b in bigrams:
     print(b)
 '''
 
+
+
+sentence = 'this is a foo bar sentences and i want to ngramize it'
+
+n = 6
+sixgrams = ngrams(sentence.split(), n)
+
+for grams in sixgrams:
+    print(grams)
+
+n = 3
+threegrams = ngrams(text_article.split(), n)
+#threegrams1 = list(ngrams(text_article.split(), n))
+
+ok = []
+for grams1 in threegrams:
+    #print(grams1)
+    ok.append(grams1) #[('Kugler', 'et', 'al.'), ('et', 'al.', 'BMC'), ('al.', 'BMC', 'Genomics'), ('BMC', 'Genomics', '2013,'), ('Genomics', '2013,', '14:728')
+    #so in order to find matches of onto dictionary and the 3grams, the 3grams must not be separated by comma. So need to join.
+print(ok)
+
+onto_items_dummy = {'name': 'id', 'plant embryo proper': 'PO:0000001', ('Kugler','et', 'al.'): 'hello'}
+for query1, onto_id in onto_items_dummy.items():
+    if query1 in ok:
+        print('found it', query1, onto_id)
+  #  else:
+  #      print('didnt find a matching ontology term')
+
+'''
+
+    for query1, onto_id in onto.items():
+         if query1 in grams1:
+            print('found it', query1, onto_id)
+
+    print('didnt find a match')
+'''
+
+
 #read text
 #raw data is the PO ontology file
 
@@ -289,6 +341,7 @@ def replace_certain_punctuations(list):
     return records
 
 print('synonym_name_list1 without punctuations -_.', replace_certain_punctuations(synonym_list))
+
 
 
 
@@ -401,40 +454,4 @@ def extract_phases(tokens, wordlist):
             all_phrases.append(phrases)
     print('all word list')
     return all_phrases
-'''
-
-
-sentence = 'this is a foo bar sentences and i want to ngramize it'
-
-n = 6
-sixgrams = ngrams(sentence.split(), n)
-
-for grams in sixgrams:
-    print(grams)
-
-n = 3
-threegrams = ngrams(text_article.split(), n)
-#threegrams1 = list(ngrams(text_article.split(), n))
-
-ok = []
-for grams1 in threegrams:
-    #print(grams1)
-    ok.append(grams1) #[('Kugler', 'et', 'al.'), ('et', 'al.', 'BMC'), ('al.', 'BMC', 'Genomics'), ('BMC', 'Genomics', '2013,'), ('Genomics', '2013,', '14:728')
-    #so in order to find matches of onto dictionary and the 3grams, the 3grams must not be separated by comma. So need to join.
-print(ok)
-
-onto_items_dummy = {'name': 'id', 'plant embryo proper': 'PO:0000001', ('Kugler','et', 'al.'): 'hello'}
-for query1, onto_id in onto_items_dummy.items():
-    if query1 in ok:
-        print('found it', query1, onto_id)
-  #  else:
-  #      print('didnt find a matching ontology term')
-
-'''
-
-    for query1, onto_id in onto.items():
-         if query1 in grams1:
-            print('found it', query1, onto_id)
-
-    print('didnt find a match')
 '''
