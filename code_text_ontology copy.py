@@ -13,6 +13,11 @@ from nltk.corpus import stopwords
 from nltk.tokenize.treebank import TreebankWordDetokenizer
 from pathlib import Path
 import urllib.request, urllib.error, urllib.parse
+import requests, pprint
+
+r = requests.get('https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/E-MTAB-1729')
+#pprint.pprint(r.content)
+arrayexpresscontent = r.content
 
 
 #work with an html version of the paper
@@ -85,6 +90,33 @@ with open('output.txt') as f:
 text_article = ''
 for line in log:
     text_article += line
+
+
+# regex for ArrayExpress Accession codes for experiments : E-XXXX-n
+# regex = (r"E-[A-Z]{4}-[0-9]*") to find in text_article
+
+accession_numbers_in_article = re.search("E-[A-Z]{4}-[0-9]*", text_article)
+print(accession_numbers_in_article)
+
+#works and returns: <re.Match object; span=(71082, 71093), match='E-MTAB-1729'>
+#so take the match object and do an EBI API search using this accession number
+# question: is this the best place for this code to be executed and the best way?
+# can this be executed in a function whilst it does other stuff done whilst reading the article line by line?
+
+#requests.get('https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/E-MTAB-1729') returns Response 200 - good
+
+api_url="https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/E-MTAB-1729" #this needs to change dynamically
+#based on the accession number of the study
+response=requests.get(api_url)
+print(response.text)
+#this will print the xml format of the accession number file
+# or same as print(response.content)
+#to change the ending of the api_url I can truncate the value of the "accession_numbers_in_article" object
+
+
+#then what do I do with the xml file?
+#what am I looking to find from it?
+# compare the metadata from the document with the one recorded on the xml response file?
 
 
 # pre-processing of text_article
@@ -385,7 +417,7 @@ data_reproducibility_keywords = ['accession', 'data', 'Supporting', 'available',
 phrases_from_article = []
 for word in data_reproducibility_keywords:
     phrases_from_article = get_all_phrases_containing_tar_wrd(word, text_article)
-    print('phrases from text article', word, phrases_from_article) #it doesn't return all the occurences or the complete
+    print('phrases from text article:', word, phrases_from_article) #it doesn't return all the occurences or the complete
                                                                    # sentences because it is two column text.
 
 #returning sentences containing particular phrases: e.g. "Supporting data"
@@ -455,3 +487,9 @@ def extract_phases(tokens, wordlist):
     print('all word list')
     return all_phrases
 '''
+
+# regex for ArrayExpress Accession codes for experiments : E-XXXX-n
+# regex = (r"E-[A-Z]{4}-[0-9]*") to find in text_article
+
+accession_numbers_in_article = re.search("E-[A-Z]{4}-[0-9]*", text_article)
+print(accession_numbers_in_article)
