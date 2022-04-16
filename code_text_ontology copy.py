@@ -147,7 +147,6 @@ stopwords = nltk.corpus.stopwords.words('english')
 ps = nltk.PorterStemmer()
 
 tokenised_data = nltk.word_tokenize(text_article)  # parsed_data1 instead of text_article?
-print('tokenised data', tokenised_data)
 
 # aim convert tokenized data which is  a list into a string
 # for i in word_tokenize(raw_data):
@@ -157,15 +156,14 @@ print('tokenised data', tokenised_data)
 # stopwords = nltk.corpus.stopwords.words('english')
 # ps = nltk.PorterStemmer()
 
-tokens = word_tokenize(parsed_data1)
-print('this is tokens', tokens[:100])  # list structure
+tokens = word_tokenize(parsed_data1)  # list structure
 
 # remove remaining tokens that are not alphabetic
 words = [word for word in tokens if word.isalpha()]
+#I have two variables as words???
 
-# filter out stop words
+# filter out stop words e.g. of, for .... (but I need some stopwords... e.g. fruit size up to 10% stage
 words = [w for w in tokens if not w in stopwords]
-print('this is words after removing stop words', words[:100])
 
 # https://machinelearningmastery.com/clean-text-machine-learning-python/
 
@@ -204,6 +202,14 @@ print('plant ontology dictionary', onto)
 # after I construct the PO_dict, how can I use it to find matches of 'name', 'definition', or 'synonyms' in the article?
 # and what about finding matches of 'id' in the article? Coz the authors may quote the official PO id in their article
 
+'''
+for query, onto_id in onto.items():
+    if query in text_article:
+        print('hello', onto_id, query)
+#not good coz it picks ups things like NIL2 in text_article and returns PO:0006304 L2.
+#which is not a correct match. Which is why matching with tokenisation is the best way.
+'''
+
 
 po_dict_of_lists = {}
 for line in open('plant-ontology-dev.txt'):
@@ -215,11 +221,14 @@ for line in open('plant-ontology-dev.txt'):
 #print('plant ontology dictionary', my_dict)
 #creates a dictionary of lists with keys the PO id and the values in a list [name, defn, synonyms]
 
-#then from here (the po_dict_of_lists I need to matches in the text with either the 'name', 'defn', 'synonyms'
+#TODO then from here (the po_dict_of_lists I need to matches in the text with either the 'name', 'defn', 'synonyms'
 # the 'name' is easy to do, and is done
 # the definition and synonym values are longer and more wordy. I cannot match the exact sentences....it will not
 # result into anything. Instead, I can try to find matches of any words in the value entries of 'defn' and 'synonyms'
 # look at how I matched with the name and see how I can implement something similar for the po_dict_of_lists
+#How to access items in a Python Dictionary of Lists
+
+
 
 
 
@@ -256,14 +265,13 @@ for query, onto_id in onto.items():
 # using join() + list comprehension
 
 bigram = list(ngrams(tokenised_data, 2))
-# print('this is bigram before removing punctuation from article text', bigram)
 
 res = [' '.join(tups) for tups in bigram]
-print("The joined data res is : " + str(res))
-# result --> The joined data res is : ['. BMC', 'BMC Genomics', 'Genomics 2013', 'RESEARCH ARTICLE', 'ARTICLE Open']
+# res is = ['. BMC', 'BMC Genomics', 'Genomics 2013', 'RESEARCH ARTICLE', 'ARTICLE Open']
 # find matches between the onto_dict and the res
-print(type(res))
+#print(type(res))
 
+print('this is testing code for bigram matching')
 new_res_testing = ['Kugler et', 'et al', 'al .', '. BMC', 'BMC Genomics', 'whole plant', 'plant is']
 # new_res = []
 # new_res = res.append('whole plant')
@@ -271,10 +279,13 @@ new_res_testing = ['Kugler et', 'et al', 'al .', '. BMC', 'BMC Genomics', 'whole
 for query, onto_id in onto.items():
     for words in new_res_testing:
         if query in words:
-            print('found query match in res bigrams', " | " + words + " | " + query)
+            print('found query match in new res testing', " | " + words + " | " + query)
 
+#found query match in res bigrams  | whole plant | whole plant
 # lateral root, vs lateral root tip, vs all occurances of keys with the word lateral in it
+# this is a limitation. The code will search only the exact matches of ngrams.
 
+print('more testing code')
 string = 'plant embryo proper'
 arr = [x.strip() for x in string.strip('[]').split(' ')]
 # result -> ['plant', 'embryo', 'proper']
@@ -287,55 +298,28 @@ print('this is wordList', wordList)
 # This is the wall of the microsporangium.
 # vs I found in my garden wall a microsporangium (not wanted).
 
-list_of_bigrams_testing = [('microsporangium', 'wall'), ('whole', 'plant')]
+list_of_bigrams_testing = [('microsporangium', 'wall'), ('whole', 'plant'), ('microsporangium', 'flower')]
+res1 = [' '.join(tups) for tups in list_of_bigrams_testing]  # --> res = ['microsporangium wall', 'whole plant']
+
 for query, onto_id in onto.items():
-    res = [' '.join(tups) for tups in list_of_bigrams_testing]
-    if query in res:
-        print('found query in the res', query, onto_id)
+    if query in res1:
+        print('found query in the res1', query, onto_id)
 
-# print('this is res', res)
-# if query in a:
-#    print(a, onto_id)
-# elif query in b:
-#      print(b, onto_id)
-# else:
-# =print('match not found')
-# matches plant embryo proper PO:0000001; plant embryo PO:0009009; microsporangium PO:0025202; microsporangium PO:0025202 (#it didn't find all the occurances of the
-# terms nor microsporangium wall as a bigram.
+# TODO have the code return all PO ids, that contain a word found in the tokenised data
+#   for example, if in the tokenised_data of the article we have the word palea, return apart from the exact match
+#   return e.g. 'palea apiculus' as well. Meaning find matches with the onto dictionary with any of the words in the
+#   query key.
 
 
-# from this we learn that for the match to be made, we need to join the bigrams to pair of two words not separated by ','
-
-# for word1, word2 in list_of_bigrams_testing:
-# list_compression = word1 + word2
-# print(list_compression)
-print(TreebankWordDetokenizer().detokenize(['the', 'quick', 'brown']))
-
-# join = "".join([" "+i if not i.startswith("'") and i not in string.punctuation else i for i in tokens]).strip()
-# join = "".join([" "+i if not i.startswith("'") and i not in string.punctuation else i for i in list_of_bigrams_testing]).strip()
-
-# iterating over the list of tuples and joining the words
-
-combined_bigram = []
-for p in list_of_bigrams_testing:
-    # microsporangium wall #whole plant
-    combined_bigram.append('{} {}'.format(p[0], p[1]))
-print('this is combined bigram', combined_bigram)  # combined bigram = ['microsporangium wall', 'whole plant']
-
-for a in combined_bigram:
-    print('this is the first bigram in the tuple:', a)
-
-for query1, onto_id in onto.items():
-    if query1 in combined_bigram:
-        print('found it', query1, onto_id)
-
-# but want to be adding to have a final result combined_bigram = [('microspangiu wall'), ('whole plant')]
 '''
 bigrams=[('more', 'is'), ('is', 'said'), ('said', 'than'), ('than', 'done')]
 for a, b in bigrams:
     print(a)
     print(b)
 '''
+
+'''
+#test code for applying ngrams
 
 sentence = 'this is a foo bar sentences and i want to ngramize it'
 
@@ -344,22 +328,26 @@ sixgrams = ngrams(sentence.split(), n)
 
 for grams in sixgrams:
     print(grams)
+'''
 
 n = 3
-threegrams = ngrams(text_article.split(), n)
-# threegrams1 = list(ngrams(text_article.split(), n))
 
-ok = []
-for grams1 in threegrams:
-    # print(grams1)
-    ok.append(
-        grams1)  # [('Kugler', 'et', 'al.'), ('et', 'al.', 'BMC'), ('al.', 'BMC', 'Genomics'), ('BMC', 'Genomics', '2013,'), ('Genomics', '2013,', '14:728')
-    # so in order to find matches of onto dictionary and the 3grams, the 3grams must not be separated by comma. So need to join.
-print(ok)
+threegrams = list(ngrams(tokenised_data, 3)) #I need the punctuation as name can be "fruit size up to 10% stage"
+print('this is threegrams', threegrams)
+# threegrams = [('Kugler', 'et', 'al.'), ('et', 'al.', 'BMC'), ('al.', 'BMC', 'Genomics'), ('BMC', 'Genomics', '2013,')]
+# so in order to find matches of onto dictionary and the 3grams, the 3grams must not be separated by comma. So need to join.
+
+combine3gram = [' '.join(tups) for tups in threegrams]
+print("The joined data combine3grams is : " + str(combine3gram))
+
+#The joined data combine3grams is : ['Kugler et al', 'et al .', 'al . BMC', '. BMC Genomics', 'BMC Genomics 2013',
+# find matches between the onto_dict and the res
+
+#eventually combine all the n-grams, in a loop where it starts from 1 till 6 grams
 
 onto_items_dummy = {'name': 'id', 'plant embryo proper': 'PO:0000001', ('Kugler', 'et', 'al.'): 'hello'}
 for query1, onto_id in onto_items_dummy.items():
-    if query1 in ok:
+    if query1 in threegrams:
         print('found it', query1, onto_id)
 #  else:
 #      print('didnt find a matching ontology term')
