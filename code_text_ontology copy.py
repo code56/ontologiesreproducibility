@@ -6,7 +6,7 @@ __author__ = 'Evanthia_Kaimaklioti Samota'
 # In[7]:
 
 import pandas as pd
-import os, os.path, pdftotext, re, string, nltk, argparse, sys, functools, operator
+import  os, os.path, pdftotext, re, string, nltk, argparse, sys, functools, operator
 from nltk.tokenize import word_tokenize
 from nltk.util import ngrams
 from nltk.corpus import stopwords
@@ -14,6 +14,9 @@ from nltk.tokenize.treebank import TreebankWordDetokenizer
 from pathlib import Path
 import urllib.request, urllib.error, urllib.parse
 import requests, pprint
+import bs4
+from bs4 import BeautifulSoup
+
 
 r = requests.get('https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/E-MTAB-1729')
 # pprint.pprint(r.content)
@@ -100,6 +103,7 @@ for line in log:
 
 accession_numbers_in_article_list = re.findall("E-[A-Z]{4}-[0-9]*", text_article)
 print(accession_numbers_in_article_list)  # returns a list of accession numbers ['E-MTAB-1729', 'E-MTAB-1729']
+#then convert the list into a set
 
 accession_study_url_to_concatenate = "https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/"
 
@@ -108,12 +112,25 @@ accession_study_url_to_concatenate = "https://www.ebi.ac.uk/arrayexpress/xml/v3/
 # so that the for loop below is not running twice for the same accession number?
 
 
-for accession_number in accession_numbers_in_article_list:
+for accession_number in accession_numbers_in_article_list: #use the sets of this list instead
     api_url_concatenated = accession_study_url_to_concatenate + str(accession_number)
     print(api_url_concatenated)
     response = requests.get(api_url_concatenated)
     print(response.text)  # put this in a varialbe
 
+#code to get the xml file and parse it and find all the value tags which after will check against the
+# PO dev file
+
+hello = requests.request('GET', 'https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/E-MTAB-1729') #change variable name
+file = open('response.txt', 'w')
+file.writelines(hello.text)
+file.close()
+
+soup = bs4.BeautifulSoup(hello.text,'xml')
+print(soup.prettify())
+
+result2 = soup.find_all("value")
+print(result2)
 
 # question: is this the best place for this code to be executed and the best way?
 # can this be executed in a function whilst it does other stuff done whilst reading the article line by line?
@@ -311,12 +328,13 @@ for query, onto_id in onto.items():
 #   query key.
 
 
-'''
+
+
 bigrams=[('more', 'is'), ('is', 'said'), ('said', 'than'), ('than', 'done')]
 for a, b in bigrams:
     print(a)
     print(b)
-'''
+
 
 '''
 #test code for applying ngrams
