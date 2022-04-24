@@ -18,11 +18,6 @@ import bs4
 from bs4 import BeautifulSoup
 
 
-r = requests.get('https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/E-MTAB-1729')
-# pprint.pprint(r.content)
-arrayexpresscontent = r.content
-
-
 # work with an html version of the paper
 
 def fromurltotext(url):
@@ -100,7 +95,7 @@ for line in log:
 # works and returns: <re.Match object; span=(71082, 71093), match='E-MTAB-1729'>
 # so take the match object and do an EBI API search using this accession number
 
-accession_study_url_to_concatenate = "https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/"
+
 #this needs to be fed dynamically from the function using regex to find accession urls in the text article
 
 #TODO Rename this function coz it does more than finding article's accession number
@@ -108,59 +103,89 @@ accession_study_url_to_concatenate = "https://www.ebi.ac.uk/arrayexpress/xml/v3/
 #TODO edit this function so that it incluede code from the xml_metadata_processing*=(url) as the code there is more slick
     #TODO and also has writing the response in a text file? is this needed though? to write the xml file in hello.text?
 
+#TODO remove duplicate code
+#according to this website this is the url format to use for REST-style queries to retrieve results in XML format
+r = requests.get('https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/E-MTAB-1729')
+# pprint.pprint(r.content)
+arrayexpresscontent = r.content
+
+
+#TODO feed accession_study_url_to_concatenate from dynamic regex of the article (see code end of the script)
+
+#according to this website this is the url format to use for REST-style queries to retrieve results in XML format
+accession_study_url_to_concatenate = "https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/"
+
+'''
 def find_articles_accession_number(article_text, accession_url):
-    accession_numbers_in_article_list = re.findall("E-[A-Z]{4}-[0-9]*", text_article)
+    accession_numbers_in_article_list = re.findall("E-[A-Z]{4}-[0-9]*", article_text)
     set_article_accession_numbers = set(accession_numbers_in_article_list)  #{'E-MTAB-1729'}
     for accession_number in set_article_accession_numbers:
         api_url_concatenated = accession_url + str(accession_number)
         response = requests.get(api_url_concatenated)
-        print(response.text)
+        print(response.text) #the fetch xml file
 
         return response.text
+    #instead of returning the response.text aka the xml file, have the function to write it, and instead
+    #return the accession url which then I can run the xml_metadata_processing.
+    # or I can combine the two functions together...
+    #so code this but make a new function, don't erase the find_articles_accession_number() function
 
-#TODO feed accession_study_url_to_concatenate from dynamic regex of the article (see code end of the script)
+
 
 fetch_file_from_rest_request = find_articles_accession_number(text_article, accession_study_url_to_concatenate)
 
-
+'''
 
 #code to get the xml file and parse it and find all the value tags which after will check against the
 # PO dev file
 
 rest_request_url = 'https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/E-MTAB-1729'
 
+'''
 def xml_metadata_processing(url):
-    hello = requests.request('GET', url) #change variable name
-    file = open('response.txt', 'w')
-    file.writelines(hello.text)
+    getxml = requests.request('GET', url) #change variable name
+    file = open('response.txt', 'w') #article url
+    file.writelines(getxml.text)
     file.close()
 
-    soup = bs4.BeautifulSoup(hello.text,'xml')
+    soup = bs4.BeautifulSoup(getxml.text, 'xml')
     #print(soup.prettify())
 
     result2 = soup.find_all("value")
     print(result2)
     return result2
+'''
 
-xml_metadata_processing(rest_request_url)
+
+def processing_array_express_info(article_text, accession_url):
+    accession_numbers_in_article_list = re.findall("E-[A-Z]{4}-[0-9]*", article_text)
+    set_article_accession_numbers = set(accession_numbers_in_article_list)  #{'E-MTAB-1729'}
+    for accession_number in set_article_accession_numbers:
+        api_url_concatenated = accession_url + str(accession_number)
+        getxml = requests.request('GET', api_url_concatenated)
+        file = open('response.txt', 'w')
+        file.writelines(getxml.text)
+        file.close()
+
+        soup = bs4.BeautifulSoup(getxml.text, 'xml')
+        # print(soup.prettify())
+
+        result = soup.find_all("value")
+        print(result)
+        return result
+
+print("Running processing array express metadata next")
+processing_array_express_info(text_article, accession_study_url_to_concatenate)
 
 
-# question: is this the best place for this code to be executed and the best way?
+#TODO make a function that will find matches between the result of function processing_array_express_info function
+#and the PO_dict dictionary
+
+
+# TODO question: is this the best place for this code to be executed and the best way?
 # can this be executed in a function whilst it does other stuff done whilst reading the article line by line?
 
-# requests.get('https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/E-MTAB-1729') returns Response 200 - good
-
-# api_url_concatenated = accession_study_url_to_concatenate + accession_numbers_in_article
-# print(api_url_concatenated)
-# response=requests.get(api_url_concatenated)
-# print(response.text)
-# this will print the xml format of the accession number file
-# or same as print(response.content)
-
-
-# then what do I do with the xml file?
-# what am I looking to find from it?
-# compare the metadata from the document with the one recorded on the xml response file?
+# TODO make a function to compare the metadata from the document with the one recorded on the xml response file?
 
 
 # pre-processing of text_article
