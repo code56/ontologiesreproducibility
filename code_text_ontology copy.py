@@ -6,7 +6,7 @@ __author__ = 'Evanthia_Kaimaklioti Samota'
 # In[7]:
 
 import pandas as pd
-import  os, os.path, pdftotext, re, string, nltk, argparse, sys, functools, operator
+import os, os.path, pdftotext, re, string, nltk, argparse, sys, functools, operator
 from nltk.tokenize import word_tokenize
 from nltk.util import ngrams
 from nltk.corpus import stopwords
@@ -100,37 +100,50 @@ for line in log:
 # works and returns: <re.Match object; span=(71082, 71093), match='E-MTAB-1729'>
 # so take the match object and do an EBI API search using this accession number
 
-
-accession_numbers_in_article_list = re.findall("E-[A-Z]{4}-[0-9]*", text_article)
-print(accession_numbers_in_article_list)  # returns a list of accession numbers ['E-MTAB-1729', 'E-MTAB-1729']
-#then convert the list into a set
-
 accession_study_url_to_concatenate = "https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/"
+#this needs to be fed dynamically from the function using regex to find accession urls in the text article
 
-# in this case where accession_study_url_to_concatenate is ['E-MTAB-1729', 'E-MTAB-1729']
-# should I put a check to see if the list should remove duplicate accession numbers?
-# so that the for loop below is not running twice for the same accession number?
+#TODO Rename this function coz it does more than finding article's accession number
+# function that finds the article's accession numbers, does a REST request to return the fetch file (xml file)
+#TODO edit this function so that it incluede code from the xml_metadata_processing*=(url) as the code there is more slick
+    #TODO and also has writing the response in a text file? is this needed though? to write the xml file in hello.text?
+
+def find_articles_accession_number(article_text, accession_url):
+    accession_numbers_in_article_list = re.findall("E-[A-Z]{4}-[0-9]*", text_article)
+    set_article_accession_numbers = set(accession_numbers_in_article_list)  #{'E-MTAB-1729'}
+    for accession_number in set_article_accession_numbers:
+        api_url_concatenated = accession_url + str(accession_number)
+        response = requests.get(api_url_concatenated)
+        print(response.text)
+
+        return response.text
+
+#TODO feed accession_study_url_to_concatenate from dynamic regex of the article (see code end of the script)
+
+fetch_file_from_rest_request = find_articles_accession_number(text_article, accession_study_url_to_concatenate)
 
 
-for accession_number in accession_numbers_in_article_list: #use the sets of this list instead
-    api_url_concatenated = accession_study_url_to_concatenate + str(accession_number)
-    print(api_url_concatenated)
-    response = requests.get(api_url_concatenated)
-    print(response.text)  # put this in a varialbe
 
 #code to get the xml file and parse it and find all the value tags which after will check against the
 # PO dev file
 
-hello = requests.request('GET', 'https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/E-MTAB-1729') #change variable name
-file = open('response.txt', 'w')
-file.writelines(hello.text)
-file.close()
+rest_request_url = 'https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/E-MTAB-1729'
 
-soup = bs4.BeautifulSoup(hello.text,'xml')
-print(soup.prettify())
+def xml_metadata_processing(url):
+    hello = requests.request('GET', url) #change variable name
+    file = open('response.txt', 'w')
+    file.writelines(hello.text)
+    file.close()
 
-result2 = soup.find_all("value")
-print(result2)
+    soup = bs4.BeautifulSoup(hello.text,'xml')
+    #print(soup.prettify())
+
+    result2 = soup.find_all("value")
+    print(result2)
+    return result2
+
+xml_metadata_processing(rest_request_url)
+
 
 # question: is this the best place for this code to be executed and the best way?
 # can this be executed in a function whilst it does other stuff done whilst reading the article line by line?
