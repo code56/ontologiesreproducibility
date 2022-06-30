@@ -17,52 +17,12 @@ import requests, pprint
 import bs4
 from bs4 import BeautifulSoup
 
-
-# work with an html version of the paper
-
-def fromurltotext(url):
-    response = urllib.request.urlopen(url)
-    webContent = response.read()
-
-    # print(webContent)
-    # save the HTML file locally
-
-    f = open('paper.html', 'wb')
-    f.write(webContent)
-
-    # Python - How to read HTML line by line into a list
-    with open("paper.html") as f:
-        content = f.readlines()
-    # remove whitespace characters like `\n` at the end of each line
-    content = [x.strip() for x in content]
-
-    # want to get the text from the HTML
-    with open('paper.html') as f:
-        log = f.readlines()
-
-    new_log = ''
-    for line in log:
-        new_log += line
-
-    f = open('hello.txt', "w+")  # must make it so the name changes each time
-    f.write(" ".join(log))  # I dont want new lines so f.write("\n\n".join(pdf))
-    f.close()
-    print('done writing to hello.txt')
-    # print("this is new log")
-    # print(new_log) #-this works
-
-    # put this in a function that will read many articles, not just one.
-    # add the code of converting the pdf to text
-
-
-url = 'https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-14-728'
-fromurltotext(url)
+#Pre-requisite: have the pdf version of the articles you want to process in the same directory as this code
 
 yourpath = os.getcwd()
-
 data_folder = Path("papers_collection_folder")  # can be changed to user input data
+#TODO the "path_collection_folder" can be changed to user input data
 folder = yourpath / Path(data_folder)
-print("this is directory_to_folder", folder)
 files_in_folder = data_folder.iterdir()
 for item in files_in_folder:
     if item.is_file():
@@ -70,30 +30,32 @@ for item in files_in_folder:
     with open(item, 'rb') as f:
         pdf = pdftotext.PDF(f, 'secret')
         for page in pdf:
-            # print(page)
-            f = open('%s.txt' % item.name, "w+")  # must make it so the name changes each time
+            f = open('%s.txt' % item.name, "w+")
             f.write(" ".join(pdf))  # I dont want new lines so f.write("\n\n".join(pdf))
             f.close()
         print('done writing to ' + '%s.txt' % item.name + ' file')
 
-# have as separate functions
+# TODO have as separate functions
 # start with the functions ('what do I want the code to do').
 # open files in folder ; convert to text ; manipulate the text all separate functions
 # with open('%s.txt'%item.name
+# TODO why am I creating an output.txt file when above I had files created and named according to the use-case name?
+#output.txt looks the same (has the same content and structure) as the ontopaper_usecase.pdf.txt
 
-with open('output.txt') as f:
+#TODO change the file name dynamically. According to the name of the pdf
+with open('ontopaper_usecase.pdf.txt') as f:
     log = f.readlines()
 
 text_article = ''
 for line in log:
     text_article += line
 
+
 # regex for ArrayExpress Accession codes for experiments : E-XXXX-n
 # regex = (r"E-[A-Z]{4}-[0-9]*") to find in text_article
 
 # accession_numbers_in_article = str(re.search("E-[A-Z]{4}-[0-9]*", text_article))
-# works and returns: <re.Match object; span=(71082, 71093), match='E-MTAB-1729'>
-# so take the match object and do an EBI API search using this accession number
+# returns: <re.Match object; span=(71082, 71093), match='E-MTAB-1729'>
 
 
 #this needs to be fed dynamically from the function using regex to find accession urls in the text article
@@ -102,9 +64,7 @@ for line in log:
 # function that finds the article's accession numbers, does a REST request to return the fetch file (xml file)
 #TODO edit this function so that it incluede code from the xml_metadata_processing*=(url) as the code there is more slick
     #TODO and also has writing the response in a text file? is this needed though? to write the xml file in hello.text?
-
-#TODO remove duplicate code
-#according to this website this is the url format to use for REST-style queries to retrieve results in XML format
+#todo sample code below with exact array express name - remove afterwards
 r = requests.get('https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/E-MTAB-1729')
 # pprint.pprint(r.content)
 arrayexpresscontent = r.content
@@ -115,51 +75,16 @@ arrayexpresscontent = r.content
 #according to this website this is the url format to use for REST-style queries to retrieve results in XML format
 accession_study_url_to_concatenate = "https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/"
 
-'''
-def find_articles_accession_number(article_text, accession_url):
-    accession_numbers_in_article_list = re.findall("E-[A-Z]{4}-[0-9]*", article_text)
-    set_article_accession_numbers = set(accession_numbers_in_article_list)  #{'E-MTAB-1729'}
-    for accession_number in set_article_accession_numbers:
-        api_url_concatenated = accession_url + str(accession_number)
-        response = requests.get(api_url_concatenated)
-        print(response.text) #the fetch xml file
 
-        return response.text
-    #instead of returning the response.text aka the xml file, have the function to write it, and instead
-    #return the accession url which then I can run the xml_metadata_processing.
-    # or I can combine the two functions together...
-    #so code this but make a new function, don't erase the find_articles_accession_number() function
-
-
-
-fetch_file_from_rest_request = find_articles_accession_number(text_article, accession_study_url_to_concatenate)
-
-'''
-
-#code to get the xml file and parse it and find all the value tags which after will check against the
+# code to get the xml file and parse it and find all the value tags which after will check against the
 # PO dev file
 
 rest_request_url = 'https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/E-MTAB-1729'
 
-'''
-def xml_metadata_processing(url):
-    getxml = requests.request('GET', url) #change variable name
-    file = open('response.txt', 'w') #article url
-    file.writelines(getxml.text)
-    file.close()
-
-    soup = bs4.BeautifulSoup(getxml.text, 'xml')
-    #print(soup.prettify())
-
-    result2 = soup.find_all("value")
-    print(result2)
-    return result2
-'''
-
 
 def processing_array_express_info(article_text, accession_url):
-    accession_numbers_in_article_list = re.findall("E-[A-Z]{4}-[0-9]*", article_text)
-    set_article_accession_numbers = set(accession_numbers_in_article_list)  #{'E-MTAB-1729'}
+    accession_numbers_in_article = re.findall("E-[A-Z]{4}-[0-9]*", article_text)
+    set_article_accession_numbers = set(accession_numbers_in_article)  #{'E-MTAB-1729'}
     for accession_number in set_article_accession_numbers:
         api_url_concatenated = accession_url + str(accession_number)
         getxml = requests.request('GET', api_url_concatenated)
@@ -170,27 +95,28 @@ def processing_array_express_info(article_text, accession_url):
         soup = bs4.BeautifulSoup(getxml.text, 'xml')
         # print(soup.prettify())
 
-        result = soup.find_all("value")
-        print(result)
-        return result
+        metadata = []
+        for hit in soup.find_all("value"):
+            metadata.append(hit.text.strip())
 
-print("Running processing array express metadata next")
+        return metadata
+
+
+#TODO REMOVE THIS line which calls the function? as I call it above?
 processing_array_express_info(text_article, accession_study_url_to_concatenate)
+#this results to a list
+#['anthesis', 'CM-82036 resistant parent line', 'NIL1, Fhb1 and Qfhs.ifa-5A resistance alleles', 'NIL2, Fhb1 resistance allele', 'NIL3, Qfhs.ifa-5A resistance allele', 'NIL4, non resistance allele', 'Triticum aestivum', 'spikelet floret', 'Institute for Biotechnology in Plant Production, IFA-Tulln, University of Natural Resources and Life Sciences, A-3430 Tulln, Austria', 'CM-82036 resistant parent line', 'NIL1, Fhb1 and Qfhs.ifa-5A resistance alleles', 'NIL2, Fhb1 resistance allele', 'NIL3, Qfhs.ifa-5A resistance allele', 'NIL4, non resistance allele', 'Fusarium graminearum', 'mock', '30 hour', '50 hour']
 
 
-#TODO make a function that will find matches between the result of function processing_array_express_info function
-#and the PO_dict dictionary
-
+#TODO make a function that will find matches between the result of the processing_array_express_info function (i.e.
+# the metadata list and the PO_dict dictionary "onto = {}"
 
 # TODO question: is this the best place for this code to be executed and the best way?
-# can this be executed in a function whilst it does other stuff done whilst reading the article line by line?
-
-# TODO make a function to compare the metadata from the document with the one recorded on the xml response file?
+# can this be executed in a function whilst it does other stuff done, eg. whilst reading the article line by line?
 
 
 # pre-processing of text_article
 # remove punctuation
-
 def remove_punctuation(txt):
     txt_nopunct = "".join([c for c in txt if c not in string.punctuation])
     return txt_nopunct
@@ -198,12 +124,15 @@ def remove_punctuation(txt):
 
 parsed_data1 = remove_punctuation(text_article)
 
+#TODO consider if punctuation should stay.
+
 stopwords = nltk.corpus.stopwords.words('english')
 ps = nltk.PorterStemmer()
 
 tokenised_data = nltk.word_tokenize(text_article)  # parsed_data1 instead of text_article?
+#tokenised_data = nltk.word_tokenize(new_log)  # parsed_data1 instead of text_article?
 
-# aim convert tokenized data which is  a list into a string
+# aim: convert tokenized data which is  a list into a string
 # for i in word_tokenize(raw_data):
 # print (i)
 
@@ -211,17 +140,22 @@ tokenised_data = nltk.word_tokenize(text_article)  # parsed_data1 instead of tex
 # stopwords = nltk.corpus.stopwords.words('english')
 # ps = nltk.PorterStemmer()
 
-tokens = word_tokenize(parsed_data1)  # list structure
+tokens = word_tokenize(parsed_data1)  # list structure, without the punctuation
 
 # remove remaining tokens that are not alphabetic
 words = [word for word in tokens if word.isalpha()]
-#I have two variables as words???
+#TODO remove one variable, change its name as I have two variables as words??? Decide if to keep the stopwords modification
+
 
 # filter out stop words e.g. of, for .... (but I need some stopwords... e.g. fruit size up to 10% stage
 words = [w for w in tokens if not w in stopwords]
+print(words)
+
+#filtered_words = [word for word in tokens if word not in stopwords.words('english')]
+#print(filtered_words)
 
 # https://machinelearningmastery.com/clean-text-machine-learning-python/
-
+#TODO decide what to do with the stopwords, remove the link and add it as reference in the thesis.
 
 from sklearn.feature_extraction.text import CountVectorizer
 from nltk.tokenize import RegexpTokenizer
@@ -229,15 +163,11 @@ from nltk.tokenize import RegexpTokenizer
 # tokenizer to remove unwanted elements from out data like symbols and numbers
 token = RegexpTokenizer(r'[a-zA-Z]+')
 
-# compare a list_of_bigrams with the plant ontology dictionary. However, the keys in the onto{} are not bigrams -
-# i.e not two tokens. Then how do I do the comparison by ignoring the comma? Would I have to make a new onto dictionary
-# with tokens separated by coma for the keys? or can I make a new list of bigrams NOT separated by commas?
-
 # working on the plant-ontology-dev.txt
-# examples of keywords in the onto {} (Plant ontologies dictionary) which have punctuation
-# 'root-derived cultured plant cell': 'PO:0000008'
-# create a dictionary with keys the name of the plant ontology and value the PO term.
+# examples of keywords in the onto {} (Plant ontologies dictionary) have punctuation, thus keep punctuation in tokens.
+# e.g. 'root-derived cultured plant cell': 'PO:0000008'
 
+# create a dictionary with keys the name of the plant ontology and value the PO term.
 onto = {}
 for line in open('plant-ontology-dev.txt'):
     split = line.split("\t")
@@ -246,7 +176,8 @@ for line in open('plant-ontology-dev.txt'):
     if len(split) > 2:
         onto[split[1]] = split[0]
 print('plant ontology dictionary', onto)
-# should I close the plant-ontology-dev.txt after?
+
+# TODO should I close the plant-ontology-dev.txt after?
 
 # because many authors describe their research using terms from the "synonyms" and potentially the
 # 'definition' column from the plant-ontology-dev then it would be useful to work with a
@@ -257,15 +188,8 @@ print('plant ontology dictionary', onto)
 # after I construct the PO_dict, how can I use it to find matches of 'name', 'definition', or 'synonyms' in the article?
 # and what about finding matches of 'id' in the article? Coz the authors may quote the official PO id in their article
 
-'''
-for query, onto_id in onto.items():
-    if query in text_article:
-        print('hello', onto_id, query)
-#not good coz it picks ups things like NIL2 in text_article and returns PO:0006304 L2.
-#which is not a correct match. Which is why matching with tokenisation is the best way.
-'''
 
-
+#creates a dictionary of lists with keys the PO id and the values in a list [name, defn, synonyms]
 po_dict_of_lists = {}
 for line in open('plant-ontology-dev.txt'):
     split = line.split("\t")
@@ -276,35 +200,29 @@ for line in open('plant-ontology-dev.txt'):
 #print('plant ontology dictionary', my_dict)
 #creates a dictionary of lists with keys the PO id and the values in a list [name, defn, synonyms]
 
-#TODO then from here (the po_dict_of_lists I need to matches in the text with either the 'name', 'defn', 'synonyms'
-# the 'name' is easy to do, and is done
+#TODO then from here (the po_dict_of_lists I need to match in the text with either the 'name'(done above), 'defn', 'synonyms'
 # the definition and synonym values are longer and more wordy. I cannot match the exact sentences....it will not
 # result into anything. Instead, I can try to find matches of any words in the value entries of 'defn' and 'synonyms'
 # look at how I matched with the name and see how I can implement something similar for the po_dict_of_lists
 #How to access items in a Python Dictionary of Lists
 
-
-
-
-
-
-# would be good to be searching for terms in whole text except in the references.
+single_matches = []
 for query, onto_id in onto.items():
     if query in tokenised_data:
-        print('found single word matches', query, onto_id)
-# this only returns one word matches for keys, e.g. found query lemma PO:0009037
-
+        single_matches.append(query + " | " + onto_id)
+print(single_matches)
 
 matches_list = []
 for query, onto_id in onto.items():
-    wordlist = re.sub("[^\w]", " ", query).split()  # separate the individual words in query into tokens
+    wordlist = re.sub("[^\w]", " ", query).split()  # separate the individual words in query (of PO dev file) into tokens
     # e.g.query = 'palea development stage' --> 'palea', 'development', 'stage'
     for word in wordlist:
         if word in words:  # words is the tokenised journal article
             matches_list.append(word + " | " + query + " | " + onto_id)
-# print('this is the matches list', matches_list)
+print('this is the matches list', matches_list)
 
-# this results in fussy matching
+# this results in fussy matching. Brings all the keys in the  PO dev file with names that contain one of those words
+# e.g. plant, results in many matches (plant embryo proper, in vitro plant structure, cultured plant cell).
 # found the word in manuscript: whole | query: whole plant fruit formation stage 70% to final size | onto_id: PO:0007027
 # maybe also include the complete sentence this matching came from in order to
 # allow the reader to assess if it is to their interest that sentence or not.
@@ -320,6 +238,17 @@ for query, onto_id in onto.items():
 # using join() + list comprehension
 
 bigram = list(ngrams(tokenised_data, 2))
+print(bigram)
+res = [' '.join(tups) for tups in bigram]
+print ('this is res', res)
+
+#TODO fix the code, as it is matching with characters instead of the whole word. it found a match as such
+#TODO FIX THIS :: found query match in new res bigram match  | Systems Biology | stem
+
+for query, onto_id in onto.items():
+    if query in res:
+        print('found query match in new res bigram match', " | " + res + " | " + query)
+
 
 res = [' '.join(tups) for tups in bigram]
 # res is = ['. BMC', 'BMC Genomics', 'Genomics 2013', 'RESEARCH ARTICLE', 'ARTICLE Open']
@@ -335,6 +264,18 @@ for query, onto_id in onto.items():
     for words in new_res_testing:
         if query in words:
             print('found query match in new res testing', " | " + words + " | " + query)
+
+'''
+for query, onto_id in onto.items():
+    for words in res:
+        if query in words:
+            print('found query match in new res testing', " | " + words + " | " + query)
+'''
+#found query match in res bigrams  | whole plant | whole plant
+# lateral root, vs lateral root tip, vs all occurances of keys with the word lateral in it
+# this is a limitation. The code will search only the exact matches of ngrams.
+
+#todo remove testing code from here.
 
 #found query match in res bigrams  | whole plant | whole plant
 # lateral root, vs lateral root tip, vs all occurances of keys with the word lateral in it
@@ -353,8 +294,8 @@ print('this is wordList', wordList)
 # This is the wall of the microsporangium.
 # vs I found in my garden wall a microsporangium (not wanted).
 
-list_of_bigrams_testing = [('microsporangium', 'wall'), ('whole', 'plant'), ('microsporangium', 'flower')]
-res1 = [' '.join(tups) for tups in list_of_bigrams_testing]  # --> res = ['microsporangium wall', 'whole plant']
+list_of_bigrams_testing = [('microsporangium', 'wall'), ('whole', 'plant'), ('microsporangium', 'flower'), ('micro', 'flo')]
+res1 = [' '.join(tups) for tups in list_of_bigrams_testing]  # --> res1 = ['microsporangium wall', 'whole plant']
 
 for query, onto_id in onto.items():
     if query in res1:
@@ -364,14 +305,6 @@ for query, onto_id in onto.items():
 #   for example, if in the tokenised_data of the article we have the word palea, return apart from the exact match
 #   return e.g. 'palea apiculus' as well. Meaning find matches with the onto dictionary with any of the words in the
 #   query key.
-
-
-
-
-bigrams=[('more', 'is'), ('is', 'said'), ('said', 'than'), ('than', 'done')]
-for a, b in bigrams:
-    print(a)
-    print(b)
 
 
 '''
@@ -388,38 +321,29 @@ for grams in sixgrams:
 
 n = 3
 
+#TODO decide about the punctuation
+
 threegrams = list(ngrams(tokenised_data, 3)) #I need the punctuation as name can be "fruit size up to 10% stage"
 print('this is threegrams', threegrams)
-# threegrams = [('Kugler', 'et', 'al.'), ('et', 'al.', 'BMC'), ('al.', 'BMC', 'Genomics'), ('BMC', 'Genomics', '2013,')]
 # so in order to find matches of onto dictionary and the 3grams, the 3grams must not be separated by comma. So need to join.
 
 combine3gram = [' '.join(tups) for tups in threegrams]
 print("The joined data combine3grams is : " + str(combine3gram))
 
-#The joined data combine3grams is : ['Kugler et al', 'et al .', 'al . BMC', '. BMC Genomics', 'BMC Genomics 2013',
-# find matches between the onto_dict and the res
 
-#eventually combine all the n-grams, in a loop where it starts from 1 till 6 grams
+#TODO eventually combine all the n-grams, in a loop where it starts from 1 till 6 grams
 
-onto_items_dummy = {'name': 'id', 'plant embryo proper': 'PO:0000001', ('Kugler', 'et', 'al.'): 'hello'}
-for query1, onto_id in onto_items_dummy.items():
-    if query1 in threegrams:
-        print('found it', query1, onto_id)
+threegram_matches = []
+for query, onto_id in onto.items():
+    if query in combine3gram:
+        threegram_matches.append(query + " |" + onto_id)
+print(threegram_matches)
 #  else:
 #      print('didnt find a matching ontology term')
 
-'''
 
-    for query1, onto_id in onto.items():
-         if query1 in grams1:
-            print('found it', query1, onto_id)
-
-    print('didnt find a match')
-'''
-
-# read text
+#to do the match with the synonym and definition columns
 # raw data is the PO ontology file
-
 raw_data = open('plant-ontology-dev.txt').read()
 
 parsed_data2 = raw_data.replace('\n', '\t').split('\t')
@@ -428,38 +352,74 @@ definition_list = parsed_data2[2::6]
 synonym_list = parsed_data2[3::6]
 print("ontology synonym list is", synonym_list[0:20])
 
-# remove dashes ('-') and underscores ('_') from the synonym_list words.
-
-import string
-
-string.punctuation
-
-
-def remove_punctuation(txt):
-    txt_nopunt = [''.join(c for c in s if c not in string.punctuation) for s in txt]  # must do a join function
-    return txt_nopunt
-
-
-new_sentences = remove_punctuation(synonym_list)
-
-
-# works but it makes leaf-derived into leafderived
-# also I don't want to remove % symbol, so best use the replace method.
-
-
 def replace_certain_punctuations(list):
     records = [rec.replace('-', ' ').replace('_', ' ').replace('.', ' ') for rec in list]
     return records
 
+replace_certain_punctuations(synonym_list)
 
-print('synonym_name_list1 without punctuations -_.', replace_certain_punctuations(synonym_list))
 
 
-####################################
+#######################################################################################################################
+
+#TODO make a function that will find matches between the result of function processing_array_express_info function (i.e.
+# the metadata list and the PO_dict dictionary "onto = {}"
+
+print("Running processing array express metadata next")
+
+xml_metadata = processing_array_express_info(text_article, accession_study_url_to_concatenate)
+print('xml_metadata list', xml_metadata)
+
+for query, onto_id in onto.items():
+    if query in xml_metadata:
+        print('found single word matches between PO onto dict and xml metadata:', query, onto_id)
+#from our use-case example this returns one match:
+#found single word matches between PO onto dict and xml metadata spikelet floret PO:0009082
+
+#TODO examine the ontologies (i.e. ontological metadata) matched to PO dict in the paper with the ones found in
+# the xml_metadata, e.g. in the use-case example - spikelet floret PO:OO9082. Does the article contain the words
+# spikelet floret? Ways to go about this: 1. identify it is a 2 word string (look through the bigram list derived from
+# the text_article processing. Or make the article into bigrams and then check if the bigram spikelet floret is there.
+# problem: how can this be scalable? It is not always that I will have bigrams? So write a line that checks the length
+# of the string resulted? Then compare that with the relevant n-gram?
+# "res" variable is the bigram of text_article. So in this example, I can compare "res" and 'spikelet floret'.
+# or if both "res" and the list produced from the above code (e.g. list_made = [spiklet floret] and find common strings
+# as well as useful to find different elements between the 2 lists, such that the pipeline can say: the xml_metadata
+# contained the ontological term "spikelet floret" but the article did not have it. The xml_metadata contained "anthesis"
+# but it didn't contain pilea.
+# because the ontological terms in the xml_metadata could also be the non-standard PO ontological names (one example with
+# our use-case is "anthesis". 'Anthesis" is the synonym of "flowering stage". So the pipeline can also report that
+# ontological terms in the xml_metadata have been used, but they used the synonym.
+
+#TODO so then possibly I can compare the xml_metadata = [] with the PO_dict that contains the synonym, or definition
+# columns of the Plant ontology dev text file.
+
+#easier...compare the bigram matches from the article with the xml_metadata.
+#easier...all the n-gram matches from the text article to the PO dict, append them to a list.
+# then compare that list with the xml_metadata list. Because if a match was done in the article and PO dict comparison
+#stage, then this list of matches can be compared with the xml_metadata list matches.
+
+
+#TODO create a list and append all the text article n-gram matches with the PO dict. (have a function that searches
+# for n-gram matches until n=6.
+# compare that appended list with the xml_metadata list.
+
+
+'''
+bigram = list(ngrams(tokenised_data, 2))
+
+res = [' '.join(tups) for tups in bigram]
+'''
+
+
+#########################################################################################
+# Data accessibility check stage of the code
+#########################################################################################
+
 # read text, find and print the phrases which include the data_reproducibility_keywords.
-# if any such data_reproducibility_keywords have been found, then add a point to the reproducibility metrics score
+# TODO if any such data_reproducibility_keywords have been found, then add a point to the reproducibility metrics score
 
-# how to calculate the reproducibility metrics score.
+# todo how to calculate the reproducibility metrics score.
 # add one point each time in the manuscript is found: data_reproducibility_keywords,
 
 # from https://simply-python.com/2014/03/14/saving-output-of-nltk-text-concordance/
@@ -574,3 +534,7 @@ def extract_phases(tokens, wordlist):
 
 accession_numbers_in_article = re.search("E-[A-Z]{4}-[0-9]*", text_article)
 print(accession_numbers_in_article)
+
+
+#TODO device scoring system for reproducibility metrics (reproducibility scoring)
+
