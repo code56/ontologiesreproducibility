@@ -1,12 +1,12 @@
 __author__ = 'Evanthia_Kaimaklioti Samota'
 
 # !/usr/bin/env python
-# coding: utf-8
+# # # coding: utf-8
 
-# In[7]:
 
 import pandas as pd
 import os, os.path, pdftotext, re, string, nltk, argparse, sys, functools, operator
+import glob, os
 from nltk.tokenize import word_tokenize
 from nltk.util import ngrams
 from nltk.corpus import stopwords
@@ -17,11 +17,12 @@ import requests, pprint
 import bs4
 from bs4 import BeautifulSoup
 
-#Pre-requisite: have the pdf version of the articles you want to process in the same directory as this code
+# Pre-requisite: put the pdf version of the articles you want to process in the papers_collection_folder
 
 yourpath = os.getcwd()
-data_folder = Path("papers_collection_folder")  # can be changed to user input data
-#TODO the "path_collection_folder" can be changed to user input data
+data_folder = Path("papers_collection_folder")
+text_article_folder = Path("text_article_folder")
+
 folder = yourpath / Path(data_folder)
 files_in_folder = data_folder.iterdir()
 for item in files_in_folder:
@@ -30,32 +31,72 @@ for item in files_in_folder:
     with open(item, 'rb') as f:
         pdf = pdftotext.PDF(f, 'secret')
         for page in pdf:
-            f = open('%s.txt' % item.name, "w+")
+            completeName = os.path.join(yourpath / Path(text_article_folder), '%s.txt' % item.name)
+            f = open(completeName, "w+")
             f.write(" ".join(pdf))  # I dont want new lines so f.write("\n\n".join(pdf))
             f.close()
         print('done writing to ' + '%s.txt' % item.name + ' file')
 
+# TODO see if the new lines line 33 needs more expansion and how to compensate for 2 columns in pdf if issues
+
 # TODO have as separate functions
-# start with the functions ('what do I want the code to do').
 # open files in folder ; convert to text ; manipulate the text all separate functions
 # with open('%s.txt'%item.name
 # TODO why am I creating an output.txt file when above I had files created and named according to the use-case name?
-#output.txt looks the same (has the same content and structure) as the ontopaper_usecase.pdf.txt
+# output.txt looks the same (has the same content and structure) as the ontopaper_usecase.pdf.txt
 
-#TODO change the file name dynamically. According to the name of the pdf
+# TODO change the file name dynamically. According to the name of the pdf that is in the paper_collection_folder
+# TODO write the text file from pdftotext in a folder and from there query the folder to open all txt files and work on them
+
+'''
+text_article_folder = yourpath / Path(text_article_folder)
+text_article_files_in_folder = text_article_folder.iterdir()
+for item in text_article_files_in_folder:
+    if item.is_file():
+        print(item.name)
+    with open(item, 'r') as f:
+        log = f.readlines()
+    text_article = ''
+    for line in log:
+        text_article += line
+    #print(text_article)
+
+
+# TODO change to the name of the file.
+
 with open('ontopaper_usecase.pdf.txt') as f:
     log = f.readlines()
 
 text_article = ''
 for line in log:
     text_article += line
+print(text_article)
+'''
 
+def workingwithtextfiles(text_article_folder):
+    global text_article
+    text_article = ''
+    text_article_folder = yourpath / Path(text_article_folder)
+    text_article_files_in_folder = text_article_folder.iterdir()
+    for item in text_article_files_in_folder:
+        with open(item) as f:
+            print('this is item in text_article_folder', item)
+ #           log = f.readlines()
+ #           for line in log:
+ #               text_article += line
+ #           f.close()
+        continue
+  #  return{'text article folder text': item.name, 'text_article': text_article}
+    return {'text article folder text': item.name}
+
+hello = workingwithtextfiles(text_article_folder)
+with open('out.txt', 'a+') as f:
+    print('Filename:', hello, file=f)  # Python 3.x
 
 # regex for ArrayExpress Accession codes for experiments : E-XXXX-n
 # regex = (r"E-[A-Z]{4}-[0-9]*") to find in text_article
 
 # accession_numbers_in_article = str(re.search("E-[A-Z]{4}-[0-9]*", text_article))
-# returns: <re.Match object; span=(71082, 71093), match='E-MTAB-1729'>
 
 
 #this needs to be fed dynamically from the function using regex to find accession urls in the text article
@@ -81,10 +122,34 @@ accession_study_url_to_concatenate = "https://www.ebi.ac.uk/arrayexpress/xml/v3/
 
 rest_request_url = 'https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/E-MTAB-1729'
 
+'''
+def QuestionSet1():
+    print("Challenge level 1 has being selected.")
+    print("Can you translate these words into french?")
+    a=input('Q1. Hello! :')
+    score = 0
+    if 'bonjour' in a.lower(): 
+        score = score + 1
+        print('Correct!')
+    else:
+        print('Wrong! '+'Its Bonjour')
+        print('You have finished and scored', score, 'out of 10')
+    print(score)
+QuestionSet1()
+'''
+
 
 def processing_array_express_info(article_text, accession_url):
     accession_numbers_in_article = re.findall("E-[A-Z]{4}-[0-9]*", article_text)
+    score = 0
+    s = set()
     set_article_accession_numbers = set(accession_numbers_in_article)  #{'E-MTAB-1729'}
+
+    if set_article_accession_numbers == (s == set()):
+        print(score)
+    else:
+        score = score + 1
+
     for accession_number in set_article_accession_numbers:
         api_url_concatenated = accession_url + str(accession_number)
         getxml = requests.request('GET', api_url_concatenated)
@@ -93,13 +158,12 @@ def processing_array_express_info(article_text, accession_url):
         file.close()
 
         soup = bs4.BeautifulSoup(getxml.text, 'xml')
-        # print(soup.prettify())
 
         metadata = []
         for hit in soup.find_all("value"):
             metadata.append(hit.text.strip())
 
-        return metadata
+        return {'metadata': metadata, 'metadata score': score}
 
 
 #TODO REMOVE THIS line which calls the function? as I call it above?
@@ -124,7 +188,7 @@ def remove_punctuation(txt):
 
 parsed_data1 = remove_punctuation(text_article)
 
-#TODO consider if punctuation should stay.
+#TODO consider if punctuation should stay or give the user option to decide (i.e. depending on what they choose the input of the function to be).
 
 stopwords = nltk.corpus.stopwords.words('english')
 ps = nltk.PorterStemmer()
@@ -163,19 +227,18 @@ from nltk.tokenize import RegexpTokenizer
 # tokenizer to remove unwanted elements from out data like symbols and numbers
 token = RegexpTokenizer(r'[a-zA-Z]+')
 
-# working on the plant-ontology-dev.txt
 # examples of keywords in the onto {} (Plant ontologies dictionary) have punctuation, thus keep punctuation in tokens.
 # e.g. 'root-derived cultured plant cell': 'PO:0000008'
 
 # create a dictionary with keys the name of the plant ontology and value the PO term.
-onto = {}
+po_dict = {}
 for line in open('plant-ontology-dev.txt'):
     split = line.split("\t")
 
     # create a dictionary with keys the name of the plant ontology and value the PO term from the plant-onto-dev.txt.
     if len(split) > 2:
-        onto[split[1]] = split[0]
-print('plant ontology dictionary', onto)
+        po_dict[split[1]] = split[0]
+print('plant ontology dictionary', po_dict)
 
 # TODO should I close the plant-ontology-dev.txt after?
 
@@ -207,13 +270,13 @@ for line in open('plant-ontology-dev.txt'):
 #How to access items in a Python Dictionary of Lists
 
 single_matches = []
-for query, onto_id in onto.items():
+for query, onto_id in po_dict.items():
     if query in tokenised_data:
         single_matches.append(query + " | " + onto_id)
 print(single_matches)
 
 matches_list = []
-for query, onto_id in onto.items():
+for query, onto_id in po_dict.items():
     wordlist = re.sub("[^\w]", " ", query).split()  # separate the individual words in query (of PO dev file) into tokens
     # e.g.query = 'palea development stage' --> 'palea', 'development', 'stage'
     for word in wordlist:
@@ -228,78 +291,14 @@ print('this is the matches list', matches_list)
 # allow the reader to assess if it is to their interest that sentence or not.
 
 # match the bigrams and the keys in the onto dictionary
-
-
-# compare a list_of_bigrams with the plant ontology dictionary. However, the keys in the onto{} are not bigrams -
-# i.e not two tokens. Then how do I do the comparison by ignoring the comma? Would I have to make a new onto dictionary
-# with tokens separated by coma for the keys? or can I make a new list of bigrams NOT separated by commas?
-
-# joining tuple elements (i.e. removing the separating commas)
-# using join() + list comprehension
-
 bigram = list(ngrams(tokenised_data, 2))
-print(bigram)
-res = [' '.join(tups) for tups in bigram]
-print ('this is res', res)
+res = [' '.join(tups) for tups in bigram] #['. BMC', 'BMC Genomics', 'Genomics 2013', 'RESEARCH ARTICLE', 'ARTICLE Open']
 
-#TODO fix the code, as it is matching with characters instead of the whole word. it found a match as such
 #TODO FIX THIS :: found query match in new res bigram match  | Systems Biology | stem
 
-for query, onto_id in onto.items():
+for query, onto_id in po_dict.items():
     if query in res:
-        print('found query match in new res bigram match', " | " + res + " | " + query)
-
-
-res = [' '.join(tups) for tups in bigram]
-# res is = ['. BMC', 'BMC Genomics', 'Genomics 2013', 'RESEARCH ARTICLE', 'ARTICLE Open']
-# find matches between the onto_dict and the res
-#print(type(res))
-
-print('this is testing code for bigram matching')
-new_res_testing = ['Kugler et', 'et al', 'al .', '. BMC', 'BMC Genomics', 'whole plant', 'plant is']
-# new_res = []
-# new_res = res.append('whole plant')
-
-for query, onto_id in onto.items():
-    for words in new_res_testing:
-        if query in words:
-            print('found query match in new res testing', " | " + words + " | " + query)
-
-'''
-for query, onto_id in onto.items():
-    for words in res:
-        if query in words:
-            print('found query match in new res testing', " | " + words + " | " + query)
-'''
-#found query match in res bigrams  | whole plant | whole plant
-# lateral root, vs lateral root tip, vs all occurances of keys with the word lateral in it
-# this is a limitation. The code will search only the exact matches of ngrams.
-
-#todo remove testing code from here.
-
-#found query match in res bigrams  | whole plant | whole plant
-# lateral root, vs lateral root tip, vs all occurances of keys with the word lateral in it
-# this is a limitation. The code will search only the exact matches of ngrams.
-
-print('more testing code')
-string = 'plant embryo proper'
-arr = [x.strip() for x in string.strip('[]').split(' ')]
-# result -> ['plant', 'embryo', 'proper']
-
-
-mystr = 'This is a string, with words!'
-wordList = re.sub("[^\w]", " ", mystr).split()
-print('this is wordList', wordList)
-
-# This is the wall of the microsporangium.
-# vs I found in my garden wall a microsporangium (not wanted).
-
-list_of_bigrams_testing = [('microsporangium', 'wall'), ('whole', 'plant'), ('microsporangium', 'flower'), ('micro', 'flo')]
-res1 = [' '.join(tups) for tups in list_of_bigrams_testing]  # --> res1 = ['microsporangium wall', 'whole plant']
-
-for query, onto_id in onto.items():
-    if query in res1:
-        print('found query in the res1', query, onto_id)
+        print('found query match with bigram match', " | " + onto_id + " | " + query)
 
 # TODO have the code return all PO ids, that contain a word found in the tokenised data
 #   for example, if in the tokenised_data of the article we have the word palea, return apart from the exact match
@@ -334,7 +333,7 @@ print("The joined data combine3grams is : " + str(combine3gram))
 #TODO eventually combine all the n-grams, in a loop where it starts from 1 till 6 grams
 
 threegram_matches = []
-for query, onto_id in onto.items():
+for query, onto_id in po_dict.items():
     if query in combine3gram:
         threegram_matches.append(query + " |" + onto_id)
 print(threegram_matches)
@@ -370,7 +369,9 @@ print("Running processing array express metadata next")
 xml_metadata = processing_array_express_info(text_article, accession_study_url_to_concatenate)
 print('xml_metadata list', xml_metadata)
 
-for query, onto_id in onto.items():
+print('metadata score is', xml_metadata['metadata score']) #this will be added with the other scores of each function
+
+for query, onto_id in po_dict.items():
     if query in xml_metadata:
         print('found single word matches between PO onto dict and xml metadata:', query, onto_id)
 #from our use-case example this returns one match:
@@ -537,4 +538,22 @@ print(accession_numbers_in_article)
 
 
 #TODO device scoring system for reproducibility metrics (reproducibility scoring)
+
+'''
+
+#how to have a function return an object with many values
+
+class ReturnValue(obj):
+   def __init__(self, y0, y1, y2):
+      self.y0 = y0
+      self.y1 = y1
+      self.y2 = y2
+
+def g(x):
+   y0 = x + 1
+   y1 = x * 3
+   y2 = y0 ** 3
+   return ReturnValue (y0, y1, y2)
+
+'''
 
