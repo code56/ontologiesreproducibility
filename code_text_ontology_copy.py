@@ -60,7 +60,7 @@ for item in text_article_files_in_folder:
     for line in log:
         text_article += line
     #print(text_article)
-
+'''
 
 # TODO change to the name of the file.
 
@@ -70,8 +70,8 @@ with open('ontopaper_usecase.pdf.txt') as f:
 text_article = ''
 for line in log:
     text_article += line
-print(text_article)
-'''
+#print(text_article)
+
 
 def workingwithtextfiles(text_article_folder):
     global text_article
@@ -139,7 +139,7 @@ QuestionSet1()
 '''
 
 
-def processing_array_express_info(article_text, accession_url):
+def processing_array_express_info1(article_text, accession_url):
     accession_numbers_in_article = re.findall("E-[A-Z]{4}-[0-9]*", article_text)
     score = 0
     s = set()
@@ -163,7 +163,27 @@ def processing_array_express_info(article_text, accession_url):
         for hit in soup.find_all("value"):
             metadata.append(hit.text.strip())
 
-        return {'metadata': metadata, 'metadata score': score}
+        return(metadata)
+        #return {'metadata': metadata, 'metadata score': score}
+
+
+def processing_array_express_info(article_text, accession_url):
+    accession_numbers_in_article = re.findall("E-[A-Z]{4}-[0-9]*", article_text)
+    set_article_accession_numbers = set(accession_numbers_in_article)  # {'E-MTAB-1729'}
+    for accession_number in set_article_accession_numbers:
+        api_url_concatenated = accession_url + str(accession_number)
+        getxml = requests.request('GET', api_url_concatenated)
+
+        soup = bs4.BeautifulSoup(getxml.text, 'xml')
+    # print(soup.prettify())
+
+        metadata = []
+        for hit in soup.find_all("value"):
+            metadata.append(hit.text.strip())
+        print('this is metadata',
+              metadata)
+        return metadata
+
 
 
 #TODO REMOVE THIS line which calls the function? as I call it above?
@@ -369,7 +389,7 @@ print("Running processing array express metadata next")
 xml_metadata = processing_array_express_info(text_article, accession_study_url_to_concatenate)
 print('xml_metadata list', xml_metadata)
 
-print('metadata score is', xml_metadata['metadata score']) #this will be added with the other scores of each function
+#print('metadata score is', xml_metadata['metadata score']) #this will be added with the other scores of each function
 
 for query, onto_id in po_dict.items():
     if query in xml_metadata:
@@ -452,8 +472,7 @@ data_reproducibility_keywords = ['accession', 'data', 'Supporting', 'available',
 phrases_from_article = []
 for word in data_reproducibility_keywords:
     phrases_from_article = get_all_phrases_containing_tar_wrd(word, text_article)
-    print('phrases from text article:', word,
-          phrases_from_article)  # it doesn't return all the occurences or the complete
+    print('phrases from text article:', word, phrases_from_article)  # it doesn't return all the occurences or the complete
     # sentences because it is two column text.
 
 
