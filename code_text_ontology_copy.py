@@ -406,12 +406,6 @@ for query, onto_id in po_dict.items():
 # compare that appended list with the xml_metadata list.
 
 
-'''
-bigram = list(ngrams(tokenised_data, 2))
-
-res = [' '.join(tups) for tups in bigram]
-'''
-
 
 #########################################################################################
 # Data accessibility check stage of the code
