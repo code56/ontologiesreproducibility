@@ -111,13 +111,37 @@ class File(object):
         ## join the sentences for each of the target phrase and return it
         return [''.join([x + ' ' for x in con_sub]) for con_sub in concordance_txt]
 
-    # returning sentences containing particular phrases: e.g. "Supporting data"
-    def regex_search(filename, term):
-        searcher = re.compile(term + r'([^\w-]|$)').search
-        with open(filename, 'r') as source, open("new.txt", 'w') as destination:
-            for line in source:
-                if searcher(line):
-                    destination.write(line)  # fclose?
+
+    def processing_array_express_info(self, article_text, accession_url):
+        accession_numbers_in_article = re.findall("E-[A-Z]{4}-[0-9]*", article_text)
+        set_article_accession_numbers = set(accession_numbers_in_article)  # {'E-MTAB-1729'}
+        print(set_article_accession_numbers)  # TODO add error catching if the script cannot find any accession numbers & put negative score?
+        if len(set_article_accession_numbers) == 0:
+            print('could not find any ArrayExpress accession numbers')
+            return
+        else:
+            print('I could find ArrayExpress accession numbers')
+            for accession_number in set_article_accession_numbers:
+                api_url_concatenated = accession_url + str(accession_number)
+                getxml = requests.request('GET', api_url_concatenated)
+                file = open('%s.txt' % accession_number, 'w')
+                file.writelines(getxml.text)
+                file.close()
+                soup = bs4.BeautifulSoup(getxml.text, 'xml')
+                # print(soup.prettify())
+                metadata = []
+                for hit in soup.find_all("value"):
+                    metadata.append(hit.text.strip())
+                print('this is metadata', metadata)
+                return metadata
+
+# returning sentences containing particular phrases: e.g. "Supporting data"
+def regex_search(filename, term):
+    searcher = re.compile(term + r'([^\w-]|$)').search
+    with open(filename, 'r') as source, open("new.txt", 'w') as destination:
+        for line in source:
+            if searcher(line):
+                destination.write(line)  # fclose?
 
 # create a dictionary with keys the name of the plant ontology and value the ID.
 po_dict = {}
@@ -127,7 +151,7 @@ for line in open('plant-ontology-dev.txt'):
         po_dict[split[1]] = split[0]
 
 #ontopaper_usecase.pdf
-file1 = File("ontopaper_usecase4.pdf")
+file1 = File("ontology_usecase2.pdf")
 print(file1.name)
 
 convertpdf = file1.convert_pdf_to_text(file1.name)
@@ -165,33 +189,15 @@ for word in data_reproducibility_keywords:
 # examples of keywords in the onto {} (Plant ontologies dictionary) have punctuation, thus keep punctuation in tokens.
 # e.g. 'root-derived cultured plant cell': 'PO:0000008'
 
-
-
-def processing_array_express_info(article_text, accession_url):
-    accession_numbers_in_article = re.findall("E-[A-Z]{4}-[0-9]*", article_text)
-    set_article_accession_numbers = set(accession_numbers_in_article)  #{'E-MTAB-1729'}
-    print(set_article_accession_numbers) #TODO add error catching if the script cannot find any accession numbers & put negative score?
-    for accession_number in set_article_accession_numbers:
-        api_url_concatenated = accession_url + str(accession_number)
-        getxml = requests.request('GET', api_url_concatenated)
-        file = open('response.txt', 'w')
-        file.writelines(getxml.text)
-        file.close()
-        soup = bs4.BeautifulSoup(getxml.text, 'xml')
-        # print(soup.prettify())
-        metadata = []
-        for hit in soup.find_all("value"):
-            metadata.append(hit.text.strip())
-        print('this is metadata', metadata)
-        return metadata
-
-
+# for studies such as ontopaper2 which dont have Array express accession numbers, but maybe including SRP numbers
+#https://www.ebi.ac.uk/ena/browser/view/PRJDB2496?show=reads
+#https://www.ebi.ac.uk/ena/browser/api/xml/DRP000768?download=true
 
 print("Running processing array express metadata next")
 
 accession_study_url_to_concatenate = "https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/"
 
-xml_metadata = processing_array_express_info(text_article, accession_study_url_to_concatenate)
+xml_metadata = file1.processing_array_express_info(text_article, accession_study_url_to_concatenate)
 print('xml_metadata list', xml_metadata)
 
 '''
@@ -212,10 +218,25 @@ for query, onto_id in po_dict.items():
             print('found single word matches between PO onto dict and xml metadata:', query, onto_id)
 '''
 
+if xml_metadata is not None:
+    print(len(xml_metadata))
+    if len(xml_metadata) == 0:
+        print('xml metadata is empty')
+    else:
+        for query, onto_id in po_dict.items():
+            if query in xml_metadata:
+                print('found single word matches between PO onto dict and xml metadata:', query, onto_id)
+else:
+    # this runs
+    print('xml_metadata variable stores a None value. This function cannot run. Score for this is 0. ')
+
+'''
 if len(xml_metadata) == 0:
     print('xml metadata is empty')
 else:
     for query, onto_id in po_dict.items():
         if query in xml_metadata:
             print('found single word matches between PO onto dict and xml metadata:', query, onto_id)
+'''
+
 #TODO apply for ngrams again? review code. and what I want to do
