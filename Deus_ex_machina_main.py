@@ -114,16 +114,10 @@ class File(object):
 
     def processing_array_express_info(self, article_text, accession_url):
         accession_numbers_in_article = re.findall("E-[A-Z]{4}-[0-9]*", article_text)
-        score = 0
-        s = set()
         set_article_accession_numbers = set(accession_numbers_in_article)  # {'E-MTAB-1729'}
-        #print(set_article_accession_numbers)  # TODO if the script cannot find any accession numbers & put negative score?
         if len(set_article_accession_numbers) == 0:
-            #print('could not find any ArrayExpress accession numbers here is the score', score)
-            return None, score
+            return None
         else:
-            score = score + 1
-            print('I could find ArrayExpress accession numbers, here is the score', score)
             for accession_number in set_article_accession_numbers:
                 api_url_concatenated = accession_url + str(accession_number)
                 getxml = requests.request('GET', api_url_concatenated)
@@ -131,12 +125,31 @@ class File(object):
                 file.writelines(getxml.text)
                 file.close()
                 soup = bs4.BeautifulSoup(getxml.text, 'xml')
-                # print(soup.prettify())
                 metadata = []
                 for hit in soup.find_all("value"):
                     metadata.append(hit.text.strip())
                 print('this is metadata', metadata)
                 return metadata
+
+    def find_project_accession_number(self, article_text, accession_url):
+        project_accession_numbers_in_article = re.findall("PRJ[E|D|N][A-Z][0-9]+", article_text)
+        set_project_accession_numbers = set(project_accession_numbers_in_article)  # {'PRJEB12345'}
+        if len(set_project_accession_numbers) == 0:
+            print('could not find a project accession number')
+            return None
+        else:
+            for project_accession_number in set_project_accession_numbers:
+                api_url_concatenated = accession_url + str(project_accession_number)
+                getxml = requests.request('GET', api_url_concatenated)
+                file = open('%s.txt' % project_accession_number, 'w')
+                file.writelines(getxml.text)
+                file.close()
+                # soup = bs4.BeautifulSoup(getxml.text, 'xml')
+            # metadata = []
+            # for hit in soup.find_all("value"):
+            #    metadata.append(hit.text.strip())
+            # print('this is project_accesion_number', metadata)
+            # return metadata
 
 
 # TODO could be better to make another function that assesses the output of function processing_array_express_info and depending on that compute the score
@@ -225,48 +238,15 @@ for word in data_reproducibility_keywords:
 # examples of keywords in the onto {} (Plant ontologies dictionary) have punctuation, thus keep punctuation in tokens.
 # e.g. 'root-derived cultured plant cell': 'PO:0000008'
 
-# for studies such as ontopaper2 which dont have Array express accession numbers, but maybe including SRP numbers
-#https://www.ebi.ac.uk/ena/browser/view/PRJDB2496?show=reads
-#https://www.ebi.ac.uk/ena/browser/api/xml/DRP000768?download=true
 
 accession_study_url_to_concatenate = "https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/"
 xml_metadata = file1.processing_array_express_info(text_article, accession_study_url_to_concatenate)
 
-'''
-for query, onto_id in po_dict.items():
-    if query in xml_metadata:
-        print('found single word matches between PO onto dict and xml metadata:', query, onto_id)
-'''
-# if xml_metadata is empty it throws an error, so need to catch this error so the code doesn't break/stop
-
-
-'''
-for query, onto_id in po_dict.items():
-    a = []
-    if len(xml_metadata1) == len(a):
-        print('xml metadata list is empty')
-    else:
-        if query in xml_metadata1:
-            print('found single word matches between PO onto dict and xml metadata:', query, onto_id)
-'''
-'''
-if xml_metadata[0] is None:
-    print('xml metadata is empty and score for this function is:', xml_metadata[1])
-else:
-    score_for_xml_ontology_matching = 0
-    for query, onto_id in po_dict.items():
-        if query in xml_metadata:
-            print('found single word matches between PO onto dict and xml metadata:', query, onto_id, score_for_xml_ontology_matching + 1)
-        else:
-            print('no matches were found in the xml metadata file in ArrayExpress and the po_dict and the score for this is', score_for_xml_ontology_matching)
-'''
 #TODO possibly it's better to have a separate function that takes the functions and computes the scores according to the output of each function.
 # and then puts the results in SQLite or CSV for the user to view and analyse
 
 score_for_xml_ontology_matching = 0
-if xml_metadata[0] is not None:
-    #print(xml_metadata[0])
-    #print(len(xml_metadata))
+if xml_metadata is not None:
     if len(xml_metadata) == 0:
         print('xml metadata is empty')
     else:
@@ -275,33 +255,27 @@ if xml_metadata[0] is not None:
                 print('found single word matches between PO onto dict and xml metadata:', query, onto_id)
                 print('the score for this function is:', score_for_xml_ontology_matching + 1)
 else:
-    # this runs
     print('xml_metadata variable stores a None value. This function cannot run. Score for this is:', score_for_xml_ontology_matching)
 
 
-
-
-'''
-if xml_metadata is not None:
-    print(xml_metadata[0])
-    #print(len(xml_metadata))
-    if len(xml_metadata) == 0:
-        print('xml metadata is empty')
-    else:
-        for query, onto_id in po_dict.items():
-            if query in xml_metadata:
-                print('found single word matches between PO onto dict and xml metadata:', query, onto_id)
-else:
-    # this runs
-    print('xml_metadata variable stores a None value. This function cannot run. Score for this is 0. ')
-'''
-'''
-if len(xml_metadata) == 0:
-    print('xml metadata is empty')
-else:
-    for query, onto_id in po_dict.items():
-        if query in xml_metadata:
-            print('found single word matches between PO onto dict and xml metadata:', query, onto_id)
-'''
-
 #TODO apply for ngrams again? review code. and what I want to do
+
+#other accession numbers. e.g. GenBank HP608076 - HP639668 . See accession number prefixes: https://www.ncbi.nlm.nih.gov/genbank/acc_prefix/
+# so can do another Regex, to find other accession. It is a long list (as per the link above) and I am not sure which one of those are
+# relevant to crop transcriptomics.
+# TODO read the phrases, 'accession' and add a score. Or make some more Regex searches
+
+# for studies such as ontopaper2 which dont have Array express accession numbers, but maybe including SRP numbers
+#https://www.ebi.ac.uk/ena/browser/view/PRJDB2496?show=reads
+#https://www.ebi.ac.uk/ena/browser/api/xml/DRP000768?download=true
+
+#TODO for papers which include ENA Project reference number, give 2 points.
+
+#Do similar thing for finding ENA project reference number.
+# https://www.ebi.ac.uk/ena/browser/view/PRJDB2496?show=reads
+# guide from ENA: https://ena-docs.readthedocs.io/en/latest/submit/general-guide/accessions.html
+# Projects: PRJ(E|D|N)[A-Z][0-9]+ e.g. PRJEB12345.
+# Studies: (E|D|S)RP[0-9]{6,} e.g.ERP123456
+
+
+project_accession = file1.find_project_accession_number(text_article, accession_study_url_to_concatenate)
