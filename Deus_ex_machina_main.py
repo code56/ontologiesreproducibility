@@ -114,13 +114,16 @@ class File(object):
 
     def processing_array_express_info(self, article_text, accession_url):
         accession_numbers_in_article = re.findall("E-[A-Z]{4}-[0-9]*", article_text)
+        score = 0
+        s = set()
         set_article_accession_numbers = set(accession_numbers_in_article)  # {'E-MTAB-1729'}
-        print(set_article_accession_numbers)  # TODO add error catching if the script cannot find any accession numbers & put negative score?
+        #print(set_article_accession_numbers)  # TODO if the script cannot find any accession numbers & put negative score?
         if len(set_article_accession_numbers) == 0:
-            print('could not find any ArrayExpress accession numbers')
-            return
+            #print('could not find any ArrayExpress accession numbers here is the score', score)
+            return None, score
         else:
-            print('I could find ArrayExpress accession numbers')
+            score = score + 1
+            print('I could find ArrayExpress accession numbers, here is the score', score)
             for accession_number in set_article_accession_numbers:
                 api_url_concatenated = accession_url + str(accession_number)
                 getxml = requests.request('GET', api_url_concatenated)
@@ -134,6 +137,38 @@ class File(object):
                     metadata.append(hit.text.strip())
                 print('this is metadata', metadata)
                 return metadata
+
+
+# TODO could be better to make another function that assesses the output of function processing_array_express_info and depending on that compute the score
+'''
+def processing_array_express_info1(article_text, accession_url):
+    accession_numbers_in_article = re.findall("E-[A-Z]{4}-[0-9]*", article_text)
+    score = 0
+    s = set()
+    set_article_accession_numbers = set(accession_numbers_in_article)  #{'E-MTAB-1729'}
+
+    if set_article_accession_numbers == (s == set()):
+        print(score)
+    else:
+        score = score + 1
+
+    for accession_number in set_article_accession_numbers:
+        api_url_concatenated = accession_url + str(accession_number)
+        getxml = requests.request('GET', api_url_concatenated)
+        file = open('response.txt', 'w')
+        file.writelines(getxml.text)
+        file.close()
+
+        soup = bs4.BeautifulSoup(getxml.text, 'xml')
+
+        metadata = []
+        for hit in soup.find_all("value"):
+            metadata.append(hit.text.strip())
+
+        return(metadata)
+        #return {'metadata': metadata, 'metadata score': score}
+'''
+
 
 # returning sentences containing particular phrases: e.g. "Supporting data"
 def regex_search(filename, term):
@@ -151,6 +186,7 @@ for line in open('plant-ontology-dev.txt'):
         po_dict[split[1]] = split[0]
 
 #ontopaper_usecase.pdf
+#ontology_usecase2.pdf
 file1 = File("ontology_usecase2.pdf")
 print(file1.name)
 
@@ -168,7 +204,7 @@ from nltk.tokenize import RegexpTokenizer
 # tokenizer to remove unwanted elements from out data like symbols and numbers
 token = RegexpTokenizer(r'[a-zA-Z]+')
 
-data_reproducibility_keywords = ['accession', 'data', 'Supporting', 'available', 'repository', 'GO', 'EBI',
+data_reproducibility_keywords = ['accession', 'accessions', 'data', 'Supporting', 'available', 'repository', 'GO', 'EBI',
                                      'ArrayExpress', 'PO', 'sequences', 'expression', 'snps', 'genes', 'wheat', 'rice']
 phrases_from_article = []
 for word in data_reproducibility_keywords:
@@ -193,12 +229,8 @@ for word in data_reproducibility_keywords:
 #https://www.ebi.ac.uk/ena/browser/view/PRJDB2496?show=reads
 #https://www.ebi.ac.uk/ena/browser/api/xml/DRP000768?download=true
 
-print("Running processing array express metadata next")
-
 accession_study_url_to_concatenate = "https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/"
-
 xml_metadata = file1.processing_array_express_info(text_article, accession_study_url_to_concatenate)
-print('xml_metadata list', xml_metadata)
 
 '''
 for query, onto_id in po_dict.items():
@@ -217,9 +249,42 @@ for query, onto_id in po_dict.items():
         if query in xml_metadata1:
             print('found single word matches between PO onto dict and xml metadata:', query, onto_id)
 '''
+'''
+if xml_metadata[0] is None:
+    print('xml metadata is empty and score for this function is:', xml_metadata[1])
+else:
+    score_for_xml_ontology_matching = 0
+    for query, onto_id in po_dict.items():
+        if query in xml_metadata:
+            print('found single word matches between PO onto dict and xml metadata:', query, onto_id, score_for_xml_ontology_matching + 1)
+        else:
+            print('no matches were found in the xml metadata file in ArrayExpress and the po_dict and the score for this is', score_for_xml_ontology_matching)
+'''
+#TODO possibly it's better to have a separate function that takes the functions and computes the scores according to the output of each function.
+# and then puts the results in SQLite or CSV for the user to view and analyse
 
+score_for_xml_ontology_matching = 0
+if xml_metadata[0] is not None:
+    #print(xml_metadata[0])
+    #print(len(xml_metadata))
+    if len(xml_metadata) == 0:
+        print('xml metadata is empty')
+    else:
+        for query, onto_id in po_dict.items():
+            if query in xml_metadata:
+                print('found single word matches between PO onto dict and xml metadata:', query, onto_id)
+                print('the score for this function is:', score_for_xml_ontology_matching + 1)
+else:
+    # this runs
+    print('xml_metadata variable stores a None value. This function cannot run. Score for this is:', score_for_xml_ontology_matching)
+
+
+
+
+'''
 if xml_metadata is not None:
-    print(len(xml_metadata))
+    print(xml_metadata[0])
+    #print(len(xml_metadata))
     if len(xml_metadata) == 0:
         print('xml metadata is empty')
     else:
@@ -229,7 +294,7 @@ if xml_metadata is not None:
 else:
     # this runs
     print('xml_metadata variable stores a None value. This function cannot run. Score for this is 0. ')
-
+'''
 '''
 if len(xml_metadata) == 0:
     print('xml metadata is empty')
