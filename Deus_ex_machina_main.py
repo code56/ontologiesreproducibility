@@ -112,7 +112,8 @@ class File(object):
         return [''.join([x + ' ' for x in con_sub]) for con_sub in concordance_txt]
 
 
-    def processing_array_express_info(self, article_text, accession_url):
+    def processing_array_express_info(self, article_text):
+        accession_url = "https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/"
         accession_numbers_in_article = re.findall("E-[A-Z]{4}-[0-9]*", article_text)
         set_article_accession_numbers = set(accession_numbers_in_article)  # {'E-MTAB-1729'}
         if len(set_article_accession_numbers) == 0:
@@ -129,7 +130,8 @@ class File(object):
                 for hit in soup.find_all("value"):
                     metadata.append(hit.text.strip())
                 print('this is metadata', metadata)
-                return metadata
+            return set_article_accession_numbers, metadata
+
 
     def find_project_accession_number(self, article_text, accession_url):
         project_accession_numbers_in_article = re.findall("PRJ[E|D|N][A-Z][0-9]+", article_text)
@@ -144,44 +146,8 @@ class File(object):
                 file = open('%s.txt' % project_accession_number, 'w')
                 file.writelines(getxml.text)
                 file.close()
-                # soup = bs4.BeautifulSoup(getxml.text, 'xml')
-            # metadata = []
-            # for hit in soup.find_all("value"):
-            #    metadata.append(hit.text.strip())
-            # print('this is project_accesion_number', metadata)
-            # return metadata
-
 
 # TODO could be better to make another function that assesses the output of function processing_array_express_info and depending on that compute the score
-'''
-def processing_array_express_info1(article_text, accession_url):
-    accession_numbers_in_article = re.findall("E-[A-Z]{4}-[0-9]*", article_text)
-    score = 0
-    s = set()
-    set_article_accession_numbers = set(accession_numbers_in_article)  #{'E-MTAB-1729'}
-
-    if set_article_accession_numbers == (s == set()):
-        print(score)
-    else:
-        score = score + 1
-
-    for accession_number in set_article_accession_numbers:
-        api_url_concatenated = accession_url + str(accession_number)
-        getxml = requests.request('GET', api_url_concatenated)
-        file = open('response.txt', 'w')
-        file.writelines(getxml.text)
-        file.close()
-
-        soup = bs4.BeautifulSoup(getxml.text, 'xml')
-
-        metadata = []
-        for hit in soup.find_all("value"):
-            metadata.append(hit.text.strip())
-
-        return(metadata)
-        #return {'metadata': metadata, 'metadata score': score}
-'''
-
 
 # returning sentences containing particular phrases: e.g. "Supporting data"
 def regex_search(filename, term):
@@ -200,7 +166,10 @@ for line in open('plant-ontology-dev.txt'):
 
 #ontopaper_usecase.pdf
 #ontology_usecase2.pdf
-file1 = File("ontology_usecase2.pdf")
+# TODO needs to be changing dynamically since it will be going through all the files in the folder "article folder"
+#file1 = File("ontology_usecase2.pdf")
+file1 = File("ontopaper_usecase.pdf")
+
 print(file1.name)
 
 convertpdf = file1.convert_pdf_to_text(file1.name)
@@ -239,11 +208,13 @@ for word in data_reproducibility_keywords:
 # e.g. 'root-derived cultured plant cell': 'PO:0000008'
 
 
-accession_study_url_to_concatenate = "https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/"
-xml_metadata = file1.processing_array_express_info(text_article, accession_study_url_to_concatenate)
 
 #TODO possibly it's better to have a separate function that takes the functions and computes the scores according to the output of each function.
 # and then puts the results in SQLite or CSV for the user to view and analyse
+# I should put that in the a function so that I can access the score for ontology match and then be able to add it to the CSV
+
+
+xml_metadata = file1.processing_array_express_info(text_article)
 
 score_for_xml_ontology_matching = 0
 if xml_metadata is not None:
@@ -251,12 +222,12 @@ if xml_metadata is not None:
         print('xml metadata is empty')
     else:
         for query, onto_id in po_dict.items():
-            if query in xml_metadata:
+            if query in xml_metadata[1]:
                 print('found single word matches between PO onto dict and xml metadata:', query, onto_id)
-                print('the score for this function is:', score_for_xml_ontology_matching + 1)
+                score_xml = score_for_xml_ontology_matching + 1
 else:
     print('xml_metadata variable stores a None value. This function cannot run. Score for this is:', score_for_xml_ontology_matching)
-
+    score_xml = score_for_xml_ontology_matching
 
 #TODO apply for ngrams again? review code. and what I want to do
 
@@ -277,5 +248,52 @@ else:
 # Projects: PRJ(E|D|N)[A-Z][0-9]+ e.g. PRJEB12345.
 # Studies: (E|D|S)RP[0-9]{6,} e.g.ERP123456
 
+#sample_text = 'this is a testing text to see what the code does when finding project accession number PRJEB1787. '
 
-project_accession = file1.find_project_accession_number(text_article, accession_study_url_to_concatenate)
+project_url_to_concatenate = 'https://www.ebi.ac.uk/ena/browser/api/xml/'
+project_accession = file1.find_project_accession_number(text_article, project_url_to_concatenate)
+
+# TODO can add scoring for the find_project_accession_number. But do I have a function separately depending
+#  on the value of project_accession? or whilst running the command to run the function find_project_accession_number
+
+
+
+# TODO the individual scores from each function can be tabulated into CSV files.
+#   this way each pdf article File can occupy one row, then the user can tabulate the results to see how the article Files compare to one another.
+
+'''
+import csv
+
+header = ['name', 'area', 'country_code2', 'country_code3']
+data = [
+    ['Albania', 28748, 'AL', 'ALB'],
+    ['Algeria', 2381741, 'DZ', 'DZA'],
+    ['American Samoa', 199, 'AS', 'ASM'],
+    ['Andorra', 468, 'AD', 'AND'],
+    ['Angola', 1246700, 'AO', 'AGO']
+]
+
+with open('countries.csv', 'w', encoding='UTF8', newline='') as f:
+    writer = csv.writer(f)
+
+    # write the header
+    writer.writerow(header)
+
+    # write multiple rows
+    writer.writerows(data)
+'''
+
+import csv
+header = ['name', 'score for ontology matching']
+data = [[file1.name, score_xml]]
+
+with open('scores.csv', 'w', encoding='UTF8', newline='') as f:
+    writer = csv.writer(f)
+
+    # write the header
+    writer.writerow(header)
+
+    # write multiple rows
+    writer.writerows(data)
+
+
