@@ -167,11 +167,20 @@ for line in open('plant-ontology-dev.txt'):
     if len(split) > 2:
         po_dict[split[1]] = split[0]
 
-#ontopaper_usecase.pdf
-#ontology_usecase2.pdf
-# TODO needs to be changing dynamically since it will be going through all the files in the folder "article folder"
+
+# TODO needs to be changing dynamically since it will be going through all the files in the folder "article folder" being called from main.py
+#  #so does Deus_ex_machina_main.py or the main.py need to be called with a file name parameter that is fed from the main.py?
+
+
+
+
+
 #file1 = File("ontology_usecase2.pdf")
-file1 = File("ontopaper_usecase.pdf")
+file1 = File("ontology_usecase2.pdf")
+
+#have a function or piece of code that tells Deus_ex_machina.py which pdf file is being processed now.
+#maybe this will be fed by main.py ---
+
 
 print(file1.name)
 

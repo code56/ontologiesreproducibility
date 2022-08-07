@@ -1,2 +1,4 @@
-name,ngram matches in the article,project accession number,score for ontology matching at xml file,score for ontology matching between XML file and ontology database,score for finding Project Accession number
+name,ngram matches in the article,project accession number,score for ontology matching at xml file,ontology matches between XML file and ontology database,score for finding Project Accession number
+ontology_usecase2.pdf,"['peduncle | PO:0009053', 'leaf | PO:0025034', 'whole plant | PO:0000003', 'flag leaf | PO:0020103', 'leaf tip | PO:0025142']",,0,,0
+ontology_usecase3.pdf,"['xylem | PO:0005352', 'phloem | PO:0005417', 'corpus | PO:0006301', 'seedling | PO:0008037', 'root | PO:0009005', 'endosperm | PO:0009089', 'petiole | PO:0020038', 'leaf | PO:0025034', 'plant cell | PO:0009002']",,0,,0
 ontopaper_usecase.pdf,"['lemma | PO:0009037', 'palea | PO:0009038', 'spikelet | PO:0009051']",,1,"['spikelet floret', 'PO:0009082']",0
