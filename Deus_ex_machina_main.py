@@ -93,6 +93,8 @@ class File(object):
         print(ngram_matches)
         return ngram_matches
 
+#TODO double check find_ngrams if it is not overriding n-gram and only last i value results? (double check with dummy input)
+    #TODO I think with the ontocase2, the programme appends bigrams too.
 
     def get_all_phrases_containing_tar_wrd(self, target_word, tar_passage, left_margin=30, right_margin=30):
         ## Create list of tokens using nltk function
@@ -137,7 +139,7 @@ class File(object):
         project_accession_numbers_in_article = re.findall("PRJ[E|D|N][A-Z][0-9]+", article_text)
         set_project_accession_numbers = set(project_accession_numbers_in_article)  # {'PRJEB12345'}
         if len(set_project_accession_numbers) == 0:
-            print('could not find a project accession number')
+            #print('could not find a project accession number')
             return None
         else:
             for project_accession_number in set_project_accession_numbers:
@@ -146,6 +148,7 @@ class File(object):
                 file = open('%s.txt' % project_accession_number, 'w')
                 file.writelines(getxml.text)
                 file.close()
+            return project_accession_number
 
 # TODO could be better to make another function that assesses the output of function processing_array_express_info and depending on that compute the score
 
@@ -223,13 +226,14 @@ if xml_metadata is not None:
     else:
         for query, onto_id in po_dict.items():
             if query in xml_metadata[1]:
-                print('found single word matches between PO onto dict and xml metadata:', query, onto_id)
+                print('found single word matches between PO onto dict and xml metadata:', query, onto_id) #these should be tabulated as well.
+                xml_and_onto_matching_single_word = [query,onto_id]
                 score_xml = score_for_xml_ontology_matching + 1
 else:
     print('xml_metadata variable stores a None value. This function cannot run. Score for this is:', score_for_xml_ontology_matching)
     score_xml = score_for_xml_ontology_matching
+    xml_and_onto_matching_single_word = 0
 
-#TODO apply for ngrams again? review code. and what I want to do
 
 #other accession numbers. e.g. GenBank HP608076 - HP639668 . See accession number prefixes: https://www.ncbi.nlm.nih.gov/genbank/acc_prefix/
 # so can do another Regex, to find other accession. It is a long list (as per the link above) and I am not sure which one of those are
@@ -283,9 +287,23 @@ with open('countries.csv', 'w', encoding='UTF8', newline='') as f:
     writer.writerows(data)
 '''
 
+
+#computing score for assessment of finding Project Accession number or not. If found add 2 to the score
+score_for_project_accession_number = 0
+if project_accession is not None:
+    if len(project_accession) == 0:
+        print('the Project Accession code is:', project_accession)
+        score_for_finding_project_accession_number = score_for_project_accession_number + 2
+else:
+    print('could not find a Project Accession')
+    score_for_finding_project_accession_number = score_for_project_accession_number
+
+
+#TODO check the score for ontology matching xml file and 'score for ontology matching between xml file and ontology database'. are they the same? what about article onto file match?
+
 import csv
-header = ['name', 'score for ontology matching']
-data = [[file1.name, score_xml]]
+header = ['name', 'ngram matches in the article', 'project accession number','score for ontology matching at xml file', 'score for ontology matching between XML file and ontology database', 'score for finding Project Accession number']
+data = [[file1.name, ngram_matches, project_accession, score_xml, xml_and_onto_matching_single_word, score_for_finding_project_accession_number]]
 
 with open('scores.csv', 'w', encoding='UTF8', newline='') as f:
     writer = csv.writer(f)
@@ -295,5 +313,7 @@ with open('scores.csv', 'w', encoding='UTF8', newline='') as f:
 
     # write multiple rows
     writer.writerows(data)
+
+
 
 
