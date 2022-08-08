@@ -1,2 +1,0 @@
-name,ngram matches in the article,project accession number,score for ontology matching at xml file,score for ontology matching between XML file and ontology database,score for finding Project Accession number
-ontology_usecase2.pdf,"['peduncle | PO:0009053', 'leaf | PO:0025034', 'whole plant | PO:0000003', 'flag leaf | PO:0020103', 'leaf tip | PO:0025142']",,0,0,0
