@@ -26,7 +26,9 @@ class File(object):
         self.name = name
 
     def convert_pdf_to_text(self, name):
-        with open(name, 'rb') as f:
+        #with open(name, 'rb') as f:
+
+        with open("papers_collection_folder/" + name, 'rb') as f:
             pdf = pdftotext.PDF(f, 'secret')
         for page in pdf:
             f = open('%s.txt' % self.name, "w+")
@@ -138,7 +140,6 @@ class File(object):
         project_accession_numbers_in_article = re.findall("PRJ[E|D|N][A-Z][0-9]+", article_text)
         set_project_accession_numbers = set(project_accession_numbers_in_article)  # {'PRJEB12345'}
         if len(set_project_accession_numbers) == 0:
-            # print('could not find a project accession number')
             return None
         else:
             for project_accession_number in set_project_accession_numbers:
@@ -149,8 +150,6 @@ class File(object):
                 file.close()
             return project_accession_number
 
-
-# TODO could be better to make another function that assesses the output of function processing_array_express_info and depending on that compute the score
 
 # returning sentences containing particular phrases: e.g. "Supporting data"
 def regex_search(filename, term):
@@ -181,7 +180,7 @@ with open('scores.csv', 'w', encoding='UTF8', newline='') as f:
 def main(articlename):
     print("working on pdf article file named:", articlename)
     file1 = File(articlename)
-
+    print(file1.name)
     convertpdf = file1.convert_pdf_to_text(file1.name)
     textarticlecreation = file1.create_text_file(convertpdf)
     text_article = file1.create_text_article(convertpdf)
@@ -216,6 +215,9 @@ def main(articlename):
     # e.g. 'root-derived cultured plant cell': 'PO:0000008'
 
 
+#TODO need to fix this: requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.ebi.ac.uk', port=443): Max retries exceeded with url: /arrayexpress/xml/v3/experiments/E-MTAB-1729 (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x129e2c090>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+
+'''
     xml_metadata = file1.processing_array_express_info(text_article)
 
     score_for_xml_ontology_matching = 0
@@ -232,6 +234,7 @@ def main(articlename):
     else:
         score_xml = score_for_xml_ontology_matching
         xml_and_onto_matching = None
+
 
     # other accession numbers. e.g. GenBank HP608076 - HP639668 . See accession number prefixes: https://www.ncbi.nlm.nih.gov/genbank/acc_prefix/
     # so can do another Regex, to find other accession. It is a long list (as per the link above) and I am not sure which one of those are
@@ -287,6 +290,19 @@ def main(articlename):
         # write multiple rows
         writer.writerows(data)
 
+'''
+
+if __name__ == "__main__":
+
+    for file in os.listdir("papers_collection_folder"):
+        if file.endswith(".pdf"):
+            print(os.path.join("papers_collection_folder", file))
+            print(file)
+            main(file)
+
+
+
+'''
 
 if __name__ == "__main__":
     yourpath = os.getcwd()
@@ -303,3 +319,5 @@ if __name__ == "__main__":
         main(pdfarticlename)
 
 # can this pdfarticlename be fed from main.py??? item.name (for item being the pdf article file in the article folder?)
+
+'''
