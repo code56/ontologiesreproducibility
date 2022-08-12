@@ -13,6 +13,9 @@ from nltk.corpus import stopwords
 from nltk.tokenize.treebank import TreebankWordDetokenizer
 from pathlib import Path
 import urllib.request, urllib.error, urllib.parse
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+import time
 import requests, pprint
 import bs4
 from bs4 import BeautifulSoup
@@ -36,6 +39,8 @@ class File(object):
             f.close()
         return ('%s.txt' % self.name)
 
+#TODO for more tidy code, have the code create the text files and put them in a different directory, not the main directory...
+
     def create_text_file(self, name):
         with open(name) as f:
             log = f.readlines()
@@ -54,7 +59,7 @@ class File(object):
         return text_article
 
     # TODO the create_text_article should return just the text_article as we need it for other functions
-    #   maybe see if create_text_file function can run the create_text_article function first and add the extra line for tokenisation
+    #  maybe see if create_text_file function can run the create_text_article function first and add the extra line for tokenisation
 
     # pre-processing of text_article. Remove punctuation
     def remove_punctuation(self, txt):
@@ -136,6 +141,49 @@ class File(object):
                 print('this is metadata', metadata)
             return set_article_accession_numbers, metadata
 
+    def processing_xml(self, article_text):
+        accession_url = "https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/"
+        accession_numbers_in_article = re.findall("E-[A-Z]{4}-[0-9]*", article_text)
+        set_article_accession_numbers = set(accession_numbers_in_article)  # {'E-MTAB-1729'}
+        print(set_article_accession_numbers)
+        if len(set_article_accession_numbers) == 0:
+            return None
+        else:
+            for accession_number in set_article_accession_numbers:
+                api_url_concatenated = accession_url + str(accession_number)
+                page = ''
+                while page == '':
+                    try:
+                        page = requests.get(api_url_concatenated)
+                        file = open('%s.txt' % accession_number, 'w')
+                        file.writelines(page.text)
+                        file.close()
+                        soup = bs4.BeautifulSoup(page.text, 'xml')
+                        metadata = []
+                        for hit in soup.find_all("value"):
+                            metadata.append(hit.text.strip())
+                        print('this is metadata', metadata)
+
+
+                    except:
+                        print("Connection refused by the server...")
+                        print("Let me sleep for 5 seconds")
+                        print("ZZzzzz")
+                        time.sleep(5)
+                        print("this was a nice sleep, now let me continue...")
+                        continue
+
+                        #getxml = requests.request('GET', api_url_concatenated)
+                        file = open('%s.txt' % accession_number, 'w')
+                        file.writelines(page.text)
+                        file.close()
+                        soup = bs4.BeautifulSoup(page.text, 'xml')
+                        metadata = []
+                        for hit in soup.find_all("value"):
+                            metadata.append(hit.text.strip())
+                        print('this is metadata', metadata)
+                return set_article_accession_numbers, metadata
+
     def find_project_accession_number(self, article_text, accession_url):
         project_accession_numbers_in_article = re.findall("PRJ[E|D|N][A-Z][0-9]+", article_text)
         set_project_accession_numbers = set(project_accession_numbers_in_article)  # {'PRJEB12345'}
@@ -167,7 +215,7 @@ for line in open('plant-ontology-dev.txt'):
     if len(split) > 2:
         po_dict[split[1]] = split[0]
 
-header = ['name', 'ngram matches in the article', 'project accession number', 'score for ontology matching at xml file',
+header = ['name', 'ngram matches in the article', 'array express number', 'project accession number', 'score for ontology matching at xml file',
           'ontology matches between XML file and ontology database', 'score for finding Project Accession number', 'Reproducibility Metric Score (RMS)']
 
 with open('scores.csv', 'w', encoding='UTF8', newline='') as f:
@@ -180,7 +228,7 @@ with open('scores.csv', 'w', encoding='UTF8', newline='') as f:
 def main(articlename):
     print("working on pdf article file named:", articlename)
     file1 = File(articlename)
-    print(file1.name)
+
     convertpdf = file1.convert_pdf_to_text(file1.name)
     textarticlecreation = file1.create_text_file(convertpdf)
     text_article = file1.create_text_article(convertpdf)
@@ -217,8 +265,9 @@ def main(articlename):
 
 #TODO need to fix this: requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.ebi.ac.uk', port=443): Max retries exceeded with url: /arrayexpress/xml/v3/experiments/E-MTAB-1729 (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x129e2c090>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
 
-'''
-    xml_metadata = file1.processing_array_express_info(text_article)
+
+    #xml_metadata = file1.processing_array_express_info(text_article)
+    xml_metadata = file1.processing_xml(text_article)
 
     score_for_xml_ontology_matching = 0
     if xml_metadata is not None:
@@ -231,9 +280,12 @@ def main(articlename):
                           onto_id)  # these should be tabulated as well.
                     xml_and_onto_matching = [query, onto_id]
                     score_xml = score_for_xml_ontology_matching + 1
+                    print('this is score xml', score_xml)
+                    array_express_number = xml_metadata[0]
     else:
         score_xml = score_for_xml_ontology_matching
         xml_and_onto_matching = None
+        array_express_number = None
 
 
     # other accession numbers. e.g. GenBank HP608076 - HP639668 . See accession number prefixes: https://www.ncbi.nlm.nih.gov/genbank/acc_prefix/
@@ -279,7 +331,7 @@ def main(articlename):
     # TODO check the score for ontology matching xml file and 'score for ontology matching between xml file and ontology database'. are they the same? what about article onto file match?
 
     # header = ['name', 'ngram matches in the article', 'project accession number','score for ontology matching at xml file', 'ontology matches between XML file and ontology database', 'score for finding Project Accession number']
-    data = [[file1.name, ngram_matches, project_accession, score_xml, xml_and_onto_matching, score_for_finding_project_accession_number, (score_xml+score_for_finding_project_accession_number)]]
+    data = [[file1.name, ngram_matches, array_express_number, project_accession, score_xml, xml_and_onto_matching, score_for_finding_project_accession_number, (score_xml+score_for_finding_project_accession_number)]]
 
     with open('scores.csv', 'a', encoding='UTF8', newline='') as f:
         writer = csv.writer(f)
@@ -290,7 +342,7 @@ def main(articlename):
         # write multiple rows
         writer.writerows(data)
 
-'''
+
 
 if __name__ == "__main__":
 
@@ -317,6 +369,7 @@ if __name__ == "__main__":
             print(pdfarticlename)
 
         main(pdfarticlename)
+
 
 # can this pdfarticlename be fed from main.py??? item.name (for item being the pdf article file in the article folder?)
 
