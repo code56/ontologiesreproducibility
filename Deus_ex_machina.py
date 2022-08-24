@@ -11,6 +11,8 @@ from nltk.tokenize import word_tokenize
 from nltk.util import ngrams
 from nltk.corpus import stopwords
 from nltk.tokenize.treebank import TreebankWordDetokenizer
+from sklearn.feature_extraction.text import CountVectorizer
+from nltk.tokenize import RegexpTokenizer
 from pathlib import Path
 import urllib.request, urllib.error, urllib.parse
 from requests.adapters import HTTPAdapter
@@ -21,6 +23,7 @@ import bs4
 from bs4 import BeautifulSoup
 from itertools import repeat
 import csv
+
 
 
 class File(object):
@@ -106,7 +109,6 @@ class File(object):
                 if query in res:
                     #print('found ontology match with n_gram match', " | ", i, onto_id + " | " + query)
                     ngram_matches.append((query,onto_id))
-        #print(ngram_matches)
         return ngram_matches
 
     def get_all_phrases_containing_tar_wrd(self, target_word, tar_passage, left_margin=5, right_margin=5):
@@ -146,7 +148,6 @@ class File(object):
                 metadata = []
                 for hit in soup.find_all("value"):
                     metadata.append(hit.text.strip())
-                #print('this is metadata', metadata)
             return set_article_accession_numbers, metadata
 
 
@@ -156,7 +157,6 @@ class File(object):
         accession_url = "https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/"
         accession_numbers_in_article = re.findall("E-[A-Z]{4}-[0-9]*", article_text)
         set_article_accession_numbers = set(accession_numbers_in_article)  # {'E-MTAB-1729'}
-        #print(set_article_accession_numbers)
         if len(set_article_accession_numbers) == 0:
             return None
         else:
@@ -190,7 +190,6 @@ class File(object):
                         metadata = []
                         for hit in soup.find_all("value"):
                             metadata.append(hit.text.strip())
-                        #print('this is XML metadata under the <value> tag', metadata)
                 return set_article_accession_numbers, metadata
 
     def find_project_accession_number(self, article_text, accession_url):
@@ -228,12 +227,11 @@ for line in open('plant-ontology-dev.txt'):
     if len(split) > 2:
         po_dict[split[1]] = split[0]
 
-header = ['name', 'ngram matches in the article', 'array express number', 'project accession number', 'XML metadata',
-          'ontology matches between XML file and ontology database', 'common ontologies', 'score for ontology matching at xml file', 'score for finding Project Accession number', 'Reproducibility Metric Score (RMS)']
+header = ['article file name', 'article ontologies', 'ArrayExpress number', 'project accession number', 'XML metadata',
+          'XML ontologies', 'common ontologies', 'research paper ontologies', 'ArrayExpress score','XML file ontologies score', 'Project Accession score','common ontologies score','Reproducibility Metric Score (RMS)']
 
 with open('scores.csv', 'w', encoding='UTF8', newline='') as f:
     writer = csv.writer(f)
-
     # write the header
     writer.writerow(header)
 
@@ -244,10 +242,17 @@ def main(articlename):
     convertpdf = file1.convert_pdf_to_text(file1.name)
     textarticlecreation = file1.create_text_file(convertpdf)
     text_article = file1.create_text_article(convertpdf)
-    ngram_matches = file1.find_ngrams(textarticlecreation, po_dict)
 
-    from sklearn.feature_extraction.text import CountVectorizer
-    from nltk.tokenize import RegexpTokenizer
+    ngram_matches = file1.find_ngrams(textarticlecreation, po_dict)
+    ngram_matches_score = 0
+    if ngram_matches is not None:
+        ngram_matches_score = ngram_matches_score + 1
+
+
+
+
+    #from sklearn.feature_extraction.text import CountVectorizer
+    #from nltk.tokenize import RegexpTokenizer
 
     # tokenizer to remove unwanted elements from out data like symbols and numbers
     token = RegexpTokenizer(r'[a-zA-Z]+')
@@ -260,35 +265,33 @@ def main(articlename):
         phrases_from_article = file1.get_all_phrases_containing_tar_wrd(word, text_article)
        # phrases_from_article.append(file1.get_all_phrases_containing_tar_wrd(word, text_article))
        # print('phrases in article', phrases_from_article)
-       # print('phrases from text article:', word, phrases_from_article)
+       #print('phrases from text article:', word, phrases_from_article)
 
-        # it doesn't return all the occurences or the complete
-        # sentences because it is two column text.
-        #TODO produce a list instead of printing them individually
+       # it doesn't return all the occurences or the complete sentences because it is two column text.
+       #TODO produce a list instead of printing them individually & include in the scores.csv file
 
 
     #xml_metadata = file1.processing_array_express_info(text_article)
     xml_metadata = file1.processing_xml(text_article)
 
     score_for_xml_ontology_matching = 0
+    article_accessionnumber_score = 0
     xml_and_onto_matching =[]
     if xml_metadata is not None:
         if len(xml_metadata) == 0:
             print('xml metadata is empty')
         else:
+            array_express_number = xml_metadata[0] #TODO what about when there is more than one ArrayExpress found?
+            arrayexpress_score = article_accessionnumber_score + 1
             for query, onto_id in po_dict.items():
                 if query in xml_metadata[1]:
-                    #print('found matches between PO onto dict and xml metadata:', query, onto_id)
-                    #xml_and_onto_matching = [query, onto_id]
                     xml_and_onto_matching.append((query, onto_id))
                     score_xml = score_for_xml_ontology_matching + 1
-                    #print('this is score xml', score_xml)
-                    array_express_number = xml_metadata[0]
     else:
         score_xml = score_for_xml_ontology_matching
         xml_and_onto_matching = None
         array_express_number = None
-
+        arrayexpress_score = 0
 
     # other accession numbers. e.g. GenBank HP608076 - HP639668 . See accession number prefixes: https://www.ncbi.nlm.nih.gov/genbank/acc_prefix/
     # so can do another Regex, to find other accession. It is a long list (as per the link above) and I am not sure which one of those are
@@ -299,69 +302,40 @@ def main(articlename):
     # https://www.ebi.ac.uk/ena/browser/view/PRJDB2496?show=reads
     # https://www.ebi.ac.uk/ena/browser/api/xml/DRP000768?download=true
 
-    # TODO for papers which include ENA Project reference number, give 2 points.
-
     # Do similar thing for finding ENA project reference number.
     # https://www.ebi.ac.uk/ena/browser/view/PRJDB2496?show=reads
     # guide from ENA: https://ena-docs.readthedocs.io/en/latest/submit/general-guide/accessions.html
     # Projects: PRJ(E|D|N)[A-Z][0-9]+ e.g. PRJEB12345.
     # Studies: (E|D|S)RP[0-9]{6,} e.g.ERP123456
 
-    # sample_text = 'this is a testing text to see what the code does when finding project accession number PRJEB1787. '
 
     project_url_to_concatenate = 'https://www.ebi.ac.uk/ena/browser/api/xml/'
     project_accession = file1.find_project_accession_number(text_article, project_url_to_concatenate)
-    #print('this is project accesssion number', project_accession)
-
-    # TODO can add scoring for the find_project_accession_number. But do I have a function separately depending
-    #  on the value of project_accession? or whilst running the command to run the function find_project_accession_number
-
-    # TODO the individual scores from each function can be tabulated into CSV files.
-    #   this way each pdf article File can occupy one row, then the user can tabulate the results to see how the article Files compare to one another.
 
     # computing score for assessment of finding Project Accession number or not. If found add 2 to the score
     score_for_project_accession_number = 0
     if project_accession is not None:
-        if len(project_accession) == 0:
-            print('the Project Accession code is:', project_accession)
-        else:
-            score_for_finding_project_accession_number = score_for_project_accession_number + 2
+        score_for_finding_project_accession_number = score_for_project_accession_number + 2
     else:
-        print('could not find a Project Accession')
         score_for_finding_project_accession_number = score_for_project_accession_number
 
-    xml_metadata = file1.processing_xml(text_article)
-#TODO why two different scores? not supposed to be score = score + 2?
+        # TODO code for if it has more than one project accession
+
 
     #common ontologies comparison between the ontologies found in research article and XML metadata
-    #check if any of the lists is not empty (NoneType) to error-proof TypeError: argument of type 'NoneType' is not iterable
-    common_ontologies = ''
+    common_ontologies = []
+
     score_for_finding_common_ontologies_between_journal_xml = 0
-    if xml_and_onto_matching and ngram_matches is not None:
-        print(ngram_matches, xml_and_onto_matching)
+    var1 = 0
+    if ngram_matches and xml_and_onto_matching is not None:
         for tuple_element in ngram_matches:
-            #print('tuple element',tuple_element)
             if tuple_element in xml_and_onto_matching:
-                print('common tuple elements/ontologies',tuple_element)
-                common_ontologies = tuple_element
-                score_for_finding_common_ontologies_between_journal_xml = score_for_finding_common_ontologies_between_journal_xml + 2
-               #will this add more scores as it finds more matches?
-    print('score for common ontologies', score_for_finding_common_ontologies_between_journal_xml)
+                common_ontologies.append(tuple_element)
+                var1 = score_for_finding_common_ontologies_between_journal_xml + 2
 
-    # score_for_finding_common_elements = 0
-    # if common_ontologies is not None:
-    #     if len(common_ontologies) == 0:
-    #         print('the common elements:', common_ontologies)
-    #     else:
-    #         score_for_finding_common_elements = score_for_finding_common_elements + 2
-    # else:
-    #     print('could not find any common elements')
-    #     score_for_finding_common_elements = score_for_finding_common_elements
-
-    # TODO check the score for ontology matching xml file and 'score for ontology matching between xml file and ontology database'. are they the same? what about article onto file match?
-
-    # header = ['name', 'ngram matches in the article', 'project accession number','score for ontology matching at xml file', 'ontology matches between XML file and ontology database', 'score for finding Project Accession number']
-    data = [[file1.name, ngram_matches, array_express_number, project_accession, xml_metadata, xml_and_onto_matching, common_ontologies, score_xml, score_for_finding_project_accession_number,  (score_xml+score_for_finding_project_accession_number)]]
+    #write the outputs and scores in the score.csv file
+    data = [[file1.name, ngram_matches, array_express_number, project_accession, xml_metadata, xml_and_onto_matching, common_ontologies, ngram_matches_score, arrayexpress_score, score_xml, score_for_finding_project_accession_number, var1, (ngram_matches_score + arrayexpress_score + score_xml + score_for_finding_project_accession_number + var1)]]
+    #TODO add score because ontologies were found in the paper too! not just the XML file!
 
     with open('scores.csv', 'a', encoding='UTF8', newline='') as f:
         writer = csv.writer(f)
@@ -377,7 +351,6 @@ if __name__ == "__main__":
 
     for file in os.listdir("papers_collection_folder"):
         if file.endswith(".pdf"):
-            #print(os.path.join("papers_collection_folder", file))
             print(file)
             main(file)
 
