@@ -1,0 +1,1210 @@
+Heterologous expression and transcript analysis
+of gibberellin biosynthetic genes of grasses
+reveals novel functionality in the GA3ox family
+Pearce et al.
+                                Pearce et al. BMC Plant Biology (2015) 15:130
+                                                           DOI 10.1186/s12870-015-0520-7
+ Pearce et al. BMC Plant Biology (2015) 15:130
+DOI 10.1186/s12870-015-0520-7
+  RESEARCH ARTICLE                                                                                                                                    Open Access
+Heterologous expression and transcript
+analysis of gibberellin biosynthetic genes of
+grasses reveals novel functionality in the
+GA3ox family
+Stephen Pearce1, Alison K Huttly2, Ian M Prosser2, Yi-dan Li2,3, Simon P Vaughan2, Barbora Gallova2, Archana Patil2,
+Jane A Coghill4, Jorge Dubcovsky1,5, Peter Hedden2 and Andrew L Phillips2*
+  Abstract
+  Background: The gibberellin (GA) pathway plays a central role in the regulation of plant development, with the
+  2-oxoglutarate-dependent dioxygenases (2-ODDs: GA20ox, GA3ox, GA2ox) that catalyse the later steps in the biosynthetic
+  pathway of particularly importance in regulating bioactive GA levels. Although GA has important impacts on crop yield
+  and quality, our understanding of the regulation of GA biosynthesis during wheat and barley development remains
+  limited. In this study we identified or assembled genes encoding the GA 2-ODDs of wheat, barley and Brachypodium
+  distachyon and characterised the wheat genes by heterologous expression and transcript analysis.
+  Results: The wheat, barley and Brachypodium genomes each contain orthologous copies of the GA20ox, GA3ox and
+  GA2ox genes identified in rice, with the exception of OsGA3ox1 and OsGA2ox5 which are absent in these species. Some
+  additional paralogs of 2-ODD genes were identified: notably, a novel gene in the wheat B genome related to GA3ox2
+  was shown to encode a GA 1-oxidase, named as TaGA1ox-B1. This enzyme is likely to be responsible for the abundant
+  1β-hydroxylated GAs present in developing wheat grains. We also identified a related gene in barley, located in a syntenic
+  position to TaGA1ox-B1, that encodes a GA 3,18-dihydroxylase which similarly accounts for the accumulation of unusual
+  GAs in barley grains. Transcript analysis showed that some paralogs of the different classes of 2-ODD were expressed
+  mainly in a single tissue or at specific developmental stages. In particular, TaGA20ox3, TaGA1ox1, TaGA3ox3 and TaGA2ox7
+  were predominantly expressed in developing grain. More detailed analysis of grain-specific gene expression showed
+  that while the transcripts of biosynthetic genes were most abundant in the endosperm, genes encoding inactivation
+  and signalling components were more highly expressed in the seed coat and pericarp.
+  Conclusions: The comprehensive expression and functional characterisation of the multigene families encoding the 2-ODD
+  enzymes of the GA pathway in wheat and barley will provide the basis for a better understanding of GA-regulated
+  development in these species. This analysis revealed the existence of a novel, endosperm-specific GA 1-oxidase in
+  wheat and a related GA 3,18-dihydroxylase enzyme in barley that may play important roles during grain expansion
+  and development.
+  Keywords: Gibberellin, Wheat, Biosynthesis, Signalling, Gene sequences, De novo assembly, Transcriptomics,
+  Heterologous expression, GA 1-oxidase
+* Correspondence: andy.phillips@rothamsted.ac.uk
+2
+ Department of Plant Biology and Crop Science, Rothamsted Research,
+Harpenden AL5 2JQ, UK
+Full list of author information is available at the end of the article
+                                            © 2015 Pearce et al. This is an Open Access article distributed under the terms of the Creative Commons Attribution License
+                                            (http://creativecommons.org/licenses/by/4.0), which permits unrestricted use, distribution, and reproduction in any medium,
+                                            provided the original work is properly credited. The Creative Commons Public Domain Dedication waiver (http://
+                                            creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article, unless otherwise stated.
+ Pearce et al. BMC Plant Biology (2015) 15:130                                                                           Page 2 of 18
+Background                                                  GA biosynthetic genes of wheat has the potential to
+Gibberellins (GAs) are a group of plant secondary prod-     identify targets for the development of novel semi-
+ucts based on the diterpenoid ent-gibberellane skeleton;    dwarfing alleles with fewer undesirable pleiotropic ef-
+a small subset of bioactive GAs such as GA4 and GA1         fects than the current Rht alleles.
+act as plant hormones and participate in a wide range of       GAs are also thought to play a critical role in wheat
+developmental processes. Although classically involved      grain development: endogenous GA levels are very high in
+in the promotion of growth processes such as germin-        developing grain and increase during grain expansion [10]
+ation and stem elongation, GA signalling has also been      and wheat lines containing Rht alleles have smaller grains
+shown to be important in root elongation [1], lateral       [15]. Despite grain size being an important component of
+root formation [2], skotomorphogenesis [3], cambial ac-     wheat yield and quality, little is known regarding the
+tivity [4], leaf expansion [5], trichome development [6],   spatial or temporal regulation of GA biosynthesis and sig-
+floral induction [7], anther and pollen development         nalling in the grain. A fuller understanding of the role of
+(reviewed in Plackett et al.[8]), fruit growth [9] and seed GA during grain development is required to engineer im-
+development [10]. Furthermore, GAs mediate environmen-      provements in this trait in modern wheat varieties.
+tal effects on growth and development through modulation       The GA biosynthetic pathway has been extensively
+of both biosynthetic and signalling components [11]. The    characterized in both rice and Arabidopsis (reviewed by
+central components of GA signalling, GRAS-domain pro-       Yamaguchi, 2008 [23]), and the early genes in the pathway,
+teins containing an N-terminal “DELLA” motif that repress   from copalyl diphosphate synthase (CPS) to ent-kaurenoic
+growth, also act as nodes in the interactions with several  acid oxidase (KAO) that produce the GA precursors GA12
+other plant hormones, including jasmonate [12], brassinos-  and GA53 have also been identified and characterised in
+teroids [13] and strigolactones [14]. In short, GAs play a  wheat [24-26]. The final steps in GA biosynthesis and in-
+central role in plant development and environmental re-     activation are catalysed by soluble 2-oxoglutarate-
+sponses, with impacts on crop yield and quality.            dependent dioxygenases (2-ODDs) (Fig. 1). GA 20-oxidase
+   The importance of GA signalling in determining plant     catalyses the multi-step oxidation of GA12 and GA53 to
+stature is clear from evidence in both wild and crop spe-   form the C19 skeleton, while GA 3-oxidase produces the
+cies showing phenotypic effects of genetic variation in     final bioactive products, GA4 and GA1. A third class of 2-
+GA biosynthetic and signalling genes. In wheat (Triti-      ODD, GA 2-oxidase, is involved in inactivation, with two
+cum aestivum L.), semi-dwarfing alleles of the Rht
+DELLA genes were key to increasing yield during the
+Green Revolution as not only did the shorter stature
+protect against lodging under high fertiliser application
+rates, but also enhanced harvest index by reducing straw
+biomass and, in many genetic backgrounds, increasing
+grain numbers per ear [15]. In rice (Oryza sativa L.), a
+similar height phenotype was conferred by loss-of-
+function mutations in a key GA biosynthetic gene,
+OsGA20ox2 [16], and there is evidence that semi-
+dwarfing of barley (Hordeum vulgare L.) by the sdw1/
+denso gene is associated with reduced expression of the
+orthologous HvGA20ox2 gene [17].
+   Although Rht semi-dwarfing alleles are widespread in
+modern wheat varieties, the involvement of Rht in all
+GA responses results in pleiotropic effects on many
+other traits. For example, even mild alleles such as Rht-
+B1b and Rht-D1b impart reduced leaf area [18]. These
+alleles also have a strong effect on coleoptile elongation
+which prevents deeper sowing under dry conditions [19].
+Better targeting of the dwarfing effect to stem tissues
+might therefore confer significant advantages. In contrast
+to Rht, the enzymes acting during the latter stages of GA
+biosynthesis are encoded by multiple paralogs with over-      Figure 1 Principal reactions of the GA biosynthetic pathway in plants.
+lapping domains of expression and, in Arabidopsis, mu-        Enzymes are underlined; numerals after GA2ox genes indicate the class
+                                                              of enzyme as defined by Lee & Zeevaart (2005). The bioactive GAs
+tations in individual genes have more localised effects
+                                                              are boxed
+[20-22]. This suggests that the characterisation of the
+ Pearce et al. BMC Plant Biology (2015) 15:130                                                                                                    Page 3 of 18
+sub-classes of enzyme that act against either bioactive                              that suggest specialized roles in plant development for
+GAs (GA4, GA1) and their immediate C19 precursors                                    the different paralogs.
+(GA9, GA20) [27] or against C20-GAs earlier in the path-
+way (e.g., GA12, GA53) [28]. However, our knowledge of                               Results
+the size, structure and function of the gene families encod-                         Identification of wheat genes involved in GA metabolism
+ing these enzymes in wheat is limited.                                               Our strategy to identify the wheat complement of genes of
+   Most of the evidence points to dynamic regulation of                              the 2-ODD class from the GA biosynthetic pathway, pre-
+GA biosynthesis through regulation of the 2-ODD genes                                viously catalogued in rice [30, 31] is outlined in Additional
+which, in contrast to the terpene cyclase and cyto-                                  file 1 (Figure S1) and involved first identifying orthologous
+chrome P450 genes earlier in the pathway [24], are                                   genes from Brachypodium by BLASTP search at
+encoded by small multigene families [23]. Although a                                 www.phytozome.org (Table 1 and Additional file 2) using
+small number of the 2-ODDs involved in the GA path-                                  the rice peptide sequences as queries. Coding sequences
+way of wheat have been identified previously [24, 29],                               from the Brachypodium genes were then used to BLAST
+this study represents the first comprehensive analysis of                            partially-assembled genomic survey sequence from the
+the paralogous and homoeologous genes encoding the                                   International Wheat Genome Sequencing Consortium
+enzymes in this crop species. In this report we identify                             (IWGSC), generated by Illumina sequencing of DNA from
+and characterise the biochemical function of GA-                                     individual wheat chromosome arms [32]. We were thus
+biosynthetic 2-ODD genes in wheat and demonstrate                                    able to identify high-quality contigs containing wheat
+novel biochemical functions. We also catalogue the                                   orthologs of many of the rice and Brachypodium GA 2-
+orthologous genes, where data is available, in durum                                 ODD genes.
+wheat, barley and Brachypodium distachyon. Finally, we                                  Genes absent from, or incomplete in, the wheat gen-
+identify tissue-specific patterns of expression in wheat                             omic survey data were initially assembled from shotgun
+Table 1 Rice, Brachypodium and bread wheat genes encoding 2-ODDs from the GA pathway
+Target                    Rice gene               Brachypodium gene                              T. aestivum chromosome arm assembly
+                                                                                                 A                          B                      D
+GA20ox1                   Os03g63970              Bradi1g00950                                   FL (4AL)                   FL (5BL)               FL (5DL)
+GA20ox2                   Os01g66100              Bradi2g57030                                   Partiala (3A)              FLa(3B)                FLa (3D)
+                                                                                                        a
+GA20ox3                   Os07g07420              Bradi1g56200                                   Partial (3A)               FL (3B)                FLa (3D)
+GA20ox4                   Os05g34854              Bradi2g24980                                   FLa (1AL)                  FLa,b (1BL)            FLa,b (1DL)
+GA3ox1                    Os05g08540              -                                              -                          -                      -
+                                                                                                        a,c
+GA3ox2                    Os01g08220              Bradi2g04840(a) Bradi4g23570(b)                Partial    (3A)            FL (3B)                FLa (3D)
+                                                                                                    a                          a
+GA3ox3                    -                       -                                              FL (2AL)                   FL (2BL)               FLa,d (2DL)
+GA1ox1                    -                       -                                              -                          FL (2BL)               -
+GA2ox1                    Os05g06670              Bradi2g34840                                   FLa (1AS)                  FL (1BS)               FL (1DS)
+GA2ox2                    Os01g22910              Bradi2g12440                                   -                          Partial (7BL)          FLa (7D)
+                                                                                                        e
+GA2ox3                    Os01g55240              Bradi2g50280                                   Partial (3AL)              FL (3B)                FLa (3D)
+GA2ox4                    Os05g43880              Bradi2g19900                                   FLa (1AL)                  FLa (1B)               FLa (5BL)
+GA2ox5                    Os07g01340              Bradi1g59570                                   -                          -                      -
+                                                                                                    a
+GA2ox6                    Os04g44150              Bradi5g16040                                   FL (2AL)                   FL (2BL)               FLa (2DL)
+                                                                                                                               a
+GA2ox7                    Os01g11150              Bradi2g06670                                   Partial (3AS)              FL (3B)                FLa (3DS)
+GA2ox8                    Os05g48700              Bradi2g16730(a) Bradi2g16750(b)                FLa (1AL)                  Partial (1BL)          FLa,b (5BL)
+GA2ox9                    Os02g41954              Bradi3g49390                                   FL (6AL)                   Partial (6BL)          FLa,b (6DL)
+GA2ox10                   Os05g11810              Bradi2g32580                                   FLa (1AS)                  FL (1BS)               FL (1DS)
+GA2ox11                   -                       -                                              FL (4AS)                   FL (4BL)               FLa (4DL)
+GA2ox12                   -                       -                                              -                          FL (4BL)               -
+GA2ox13                   -                       -                                              -                          FL (4BL)               -
+Notes: FL - full length; aGenerated by reassembly of IWGSC chromosome arm reads; bMissing data in intron; cFL cDNA from cv. Maris Huntsman [29]; d7 bp
+insertion in exon 2; eFL cDNA from cv. Avalon (Prosser & Phillips, unpublished). Accession numbers for the wheat genes are in Additional file 2.
+ Pearce et al. BMC Plant Biology (2015) 15:130                                                                  Page 4 of 18
+genomic reads of wheat cv. Chinese Spring [33] located       However, with the exception of GA2ox5, we identified in
+at http://www.cerealsdb.uk.net. The raw 454 reads were       bread wheat at least one homolog of each Brachypodium
+identified by BLASTN with the Brachypodium CDS se-           gene, and usually complete or partial sequence evidence
+quences and assembled at high stringency; for most tar-      of homoeologs on each of the three chromosomes. Thus
+gets this resulted in the identification of genomic contigs  we identified in bread wheat four homoeologous sets of
+covering the bulk of the coding region of the gene; how-     GA20ox genes, at least two sets of GA3ox genes and at
+ever, the low genome coverage of the raw data, approxi-      least nine sets of GA2ox genes, as detailed below.
+mately 5x, [33] coupled with the relatively high error
+rate of 454 sequencing and the hexaploid genome of           GA 20-oxidases
+wheat resulted in contigs that contained ambiguous           Phylogenetic analysis of the 2-ODD genes showed that
+bases and, in many cases, chimeric sequences derived         the grass GA20ox genes fall into four paralogous clades
+from more than one homoeolog. Hence, these consensus         (Fig. 2A) each including one of the four rice GA20ox
+sequences were used in BLAST searches of the unassem-        genes, OsGA20ox1 through OsGA20ox4. The assignment
+bled Illumina data from individual chromosome arms           of the wheat GA20ox1, GA20ox2 and GA20ox4 genes to
+[32], followed by mapping the Illumina reads to the 454      the corresponding rice groups is supported by syntenic
+assemblies to generate homoeolog-specific sequences, as      relationships between rice and wheat chromosomes [38].
+annotated in Table 1 and, in greater detail, in Additional   In contrast, GA20ox3 which was expected to be found
+file 2. Thus, across the GA20ox, GA3ox and GA2ox gene        on wheat chromosome group 2 based on its position in
+families, we were able to identify or assemble at least one  rice and Brachypodium, was found on the three homo-
+complete homoeolog, and often all three, for most of the     eologs of chromosome group 3 [39]. We also identified
+target 2-ODD genes, as described in detail below. In         full-length or partial sequences for all GA20ox paralogs
+addition, we identified or assembled wheat sequences en-     in the tetraploid and diploid wheat species and full-
+coding the GA 13-hydroxylase (GA13ox) biosynthetic en-       length coding sequences from barley (Additional file 2).
+zymes and for the GID1 and GID2 signalling components.       As previously reported [20], phylogenetic analysis indi-
+   The genomic survey data from bread wheat cv. Chinese      cates that the four paralogs of GA20ox in grass species
+Spring was complemented with assembled RNA-seq data          are not directly orthologous to any of the five paralogs
+from tetraploid durum wheat (T. turgidum L. subsp.           identified in Arabidopsis: four of the five Arabidopsis
+durum Desf.) cv. Kronos and the diploid progenitor T.        genes lie in a single clade of the tree (Fig. 2A), suggest-
+urartu [34]. In addition, we identified, where possible,     ing that the expansion in paralogs of GA20ox occurred
+likely orthologs of each gene in the genomic survey se-      after the separation of the monocot and eudicot
+quences of T. urartu [35] and Aegilops tauschii [36], the    lineages.
+diploid progenitors of the A and D genomes, respectively,       We have previously reported the biochemical function of
+of bread wheat (Additional file 2). Homoeolog-specific se-   all three homoeologs of TaGA20ox1 by heterologous ex-
+quences from the tetraploid species were assigned to the     pression in the pET3d vector [29]. In this study, we present
+A or B genomes by BLAST to the bread wheat chromo-           a similar characterization for TaGA20ox2, TaGA20ox3
+some arm-specific genomic survey data above (Table 1).       and TaGA20ox4. We expressed the coding regions of
+Finally, we identified likely orthologs of each of the wheat one representative homoeolog of each of these three
+genes in barley (Additional file 2), within the recent draft wheat paralogs as fusion proteins in E. coli (see
+genome sequence of this species [37].                        Methods) and demonstrated their ability to carry out the
+                                                             series of sequential oxidations of GA12 to GA9 (Additional
+Structure and biochemical function of wheat GA 2-ODD         file 1: Figure S2). These results demonstrate that all four
+genes                                                        wheat paralogs encode fully active GA 20-oxidases
+We identified likely Brachypodium orthologs for each of      (Fig. 1).
+the four GA20ox genes, two GA3ox genes and ten
+GA2ox genes previously described in rice [30, 31]. The       GA 3-oxidases
+only exception was GA3ox1, which appears to be absent        Phylogenetic relationships between rice, Brachypodium,
+from Brachypodium, as shown in Table 1 and in the            barley and wheat are less clear in the GA3ox gene family.
+phylogenetic analysis presented in Fig. 2B; however, this    Neither Brachypodium, barley nor either of the wheat
+species contains two genes related to GA3ox2, as dis-        polyploid species or their progenitors appear to possess
+cussed below. Brachypodium also contains a tandem du-        a true ortholog of OsGA3ox1 (Fig. 2B). However, Brachy-
+plication of GA2ox8. As neither hexaploid bread wheat,       podium and wheat possess likely orthologs of
+nor its tetraploid or diploid progenitors, possesses a       OsGA3ox2, with three homoeologs in bread wheat as de-
+fully-sequenced genome, we cannot be unequivocal             scribed previously [29]. Similar sequences were also
+about the number of GA 2-ODD genes present in wheat.         found for the A genome in T. durum (Table 1), in T.
+ Pearce et al. BMC Plant Biology (2015) 15:130                                                                                                                                                        Page 5 of 18
+                                                                                                                                                A1 0
+  A                                                                                                                                         ox-
+                                                                                                       C                   ox 8a
+                                                                                                                                           2
+                           4
+                                                                                                                                        A        x10
+                                                                                                                  B d GA 2
+                                                        x1                                                                          TaGvGA2o
+                       20ox
+                                                     20o
+                                                                                                                               8b 8
+                                                                                                                                      H GA2ox10
+                                                GA                                                                                     Bd
+                                                                                                                           2ox ox
+                                x3
+                                               v                                                                                      OsGA
+                   AtGA
+                                             H                                                                                                 2ox10
+                                                                                                                                   BdOsGA2o
+                                                                                                                       GA A2
+                A2                           TaGA20o     x-A1                                                                    Ta GA          x7
+                             0o
+                                           Bd                                                              Ta
+                                                                                                                     Bd
+               G                                                                                                                   G     2
+             At                               GA                                                              GA2             G
+                                                                                                                                     A2 ox7
+                                                                                  x1
+                                                                                                                           Hv                                ox7
+                                                 20                                                                                    ox
+                                                                             o                                    o                       -A
+           AtG                                      ox                  A 20                                 OsG x-A                         7
+                                                                                                                                                       GA2                 1          3
+              A2                                      1              sG                                               8                             Hv                ox           ox
+                  0o                                              O                                         Hv A2ox                                               A2
+                                                                                                                                                                                  2
+                       x2                                                                                     GA       8                                                       GA
+                                                                                  ox3                             2o                                         At
+                                                                                                                                                                 G      At
+                                                                               20                        TaG                                                                  x2
+      AtGA20ox1                                                                                              A2ox x4                                                      A2o
+                                                                          s GA                                    -A4                                                At G
+                                                                                                                                                                                                 4
+                                                                         O                                                                                                                  ox
+                                                                             BdGA20ox3                     BdGA2ox4                                                                       A2
+                                                                                                                 2ox4                                                              AtG                x6
+            OsGA3ox2                                                        Hv                             OsGA A2ox3                                                                          A2o            B2
+                                                                               GA                                                                                                       AtG                 x-
+                                                                             G    20o                         OsG ox3                                                                                    o
+                                                                          Ta          x3                             2  Hv                                                                            A2
+                                                                                  0                               GA      GA                                                                    G
+                                                                                                                                                                                             TavGA2ox2
+                                                                               A2                              Bd            2o                                                              H
+   HvG
+           A20o                                                                   ox                                 TaG
+                                                                                                                         A2ox x3
+                                                                                                                                                                                             BdGA2ox2
+                 x4                                                                   3                                                                                                   OsG
+                                                                                    -A                                        -A3
+       20     ox-A4                                                                                                                                                                     O
+                                                                                                                                                                                      Bd sG
+                                                                                                                                                                                                 A2o
+                                                                                                                                                                                                     x2
+  TaGA                                         Os                                                                                                                                       G A2o1
+                                                                                                                                                                                         x-A
+                   4                               GA                       At                                                                                                           A2
+                ox                   ox2             2                         GA                                                                                                                 x1
+                                                                                                                                                                                      2o
+             20
+                        4                                20
+                                                  ox
+                       ox                                  ox                       20                                                                                                      ox
+        GA         20                20
+                                               20
+                                                              2                        ox                                                                                          GA          1
+      Bd                                                                                  5                           OsGA3ox2                                                  Ta
+                                            GA
+                 GA           GA
+                                                                                                                                                                                HvGA2ox1
+                                          Bd
+             Os             Hv                                           0.5
+                                          TaGA20ox-A2
+                                                                                                                                                                       0.5
+  B                    AtG                       OsG
+                                                                OsGA
+                                                    A2ox
+                         A3
+                             ox                                                   OsGA3ox2
+                                                                  3ox1
+                                3                    1                           Bd
+                                                                                    GA
+                                                                                       3o           2b
+      AtG                                                                                 x2    A3ox              TaG                                                 OsG
+            A3                                                                              BdG
+                                                                                             a                        A   2ox                                               A2o
+                                                                                                                                                                                  x5
+                 ox4                                                                                                           -A6                                    Bd
+                                                                                                                                                                         GA
+                                                                                       GA3ox-B2             OsGA2ox6                                                        2o
+                                                                                   HTa                                    x6                 Ta             At                 x5
+                                                                                    vG                               A2o 1       -B             G             G
+                                                                                       A3                      HvG -B1                           A2
+                                                                                                                                                x9
+                                                                                                                                                                A2
+                                                                                                                             2ox- 12
+                                                                                          ox                                                          ox
+                       ox1                                                                   2                         ox                    2o            -A9 ox
+                  A3                                                                  3                             A2           B13
+                                                                                                                                          GA
+                                                                                                                                                                       8
+            AtG               x2                                                  x-B                             G                               ox9
+                                                                                                               Ta                       HvBdGA2
+                                                                                                                           ox                                                             At
+                                                                               3o                                            BdGA2ox6                                                          GA
+                            A3o                                   A3        GA                                          A2
+                                                                                                                                                                                                     2o
+                                                                     ,1  Ta                                                              OsGA2ox9
+                        AtG                                       8o     TaGA1ox-B1
+                                                                                                                    Ta
+                                                                                                                       G      TaG                                                                      x7
+                                             0.5                x1       Hv                                                       A
+                                                                            G
+ Figure 2 Phylogenetic relationships between gibberellin 2-ODD amino acid sequences from bread wheat (Ta), barley (Hv), rice (Os), Brachypodium
+ (Bd) and Arabidopsis thaliana (At). Dotted lines indicate sequences used as outgroups for the rooted tree. Scale bars indicate number of amino acid
+ substitutions per site. A: GA20ox; B: GA3ox (including TaGA1ox1 and HvGA3,18ox1); C: GA2ox. Clades labelled I, II and III in panel C reflect classes of
+ GA2ox as defined by Lee and Zeevaart (2005)
+urartu, Ae. tauschii (as a partial genomic sequence), and                                                    and BdGA3ox2b in E. coli followed by incubation of bac-
+barley (Additional file 2). Brachypodium contains a sec-                                                     terial lysates of these cultures with radiolabelled substrates
+ond sequence, Bradi4g23570, related to OsGA3ox2, but                                                         showed that both Brachypodium genes encode GA 3-
+the predicted coding regions of the genes from several                                                       oxidase enzymes, converting GA9 to GA4 (Fig. 3G,H).
+accessions of this species at www.brachypodium.org con-                                                        Syntenic relationships and phylogenetic analysis (Fig. 2B)
+tain a frame shift in exon 2 due to the apparent insertion                                                   support the assignment of wheat GA3ox2 genes on the
+of a G residue at nucleotide 765. However, PCR amplifi-                                                      group 3 chromosomes as orthologous to rice GA3ox2.
+cation and sequencing of this region from B. distachyon                                                      However, in bread wheat we identified four further related
+Bd21 genomic DNA clearly showed the inserted base                                                            sequences encoding potential GA 3-oxidases, all located
+present in the database sequence to be an artefact. Re-                                                      on the long arms of the group 2 chromosomes, some of
+moval of G765 from the database sequence resulted in a                                                       which were also found in the tetraploid and diploid species
+complete open reading frame most closely related to                                                          (Additional file 2). Phylogenetic analysis and the location
+BdGA3ox2a (Bradi2g04840) (Fig. 2B) and Bradi4g23570                                                          on chromosomes 2AL, 2BL and 2DL suggested that the
+was therefore assigned as BdGA3ox2b. Heterologous ex-                                                        three most closely-related of these four novel sequences
+pression of synthetic coding sequences of BdGA3ox2a                                                          probably form a homoeologous group (Additional file 1:
+ Pearce et al. BMC Plant Biology (2015) 15:130                                                                                                   Page 6 of 18
+  A                                                                              E
+                100                                                                            100
+  % Radioactivity                                                                % Radioactivity
+                    80                               GA4 RT 24.0 min                                                              GA4 RT 24.1 min
+                                                                                                   80
+                         TaGA3ox-B3
+                    60                                                                             60    HvGA3ox2 with GA9
+                         with GA9
+                    40                                                                             40
+                    20                                                                             20
+                    0                                                                               0
+                               10.0         20.0         30.0         40.0 min                                10.0        20.0         30.0         40.0 min
+  B                                                                              F
+                100                                                                                100
+  % Radioactivity                                                                % Radioactivity
+                    80                             GA54 RT 22.0 min                                80
+                                                                                                                                  GA131 RT 23.0 min
+                         TaGA3ox-B3                                                                      HvGA3,18ox1
+                    60   with GA61                                                                 60    (was HvGA3ox1)
+                    40                                                                             40    with GA9
+                    20                                                                             20
+                    0                                                                               0
+                               10.0         20.0         30.0         40.0 min                                10.0        20.0         30.0         40.0 min
+  C                                                                              G
+                100                                                                          100
+  % Radioactivity
+                                                                                 % Radioactivity
+                    80                             GA61 RT 22.3 min                                80
+                         TaGA1ox-B1                                                                      BdGA3ox2a                GA4 RT 24.1 min
+                    60   (was TaGA3ox-B4)                                                          60    with GA9
+                    40   with GA9                                                                  40
+                    20                                                                             20
+                     0                                                                              0
+                               10.0         20.0         30.0         40.0 min                                10.0        20.0        30.0       40.0 min
+  D                                                                              H
+                100                                                                                100
+  % Radioactivity                                                                % Radioactivity
+                    80                               GA4 RT 24.0 min                                                              GA4 RT 24.1 min
+                                                                                                   80
+                         TaGA1ox-B1                                                                      BdGA3ox2b
+                    60   (was TaGA3ox-B4)                                                          60
+                                                                                                         with GA9
+                    40   with GA4                                                                  40
+                    20                                                                             20
+                    0                                                                               0
+                               10.0         20.0         30.0         40.0 min                                10.0        20.0         30.0         40.0 min
+                                                                                                                             14
+ Figure 3 HPLC separation of incubations of GA3ox-like enzymes from wheat, barley and Brachypodium with [1- C]-GA substrates. A,B: TaGA3ox-B3;
+ C,D: TaGA1ox-B1 (was TaGA3ox-B4); E: HvGA3ox2; F: HvGA3,18ox1 (was HvGA3ox1); G: BdGA3ox2a; H: BdGA3ox2b. X-axis shows HPLC retention time in
+ while the Y-axis is scaled such that the height of the largest peak of radioactivity is 100 %.
+Figure S12) and therefore were named as TaGA3ox-A3,                                      activity. In this study we present the functional
+TaGA3ox-B3 and TaGA3ox-D3 (Table 1). Near-identical                                      characterization of TaGA3ox3 and TaGA3ox4 through ex-
+sequences to the A and B homoeologs were identified in                                   pression in E. coli of synthetic cDNAs. When lysates from
+the durum wheat transcript assembly [34] and a partial se-                               induced bacterial cells containing synthetic cDNA con-
+quence from T. urartu was also identified; however,                                      structs were incubated with [1-14C]GA9, TaGA3ox-B3 was
+TaGA3ox3 was not found in the Ae. tauschii assembly. The                                 shown to encode a functional GA 3-oxidase, converting
+fourth novel gene, located on bread wheat chromosome                                     the substrate to [1-14C]GA4 (Fig. 3A), while expression
+2BL and also identified in the durum wheat transcript as-                                products of TaGA3ox-A3 did not have any detectable cata-
+sembly, was provisionally named TaGA3ox-B4; no homo-                                     lytic activity; TaGA3ox-D3 was not tested as the Chinese
+eologs of this sequence were identified in the A or D                                    Spring sequence contains a 7 bp insertion in exon 2, indi-
+genomes of wheat or in the A and D diploid progenitor                                    cating that this gene is unlikely to be functionally active.
+species, although a similar sequence (79.3 % amino acid                                    An unexpected result was observed for TaGA3ox-B4,
+identity) had been previously identified in barley and anno-                             which converted [1-14C]GA9 to a product with an
+tated as HvGA3ox1 [39].                                                                  HPLC retention time different to that of [1-14C]GA4
+  We have previously determined the biochemical func-                                    (Fig. 3C). This product was analysed by combined gas
+tion of the bread wheat GA3ox2 genes by heterologous                                     chromatography-mass spectroscopy (GC-MS) and had a
+expression of the cDNAs in E. coli [29]: products from all                               mass spectrum consistent with [1-14C]GA61 (1β-hydroxy-
+three homoeologs converted GA9 to GA4 and GA20 to                                        GA9) [40], identifying TaGA3ox-B4 as a GA 1β-hydroxylase
+GA1, demonstrating GA 3β-hydroxylase (GA 3-oxidase)                                      (GA 1-oxidase; Fig. 4), the first time an enzyme with such a
+ Pearce et al. BMC Plant Biology (2015) 15:130                                                                           Page 7 of 18
+                                                                        HvGA3ox2 by heterologous expression of synthetic
+               GA4                                           GA131      cDNAs in E. coli as above. When incubated with [1-
+               O     H                                        O   H     14
+                                                                           C]GA9, HvGA3ox2 yielded GA4 (Fig. 3E), as expected
+             O                                              O
+                                                                        for a GA 3-oxidase, whereas HvGA3ox1 generated a
+   HO                                          HO                       product with an HPLC retention time different from both
+               H                                              H
+                                                                        GA4 and GA61. GC-MS analysis of this novel product re-
+                                                    HO
+              HO     O                                       HO   O
+                                                                        vealed that it was GA131 (3β,18-dihydroxy-GA9; Fig. 3F)
+                                                                        [43], thus identifying HvGA3ox1 as a bifunctional enzyme,
+      GA 3-oxidase                                                      a GA 3β,18-dihydroxylase (GA 3,18-oxidase). We there-
+       TaGA3ox2                                         GA 3,18-oxidase fore propose to rename HvGA3ox1 as HvGA3,18ox1. It
+      TaGA3ox-B3                                          HvGA3,18ox1
+       HvGA3ox2                                                         has been previously shown that whereas developing grains
+      BdGA3ox2a,b            1   O        H
+                                              11                        of wheat accumulate 1-hydroxy-GAs, grains from barley
+                       2
+                                  10     9
+                                                     12                 accumulate 18-hydroxy-GAs including GA131 (18-hy-
+                         19    O
+                                  5      8
+                                              14
+                                                  13
+                                                        GA9             droxy-GA4) and GA132 (18-hydroxy-GA1) [43-45]. It
+                       3             6
+                              4                                         therefore seems highly likely that HvGA3,18ox1 is the only
+                                 H         15
+                            18
+                                       7         16                     enzyme required for the production of GA131 and GA132
+                                                       17
+                                HO        O
+                                                                        from GA9 and GA20, respectively, in developing barley
+         GA 1-oxidase                                                   grains, while biosynthesis of bioactive GA4 and GA1 from
+          TaGA1ox-B1                                                    these substrates in the rest of the plant is catalysed by
+                                                                        HvGA3ox2 (Fig. 4).
+                                                                           As phylogenetic analysis (Fig. 2B) suggested a close re-
+      OH                                                  OH
+          O                                                   O   H
+                                                                        lationship between TaGA3ox3, TaGA1ox-B1 and
+                 H
+                           GA 3-oxidase
+                            TaGA3ox-B3                                  HvGA3,18ox1, we investigated their chromosomal loca-
+        O                                                   O           tions. All these novel genes are located on the long arms
+                                               HO
+                                                                        of the group 2 chromosomes of wheat and barley, re-
+          H                                                   H
+         HO      O                                           HO   O
+                                                                        spectively. To further refine the syntenic relationships,
+                                                                        the POPSEQ mapping data of wheat [32] was interro-
+            GA61                                              GA54
+                                                                        gated and showed the contig containing TaGA3ox-A3 to
+  Figure 4 Reactions catalysed in vitro by homologs of GA3ox from       be located on chromosome 2AL at 120.3 cM while
+  bread wheat (Ta), barley (Hv) and Brachypodium (Bd)                   TaGA1ox-B1 was on chromosome 2BL at 134.03 cM;
+                                                                        the contigs containing TaGA3ox-B3 and TaGA3ox-D3
+catalytic activity has been described. Based on this result we          were absent from the POPSEQ data. Predicted genes
+propose to rename this wheat gene as TaGA1ox-B1.                        from the wheat contigs mapped to the same location as
+  GA61 was originally identified in the endosperm of de-                TaGA3ox-A3 and TaGA1ox-B1 were screened by
+veloping grains of bread wheat [41] along with the more                 BLASTN against the pseudomolecule of barley chromo-
+abundant 1β,3β-dihydroxylated form, GA54 (1-hydroxy-                    some 2H [37], on which HvGA3,18ox1 is located at
+GA4; Fig. 4) [42]. To determine the likely sequence of re-              608.9 Mbp; 95 % of the wheat genes in the same map-
+actions leading to the production of GA54 in grain, expres-             ping bin as TaGA3ox-A3 had a top BLAST hit on barley
+sion products of TaGA3ox-B3 and TaGA1ox-B1 were                         chromosome 2H within 3 cM of HvGA3,18ox1, while
+separately incubated with 14C-labelled GA9, GA4 and                     90 % of the genes co-locating with TaGA1ox-B1 also had
+GA61 in the presence of co-substrates and cofactors and                 a top BLAST hit within the same window. This suggests
+the products analysed by HPLC. The 3-oxidase enzyme,                    that TaGA3ox3, TaGA1ox-B1 and HvGA3,18ox1 are in
+TaGA3ox-B3, was active against both GA9 (producing                      orthologous positions in the wheat and barley genomes
+GA4) and GA61 (producing GA54, Fig. 3A,B) whereas the                   and are likely to be derived from a common ancestral
+GA 1-oxidase, TaGA1ox-B1 acted only upon GA9 (produ-                    gene, as suggested by the phylogenetic analysis (Fig. 2B).
+cing GA61), and not upon GA4 (Fig. 3C,D). This suggests                 Similar BLAST searches of the rice and Brachypodium
+that the order of reactions in developing wheat grains is               genomes with the wheat genes flanking TaGA3ox-A3
+GA9 → GA61 → GA54, catalysed by TaGA1ox-B1 and                          and TaGA1ox-B1 did not identify any linkage to
+TaGA3ox-B3, respectively (Fig. 4).                                      OsGA3ox1, OsGA3ox2, BdGA3ox2a or BdGA3ox2b.
+  As reported above, we identified a published sequence
+in barley, annotated as HvGA3ox1 [39] but most closely                  GA 2-oxidases
+related to TaGA1ox1 and TaGA3ox3 (Fig. 2B) and lo-                      Ten GA2ox genes, OsGA2ox1 through OsGA2ox10, have
+cated on the syntenic barley chromosome arm, 2HL. We                    been described in rice (Table 1); although the biochem-
+investigated the catalytic activity of HvGA3ox1 and                     ical function of some of the rice genes has been
+ Pearce et al. BMC Plant Biology (2015) 15:130                                                                   Page 8 of 18
+demonstrated by heterologous expression in E. coli (e.g.,     The activity detected in each bacterial lysate was as pre-
+OsGA2ox1, [46]; OsGA2ox5 [47]), by transactivation in         dicted by the phylogenetic analysis (Fig. 2C): TaGA2ox-
+rice by T-DNA insertion (e.g., OsGA2ox3, [46]) or by ec-      D1, -D2, -B3, -D4, -D7, -D8 and -D10 were all active
+topic expression in transgenic plants (e.g., OsGA2ox5,        against the C19 substrate, [1-14C]GA9, while TaGA2ox-D6
+[46]), most have not been fully characterised. Based on       and TaGA2ox-D9 were active against the C20 substrate,
+phylogenetic analysis of protein sequences from a num-        [1-14C]GA12, (Additional file 1: Figure S3); no activity
+ber of dicot species, Lee and Zeevaart [48] proposed          against either substrate was detected for any of the three
+three structural classes of GA2ox enzymes. A phylogenetic     homoeologs of TaGA2ox11; TaGA2ox-B12 and TaGA2ox-
+analysis of GA2ox sequences from Arabidopsis, rice, and       B13 were not tested. TaGA2ox-D2, -B3, -D4 and -D10
+Brachypodium suggested that the grass enzymes can each        also further oxidised the GA51 product of GA9 to its ca-
+be assigned to one of these classes (Fig. 2C). Class I, exem- tabolite, which is almost certainly derived by rearrange-
+plified by AtGA2ox1, -2 and -3, includes the rice and         ment of the ketone, 2-oxo-GA9, formed by a second
+Brachypodium paralogs GA2ox3, -4, -7, -8 and -10; Class       round of oxidation at C-2. In contrast to most species,
+II contains AtGA2ox4 and -6, and the grass paralogs           however, we found that some of the wheat enzymes
+GA2ox1 and -2; Class III is represented by AtGA2ox7 and       showed markedly reduced substrate specificity towards
+-8 and the grass paralogs GA2ox5, -6 and -9. Previous         C20- or C19-GAs. Notably, TaGA2ox-B3, TaGA2ox-D4
+data suggest that most GA2ox enzymes in Classes I and II      and TaGA2ox-D10, all from GA2ox Class I by phylogeny
+almost exclusively use C19-GAs as substrates, while class     (Fig. 2C), efficiently converted GA12 to GA110 (2β-hy-
+III enzymes reportedly metabolize only C20-GAs.               droxy-GA12) while TaGA2ox-D6, a Class III enzyme, con-
+   In wheat, bioinformatic analysis of assembled and raw      verted GA9 to GA51 (2β-hydroxy-GA9) (Additional file 1:
+chromosome arm data revealed likely orthologs for each        Figure S3). TaGA2ox9, also in Class III, showed partial ac-
+of the rice and Brachypodium GA2ox genes (Table 1) with       tivity against GA9, producing an unidentified product with
+the sole exception of OsGA2ox5, which was not detected        a retention time different to both GA51 and its catabolite.
+in any wheat species, or in barley (Additional file 2). In
+bread wheat, T. urartu and Ae. tauschii we identified an      Transcript levels for GA biosynthetic and signalling gene
+additional group of GA2ox genes on the homoeologous           expression in wheat tissues by RNA-seq
+group 4 chromosomes, that were most similar to                To determine the relative expression levels of the wheat
+TaGA2ox6; the bread wheat genes were named as                 GA genes across the life cycle of wheat, we exploited a
+TaGA2ox-A11, -B11 and -D11 and we identified two fur-         dataset of RNA-seq samples derived from five different
+ther related paralogs in the bread wheat genome assembly,     organs (root, leaf, stem, spike, and grain) each at three
+TaGA2ox-B12 and TaGA2ox-B13, both on chromosome               developmental stages of bread wheat cv. Chinese Spring,
+4BL (Table 1) and not detected in the A and D genomes.        generated as part of the analysis of chromosome 3B [49].
+   In general, the chromosomal locations of the wheat         The paired-end RNA-seq reads were mapped to a tran-
+GA2ox genes as indicated by the chromosome arm survey         scriptome reference consisting of all the wheat coding
+data was as predicted by synteny with rice [38]. However,     sequences identified above together with non-redundant
+GA2ox2 is located on rice chromosome 1 and the ortholo-       cDNA sequences from the IWGSC wheat chromosome
+gous genes in wheat would be expected to be found on          arm survey (see Methods). Mean fragments per kb per
+the group 3 chromosomes but instead are on the group 7        million mapped reads (FPKM) values (from biological
+chromosomes (Table 1). Also, the A and B homoeologs of        duplicates) for each homoeolog of each gene are pre-
+TaGA2ox4 and TaGA2ox8 were found on the long arms             sented in Additional file 3 and histograms of expression
+of the wheat group 1 chromosomes, as predicted from           levels of each gene family, summing the FPKM values
+synteny with rice, but in both cases no homoeolog was         from each homoeolog, are shown in Fig. 5.
+found on chromosome 1D, although partial sequences               The genes encoding the early enzymes in GA biosyn-
+with high nucleotide sequence identity (94–98 %) were         thesis, catalysing the steps from GGDP to GA53, were
+identified in the Ae. tauschii assembly (Additional file 2).  found to be expressed in all tissues and stages (Fig. 5A
+However, genes very closely related to TaGA2ox4 and           and Additional file 3), although the homoeologous gene
+TaGA2ox8 and to the candidate orthologous sequences in        sets for TaCPS, TaKS, TaKO and TaKAO were more
+Ae. tauschii were identified in the chromosome arm as-        highly expressed in the spike at anthesis than in most
+sembly for 5BL, and these genes were tentatively named        other tissues. The TaKO genes, particularly TaKO-D1, also
+TaGA2ox-D4(5BL) and TaGA2ox-D8(5BL).                          appear to be very highly expressed late in developing grain
+   To confirm the biochemical activities of wheat GA2ox       at Zadoks stage 85 (Additional file 3), although the physio-
+genes we expressed one representative of each paralo-         logical basis for this is unclear. GA13ox, which catalyses
+gous group as a fusion protein in E. coli and tested for      the 13-hydroxylation of GA12 to form GA53, is encoded by
+activity against C20 (GA12) and C19 (GA9) substrates.         two paralogs as in rice [50]. The homoeologues of
+ Pearce et al. BMC Plant Biology (2015) 15:130                                                                                        Page 9 of 18
+                                            102.8 ±0.1            64.8 ±1.6
+                                                                                                  180
+     35
+               A                                                                                  160
+                                                                                                             D
+     30
+                                                                                                  140
+     25                                                                                           120
+  FPKM                                                                                         FPKM
+     20                                                                                           100
+                                                                                                      80
+     15
+                                                                                                      60
+     10
+                                                                                                      40
+         5                                                                                            20
+         0                                                                                            0
+             R L St SpG R L St SpG R L St Sp G R L St SpG R L St SpG R L St SpG                            R L St SpG R L St SpG R L St Sp G
+               TaCPS      TaKS       TaKO        TaKAO    TaGA13ox1 TaGA13ox2                               TaGID1     TaGID2     TaRht-1
+                                                          36.1 ±0.5                                                 41.4 ±1.8         23.6 ±0.1
+               B
+     12
+     10
+         8
+  FPKM   6
+         4
+         2
+         0
+             R L St Sp G     R L St Sp G        R L St Sp G        R L St Sp G        R L St Sp G           R L St Sp G         R L St Sp G
+               TaGA20ox1      TaGA20ox2           TaGA20ox3           TaGA20ox4         TaGA3ox2              TaGA3ox3           TaGA1ox1
+     25        C                         Z85
+                                         Z75
+                                         Z71
+                                         Z65
+                                         Z39
+                                         Z32
+                                         Z65
+                                         Z32
+                                         Z30
+                                         Z71
+                                         Z23
+                                         Z10
+                                         Z39
+                                         Z13
+                                         Z10
+     20                                    Root    Leaf   Stem Spike Grain
+  FPKM
+     15
+     10
+         5
+         0
+             R L StSpG R L StSpG R L StSpG R L StSpG R L StSpG R L StSpG R L StSpG R L StSpG R L StSpG R L StSpG
+             TaGA2ox1 TaGA2ox2 TaGA2ox3 TaGA2ox4 TaGA2ox6 TaGA2ox7 TaGA2ox8 TaGA2ox9 TaGA2ox10 TaGA2ox11-13
+ Figure 5 Expression of GA biosynthetic and signalling genes in five bread wheat tissues each at three developmental stages. Expression levels
+ from each homolog were summed and then averaged across replicates, ± standard errors. A: Early GA pathway genes; B: GA-biosynthetic genes;
+ C: GA-inactivating genes; D: GA signalling genes. GA2ox11-13 represents the sum of all additional paralogs of TaGA2ox6: GA2ox11,-12, and -13.
+ FPKM: Fragments per kb per million mapped reads; Z: Zadoks developmental stage
+ Pearce et al. BMC Plant Biology (2015) 15:130                                                                 Page 10 of 18
+TaGA13ox1 are more highly expressed than those of            one homoeolog was expressed at a significantly higher
+TaGA13ox2 in all tissues except mature spikes (Fig. 5A       or lower level than the other two homoeologs, this was
+and Additional file 3) and in most organs the GA13ox         reflected across most of the 15 tissue/time samples, as
+genes have their highest levels of expression in the most    has recently been described for homoeologous gene ex-
+mature developmental stage sampled.                          pression in grain tissues [51]. However, there were clear
+  The biosynthetic 2-ODD gene families, GA20ox and           exceptions to this rule: for example, TaKO-A1 was most
+GA3ox, showed tissue specific expression profiles            highly expressed in nearly all vegetative, spike and grain
+(Fig. 5B). TaGA20ox1 and TaGA20ox2 were the most             samples, but TaKO-D1 dominated in late grain develop-
+highly expressed GA20ox genes in vegetative tissues,         ment. Similarly, TaCPS-A1 showed the lowest level of
+while TaGA20ox4 was highest in the spike at anthesis         expression in most vegetative tissues, but was higher in
+and TaGA20ox3 expression was very high in and almost         most reproductive tissues.
+completely restricted to expanding grain. TaGA20ox1
+was the most highly expressed GA20ox in roots, whereas       qRT-PCR of GA genes in tissues of durum wheat
+in leaves and stems TaGA20ox1 and TaGA20ox2 showed a         To support the expression patterns determined by RNA-
+contrasting pattern, with the former having higher expres-   seq analysis in bread wheat we developed qRT-PCR assays
+sion early in development of the organ and the latter being  for all the biosynthetic and signalling genes (Additional file
+higher towards tissue maturity. The tissue specificity of    4). As we did not have access to the tissue samples used
+GA3ox paralogs was even more striking: TaGA3ox2 ap-          for the RNA-seq analysis, we assessed transcript levels in
+peared to be responsible for GA biosynthesis in vegetative   existing samples of RNA from shoot, root, grain and spike
+and floral organs, while TaGA1ox-B1 and TaGA3ox3 were        tissues in the tetraploid (durum) wheat cv. Kronos [34].
+expressed at a very high level and almost exclusively at the Redundant primers were designed to amplify both A and
+mid-way stage of grain development, although TaGA1ox-        B homoeologous copies of each gene where both se-
+B1also showed some expression in roots (Fig. 5B).            quences were known. Additional file 1 (Figure S4) shows
+  The GA2ox gene family, responsible for GA inactiva-        the distribution of expression of each paralog between tis-
+tion, showed variation in expression between both genes      sues. The results of this analysis broadly reflect the RNA-
+and tissue/time points (Fig. 5C). Several genes had very     seq analysis above: in particular, TaGA20ox3, TaGA1ox1
+low or undetectable expression: no transcripts from          and TaGA3ox3 transcripts were detected almost exclu-
+TaGA2ox2 homoeologs were found in any tissue and             sively in grain tissues. TaGA20ox1 and TaGA20ox2 were
+TaGA2ox1 was expressed at very low levels. The only          expressed in vegetative tissues, mainly the shoot, although
+transcripts detected from the novel wheat paralogs re-       appreciable levels of TaGA20ox4 were also found in this
+lated to TaGA2ox6 were found in mature leaves, from          tissue as well as in the spike. As with the RNA-seq ana-
+TaGA2ox-B12 (Fig. 5C and Additional file 3). TaGA2ox3,       lysis TaGA3ox2 was expressed in root, shoot and spike
+TaGA2ox4 and TaGA2ox9 were the most highly                   tissues but at a much lower level in grain. There was also
+expressed GA2ox genes overall, contributing most to          reasonably good agreement in the expression profiles of
+GA2ox levels in roots, leaves and stems, while TaGA2ox9      the GA2ox genes: the qRT-PCR showed TaGA2ox3 ex-
+was the most highly expressed GA2ox in the developing        pression to be highest in roots, TaGA2ox4 highest in
+spike. In addition, several other GA2ox genes, namely        shoots, TaGA2ox7 highest in grain, while TaGA2ox8 and
+TaGA2ox3, TaGA2ox6, TaGA2ox7 and TaGA2ox8, also              TaGA2ox9 expression was highest in the spike.
+contributed to GA2ox transcript levels in the spike at an-
+thesis (Fig. 5C and Additional file 3). TaGA2ox7 was by      Expression patterns of Brachypodium GA genes
+far the most highly expressed GA2ox in developing            To gain insight into conservation of expression patterns
+grain, with some contribution from TaGA2ox9 at the           between members of the grass family, we accessed RNA-
+earliest stage of grain development.                         seq reads from Brachypodium distachyon Bd21 [52] and
+  We also investigated expression of the GA signalling       mapped them to the Brachypodium reference transcrip-
+components TaRht, TaGID1 and TaGID2: these genes             tome from Ensembl Plants (http://plants.ensembl.org/).
+were expressed in all tissues studied (Fig. 5D). The genes   This revealed a high degree of conservation of expression
+encoding the GA receptor, TaGID1, were most highly           pattern between this species and wheat (Additional file 1:
+expressed in roots, mature leaves and elongating stems       Figure S5): as in wheat, BdGA20ox1 and BdGA20ox2 were
+while TaGID2 expression was highest in roots. TaRht          most highly expressed in vegetative tissues, while
+showed relatively little variation in expression except for  BdGA20ox3 expression was highest in developing seed.
+a lower level in expanding grain.                            Notably, BdGA20ox4 expression was highly expressed in
+  There were some noticeable differences between ex-         anthers, suggesting that the high level of TaGA20ox4 ex-
+pression levels of homoeologs for each of the studied        pression observed in wheat spikes close to anthesis
+genes, as shown in Additional file 3. In general, where      (Fig. 5B) may also have been in this organ. Also, while
+ Pearce et al. BMC Plant Biology (2015) 15:130                                                                                        Page 11 of 18
+BdGA3ox2a expression was confined to vegetative tissues,                   of the samples from adjacent layers. Single-end RNA-seq
+anthers and developing embryos, BdGA3ox2b was                              reads were mapped to the wheat transcriptome reference
+expressed predominantly in developing seed tissues, specif-                described above (see Methods), and average RPKM (reads
+ically the endosperm (Additional file 1: Figure S5B). The                  per kilobase per million mapped reads) values for each
+expression profiles of the GA2ox gene family were some-                    gene from three biological replicates were calculated. The
+what less well conserved between Brachypodium and                          results in Fig. 6 represent combined counts from A, B and
+wheat, although GA2ox3 and GA2ox7 were major contrib-                      D homoeologs, while expression values for individual
+utors in both species. The highest level of GA2ox expres-                  genes are presented in Additional file 5.
+sion was in the pistil (BdGA2ox3 and BdGA2ox7), anther                       Taken together, RPKM expression values validated
+(BdGA2ox3 and BdGA2ox8) and in the embryo                                  those of the whole grain sample from the previous ex-
+(BdGA2ox8 and BdGA2ox10) and endosperm (BdGA2ox7)                          periments, showing that the early GA biosynthetic genes
+of developing seeds (Additional file 1: Figure S5C).                       TaKO and TaKAO were highly expressed in the grain
+                                                                           and that TaGA20ox3, TaGA20ox4, TaGA3ox3, and
+GA gene expression patterns in developing wheat grain                      TaGA2ox7 account for the majority of GA 20-oxidase,
+The above results demonstrated that the developing                         GA 3-oxidase, and GA 2-oxidase expression, respect-
+wheat grain exhibits high expression levels of GA bio-                     ively. TaGA1ox-B1 was also highly expressed in grain.
+synthetic and signalling genes, including the novel GA                     The three GA signalling genes assayed, TaGID1, TaGID2
+1-oxidase TaGA1ox-B1. To investigate further these pat-                    and TaRht, were all expressed in the grain. However,
+terns of expression within the expanding grain, we gen-                    there were very clear distinctions in expression levels of
+erated a set of RNA-seq reads from tissue layers of                        these genes between different grain tissue layers.
+developing grains of bread wheat cv. Holdfast at 12 days                     While the cyclase genes, TaCPS and TaKS, were
+post-anthesis: the endosperm, the inner seed coat/peri-                    expressed in all three grain layers, TaKO and TaKAO
+carp layer (consisting of the aleurone, nucellar epider-                   were more highly expressed in the endosperm and inner
+mis, integuments, any remaining tube cells, and cross                      pericarp than in the outer layer. In stark contrast, tran-
+cells) and the outer pericarp layer of immature grain,                     scripts of both paralogs of TaGA13ox were absent from
+consisting of the mesocarp parenchyma, hypodermis and                      the endosperm and concentrated in the outer pericarp.
+epidermis (Additional file 1: Figure S6A). These tissue dis-               The later GA biosynthetic genes TaGA20ox3 and
+tributions were confirmed using known cell-specific gene                   TaGA3ox3, and also the novel TaGA1ox gene, were
+expression patterns (Additional file 1: Figure S6B), al-                   found to be more highly expressed in the endosperm
+though it is likely that there is some cross-contamination                 than in the seed coat/pericarp layers and, within the seed
+                                                                                                     156 ±7.9
+         90
+         80
+                                             Endosperm
+         70
+         60
+                                             Inner pericarp
+  RPKM
+         50                                  Outer pericarp
+         40
+         30
+         20
+         10
+         0
+                     T  Ta
+                       Ta  PS
+                           KS
+                          KO
+                 Ta AKA
+                   GA
+                 Ta 13o
+                   GA x1
+                 Ta 13o
+                   GA x2     O
+          Ta
+                 Ta 20o
+                   GA x1
+                 Ta 20o
+                   GA x2
+                 Ta 20o
+                   G A x3
+             C        2
+                  Ta 0ox
+                    GA 4
+                  Ta 3ox
+                    GA 2
+                  Ta 3ox
+                    GA 3
+                  Ta 1ox
+                    GA 1
+                  Ta 2ox
+                    GA 1
+                  Ta 2ox
+                    GA 2
+                  Ta 2ox
+                    GA 3
+                  Ta 2ox
+                    GA 4
+                  Ta 2ox
+                    GA 6
+                  Ta 2ox
+                    GA 7
+                  Ta 2ox
+                    G        8
+              Ta Ta A2o
+                   G A
+                 GA 2 o
+                   2o 1 0
+                      x1  x
+                         1- x 9
+                     Ta 13
+                        GI
+                     Ta D1
+                        GI
+                       Ta  D2
+                          Rh  t
+ Figure 6 Expression of GA biosynthetic and signalling genes in different layers of the developing bread wheat grain at 10 days post anthesis.
+ Expression levels from each homolog were summed and averaged across replicates, ± standard error. Tissue layers are as defined in Additional
+ File 1 (Figure S6). GA2ox11-13 represents the sum of all additional paralogs of TaGA2ox6: GA2ox11, -12, and -13. RPKM: Reads per kb per million
+ mapped reads
+ Pearce et al. BMC Plant Biology (2015) 15:130                                                             Page 12 of 18
+coat/pericarp, more highly in the inner layer than the      one of the ten characterized rice GA2ox genes and con-
+outer layer (Fig. 6). TaGA20ox4 was an exception to this    firmed that representative homoeologs of each of the en-
+trend, showing highest levels of expression in the outer    zymes encoded by these genes have GA 2-oxidase
+pericarp layers. A contrasting trend was observed for the   activity against either C19- or C20-GAs as substrates.
+GA catabolic gene TaGA2ox7, which was expressed at          However, these assays revealed that the substrate speci-
+negligible levels in the endosperm, but at higher levels in ficities of some of the wheat GA2ox enzymes do not
+the seed coat/pericarp tissues and highest in the inner     conform to the current observations in other species
+layer (Fig. 6). The GA signalling genes TaGID1, TaGID2      where enzymes in Classes I and II, structurally-related to
+and TaRht were expressed almost exclusively in the seed     Arabidopsis AtGA2ox1 through AtGA2ox6, are active
+coat/pericarp layers, almost no expression being de-        against C19-GAs whereas enzymes related to AtGA2ox7
+tected in the endosperm. TaGID1 and TaRht were also         and AtGA2ox8 (i.e., from Class III; Fig. 2C) are active
+predominantly expressed in the outer of the two seed        only against C20-GAs [48]. Previously, the only identified
+coat/pericarp layers.                                       exception to this pattern was the Class I enzyme
+                                                            CsGA2ox4 from cucumber, which showed weak activity
+Discussion                                                  against the C20-GA GA12 [53]. However, this study
+2-Oxoglutarate-dependent dioxygenases in the GA             shows that several of the wheat enzymes have broader
+pathway of wheat                                            substrate specificities: TaGA2ox-B3, TaGA2ox-D4 and
+Since GAs contribute to nearly every stage of plant de-     TaGA2ox-D10, all from GA2ox Class I by sequence
+velopment, modifying their biosynthesis, perception and     similarity (Fig. 2C), were also active against C20-GAs,
+turnover has great potential to engineer improved var-      while TaGA2ox-D6, a Class III enzyme, was active
+ieties of agriculturally important crops. A prerequisite    against C19-GAs (Additional file 1: Figure S3). The sig-
+for such an approach is a more complete description         nificance of this wider substrate specificity is unclear,
+and characterization of the components of the GA bio-       particularly since there do not appear to be distinct bio-
+synthesis and signalling pathways. In the current study,    logical roles for the three structural classes of GA2ox
+we describe the sequence and biochemical activity of the    enzymes or distinct class-specific expression profiles
+GA20ox, GA3ox and GA2ox gene families in wheat,             during development [21].
+building upon a previous study which described the             In addition to the GA2ox genes in rice, Brachypodium
+genes encoding the enzymes catalysing the earlier stages    and barley, we identified five additional GA2ox gene se-
+of GA biosynthesis in wheat [24]. While the absence of a    quences in wheat, comprising one homoeologous group
+fully-sequenced wheat genome precluded a precise de-        on the long arm of the group 4 chromosomes,
+termination of the final number of genes in each family,    TaGA2ox11, plus two more individual paralogs on
+the transcript and genome assemblies used for this study    chromosome 4B, TaGA2ox-B12 and TaGA2ox-B13. All
+cover a large proportion of the wheat genes [32, 34]. For   of these additional genes are closely related to
+missing or incomplete genes, we also successfully reas-     TaGA2ox6, suggestive of gene duplication events in the
+sembled chromosome arm-specific sequence reads onto         ancestors of wheat. The importance of these GA 2-
+consensus sequences derived from assembly of 454            oxidase genes to wheat development remains unclear,
+reads, allowing us to further extend the coverage, and      however, since expression of all three homoeologs of
+also illustrating the potential for improving the wheat     TaGA2ox11 was negligible in all tissues studied and
+genome assembly using existing short read sequence          none of the encoded enzymes could be shown to exhibit
+data. Moreover, the number of 2-ODD paralogs found in       GA 2-oxidase activity. Expression of the TaGA2ox-B12
+wheat are very similar to those described for both rice     and TaGA2ox-B13 paralogs was similarly very low in the
+and Brachypodium that have completely sequenced             assayed tissues.
+genomes, and in most cases we identified full-length or        Of the three 2-ODD families, the largest divergence
+partial sequences for all three homoeologs, suggesting      from rice was observed in the GA 3-oxidases. The rice
+that the great majority of the genes from the GA path-      genome contains two GA3ox genes [54]; the wheat genes
+way were identified in this study.                          orthologous to OsGA3ox2 were identified and character-
+  We identified or assembled full-length or partial se-     ized in a previous study and shown to act principally as
+quences for all three homoeologs of four GA20ox genes       GA 3-oxidases, but also with additional minor activities
+in wheat (Table 1), corresponding to the four character-    including GA 2-oxidase, 2,3-desaturation and even 13-
+ized members of this family in Brachypodium and rice        hydroxylation [29]. We did not identify a clear wheat
+(Fig. 2A). We confirmed that all four paralogs encode       ortholog of OsGA3ox1, either in sequence homology or
+fully functional GA 20-oxidase enzymes, each capable of     in syntenic position, and this gene was also absent from
+catalysing the complete series of reactions from GA12 to    the Brachypodium genome. Instead, during the current
+GA9. We similarly identified wheat homologs of all but      study, we found novel GA3ox gene sequences in bread
+ Pearce et al. BMC Plant Biology (2015) 15:130                                                                       Page 13 of 18
+wheat, three of which were closely related to one an-           for bioactive GA production in vegetative tissues is 95–
+other and most likely represent a homoeologous group            96 %. This suggests the existence of a strong purifying se-
+(TaGA3ox3) while a fourth gene, TaGA1ox-B1 (initially           lection of mutations in the GA3ox2 genes compared with
+named TaGA3ox-B4) was identified only in the B gen-             the genes of novel function identified here.
+ome (Fig. 2B); orthologs of these genes were found in              Investigation of the expression patterns of these novel
+durum wheat but not in rice or Brachypodium. Of the             GA3ox-like genes showed that TaGA1ox-B1 is only
+GA3ox3 group, only TaGA3ox-B3 could be shown to en-             expressed in the developing grain of both bread and
+code an active GA 3-oxidase, converting GA9 to GA4;             durum wheat (Fig. 5 and Additional file 1: Figure S4), pre-
+TaGA3ox-D3 contains a 7 bp insertion in the second              dominantly in the endosperm (Fig. 6) and that TaGA3ox-
+exon and while TaGA3ox-A4 appeared to encode a full-            B3 shows a similar expression profile, although with some
+length protein, no enzyme activity could be detected in the     expression detected in vegetative tissues; the other homo-
+E. coli expression products. This might be explained by         eologues of TaGA3ox3 are also expressed in developing
+polymorphisms observed in this paralog that result in mis-      endosperm, but at a much lower level (Additional file 5).
+sense changes in amino acid residues conserved between          Similarly, inspection of the barley Gene Expression Atlas
+all grass GA3ox sequences (Additional file 1: Figure S9),       at http://www.plexdb.org revealed that HvGA3,18ox1
+but technical problems with heterologous expression can-        (Affymetrix probeset contig9888_at) is only expressed in
+not be ruled out.                                               the endosperm of developing barley grains. Supporting
+   In contrast, expression products of TaGA3ox-B4 were          the expression and functional analyses described above,
+found to catalyse 1β-hydroxylation of GA9 to yield GA61         developing wheat grains accumulate 1β-hydroxylated
+(Figs. 3B and 4), rather than the 3β-hydroxylation sug-         GAs, including GA54 (1β-hydroxy-GA4) and GA55 (1β-
+gested by its similarity to other GA 3-oxidases. This is the    hydroxy-GA1) [42]. Given that we showed that TaGA1ox-B1
+first description of an enzyme with GA 1-oxidase activity,      is active against GA9 but not GA4, whereas TaGA3ox-B3 is
+and the gene was therefore renamed as TaGA1ox-B1. We            active against both GA9 and GA61 (1β-hydroxy-GA9), the
+found a single ortholog of TaGA1ox-B1 in durum wheat            order of reaction in planta is likely to be GA9 → GA61 →
+but not in the A genome or the A and D diploid progeni-         GA54, catalysed by TaGA1ox-B1 and TaGA3ox-B3, respect-
+tors, and little sequence data is available for Ae. speltoides, ively (Fig. 4), and it seems likely that these two enzymes also
+the closest living relative of the B genome progenitor.         produce the 13-hydroxylated equivalent, GA55, from GA20
+However, a search of the draft barley genome [37] identi-       in developing grain via the same sequence of reactions. In
+fied two GA3ox-like genes: HvGA3ox2 was shown to en-            contrast, 1-hydroxy-GAs have not been identified in devel-
+code a ‘normal’ GA 3-oxidase (Fig. 3D) and had 95-96 %          oping barley grains, which accumulate a number of 18-
+nucleotide sequence identity with the three wheat               hydroxylated GAs, including GA131 (18-hydroxy-GA4) [44],
+TaGA3ox2 homoeologs. In contrast, HvGA3ox1 [39] is              presumably produced through the action of HvGA3,18ox1
+most closely related to TaGA1ox-B1 (87.6 % nucleotide se-       on GA9 (Fig. 4).
+quence identity; Fig. 2B) and is located on the orthologous
+chromosome arm in barley, 2HL. We showed that                   Tissue specificity of GA biosynthesis, signalling and
+HvGA3ox1 encodes a GA-3β,18-dihydroxylase, converting           turnover in wheat
+GA9 to GA131 (Figs. 3D and 4) and was therefore renamed         Our survey of GA gene expression in five tissues of bread
+as HvGA3,18ox1.                                                 wheat each at three stages of development (Fig. 5) and also
+   Analysis of the POPSEQ mapping data [32] showed              different tissues of durum wheat (Additional file 1: Figure
+that both TaGA3ox-A3 and TaGA1ox1-B1 were in ortho-             S4) and Brachypodium (Additional file 1: Figure S5) indi-
+logous positions on the group 2 chromosomes of wheat            cated that all organs and time points were competent in
+to HvGA3,18ox1 on barley chromosome 2H. However,                GA biosynthesis, perception and inactivation, exhibiting
+these genes are not orthologous to either OsGA3ox1 or           measurable transcript levels for at least one paralog of
+OsGA3ox2, which are located on rice chromosomes 5               each component assayed. One caveat to consider when
+and 1, respectively, or to the two GA3ox2 variants in           drawing conclusions from GA biosynthetic expression
+Brachypodium, where are located on chromosomes 2                data is the existence of feedback and feed-forward mecha-
+and 4 from that species. It seems highly likely, therefore,     nisms which act upon the transcription of 2-ODD genes.
+that the three Triticeae-specific genes evolved from an un-     As part of a homeostatic mechanism, increased concen-
+identified common ancestor but have subsequently di-            trations of bioactive GA inhibit GA20ox and GA3ox ex-
+verged, acquiring different catalytic activities. Amino acid    pression and promote GA2ox expression [23]. Therefore,
+sequence identity ranged from 66 % between HvGA3,18ox1          high expression of GA biosynthetic genes is not necessar-
+and TaGA3ox-A3 to 79 % between HvGA3,18ox1 and                  ily indicative of higher endogenous bioactive GA levels
+TaGA1ox1-B1, whereas amino acid sequence identity be-           and may instead result from their up-regulation under
+tween the wheat and barley GA3ox2 enzymes responsible           conditions of low GA. The early biosynthetic genes,
+ Pearce et al. BMC Plant Biology (2015) 15:130                                                                   Page 14 of 18
+TaCPS, TaKS, TaKO and TaKAO, and the signalling genes          bioactive GAs between the tissues. As this period of
+TaRht, TaGID1 and TaGID2, are expressed at all stages of       grain development, Zadoks 73, is one of rapid radial ex-
+development, albeit with marked variation in transcript        pansion growth, it is tempting to speculate that bioactive
+levels between tissues and stages. However, it is clear that   GA produced by the endosperm promotes cell expan-
+the multiple paralogs of the 2-ODD genes encoding              sion in the outer grain layers which otherwise would
+GA20ox, GA3ox and GA2ox have more specific patterns            constrain growth of the endosperm. In support of this,
+of expression. In particular, the expression of TaGA20ox3,     dwarfing mutations in TaRht genes that reduce sensitiv-
+TaGA3ox3 and TaGA1ox1 is very high in the grain, specif-       ity to bioactive GAs also reduce grain size [15], implying
+ically at Zadoks 75 developmental stage, but is much           a role for GAs and GA signalling in grain expansion.
+lower in the other tissues assayed. This is similar to the ex-    However, no defined role for GA in seed development
+pression patterns observed for OsGA20ox3 and OsGA3ox1          has been demonstrated in any species. Although develop-
+in rice [55], although no wheat ortholog of OsGA3ox1 was       ing seeds of plants often accumulate high levels of GAs, in
+identified; OsGA20ox3 and TaGA20ox3 are similarly not          many cases these are inactive or partially active forms.
+orthologous by chromosome location, although the phylo-        Thus, in rice the OsGA3ox1 gene that is expressed in de-
+genetic relationship appears clear (Fig. 2A).                  veloping grain encodes an enzyme with both 3β-
+   In the leaf and stem, TaGA20ox1 is expressed more           hydroxylase and 2β-hydroxylase activities [54], although
+highly in early, rapidly-elongating stages of development      the latter activity is a minor component, at least when
+while TaGA20ox2 appears to be highest in more mature           assayed in vitro. Unlike the other sequenced grass species
+tissue, after the period of maximal elongation growth          (maize, sorghum and Setaria italica), wheat, barley and
+(Fig. 5B), implying that TaGA20ox1 might be more im-           Brachypodium lack orthologs of GA3ox1 but in each case
+portant in determining growth rate and therefore final         have evolved novel paralogs of the GA3ox2 gene respon-
+organ size. However, both paralogs of these two genes          sible for GA biosynthesis in vegetative tissues (Fig. 2B and
+contribute to plant height in rice [16,56], although only      Additional file 1: Figure S7) that have high expression in
+OsGA20ox2 (SD-1) has been exploited in plant breeding          developing grain. In the case of bread wheat, we show
+[57]. TaGA20ox1, -2 and -3 are also expressed to some          above that two novel paralogs, TaGA3ox3 and TaGA1ox1,
+extent at all stages of spike development, a result con-       combine to produce the unusual gibberellin GA54 (1β-hy-
+sistent with a recent study which showed that these            droxy-GA4) in grain. Similarly, in barley HvGA3,18ox1 en-
+three GA biosynthetic genes are up-regulated by long           codes a bifunctional GA 3β,18-dihydroxylase; this gene is
+days in the shoot apical meristem of wheat, where bio-         closely related to TaGA3ox3 and TaGA1ox1 and its ex-
+active GA is required for the up-regulation of floral          pression is confined to developing grain. It is presumably,
+meristem identity genes SOC1-1 and LFY in spike devel-         therefore, responsible for the accumulation of 18-
+opment [7]. Relatively few genes from the GA2ox family         hydroxy-GAs, such as GA131 (18-hydroxy-GA4), in seeds
+show high levels of expression in the tissues assayed, and     of this species. Brachypodium also contains a paralogous
+some have narrow expression domains. Thus TaGA2ox3,            gene related to GA3ox2, Bradi4g23570, that we have
+TaGA2ox4 and TaGA2ox9 account for most of the vegeta-          named BdGA3ox2b. This gene is similarly expressed ex-
+tive GA2ox expression, while TaGA2ox6 and TaGA2ox8             clusively in seed tissues (Additional file 1: Figure S5) and
+predominate in the flowering spike and TaGA2ox7 in de-         encodes an enzyme with only GA 3-oxidase activity. Thus,
+veloping grain.                                                rice, barley, wheat, and Brachypodium have independently
+   Analysis of GA gene expression in separate tissue           evolved paralogs of GA3ox that produce high levels of
+layers of the developing grain revealed that the GA bio-       GAs in developing grain. However, the GAs synthesized in
+synthetic genes, notably TaKO, TaGA20ox3, TaGA3ox3             wheat and barley grain exhibit reduced biological activity:
+and TaGA1ox1, were predominantly expressed in the              GA131 is ~4-fold less active than GA4 [58] and the bio-
+endosperm. In contrast, genes involved in GA percep-           logical activity of 1-hydroxy GAs is similarly lower than of
+tion, signalling and turnover were expressed at only low       their non-1-hydroxylated equivalents (personal communi-
+levels in the endosperm and were instead expressed at          cation from the late Dr. John Lenton). The biological rele-
+their highest levels in the inner and outer seed coat/peri-    vance of these unusual GA-modifying activities is therefore
+carp layers. Indeed, expression levels of the GA receptor,     unclear and merits further investigation.
+TaGID1, and the central signalling component, TaRht,
+were 26- and 22-fold higher, respectively, in the outer        Target genes for novel dwarfing effects in wheat
+pericarp than in the endosperm (Fig. 6). These results         The introduction of the Rht dwarfing alleles during the
+suggest that the main site of GA biosynthesis in the           Green Revolution had a major impact on global wheat
+young developing grain is the endosperm tissue while           productivity because of a reduced incidence of lodging
+GA signalling occurs predominantly in the outer layers         and improved assimilate partitioning [59]. However, be-
+of the wheat grain, possibly implying movement of              cause Rht is a negative regulator of GA signalling in all
+ Pearce et al. BMC Plant Biology (2015) 15:130                                                                  Page 15 of 18
+tissues, these alleles are also associated with negative      activities resulting in a reduction in the biological activ-
+pleiotropic effects, such as the requirement for planting     ity of the GAs produced. The pattern of transcript accu-
+closer to the surface and a slight reduction in grain size    mulation of the GA genes in early developing grain
+[15, 19]. Results from our study confirm that Rht was         suggested that, while most GA biosynthesis is carried
+expressed in all tissues assayed, including the outer layers  out in the endosperm, GA inactivation, perception and
+of expanding grain and suggests that alternative dwarfing     signalling are confined to the seed coat and pericarp,
+alleles, more specific and targeted to the stem, may limit    consistent with a role for GA in grain expansion. This
+these negative pleiotropic effects. Several genetic studies   comprehensive identification and characterisation of the
+to identify plant height QTLs are being carried out in        GA 2-ODD genes in wheat will provide the basis for a
+order to identify alternative dwarfing alleles for wheat, al- better understanding of GA-regulated development in
+though to date no specific gene has been identified [60].     this species, including the involvement of GA biosyn-
+   One solution may lie in the selection of loss-of-          thesis and signalling in grain development.
+function mutations in GA biosynthetic genes using cur-
+rently available TILLING populations [61, 62]. In rice,       Methods
+the most widely used dwarfing gene is GA20ox2 [16, 17],       Identification and phylogeny of wheat genes for
+where multiple loss-of-function alleles have been identi-     components of the GA pathway
+fied which reduce height. These mutations have only           To identify wheat (Triticum aestivum L.) genes encoding
+limited effects on reproductive development, presumably       components of the GA biosynthetic and signalling path-
+because other GA 20-oxidase genes regulate GA biosyn-         way, sequences from Brachypodium (Brachypodium dis-
+thesis in these tissues. In wheat, TaGA20ox1, TaGA20ox2       tachyon L.), identified by BLASTP at www.phytozome.org
+and TaGA20ox4 are expressed in the leaf and stem, sug-        using rice (Oryza sativa L.) peptide sequences [31] as
+gesting that these are promising candidates in which to       queries, were used to search the IWGSC chromosome
+search for disruptive mutations. However, since all three     arm survey assembly at urgi.versailles.inra.fr. In many
+homoeologs of both TaGA20ox1 and TaGA20ox2 are                cases it was not possible to identify all three wheat homo-
+expressed in stem tissues (Additional file 3) multiple        eologs and, therefore, guided assembly of homologous
+mutations may necessary to obtain economically rele-          genomic sequence reads from chromosome-arm-specific
+vant height reductions. Current efforts to sequence the       shotgun sequencing assembled to 454 contigs [32, 33] was
+exomes of wheat TILLING lines [63] is accelerating the        carried out using the Geneious software (Biomatters Ltd)
+discovery of mutations for most of the genes presented        as outlined in Additional file 1 (Figure S1). Accession
+in this study, which will facilitate the experimental valid-  numbers for all full-length 2-ODD sequences identified
+ation of their function and the testing of their effects on   from wheat and other grasses are shown in Additional file
+plant height and productivity.                                2. In addition, full-length genomic, coding sequence and
+                                                              polypeptide sequences of all the wheat 2-ODD genes, plus
+Conclusions                                                   coding sequences of other genes in the pathway that were
+In this study we identified the genes encoding 2-ODD          used for transcript analysis, are provided as FASTA files in
+enzymes from the GA biosynthetic pathway of bread             Additional file 6.
+wheat, through a combination of interrogation of pub-            For phylogenetic analysis, peptide sequences were
+licly available, partially-assembled genome sequences         aligned using MUSCLE [64] and the resulting align-
+and de novo assembly of shotgun reads from individual         ments (Additional file 1: Figures S8-S10) were edited to
+chromosome arms. We also catalogued the GA 2-ODD              remove unaligned sequences in the N- and C-terminal
+genes from barley and Brachypodium. With a few excep-         regions. For GA20ox the N-terminal 82 and C-terminal
+tions, hexaploid bread wheat contains three homoeologs        31 columns of the alignment were removed; similarly for
+of each paralog of the genes identified in rice. In each      GA3ox the 39 N-terminal and C-terminal 45 columns
+case the function of the enzymes encoded by the genes         and for GA2ox the N-terminal 69 and C-terminal 49
+was demonstrated by heterologous expression and their         columns were deleted. Phylogenetic analysis was carried
+expression was analysed across a range of tissues and de-     out on the resulting alignments using the PhyML algo-
+velopmental stages. Certain paralogs of the GA20ox,           rithm within TOPALi v2.5 [65], including model opti-
+GA3ox and GA2ox gene families were shown to be ex-            misation and bootstrapping (100 repeats); an outgroup
+clusively expressed in developing grain, including a          was used for rooting and phylogenetic trees were drawn
+novel, highly-expressed GA 1-oxidase gene in wheat            using MEGA5 [66]. The trees obtained using Neighbor
+endosperm (and a related GA 3,18-dihydroxylase gene           Joining methods were not significantly different. To sim-
+in barley). The presence of these genes likely explains       plify presentation, only one homoeolog of each paralo-
+the high levels of 1β-hydroxylated GAs in wheat grain,        gous bread wheat gene was included in the phylogenetic
+and 18-hydroxylated GAs in barley, in both cases the          trees presented in Figure 2, but complete versions of
+ Pearce et al. BMC Plant Biology (2015) 15:130                                                                                    Page 16 of 18
+each tree with bootstrap values are shown in Additional      [70]. For all sets of RNA-seq data, sequencing reads were
+file 1 (Figures S11–S13).                                    trimmed for quality using Trimmomatic [71] and reads
+                                                             from each library were mapped using BWA-mem using
+Heterologous expression of wheat, barley and                 default parameters [72] to a wheat reference transcrip-
+Brachypodium GA 2-ODDs                                       tome consisting of the predicted cDNA sequences from
+Coding sequences for a single representative homoeolog       the IWGSC assembly (v21) at www.plants.ensembl.org/
+of each wheat 2-ODD, and of barley (Hordeum vulgare L.)      Triticum_aestivum. Where genes of interest were absent
+and Brachypodium (Brachypodium distachyon L.) GA3ox          from this reference, full-length coding sequences devel-
+genes, from the GA pathway were synthesised (Genscript,      oped in this work were added to replace either partial or
+Piscataway, USA) and inserted in-frame as a fusion with      missing sequences as detailed in Additional file 7. Gene se-
+thioredoxin in the expression vector pET32b. The con-        quences from the early part of the GA pathway were ob-
+structs were expressed in E. coli strain Rosetta2 (DE3)      tained from online databases: TaCPS [EMBL:GU980886,
+pLysS (Merck Millipore Ltd) by induction of log phase        EMBL:GU980887, EMBL:GU980888); TaKS [GenBank:FR
+cultures with 0.5 mM IPTG followed by growth at 25 °C        719731, EMBL: GU980889, EMBL: GU980890], TaKO
+for 5–6 h. Cells were harvested by centrifugation, sus-      [EMBL:GU980893, EMBL: GU980894, EMBL: GU980895];
+pended in 100 mM Tris-Cl pH7.5, 5 mM DTT, 10 u.ml-1          TaKAO [EMBL:GU980891, EMBL:GU980892, EMBL:GU14
+DNAseI (Sigma), lysed by freeze-thaw and sonication and      3912]. FPKM (for paired-end reads) and RPKM (for
+assayed using radiolabelled GA substrates in the presence    single-end reads) values were generated using the eXpress
+of co-substrates and co-factors as described previously      tool [73].
+[67]. Control assays were also run to demonstrate that
+neither E. coli proteins nor products encoded by the         Availability of supporting data
+pET32b vector were active against the GA12 and GA9 sub-      The RNA-seq data from tissue layers of developing grain
+strates. All products were identified by comparison of       described in this work are available in the ArrayExpress
+HPLC retention times with those of standards, or, in the     database (www.ebi.ac.uk/arrayexpress) under accession
+case of 14C-labelled GA54, GA61 and GA131, by compari-       number E-MTAB-3103. The phylogenetic input data and
+son of their mass spectra with published spectra [40] after  analysis for the GA20ox, GA3ox and GA2ox trees are
+combined gas chromatography–mass spectrometry of me-         available from Dryas (doi:10.5061/dryad.sk2nd).
+thyl esters trimethylsilyl ethers as described previously
+[68] using a MAT95XP mass spectrometer coupled to a
+Trace GC (ThermoElectron).                                   Additional files
+                                                             Below is the link to the electronic supplementary material.
+Mapping RNA-seq reads to the wheat reference
+                                                               Additional file 1: Figure S1. Strategy for identification and assembly of
+transcriptome                                                  wheat GA 2-ODD sequences. Figure S2: HPLC traces of incubations of
+Paired-end RNA-seq reads from root, leaf, stem, spike and      heterologous expression products of GA20ox genes with [1-14C]-GA12.
+grain tissues of wheat cv. Chinese Spring [49] were ob-        Figure S3: HPLC traces of incubations of heterologous expression products
+                                                               of GA2ox genes with [1-14C]-GA12 and [1-14C]-GA9. Figure S4: Relative expression
+tained from http://urgi.versailles.inra.fr/. Paired-end RNA-   of GA biosynthetic and signalling genes in durum wheat tissues determined
+seq reads from Brachypodium tissues were downloaded            by qRT-PCR. Figure S5: Transcript analysis of GA biosynthetic and signalling
+from the Short Read Archive at Genbank (accession num-         genes in Brachypodium distachyon by RNA-seq. Figure S6: Dissection of
+                                                               tissue layers from developing grain of bread wheat. Figure S7: Phylogenetic
+ber SRA046377). For developing grain samples, bread            tree of grass GA3ox-like protein sequences. Figures S8–10: GA20ox, GA3ox
+wheat cv. Holdfast seedlings were vernalized for 8 weeks       and GA2ox protein alignments, respectively. Figures S11–13: Phylogenetic
+at 8 °C and transplanted to pots of Rothamsted Prescrip-       trees of all GA20ox, GA3ox and GA2ox protein sequences, respectively, with
+                                                               bootstrap support values.
+tion Mix including slow-release fertilizer. The plants were
+                                                               Additional file 2: Rice, Brachypodium, barley and wheat genes
+grown in a glasshouse with supplemental lighting under a       encoding GA 2-ODDs including accession numbers.
+16 h day (18 °C), 8 h (14 °C) night and tagged at anthesis     Additional file 3: Homoeolog-specific expression of GA biosynthetic
+(anther emergence). Immature grain at 12 days post-            and signalling genes across five tissues of wheat at three developmental
+anthesis were dissected into endosperm, inner and outer        stages.
+seed coat/pericarp tissues and RNA extracted as described      Additional file 4: qRT-PCR primers used in this study and qRT-PCR
+                                                               methods.
+by Wan et al. [69]. Illumina RNA-seq libraries from three
+                                                               Additional file 5: Homoeolog-specific expression of GA biosynthetic
+biological replicates of each tissue were prepared using       and signalling genes in different layers of the wheat grain.
+the TruSeq mRNA sample kit (Illumina TruSeq RNA                Additional file 6: FASTA files containing genomic, coding sequence
+sample preparation guide Part 15008136 Rev A, Nov              and polypeptide sequences of all full-length wheat genes described
+2010) using 4 μg total RNA. Single end reads, 110 bp, were     in this work.
+generated on an Illumina GAIIx sequencer and RNA-seq           Additional file 7: Sequences in the IWGSC reference used for RNA-seq
+                                                               mapping substituted with full-length CDS sequences from this work.
+analysis was carried out within the Galaxy environment
+ Pearce et al. BMC Plant Biology (2015) 15:130                                                                                                                 Page 17 of 18
+Abbreviations                                                                           8.  Plackett ARG, Thomas SG, Wilson ZA, Hedden P. Gibberellin control of
+2-ODD: 2-oxoglutarate-dependent dioxygenases; FPKM: Fragments per                           stamen development: a fertile field. Trends Plant Sci. 2011;16:568–78.
+kilobase per million mapped reads; GA: Gibberellin; GA1ox: GA 1-oxidase (GA             9.  Ozga JA, van Huizen R, Reinecke DM. Hormone and seed-specific regulation
+1β-hydroxylase); GA13ox: GA 13-hydroxylase; GA20ox: GA 20-oxidase; GA2ox: GA                of pea fruit growth. Plant Physiol. 2002;128:1379–89.
+2-oxidase (GA 2β-hydroxylase); GA3ox: GA 3-oxidase (GA 3β-hydroxylase);                 10. Radley M. The development of wheat grain in relation to endogenous
+GC-MS: Coupled gas chromatography–mass spectrometry; HPLC: High                             growth substances. J Exp Bot. 1976;27:1009–21.
+performance liquid chromatography; IWGSC: International Wheat Genome                    11. Hedden P, Thomas SG. Gibberellin biosynthesis and its regulation. Biochem
+Sequencing Consortium; RPKM: Reads per kilobase per million mapped                          J. 2012;444:11–25.
+reads; qRT-PCR: Quantitative reverse transcription-polymerase chain reaction;           12. Yang DL, Yao J, Mei CS, Tong XH, Zeng LJ, Li Q, et al. Plant hormone
+TILLING: Targeting induced local lesions in genomes.                                        jasmonate prioritizes defense over growth by interfering with gibberellin
+                                                                                            signaling cascade. Proc Natl Acad Sci U S A. 2012;109:E1192–200.
+Competing interests                                                                     13. Li QF, Wang CM, Jiang L, Li S, Sun SSM, He JX. An interaction between BZR1
+The authors declare that they have no competing interests.                                  and DELLAs mediates direct signaling crosstalk between brassinosteroids
+                                                                                            and gibberellins in Arabidopsis. Sci Signal. 2012;5:ra72.
+                                                                                        14. Nakamura H, Xue Y-L, Miyakawa T, Hou F, Qin H-M, Fukui K, et al. Molecular
+Authors’ contributions                                                                      mechanism of strigolactone perception by DWARF14. Nat Commun.
+SP, PH, AH and ALP conceived and designed the experiments; SP, AH, IP, BG,                  2013;4:2613.
+JD and ALP assembled sequences of wheat and barley 2-ODD genes and                      15. Flintham JE, Börner A, Worland AJ, Gale MD. Optimizing wheat grain yield:
+performed phylogenetic analyses; AH and SV performed dissection and RNA                     effects of Rht (gibberellin-insensitive) dwarfing genes. J Agric Sci.
+isolation from developing wheat grains; JC carried out RNA-seq library                      1997;128:11–25.
+construction and sequencing; SP carried out qRT-PCR on durum wheat samples;             16. Spielmeyer W, Ellis MH, Chandler PM. Semidwarf (sd-1), “green revolution”
+YL, AH, AP and ALP performed PCR, DNA sequencing and heterologous expression;               rice, contains a defective gibberellin 20-oxidase gene. Proc Natl Acad Sci U
+PH executed enzyme assays and HPLC and GC-MS analysis of products; SP and ALP               S A. 2002;99:9043–8.
+analysed RNA-seq data; and SP, PH, AH, JD and ALP drafted the manuscript and            17. Jia QJ, Zhang JJ, Westcott S, Zhang XQ, Bellgard M, Lance R, et al. GA-20
+generated the figures and tables. All authors read and approved the final                   oxidase as a candidate for the semidwarf gene sdw1/denso in barley. Funct
+manuscript.                                                                                 Integr Genomics. 2009;9:255–62.
+                                                                                        18. Calderini DF, Miralles DJ, Sadras VO. Appearance and growth of individual
+Acknowledgments                                                                             leaves as affected by semidwarfism in isogenic lines of wheat. Ann Bot.
+We thank Rothamsted glasshouse staff for care of plant material, the                        1996;77:583–9.
+Rothamsted CSYS Bioinformatics Support Group for advice and provision of                19. Ellis MH, Rebetzke GJ, Chandler P, Bonnett D, Spielmeyer W, Richards RA.
+Galaxy tools and Stephen Powers for statistical advice. We also thank Prof. Jizeng          The effect of different height reducing genes on the early growth of wheat.
+Jia for prepublication access to assembled genomic sequences from Triticum                  Funct Plant Biol. 2004;31:583–9.
+urartu and Triticum tauschii. Financial support: work by AKH, IMP, SPV, BG, AP, PH      20. Plackett ARG, Powers SJ, Fernandez-Garcia N, Urbanova T, Takebayashi Y,
+and ALP was carried out under the 20:20 Wheat® Institute Strategic Programme                Seo M, et al. Analysis of the developmental roles of the Arabidopsis gibberellin
+at Rothamsted Research, funded by the Biotechnology and Biological Sciences                 20-oxidases demonstrates that GA20ox1, -2, and -3 are the dominant paralogs.
+Research Council of the UK; YL was funded by the OPTICHINA network within                   Plant Cell. 2012;24:941–60.
+the Seventh Framework Programme of the EU. SP and JD acknowledge support                21. Rieu I, Eriksson S, Powers SJ, Gong F, Griffiths J, Woolley L, et al. Genetic
+from the Howard Hughes Medical Institute, the Gordon and Betty Moore                        analysis reveals that C19-GA 2-oxidation is a major gibberellin inactivation
+Foundation and from the U.S. Department of Agriculture National Institute of                pathway in Arabidopsis. Plant Cell. 2008;20:2420–36.
+Food and Agriculture grants 2011–67013–30077 and 2011–68002–30029.                      22. Mitchum MG, Yamaguchi S, Hanada A, Kuwahara A, Yoshioka Y, Kato T, et al.
+                                                                                            Distinct and overlapping roles of two gibberellin 3-oxidases in Arabidopsis
+Author details                                                                              development. Plant J. 2006;45:804–18.
+1
+ Department of Plant Sciences, University of California, Davis, CA 95616, USA.          23. Yamaguchi S. Gibberellin metabolism and its regulation. Annu Rev Plant
+2
+ Department of Plant Biology and Crop Science, Rothamsted Research,                         Biol. 2008;59:225–51.
+Harpenden AL5 2JQ, UK. 3Biotechnology Research Centre, Jilin Academy of                 24. Huang Y, Yang W, Pei Z, Guo X, Liu D, Sun J, et al. The genes for gibberellin
+Agricultural Sciences, Changchun 130033, China. 4University of Bristol                      biosynthesis in wheat. Funct Integr Genomics. 2012;12:199–206.
+Transcriptomics Facility, School of Biological Sciences, Bristol BS8 1UG, UK.           25. Wu YS, Zhou K, Toyomasu T, Sugawara C, Oku M, Abe S, et al. Functional
+5
+ Howard Hughes Medical Institute, Chevy Chase, MD 20815, USA.                               characterization of wheat copalyl diphosphate synthases sheds light on the
+                                                                                            early evolution of labdane-related diterpenoid metabolism in the cereals.
+Received: 7 January 2015 Accepted: 1 May 2015                                               Phytochemistry. 2012;84:40–6.
+                                                                                        26. Zhou K, Xu MM, Tiernan M, Xie Q, Toyomasu T, Sugawara C, et al. Functional
+                                                                                            characterization of wheat ent-kaurene(-like) synthases indicates continuing
+References                                                                                  evolution of labdane-related diterpenoid metabolism in the cereals.
+1. Ubeda-Tomás S, Federici F, Casimiro I, Beemster GTS, Bhalerao R, Swarup R,               Phytochemistry. 2012;84:47–55.
+      et al. Gibberellin signaling in the endodermis controls Arabidopsis root meristem 27. Thomas SG, Phillips AL, Hedden P. Molecular cloning and functional
+      size. Curr Biol. 2009;19:1194–9.                                                      expression of gibberellin 2-oxidases, multifunctional enzymes involved in
+2. Gou JQ, Strauss SH, Tsai CJ, Fang K, Chen YR, Jiang XN, et al. Gibberellins              gibberellin deactivation. Proc Natl Acad Sci U S A. 1999;96:4698–703.
+      regulate lateral root formation in Populus through interactions with auxin        28. Schomburg FM, Bizzell CM, Lee DJ, Zeevaart JAD, Amasino RM. Overexpression
+      and other hormones. Plant Cell. 2010;22:623–39.                                       of a novel class of gibberellin 2-oxidases decreases gibberellin levels and creates
+3. Alabadí D, Gil J, Blázquez MA, García-Martínez JL. Gibberellins repress                  dwarf plants. Plant Cell. 2003;15:151–63.
+      photomorphogenesis in darkness. Plant Physiol. 2004;134:1050–7.                   29. Appleford NEJ, Evans DJ, Lenton JR, Gaskin P, Croker SJ, Devos KM, et al.
+4. Mauriat M, Moritz T. Analyses of GA20ox- and GID1-over-expressing aspen                  Function and transcript analysis of gibberellin-biosynthetic enzymes in
+      suggest that gibberellins play two distinct roles in wood formation. Plant J.         wheat. Planta. 2006;223:568–82.
+      2009;58:989–1003.                                                                 30. Lo SF, Yang SY, Chen KT, Hsing YL, Zeevaart JAD, Chen LJ, et al. A novel class
+5. Appleford NEJ, Lenton JR. Gibberellins and leaf expansion in near-sogenic                of gibberellin 2-oxidases control semidwarfism, tillering, and root development
+      wheat lines containing Rht1 and Rht3 dwarfing alleles. Planta. 1991;183:229–36.       in rice. Plant Cell. 2008;20:2603–18.
+6. Perazza D, Vachon G, Herzog M. Gibberellins promote trichome formation               31. Hirano K, Aya K, Hobo T, Sakakibara H, Kojima M, Shim RA, et al. Comprehensive
+      by up-regulating GLABROUS1 in Arabidopsis. Plant Physiol. 1998;117:375–83.            transcriptome analysis of phytohormone biosynthesis and signaling genes in
+7. Pearce S, Vanzetti LS, Dubcovsky J. Exogenous gibberellins induce wheat                  microspore/pollen and tapetum of rice. Plant Cell Physiol. 2008;49:1429–50.
+      spike development under short days only in the presence of                        32. IWGSC. A chromosome-based draft sequence of the hexaploid bread wheat
+      VERNALIZATION1. Plant Physiol. 2013;163:1433–45.                                      (Triticum aestivum) genome. Science. 2014;345:1251788.
+ Pearce et al. BMC Plant Biology (2015) 15:130                                                                                                                Page 18 of 18
+33. Brenchley R, Spannagl M, Pfeifer M, Barker GLA, D’Amore R, Allen AM, et al.       59. Hedden P. The genes of the Green Revolution. Trends Genet. 2003;19:5–9.
+    Analysis of the bread wheat genome using whole-genome shotgun sequencing.         60. Griffiths S, Simmonds J, Leverington M, Wang YK, Fish L, Sayers L, et al.
+    Nature. 2012;491:705–10.                                                              Meta-QTL analysis of the genetic control of crop height in elite European
+34. Krasileva KV, Buffalo V, Bailey P, Pearce S, Ayling S, Tabbita F, et al.              winter wheat germplasm. Mol Breed. 2012;29:159–71.
+    Separating homeologs by phasing in the tetraploid wheat transcriptome.            61. Botticella E, Sestili F, Hernandez-Lopez A, Phillips A, Lafiandra D. High resolution
+    Genome Biol. 2013;14:R66.                                                             melting analysis for the detection of EMS induced mutations in wheat SbeIIa
+35. Ling HQ, Zhao SC, Liu DC, Wang JY, Sun H, Zhang C, et al. Draft genome of             genes. BMC Plant Biol. 2011;11:156.
+    the wheat A-genome progenitor Triticum urartu. Nature. 2013;496:87–90.            62. Uauy C, Paraiso F, Colasuonno P, Tran R, Tsai H, Berardi S, et al. A modified
+36. Jia JZ, Zhao SC, Kong XY, Li YR, Zhao GY, He WM, et al. Aegilops tauschii             TILLING approach to detect induced mutations in tetraploid and hexaploid
+    draft genome sequence reveals a gene repertoire for wheat adaptation.                 wheat. BMC Plant Biol. 2009;9:115–28.
+    Nature. 2013;496:91–5.                                                            63. Henry IM, Nagalakshmi U, Lieberman MC, Ngo KJ, Krasileva KV, Vasquez-Gross
+37. Mayer KFX, Waugh R, Langridge P, Close TJ, Wise RP, Graner A, et al. A                H, et al. Efficient genome-wide detection and cataloging of EMS-induced
+    physical, genetic and functional sequence assembly of the barley genome.              mutations using exome capture and next-generation sequencing. Plant
+    Nature. 2012;491:711–7.                                                               Cell. 2014;26:1382–97.
+38. Sorrells ME, La Rota M, Bermudez-Kandianis CE, Greene RA, Kantety R, Munkvold     64. Edgar RC. MUSCLE: multiple sequence alignment with high accuracy and
+    JD, et al. Comparative DNA sequence analysis of wheat and rice genomes.               high throughput. Nucleic Acids Res. 2004;32:1792–7.
+    Genome Res. 2003;13:1818–27.                                                      65. Milne I, Lindner D, Bayer M, Husmeier D, McGuire G, Marshall DF, et al.
+39. Spielmeyer W, Ellis M, Robertson M, Ali S, Lenton JR, Chandler PM. Isolation          TOPALi v2: a rich graphical interface for evolutionary analyses of multiple
+    of gibberellin and metabolic pathway genes from barley and comparative                alignments on HPC clusters and multi-core desktops. Bioinformatics.
+    mapping in barley, wheat and rice. Theor Appl Genet. 2004;109:847–55.                 2009;25:126–7.
+40. Gaskin P, MacMillan J. GC-MS of the gibberellins and related compounds:           66. Tamura K, Peterson D, Peterson N, Stecher G, Nei M, Kumar S. MEGA5: Molecular
+    Methodology and a library of spectra. Bristol, U.K.: Cantock’s Enterprises; 1992.     evolutionary genetics analysis using maximum likelihood, evolutionary distance,
+41. Kirkwood PS, MacMillan J. Gibberellins A60, A61, and A62 : partial syntheses          and maximum parsimony methods. Mol Biol Evol. 2011;28:2731–9.
+    and natural occurrence. J Chem Soc Perkin Trans. 1982;1:689–97.                   67. Ward DA, MacMillan J, Gong F, Phillips AL, Hedden P. Gibberellin 3-oxidases
+42. Gaskin P, Kirkwood PS, Lenton JR, Macmillan J, Radley ME. Identification of           in developing embryos of the southern wild cucumber, Marah macrocarpus.
+    gibberellins in developing wheat grain. Agric Biol Chem. 1980;44:1589–93.             Phytochemistry. 2010;71:2010–8.
+43. Crow JR, Thomson RJ, Mander LN. Synthesis and confirmation of structure           68. MacMillan J, Ward DA, Phillips AL, Sánchez-Beltrán MJ, Gaskin P, Lange T,
+    for the gibberellin GA131 (18-hydroxy-GA4). Org Biomol Chem. 2006;4:2532–44.          et al. Gibberellin biosynthesis from gibberellin A12-aldehyde in endosperm
+44. Gaskin P, Gilmour SJ, Lenton JR, Macmillan J, Sponsel VM. Endogenous                  and embryos of Marah macrocarpus. Plant Physiol. 1997;113:1369–77.
+    gibberellins and kauranoids identified from developing and germinating            69. Wan Y, Underwood C, Toole G, Skeggs P, Zhu T, Leverington M, et al. A
+    barley grain. J Plant Growth Reg. 1984;2:229–42.                                      novel transcriptomic approach to identify candidate genes for grain quality
+45. Green LS, Faergestad EM, Poole A, Chandler PM. Grain development mutants              traits in wheat. Plant Biotechnol J. 2009;7:401–10.
+    of barley - α-amylase production during grain maturation and its relation to      70. Goecks J, Nekrutenko A, Taylor J, The Galaxy Team: Galaxy: a comprehensive
+    endogenous gibberellic acid content. Plant Physiol. 1997;114:203–12.                  approach for supporting accessible, reproducible, and transparent computational
+46. Sakamoto T, Kobayashi M, Itoh H, Tagiri A, Kayano T, Tanaka H, et al. Expression      research in the life sciences. Genome Biol 2010;11:R86.
+    of a gibberellin 2-oxidase gene around the shoot apex is related to phase         71. Bolger AM, Lohse M, Usadel B. Trimmomatic: a flexible trimmer for Illumina
+    transition in rice. Plant Physiol. 2001;125:1508–16.                                  sequence data. Bioinformatics. 2014;30:2114–20.
+47. Shan C, Mei ZL, Duan JL, Chen HY, Feng HF, Cai WM. OsGA2ox5, a gibberellin        72. Li H, Durbin R. Fast and accurate long-read alignment with Burrows-Wheeler
+    metabolism enzyme, is involved in plant growth, the root gravity response             transform. Bioinformatics. 2010;26:589–95.
+    and salt stress. PLoS One. 2014;9:e87110.                                         73. Forster SC, Finkel AM, Gould JA, Hertzog PJ. RNA-eXpress annotates novel
+48. Lee DJ, Zeevaart JAD. Molecular cloning of GA 2-oxidase3 from spinach and             transcript features in RNA-seq data. Bioinformatics. 2013;29:810–2.
+    its ectopic expression in Nicotiana sylvestris. Plant Physiol. 2005;138:243–54.
+49. Choulet F, Alberti A, Theil S, Glover N, Barbe V, Daron J, et al. Structural and
+    functional partitioning of bread wheat chromosome 3B. Science.
+    2014;345:1249721.
+50. Magome H, Nomura T, Hanada A, Takeda-Kamiya N, Ohnishi T, Shinma Y,
+    et al. CYP714B1 and CYP714B2 encode gibberellin 13-oxidases that reduce
+    gibberellin activity in rice. Proc Natl Acad Sci U S A. 2013;110:1947–52.
+51. Pfeifer M, Kugler KG, Sandve SR, Zhan B, Rudi H, Hvidsten TR, et al. Genome
+    interplay in the grain transcriptome of hexaploid bread wheat. Science.
+    2014;345:1250091.
+52. Davidson RM, Gowda M, Moghe G, Lin HN, Vaillancourt B, Shiu SH, et al.
+    Comparative transcriptomics of three Poaceae species reveals patterns of
+    gene expression evolution. Plant J. 2012;71:492–502.
+53. Lange MJP, Liebrandt A, Arnold L, Chmielewska SM, Felsberger A, Freier E,
+    et al. Functional characterization of gibberellin oxidases from cucumber,
+    Cucumis sativus L. Phytochemistry. 2013;90:62–9.
+54. Itoh H, Ueguchi-Tanaka M, Sentoku N, Kitano H, Matsuoka M, Kobayashi M.                 Submit your next manuscript to BioMed Central
+    Cloning and functional analysis of two gibberellin 3β-hydroxylase genes                 and take full advantage of:
+    that are differently expressed during the growth of rice. Proc Natl Acad Sci
+    U S A. 2001;98:8909–14.
+                                                                                           • Convenient online submission
+55. Sakamoto T, Miura K, Itoh H, Tatsumi T, Ueguchi-Tanaka M, Ishiyama K, et al.
+    An overview of gibberellin metabolism enzyme genes and their related mutants           • Thorough peer review
+    in rice. Plant Physiol. 2004;134:1642–53.                                              • No space constraints or color ﬁgure charges
+56. Oikawa T, Koshioka M, Kojima K, Yoshida H, Kawata M. A role of OsGA20ox1,
+    encoding an isoform of gibberellin 20-oxidase, for regulation of plant stature         • Immediate publication on acceptance
+    in rice. Plant Mol Biol. 2004;55:687–700.                                              • Inclusion in PubMed, CAS, Scopus and Google Scholar
+57. Rutger JN. Applications of induced and spontaneous mutation in rice                    • Research which is freely available for redistribution
+    breeding and genetics. Adv Agron. 1983;36:383–413.
+58. Morrison E, Chandler PM, Thomson RJ, Mander LN. Synthesis and bioactivity
+    of the gibberellin, 18-hydroxy-GA1 (GA132). Org Biomol Chem. 2008;6:1416–24.            Submit your manuscript at
+                                                                                            www.biomedcentral.com/submit

@@ -1,0 +1,893 @@
+Cantu et al. BMC Genomics 2013, 14:270
+http://www.biomedcentral.com/1471-2164/14/270
+  RESEARCH ARTICLE                                                                                                                                    Open Access
+Genome analyses of the wheat yellow (stripe)
+rust pathogen Puccinia striiformis f. sp. tritici
+reveal polymorphic and haustorial expressed
+secreted proteins as candidate effectors
+Dario Cantu1, Vanesa Segovia2, Daniel MacLean3, Rosemary Bayles4, Xianming Chen5,6, Sophien Kamoun3,
+Jorge Dubcovsky7,8,9, Diane GO Saunders3* and Cristobal Uauy2,4*
+  Abstract
+  Background: Wheat yellow (stripe) rust caused by Puccinia striiformis f. sp. tritici (PST) is one of the most
+  devastating diseases of wheat worldwide. To design effective breeding strategies that maximize the potential for
+  durable disease resistance it is important to understand the molecular basis of PST pathogenicity. In particular, the
+  characterisation of the structure, function and evolutionary dynamics of secreted effector proteins that are detected
+  by host immune receptors can help guide and prioritize breeding efforts. However, to date, our knowledge of the
+  effector repertoire of cereal rust pathogens is limited.
+  Results: We re-sequenced genomes of four PST isolates from the US and UK to identify effector candidates and
+  relate them to their distinct virulence profiles. First, we assessed SNP frequencies between all isolates, with
+  heterokaryotic SNPs being over tenfold more frequent (5.29 ± 2.23 SNPs/kb) than homokaryotic SNPs (0.41 ± 0.28
+  SNPs/kb). Next, we implemented a bioinformatics pipeline to integrate genomics, transcriptomics, and
+  effector-focused annotations to identify and classify effector candidates in PST. RNAseq analysis highlighted
+  transcripts encoding secreted proteins that were significantly enriched in haustoria compared to infected tissue.
+  The expression of 22 candidate effector genes was characterised using qRT-PCR, revealing distinct temporal
+  expression patterns during infection in wheat. Lastly, we identified proteins that displayed non-synonymous
+  substitutions specifically between the two UK isolates PST-87/7 and PST-08/21, which differ in virulence to two
+  wheat varieties. By focusing on polymorphic variants enriched in haustoria, we identified five polymorphic effector
+  candidates between PST-87/7 and PST-08/21 among 2,999 secreted proteins. These allelic variants are now a
+  priority for functional validation as virulence/avirulence effectors in the corresponding wheat varieties.
+  Conclusions: Integration of genomics, transcriptomics, and effector-directed annotation of PST isolates has enabled
+  us to move beyond the single isolate-directed catalogues of effector proteins and develop a framework for mining
+  effector proteins in closely related isolates and relate these back to their defined virulence profiles. This should
+  ultimately lead to more comprehensive understanding of the PST pathogenesis system, an important first step
+  towards developing more effective surveillance and management strategies for one of the most devastating
+  pathogens of wheat.
+* Correspondence: diane.saunders@tsl.ac.uk; cristobal.uauy@jic.ac.uk
+3
+ The Sainsbury Laboratory, Norwich Research Park, Norwich, UK
+2
+ John Innes Centre, Norwich Research Park, Norwich, UK
+Full list of author information is available at the end of the article
+                                            © 2013 Cantu et al.; licensee BioMed Central Ltd. This is an Open Access article distributed under the terms of the Creative
+                                            Commons Attribution License (http://creativecommons.org/licenses/by/2.0), which permits unrestricted use, distribution, and
+                                            reproduction in any medium, provided the original work is properly cited.
+ Cantu et al. BMC Genomics 2013, 14:270                                                                          Page 2 of 18
+http://www.biomedcentral.com/1471-2164/14/270
+Background                                                   available. Together, they provide the necessary tools to
+Wheat yellow rust, also known as stripe rust, is one of      develop a framework for characterization of the putative
+the most devastating diseases of wheat worldwide. It is      effector repertoire of PST.
+caused by the basidiomycete fungus Puccinia striiformis         The rapid decrease in sequencing costs now makes it
+Westend. f. sp. tritici Eriks. (PST), an obligate pathogen   possible to re-sequence multiple PST isolates to fur-
+that along with the stem (black) rust fungus Puccinia        ther characterize its pathogenicity arsenal. For instance,
+graminis f. sp. tritici (PGT) threatens worldwide wheat      comparative genome analyses of different isolates of
+production [1,2]. Historically, the use of major race spe-   Magnaporthe oryzae, the rice blast pathogen, expanded
+cific resistance (R) genes in wheat varieties has been an    the knowledge gained from the original reference gen-
+effective method for disease management. However, these      ome considerably and helped to identify new effector
+approaches are hampered by the evolution of resistance-      genes with avirulence activity [19]. Similarly, genomic
+breaking races of PST. For example, the appearance of        analysis of an epidemic isolate of the potato blight patho-
+PST races that overcome widely deployed R genes (such        gen Phytophthora infestans provided insights into in-
+as Yr2, Yr9, Yr17 and Yr27) has led to destructive pan-      creased aggressiveness and virulence [20].
+demics [3]. In recent years, concerns over yellow rust have     In this study, we re-sequenced four PST isolates with
+increased with the emergence of new and more aggressive      different virulence profiles and from two distinct geo-
+PST races that have expanded virulence profiles and are      graphical regions (the USA and the UK). We identified
+capable of adapting to warmer temperatures compared to       hetero- and homokaryotic SNPs, providing a first glimpse
+most previous races [2]. Combined with the intrinsic         into PST genetic diversity on a genome wide scale. We
+ability of PST for long distance spore dispersal [4], these  performed independent gene discovery and annotation
+new races pose an increasing threat to global wheat pro-     across all isolates to produce a combined PST secretome
+duction and food security [5].                               and identified haustoria-enriched transcripts. We validated
+  Biotrophic plant pathogens such as rust pathogens          the expression of a subset of genes during an infection
+secrete an array of proteins, known as effectors, to modu-   time course, and revealed distinct temporal expression
+late plant innate immunity and enable parasitic infection    patterns among them. This data was then integrated using
+[6]. Some of these effectors translocate inside plant cells  a modified version of the in silico pipeline described in
+probably through specialized infection structures known      Saunders et al. [12] to classify the putative effector reper-
+as haustoria [7-9]. Inside plant cells, effectors perturb    toire of PST. Using this information, we identified putative
+host processes promoting pathogenesis. However, dis-         secreted, haustoria-enriched proteins with non-synonymous
+ease resistance genes in plants, known as R genes, en-       polymorphisms specifically between the two UK isolates,
+code immunoreceptors that recognize specific pathogen        which only differ in virulence to two known wheat dif-
+effector proteins. Once effector proteins are recognized,    ferential varieties. This approach identified five effector
+plants initiate an immune response to block the devel-       candidates among 2,999 predicted secreted proteins that
+opment of disease, which typically results in a localized    are highly expressed in haustoria and are polymorphic
+hypersensitive reaction and programmed cell death [10,11].   between the UK isolates, PST-87/7 and PST-08/21. These
+The identification and characterization of these effectors   allelic variants are now a priority for functional validation
+and their cognate R genes is an important first step to      as virulence/avirulence effectors in the corresponding
+understanding the wheat-PST pathosystem and conse-           wheat varieties.
+quently, to our ability to develop sustainable and poten-
+tially more durable resistance breeding strategies.          Results
+  Recent availability of rust pathogen genome sequences      Selecting PST isolates with distinct virulence profiles
+has enabled the first steps towards wide-scale cataloguing   Four PST isolates from different races with distinct viru-
+of putative effector proteins. For instance, Saunders et al. lence profiles and varied geographic origin were selected
+[12] and Duplessis et al. [13] both implemented high         for genome sequencing (Table 1). All isolates were ini-
+throughput computational methods to characterize the         tially identified on wheat plants, except PST-21. This
+effector complements from the fully sequenced rust fungi     isolate was originally isolated from infected triticale plants,
+PGT and Melampsora larici-populina. Recently, Cantu et al.   but was subsequently shown to be virulent on wheat
+[14] used next-generation sequencing (NGS) to assemble a     plants carrying the Yr1 resistance gene [21]. The viru-
+draft genome of PST isolate 130 (PST-130), annotating        lence profiles of the two UK isolates (PST-08/21 and
+22,185 putative coding sequences and classifying 1,088 of    PST-87/7) were examined on a set of European differen-
+these as predicted secreted proteins. In addition, resources tial lines, complemented by a common set of Avocet ‘S’
+such as cDNA libraries generated from urediniospores         near isogenic lines, and compared to the previously
+and isolated haustoria (to identify PST genes specifically   reported profiles for the US isolates (Table 1) [1,22].
+expressed during pathogen infection [15-18]) are publicly    The two UK isolates differed in their virulence to wheat
+ Cantu et al. BMC Genomics 2013, 14:270                                                                                                          Page 3 of 18
+http://www.biomedcentral.com/1471-2164/14/270
+Table 1 PST isolates used in this study and their virulence profiles
+Isolate               Location of isolation           Year            Natural host                            Virulence profile on wheat
+PST-21                            US                  1980              Triticale             Yr1
+PST-43                            US                  1990               Wheat                Yr2, Yr6, Yr20, Yr21
+PST-130a                          US                  2007               Wheat                Yr2, Yr6, Yr7, Yr8, Yr9, Yr19, Yr20, Yr21, Yr22, Yr23
+PST-87/7                         UK                   2003               Wheat                Yr1, Yr2, Yr3, Yr4, Yr6, Yr7, Yr9, Yr17, Yr27, Yr32
+PST-08/21                        UK                   2008               Wheat                Yr1, Yr2, Yr3, Yr4, Yr6, Yr7, Yr9, Yr17, Yr27, Yr32, YrRob, YrSol
+a
+  Previously sequenced isolate [14].
+varieties Robigus (YrRob) and Solstice (YrSol), but had                      of P. graminis f.sp. tritici where 91.1% of the CEGs were
+common virulence to ten Yr genes.                                            mapped as complete copies and 92.7% as fragmented genes
+                                                                             (Additional file 2). The levels of complete gene coverage
+Genome sequencing, quality assessment, and gene                              were higher for all US isolates (average 83%, SD: ± 0.6%)
+prediction                                                                   and comparable to partial gene coverage (average 88.7%,
+We used an Illumina whole-genome shotgun sequencing                          SD: ± 0%), indicating that few core eukaryotic genes were
+approach to sequence four PST isolates in addition to the                    split across contigs for these isolates. For the two UK iso-
+recently sequenced isolate PST-130 [14]. After filtering                     lates (PST-08/21 and PST-87/7) complete gene coverage
+(see Methods), the total number of PST contigs assembled                     was reduced (average 56.5%, SD: ± 5.7%) compared to par-
+ranged from 29,178 to 55,502 (Table 2). To assess the                        tial gene coverage (71.3%, SD: ± 3.9%), indicating slightly
+completeness of the genome sequences, we aligned the                         higher levels of fragmentation for these genomes, which is
+reads to the previously assembled PST-130 contigs [14]. A                    likely attributed to the lower level of genome coverage for
+large proportion of the reads from the newly sequenced                       these isolates.
+PST isolates aligned to the assembled PST-130 contigs (on                       To identify open reading frames in the five assembled
+average 86.2% SD: ±1.6%; Additional file 1), suggesting                      PST genomes, we applied the MAKER pipeline which
+that most of the PST genome is present in the PST-130                        used ab initio and homology based predictions and was
+assembly and confirming previous estimates of PST gen-                       supported by cDNA evidence generated in the course of
+ome size [14]. In addition, a large fraction of publically                   this study (see below and Methods; [25]). On average
+available PST expressed sequenced tags (ESTs) mapped                         20,280 (SD: ±1,201) protein-coding genes were identified
+onto the assembled contigs, ranging from 81.8% in PST-                       in the five isolates (Table 3). Over 90% of the extended
+87/7 to 83.2% in PST-43, further supporting a high de-                       CEGMA set, which includes 2,748 CEG variants from
+gree of completeness of the genome assemblies. Taken                         six eukaryotic genomes, matched peptides predicted in
+together, these data suggest the US and UK isolates in-                      each of the assemblies, with an average of 82.4% of the
+clude between 82 and 88% of the rust genome.                                 protein length aligned (SD: ± 8.9%; BLASTP, e-value ≤1e-6).
+   As an independent estimate of the degree of com-                          This provided an independent estimate of the complete-
+pleteness of the assembled gene space, we implemented                        ness of the gene catalogue.
+CEGMA analysis [23]. This protocol maps a set of 248
+low copy core eukaryotic genes (CEGs) that are conserved                     Estimation of diversity between PST isolates
+across higher eukaryotes to the assemblies [24]. On aver-                    Urediniospores constitute asexual dikaryotic spores that
+age 72.1% (SD: ±14.6%) of the CEGs aligned as complete                       contain two independent nuclei. Therefore, to assess
+gene copies to the assembled contigs (Additional file 2),                    genetic variation between the two nuclei in the sequenced
+compared to 81.7% (SD: ± 9.7%) that aligned as frag-                         PST urediniospores we aligned the sequence reads of a
+mented partial gene copies (Additional file 2). These values                 particular isolate to the assembled contigs of the same
+are slightly lower than those of the whole genome sequence                   isolate. This global analysis identified an average single
+Table 2 PST genome assembly statistics
+  Isolate     Median coverage        No. of contigs Total length (bp)  N50 (bp)     Max length (bp)       Median length (bp)           Average length (bp)
+  PST-21             66x                 43,106           73 Mb          3,960           37,006                     713                         1,695
+  PST-43             26x                 49,784           71 Mb          3,264           35,154                     596                         1,421
+ PST-130a            59x                 29,178           65 Mb          5,137           49,498                     901                         2,220
+ PST-87/7            15x                 55,502           53 Mb          1,302           46,297                     652                          962
+PST-08/21            21x                 50,898           56 Mb          1,600           35,677                     708                         1,106
+a
+  Previously sequenced isolate [14].
+ Cantu et al. BMC Genomics 2013, 14:270                                                                                                                    Page 4 of 18
+http://www.biomedcentral.com/1471-2164/14/270
+Table 3 Predicted gene catalogue for each PST isolate and similarity to conserved eukaryotic proteins and PGT proteins
+Species/isolate      No. proteins predicted           Median protein length (amino acids)              CEG matching sequencesa           PGT matching sequencesa
+PGT                             20,566                                       266                               2,596 (94.5%)                            -
+PST-21                          20,653                                       211                               2,626 (95.6%)                    13,301 (64.7%)
+PST-43                          21,036                                       197                               2,637 (96.0%)                    13,313 (64.7%)
+PST-130                         18,149                                       228                               2,612 (95.1%)                    13,214 (64.3%)
+PST-87/7                        20,688                                       161                               2,508 (91.3%)                    12,801 (62.2%)
+PST-08/21                       20,875                                       172                               2,592 (94.3%)                    13,183 (64.1%)
+a
+  BLASTP, e-value ≤ 1e-6. PGT, Puccinia graminis f. sp. tritici (Total PGT sequences: 20,566). CEG, Core eukaryotic genes (Total CEG sequences: 2,748).
+nucleotide polymorphism (SNP) frequency of 5.98 ±                                        PST-130 were compared against other isolates, polymor-
+1.13 SNPs/kb between the two nuclei within a single iso-                                 phisms were more apparent (Figure 1B green circles;
+late, referred hereafter as intra-isolate SNPs (Additional                               Additional file 7). For instance, when using the PST-43
+file 3).                                                                                 genes as a reference, PST-21 showed between 1,706 and
+   In addition, we aligned the reads of each isolate to                                  2,047 polymorphic genes in pair-wise comparisons with
+the assembled contigs of the other isolates (Additional                                  all other isolates. Similarly, PST-130 showed between 1,
+files 3 and 4). We classified these inter-isolate SNPs                                   428 and 2,047 polymorphic genes in pair-wise compari-
+into two classes; heterokaryotic SNPs which refers to a                                  sons with all other isolates, when using this same refer-
+variant position between the two nuclei within a single                                  ence. In contrast, in pairwise comparisons between
+isolate that is homozygous in other isolates, and homo-                                  PST-43, PST-87/7 and PST-08/21 less than 130 genes
+karyotic SNPs, which refer to homozygous variants that                                   were shown to be polymorphic when using the PST-43
+are polymorphic between two independent isolates                                         genes as the reference (Figure 1B; Additional file 7).
+(Additional file 5). On average, heterokaryotic SNPs                                        Enrichment in non-synonymous mutations between
+across isolates were more frequent (5.29 ± 2.23 SNPs/kb)                                 genes encoding predicted secreted proteins and non-
+than homokaryotic SNPs (0.41 ± 0.28 SNPs/kb). The                                        secreted proteins was assessed using the hypergeometric
+highest levels of diversity were found when reads of                                     test. This analysis revealed enrichment in polymorphisms
+isolates PST-21 and PST-130 were mapped onto the two                                     in secreted proteins for nine pairwise comparisons with
+UK isolates (PST-87/7 and PST-08/21) and US PST-43.                                      eight originating from comparisons of PST-21 or PST-
+Here, we observed an average of 7.11 ± 1.14 SNPs/kb                                      130 against other isolates (Figure 1B, orange highlighted
+for heterokaryotic sites, whereas homokaryotic SNPs had                                  squares). We also calculated rates of synonymous (dS)
+a frequency of 0.64 ± 0.08 SNPs/kb. When the two UK                                      and non-synonymous (dN) substitutions for each pair-
+isolates and PST-43 were compared, the heterokaryotic                                    wise comparison in each synthetic gene set (Additional
+SNP frequency was 2.23 ± 0.53 SNPs/kb, whereas the                                       file 8). This analysis highlighted more genes with dN/dS > 1
+homokaryotic SNP frequency was 0.02 ± 0.01 SNPs/kb                                       when PST-21 and PST-130 were compared with all other
+(Additional file 3). We performed a phylogenetic analysis                                isolates, mirroring the pattern shown in the sequence
+using the homokaryotic SNP data in both coding and                                       polymorphism analysis (Figure 1B, purple circles). For ex-
+non-coding regions. In the associated dendrograms, US                                    ample, for protein PST21_04206 sequence polymorphisms
+isolate PST-43 clustered with the two UK isolates, PST-87/7                              and positive selection were identified between the UK iso-
+and PST-08/21 (Figure 1A). PST21 was more closely re-                                    lates and US PST-43 when compared to the synthetic gene
+lated to PST130 than to the other three isolates, and                                    from US PST-130 (Additional file 9). There was no evi-
+both where equally distant to the PST-43/UK cluster.                                     dence for enrichment in positive selection in genes encod-
+                                                                                         ing secreted proteins when compared to those encoding
+Observed genetic diversity may reflect origin of isolates                                non-secreted proteins.
+To further characterize the genetic diversity between the                                   Another measure of genetic diversity is to assess the
+five sequenced isolates of PST, we assessed the number                                   number of absent genes in pair-wise comparisons between
+of homokaryotic SNPs within the gene space (Additional                                   isolates. The total number of genes classified as absent
+file 6). Using this SNP data, we generated a set of four                                 with no reads aligned, was greater for alignments against
+representative synthetic genes for each reference gene                                   the two US isolates PST-21 (161-482 genes) and PST-130
+that incorporated the SNP information independently                                      (154-310 genes) when compared to US PST-43, UK PST-
+for each isolate to enable downstream analysis of genetic                                87/7 and UK PST-08/21. Less than 100 genes were
+diversity (Additional file 5). Pair-wise comparisons of                                  shown to be absent in PST-43, PST-87/7 and PST-08/21
+non-synonymous mutations in these gene sets revealed                                     when alignments between these isolates were consid-
+that when genes representing US isolates PST-21 and                                      ered (Figure 1C; Additional file 10). Reciprocally, when
+ Cantu et al. BMC Genomics 2013, 14:270                                                                                                  Page 5 of 18
+http://www.biomedcentral.com/1471-2164/14/270
+   A
+   B
+   C
+  Figure 1 US PST-43 may belong to the same clonal lineage as the UK isolates PST-87/7 and PST-08/21. A. Dendrograms illustrating that
+  US isolate PST-43 clustered with the two UK isolates PST-87/7 and PST-08/21. Dendrograms were constructed using the homokaryotic SNP
+  information either in the coding or non-coding regions of the genome from all pair-wise alignments. B. Pair-wise comparison of
+  non-synonymous mutations in synthetic gene sets illustrated that polymorphisms were more apparent when corresponding proteins
+  representing PST-21 and PST-130 were compared against other isolates. Each gene for a given reference was taken in turn and any homokaryotic
+  SNPs incorporated for each isolates mapped. The five genes (one reference gene and four synthetic genes) were then subjected to pair-wise
+  polymorphism and positive selection analysis using Yn00. Circle sizes represent the number of proteins with at least one non-synonymous
+  mutation (green circles) or under positive selection (purple circles). Pair-wise comparisons that showed enrichment in non-synonymous mutations
+  in secreted proteins are illustrated with an orange background. C. The total number of genes determined as absent by mapping the sequence
+  reads from each isolate in turn against every other isolate as a reference was greater for alignments against PST-21 and PST-130 when compared
+  to alignments against PST-43, PST-87/7 and PST-08/21. A similar pattern was also observed when genes encoding predicted secreted proteins
+  were assessed. Total number of genes absent from white to blue (0-482) for full gene complement and white to red (0-14) for secretome.
+PST-21 or PST-130 sequence reads were mapped against                             RNA-seq analysis identified transcripts specifically
+the genome assemblies of the other three isolates (PST-43,                       enriched in haustoria
+PST-87/7 and PST-08/21), a greater number of genes were                          We performed RNAseq analysis of UK PST-08/21 infected
+noted as absent when compared to the alignment of the                            wheat leaves and isolated haustoria to identify haustoria-
+other three isolates (Figure 1C; Additional file 10). A simi-                    enriched transcripts (Additional file 11). After filtering,
+lar pattern was also observed when genes encoding pre-                           we aligned reads to the PST-08/21 assembly and also
+dicted secreted proteins were assessed (Figure 1C).                              generated de novo assemblies that were used to support
+   This analysis confirmed our previous observation that                         the gene prediction pipeline. We conducted differential
+US PST-130 and PST-21 appear more genetically diverse                            expression analysis after normalization, using DESeq to
+when compared to other isolates in this study, poten-                            identify genes that were significantly up-regulated (False
+tially reflecting different evolutionary origins for these                       discovery rate <0.01) in haustoria compared to infected
+isolates. The observed genetic diversity for US PST-21                           tissue (Figure 2A; Additional file 12). Within the subset
+may reflect adaptation to a different host, triticale, when                      of transcripts encoding for predicted secreted proteins
+compared to isolates in this study that were isolated spe-                       (933 genes, see Methods), we identified 57 genes that
+cifically from wheat.                                                            were significantly enriched in haustoria (6.1%), compared
+ Cantu et al. BMC Genomics 2013, 14:270                                                                                                      Page 6 of 18
+http://www.biomedcentral.com/1471-2164/14/270
+   A                                                   B                                                 C
+  Figure 2 Comparison between infected tissue and isolated haustoria RNAseq libraries. Scatter plot of log2 transformed sequencing counts
+  generated by aligning RNAseq reads to all PST-08/21 genes (A), those that encode predicted secreted peptides (B), or encode non-secreted
+  peptides (C). Red and green colored circles correspond respectively to transcripts that were identified as significantly enriched or depleted in
+  isolated haustoria as determined by DESeq analysis (P ≤ 0.01). Red lines represent the locally weighted polynomial regression (LOWESS method).
+to 31 (3.3%) that were significantly depleted (Figure 2B). A                  and the expression of genes at the plant-pathogen inter-
+much lower proportion of genes encoding for non-secreted                      face as determined by the RNA-seq analysis of PST-08/21-
+proteins was identified as enriched (2.1%; 411 of 19,703                      infected wheat leaves and isolated haustoria. Expression of
+genes) or depleted (1.7%) using the same analysis                             genes either during infection or specifically in haustoria
+(Figure 2C). These results suggest that this approach is                      was then added as criterion in the effector-mining pipeline
+effective in selectively enriching for secreted proteins,                     (Figure 3).
+which are likely to be haustorial-expressed transcripts.
+                                                                              Identifying candidate effectors of high interest
+Defining and classifying the effector repertoire of PST                       To order and cluster protein tribes based on known effector
+To identify and classify candidate effectors from PST,                        features and PST-specific annotation we implemented the
+we implemented a modified version of the bioinformat-                         sorting module of the pipeline (see Methods; Figure 3).
+ics pipeline described in Saunders et al. [12] (Figure 3).                    This resulted in overall scores for each tribe that
+The five PST proteomes were combined (totaling 100,357                        reflected their likelihood of containing potential effector
+proteins), 5,502 secreted proteins predicted, and redun-                      proteins (Additional file 13). The features associated
+dancy in the combined secretome reduced (see Methods).                        with the top 100 ranked tribes are displayed in Figure 4.
+After consolidation, a total of 2,999 predicted secreted                         To select proteins with a high likelihood as candidate
+proteins were selected representing the diversity of the five                 effectors we focused on tribes that ranked highly based
+PST secretomes (Figure 3). To enable the identification of                    on our scoring system, are highly expressed and enriched
+any potential conserved rust effectors, secreted proteins                     in haustoria, and display sequence polymorphisms be-
+were also classified and incorporated in this study from                      tween isolates. For example, Tribe 238 is ranked 10th in
+the proteomes of Puccinia graminis f. sp. tritici and                         our scoring system and is a member of Cluster VII, which
+Melampsora larici-populina, comprising 1,333 and 1,173                        reflects the fact that both members, PST21_18221 and
+secreted proteins, respectively. The three rust pathogen                      PST21_18220, are expressed highly in haustoria and are
+secretomes were combined and grouped into 1,797 pro-                          significantly enriched in haustoria with respect to infected
+tein tribes based on sequence similarity using Markov                         tissue (P = 0.001, 31 and 42-fold, respectively). This tribe
+clustering [26]. The final filtering step of the bioinfor-                    represents two distinct proteins that are present in all
+matics pipeline reduced the total to 1,037 tribes, each                       isolates sequenced in this study. One protein was identi-
+containing at least one PST secreted protein. Proteins in                     fied as polymorphic specifically between the US isolates,
+the 1,037 PST-containing tribes were then annotated with                      whereas the second protein was conserved across all
+both known effector features from other pathosystems                          isolates (Figure 5A-B). The two proteins are encoded by
+and PST-specific criteria (Figure 3). The later criteria fo-                  genes within close proximity on a single contig in the
+cused on allelic variation between the five PST isolates                      sequenced genomes (Figure 5C). This suggests that these
+ Cantu et al. BMC Genomics 2013, 14:270                                                                                       Page 7 of 18
+http://www.biomedcentral.com/1471-2164/14/270
+                                                                          genes a single amino acid substitution was evident between
+                                                                          the sequences for the two UK isolates. For example, for
+                                                                          PST130_05023, four amino acid substitutions were identi-
+                                                                          fied; one differential between the UK and US isolates, two
+                                                                          between UK isolates and US PST-43 when compared to
+                                                                          the other US isolates, and one specific substitution between
+                                                                          the two UK isolates (Figure 5E). Focusing on proteins that
+                                                                          display polymorphisms between these two isolates may fa-
+                                                                          cilitate the detection of avirulence and corresponding viru-
+                                                                          lence effector proteins that are specifically differentially
+                                                                          recognized by YrRob and YrSol.
+                                                                          Transcript profiling reveals peaks in gene expression for
+                                                                          candidate effectors during infection
+                                                                          To further characterize a subset of candidate effectors,
+                                                                          we assessed their expression profiles using quantitative
+                                                                          RT-PCR across different infection time points (20 hours
+                                                                          and 1, 6 and 14 days post inoculation (dpi)) (Figure 6A;
+                                                                          Additional file 14). Twenty-two putative effectors repre-
+                                                                          senting nineteen tribes were selected based on their rank
+                                                                          as likely effectors and their expression levels determined
+  Figure 3 Clustering of secreted proteins and annotation of              by mRNAseq analysis of isolated haustoria (Table 5). The
+  protein tribes based on known effector features and PST-specific        gene models of these effector candidates were further vali-
+  criteria. A bioinformatic pipeline was implemented to identify          dated during the qRT-PCR analysis using primers that
+  groups of secreted proteins with characteristic effector features. The
+  proteomes of the five PST isolates were combined (totaling 100357
+                                                                          spanned the splice site junctions.
+  proteins), 5502 secreted proteins predicted, and redundancy                Three peaks in expression were observed for the
+  reduced. The consolidated PST secretome (2999 proteins) was             candidate effectors using qRT-PCR, with eight more
+  combined with predicted secretomes from P. graminis f. sp. tritici      highly expressed at 1 dpi, four at 6 dpi and nine at 14 dpi
+  (PGT) and Melampsora larcia populina (Mellp) and proteins grouped       (Figure 6B). Haustoria are already formed at 1 dpi [28]
+  based on sequence similarity (Markov clustering). Tribes containing
+  at least one PST member (1037 tribes) were annotated with known
+                                                                          suggesting that some of these candidate effectors might be
+  effector features or PST-specific criteria. Finally, tribes were ranked involved in the very early stages of infection. Two of the
+  and heirarchical clustering implemented based on their content of       five haustoria-enriched polymorphic genes between the
+  proteins with known effector features. Programs are indicated in red.   UK isolates were amongst those most highly expressed at
+  NLS, nuclear localization signal.                                       1 dpi (PST21_15642 and PST130_00285), whereas one
+                                                                          showed highest expression at 14 dpi (PST130_05023).
+genes could have arisen from a duplication event, which                   Only one candidate effector (PST130_10194) was stably
+is further supported by sequence similarity between the                   expressed at all time-points assessed during infection. For
+two proteins within the N-terminus. This is consistent                    tribes 238, 413 and 6, the expression profiles of several
+with the concept that pathogenicity factors may arise                     members of each tribe were assessed. With the exception
+from gene duplication events followed by rapid diversifi-                 of one member of tribe 6 (PST21_11390), members of
+cation to evolve new functions [27].                                      the same tribe tended to peak in expression at the same
+                                                                          time-point, indicating that they may be involved at simi-
+Candidate effectors with sequence polymorphisms                           lar stages during disease progression. These results are
+between the UK isolates PST-08/21 and PST-87/7                            consistent with the concept of sequential waves of ex-
+We identified secreted proteins that displayed polymor-                   pression of different sets of effectors during the infec-
+phisms specifically between the two UK isolates PST-87/7                  tion process [29].
+and PST-08/21, which only differ in virulence to two
+wheat differential varieties Robigus (YrRob) and Solstice                 Discussion
+(YrSol). The properties of the 117 proteins identified are                Polymorphic secreted proteins as effector candidates
+displayed in Figure 5D. Of these 117 proteins, 14 were                    In this study, we re-sequenced four PST isolates to
+members of tribes that ranked in the top 100 in our scor-                 identify effector candidates and relate them to their dis-
+ing system and five were encoded by genes which were sig-                 tinct virulence profiles. Once the complete effector
+nificantly enriched and in the top 10% of expressed                       complement was defined, we focused on highlighting
+transcripts in both haustorial samples (Table 4). For all five            polymorphic effector candidates that may reflect rapid
+ Cantu et al. BMC Genomics 2013, 14:270                                                                                                            Page 8 of 18
+http://www.biomedcentral.com/1471-2164/14/270
+  Figure 4 The top 100 ranked protein tribes containing putative effector candidates. Clusters were determined using hierarchical clustering
+  of the top 100 ranked tribes containing putative effector candidates. A. Combined score used to rank tribes based on their content of effector
+  features. B. Score for similarity of tribe members to haustorial expressed secreted proteins (HESPs) or characterized fungal AVRs. C. Score for number of
+  members encoded by genes with at least one flanking intergenic region >10 Kb. D. Score for number of members classified as repeat containing
+  (RCPs). E. Score reflecting number of members classified as small and cysteine rich (SCRs). F. Score for number of members containing any
+  characterized effector motifs or nuclear localization signals (NLS). G. Score for number of members not annotated by PFAM domain searches. H. Score
+  for number of members in the top 100 expressed in infected material, determined by mRNA-seq analysis. I. Scatter plot indicating number of
+  members in the top 1, 5 or 10% expressed in infected material. J. Score for number of members in the top 100 expressed in haustoria, determined by
+  mRNA-seq analysis. K. Scatter plot indicating number of members in the top 1, 5 or 10% expressed in haustoria. L. Number of PST members showing
+  sequence polymorphisms between isolates. Stars indicate tribes that contain members assessed for expression using qRT-PCR.
+ Cantu et al. BMC Genomics 2013, 14:270                                                                                                    Page 9 of 18
+http://www.biomedcentral.com/1471-2164/14/270
+   A                                                                            D
+   B
+                                                                                E
+   C
+  Figure 5 Secreted proteins with high likelihood as candidate effectors. A. Sequence alignment of PST21_18220, a member of tribe 238, and
+  the corresponding alleles from the other four isolates illustrating sequence polymorphisms specifically between the US isolates, PST-21, PST-43
+  and PST-130. B. Sequence alignment of the second member of tribe 238, PST21_18221, and its alleles from other isolates illustrating that this
+  protein was highly conserved across isolates. C. The two members of tribe 238, PST21_18220 and PST21_18221, are in close proximity within a
+  single contig in the genome sequence. The corresponding genes were expressed during infection and were also highly expressed and enriched
+  in haustorial samples as determined by mRNA-seq analysis. D. Features displayed by the 117 proteins that were identified as polymorphic
+  between the two UK isolates PST-08/21 and PST-87/7. E. Sequence alignment of PST130_05023 and the synthetic genes that incorporate the SNP
+  information from the other four isolates sequenced, illustrating sequence polymorphisms between isolates. Polymorphic residues are indicated
+  below the sequence by red stars.
+adaptation to specific host targets, such as disease-                          effector delivery system as is routinely conducted in the
+resistance proteins amongst others. The list of effector                       potato-P. infestans pathosystem [30].
+candidates we developed here should prove useful to the                           The co-evolutionary arms race between pathogens and
+rust research community to initiate functional screens for                     plants has led pathogens to respond by mutating or losing
+effector activity. One possible strategy would be the in-                      AVR effector proteins [31]. A survey of six Melampsora
+duction of hypersensitive cell death by potential avirulence                   lini isolates identified diversifying selection acting on the
+proteins (AVR) on differential wheat lines using an                            Avr567 locus, with substitutions identified in surface
+                                                                                                                                                                                                                                  Cantu et al. BMC Genomics 2013, 14:270
+Table 4 Secreted proteins with non-synonymous substitutions between UK isolates PST-87/7 and PST-08/21 and in tribes ranking within the top 100 potential
+                                                                                                                                                                                                                                 http://www.biomedcentral.com/1471-2164/14/270
+effector tribes
+   Gene ID        Tribe Tribe     Length       Similarity 1 FIR    No. of     SCR       Effector motifs     NLS    PFAM Infected Haust. 1 Haust. 2                                                          Enrichment in
+                   no. ranking (amino acids) to HESPs or ≥10 Kb repeat units protein (amino acid position) signal mapping material (reads) (reads)                                                            haustoria
+                                             fungal AVRs                                                                  (reads)
+                                                                                                                                                                                                         Fold change   P value
+                                                                                                                                                                                                            (log2)      (adj)
+PST130_14637        9         6             609               No            No            10            No                   -                No         No              0          0          4            1.02        0.68
+PST21_19014         11        14            167               No            No             0            No       Y/F/WxC(85); LIAR(32)        No         Yes             535       120        534           −0.38       0.87
+PST887_17743        11        14            185               No            No             0            No      Y/F/WxC(103); LIAR(32)        No         Yes             904       167        695           −0.61       0.70
+PST130_00418        8         17            176               No            No            20            No                   -                No         No              6          0         361           4.15        1.00
+                                                                                                                                                                                         b           b
+PST21_12116         74        20            455               No            No             0            No                   -                No         Yes             298       3708      34272          5.99       <0.001
+PST130_05023       351        22            281               No            No             6            No                   -                No         Yes         2475a         7368b     62158c         3.85        0.011
+                                                                                                                                                                                         b           b
+PST21_18360        437        23            394               No            No             0            No                   -                No         No              480       5957      15413          5.08        0.001
+PST130_00285       317        25            207               No            No             0            No                   -                No         Yes             919       6699b     36240b         4.77        0.001
+                                                                                                                                                                                         b          a
+PST21_15642        308        28            102               No            No             0            Yes                  -                No         No              209       6002      6286           5.96       <0.001
+PST21_17946         17        39            177               No            No             3            No                   -                No         No              396       417       3015           2.21        0.19
+PST21_04206        456        58            515               No            No             0            No                   -                No         Yes         2563      a
+                                                                                                                                                                                   513       1806           −0.70       0.65
+PST21_20471         21        83            376               No            No            13            No                   -                No         No              24         7         34            0.05        0.69
+PST43_15488        111        94             94               No            No             0            Yes           Y/F/WxC(23)             No         Yes             399        0         76            −3.81       0.17
+PST21_15274        111        94             91               No            No             0            Yes           Y/F/WxC(23)             No         No              64         1         24            −2.46       0.17
+HESPs, Haustorial expressed secreted proteins. FIR, flanking intergenic region. SCR, small cysteine-rich. NLS, nuclear-localization signal. Haust, Haustorial library.
+Genes expressed in the top 10 (a), 5 (b) and 1% (c) in a particular RNAseq dataset.
+                                                                                                                                                                                                                                                        Page 10 of 18
+ Cantu et al. BMC Genomics 2013, 14:270                                                                                    Page 11 of 18
+http://www.biomedcentral.com/1471-2164/14/270
+                                                                         driver for changes in virulence. Therefore, assessing
+    A                                                                    allelic variation in putative effectors between distinct PST
+                                                                         isolates will likely be important to identify avirulence/
+                                                                         virulence alleles.
+                                                                         Uncovering the evolutionary origin of PST isolates
+                                                                         Comparative genomic studies are powerful tools for
+                                                                         assessing the evolutionary origin of particular races. In
+                                                                         this study, the limited genetic diversity found between
+                                                                         US isolate PST-43 and the two UK isolates, PST-87/7
+                                                                         and PST-08/21, could be indicative of these isolates be-
+                                                                         longing to the same clonal lineage. This is supported by
+    B                                                                    a diversity study based on 117 amplified fragment length
+                                                                         polymorphism (AFLP) fragments which showed that
+                                                                         PST isolates collected before 2000 in the US and Europe
+                                                                         clustered together [34], thereby suggesting a common
+                                                                         origin. Interestingly, the two UK isolates used in this
+                                                                         study were collected after 2000 (2003 and 2008), yet still
+                                                                         cluster with the older US race. This agrees with virulence
+                                                                         data which suggests that despite the emergence of new
+                                                                         highly aggressive isolates after 2000 in some European
+                                                                         countries (Denmark and Sweden), these have not yet
+                                                                         appeared in UK fields (unpublished observations, Rosemary
+                                                                         Bayles). Conversely, differences between races can reflect
+                                                                         diverse evolutionary origins or host specificity. In this
+                                                                         study, US isolates PST-130 and PST-21 appear more
+                                                                         genetically diverse when compared to the other isolates
+                                                                         we sequenced. This is supported by studies showing that
+                                                                         US races isolated post-2000, such as PST-130, may have
+                                                                         a different origin than those isolated pre-2000 [5,34]
+  Figure 6 Quantitative RT-PCR revealed peaks of expression              and that PST-21 displays host specificity for triticale [21].
+  for the selected effector candidates during plant infection.           The data generated is not only valuable for addressing
+  A. Schematic representation of the stages of PST development           these evolutionary questions, but can also be used by the
+  during plant infection. B. Quantitative RT-PCR was undertaken at four  wider rust research community for development of more
+  stages of PST-08/21 infection for a subset of 22 effector candidates.
+                                                                         extensive polymorphic markers for large-scale screening
+  Three peaks of expression were noted at 1 day post-inoculation
+  (dpi), 6 dpi and 14 dpi. hpi, hours post-inoculation; S, uredinospore; of PST field populations and to complement the current
+  SV, substomatal vesicle; IH, invasive hyphae; HM, haustorial mother    set of dominant AFLP markers.
+  cell; H, haustorium; P, pustule; G, guard cell.
+                                                                         Utility of haustoria-enriched transcripts in effector mining
+                                                                         As biotrophic fungi and oomycetes secrete effectors from
+                                                                         highly specialized structures, known as haustoria, we also
+exposed residues that dictated host recognition [32,33].                 undertook transcriptome analyses of infected tissues and
+Likewise, Yoshida et al. [19] identified three novel Avr                 isolated PST haustoria to identify potential Avr genes. For
+genes that were absent from the M. oryzae genome se-                     example, sequencing ESTs from M. lini isolated haustoria
+quence (isolate 70-15) but present in the re-sequenced                   led to the identification of three uncharacterized Avr genes
+avirulent isolate Ina168. In PST, we did not find evidence               [7], suggesting that haustorial expressed transcripts repre-
+of large scale absence of genes or putative effectors on                 sent a rich source for Avr effector identification. To iden-
+the scale identified in M. oryzae [19]. Even when com-                   tify haustoria enriched transcripts, we compared gene
+paring between the most distantly related isolates, we                   expression levels between infected material and isolated
+found less than 15 predicted secreted protein genes to                   haustoria. Although RNAseq analysis of infected material
+be absent in any pairwise comparisons (<1.3% of the                      was limited to a single biological replicate, we used the
+total predicted secretome, Figure 1C). Although this is                  DESeq approach [35] to assess enrichment as this package
+a first and limited sampling of the available PST di-                    is suited for working with partial replicates [36]. This
+versity, it suggests that gene loss may not be the main                  enabled us to estimate levels of variation in the infected
+ Table 5 Tribe members selected for expression profiling during PST infection of wheat                                                                                                        Cantu et al. BMC Genomics 2013, 14:270
+Tribe Tribe   No. of Average protein length Species distribution No. of proteins in No. of proteins in Members assessed for         General effector features (No. of proteins)
+ no. ranking proteins    (amino acids)       (No. of proteins) top 100 expressed top 100 expressed peak in expression
+                                                                 during infection     in haustoria
+                                                                                                                                                                                             http://www.biomedcentral.com/1471-2164/14/270
+  63         2          13       180             PST (2), PGT (5),       2                 2                 1 dpi (1)          Similarity to M. lini hesp-C49 (10); Internal repeats (2);
+                                                     Mel (6)                                                                     Members encoded by genes with 1 FIR ≥10Kb (2);
+                                                                                                                                             Without PFAM annotation (11)
+ 467         3          3        109                   PST               0                 3                 14 dpi (1)                SCRs (3); Without PFAM annotation (3)
+ 238        10          5        112                   PST               0                 5                 14 dpi (2)                           Internal repeats (2)
+ 413        12          3        95              PST (2), PGT (1)        1                 2                 14 dpi (2)         Y/F/WxC (2); SCRs (3); Without PFAM annotation (1)
+ 276        13          4       288.5           PST (2), PGT (1),        0                 2                 1 dpi (1)           Similarity to M. lini hesp-735 (3) and hesp-379 (1);
+                                                    Mel (1)                                                                      Internal repeats (1); Without PFAM annotation (1)
+ 351        22          4       276.5            PST (3), PGT (1)        0                 3                 14 dpi (1)           Internal repeats (2); Without PFAM annotation (2)
+ 317        25          4       209.5            PST (3), PGT (1)        0                 3                 1 dpi (1)                                      -
+ 308        28          4        145                   PST               0                 3                 1 dpi (1)                 SCRs (3); Without PFAM annotation (3)
+ 596        31          2        139                   PST               0                 2                 1 dpi (1)                      Without PFAM annotation (2)
+  79        34          12      299.5           PST (8), PGT (1),        0                 4                 Stable (1)          Y/F/WxC (2), LIAR (1); Members encoded by genes
+                                                    Mel (3)                                                                      with 1 FIR ≥10Kb (1); Without PFAM annotation (2)
+ 928        43          1        163                   PST               1                 1                 6 dpi (1)               Y/F/WxC (1); Without PFAM annotation (1)
+1004        43          1        132                   PST               1                 1                 6 dpi (1)                      Without PFAM annotation (1)
+ 593        60          2        160                   PST               0                 1                 1 dpi (1)                      Without PFAM annotation (1)
+ 544        75          2        216             PST (1), PGT (1)        0                 1                 6 dpi (1)               SCRs (1); Internal repeats (1); Without PFAM
+                                                                                                                                                     annotation (2)
+1232        78          1        163                   PST               0                 1                 14 dpi (1)                     Without PFAM annotation (1)
+1118        96          1        201                   PST               0                 1                 6 dpi (1)                                  LIAR (1)
+ 426       133          3        142                   PST               1                 1                 14 dpi (1)                     Without PFAM annotation (1)
+  6        154          49       224           PST (27), PGT (21),       0                 4            1 dpi (2), 14 dpi (1)       Y/F/WxC (1), LIAR (2), RXLR (1); Without PFAM
+                                                    Mel (1)                                                                                        annotation (31)
+dpi, days post-inoculation.
+                                                                                                                                                                                                                    Page 12 of 18
+ Cantu et al. BMC Genomics 2013, 14:270                                                                          Page 13 of 18
+http://www.biomedcentral.com/1471-2164/14/270
+material sample based on that observed in the replicated       this method provides a logical framework to prioritize
+haustoria samples. Despite the low power of detection          candidate effector genes for functional validation, an
+with this approach we could identify haustoria enriched        approach that will become increasingly powerful as
+genes with sufficient confidence. These transcriptome          additional races are re-sequenced, more mRNAseq data
+results helped to further classify and prioritize the PST      becomes available and the avirulence activity of candi-
+secretome. It also establishes a robust baseline from          date effectors is established.
+which to extend this analysis to other isolates.                 The use of association analysis to identify candidate
+                                                               avirulence proteins has been successfully implemented
+Improving existing PST gene models                             in other pathosystems [19,37]. As a first step in this
+An additional contribution of the expression studies was       direction, we examined two UK isolates (PST-87/7 and
+to generate more reliable PST gene models, which is crit-      08/21) that share common virulence for ten wheat Yr
+ical to identify genes encoding for proteins with secretion    genes (Yr1, Yr2, Yr3, Yr4, Yr6, Yr7, Yr9, Yr17, Yr27, Yr32),
+signal peptide sequences. This was especially relevant for     but differ in their ability to infect two UK varieties,
+the downstream effector prediction pipeline since this         Robigus (YrRob) and Solstice (YrSol). We found no evi-
+constitutes the first criteria with which proteins are classi- dence of gene loss between these isolates. However,
+fied and filtered. We addressed this potential limitation by   focusing on polymorphic variants that were also highly
+firstly complementing the homology based and ab initio         expressed and enriched in haustoria (within the top 10%
+prediction pipeline [25] with the de novo transcript assem-    expressed genes) reduced the dataset from 2,999 se-
+blies generated from the RNAseq data and secondly, by          creted proteins to just five polymorphic effector candi-
+integrating independent gene predictions from all iso-         dates. These genes and their allelic variants are now a
+lates. Whilst assessing the independent gene sets obtained     priority for functional validation as virulence/avirulence
+for the different isolates we noted that for many frag-        effectors in the wheat varieties Robigus and Solstice.
+mented genes, a non-fragmented copy could be identified
+in at least one genome. Therefore, it is anticipated that the  The next challenge – functional validation of effector
+gene catalog presented here will be a better representation    candidates
+of the PST gene complement, than the previous one which        The next step will be to establish functional validation
+was based on genomic sequences alone [14]. The overall         methods for rust effectors in wheat. This crucial phase is
+accuracy of the gene predictions herein were also sup-         still in its infancy [38,39] and will most likely be limited
+ported by the identification of higher frequencies in nu-      to testing a handful of candidate genes in the initial
+cleotide variants in the intronic regions than in the          stages. Several groups have attempted to modify existing
+exons for both heterokaryotic and homokaryotic SNPs            heterologous expression systems from other pathosystems
+(Additional file 3).                                           to establish a reliable method for testing rust AVR effector
+                                                               candidates in wheat. This includes delivery of effector
+Applying comparative genomics to effector mining               candidates directly into wheat cells by expressing them
+The recent release of draft genome sequences for several       in bacterial pathogens for delivery by the type III secre-
+rust pathogens has provided the first step towards wide-       tion system [39] or through virus-mediated approaches
+scale cataloguing of putative effector proteins [13,14]. So    [40]. Alternatively, host-induced gene silencing could be
+far, these studies have been limited to secretome predic-      utilized to transiently silence and test PST pathogenicity
+tion and annotation from a single reference genome. Here,      or virulence genes. Recently, silencing of three en-
+we employed a comparative genomics approach to move            dogenous genes in Puccinia triticina, the wheat leaf rust
+beyond the single isolate-directed catalogue and utilise the   pathogen, was reported using transient Agrobacterium-
+distinct virulence profiles of the isolates sequenced to       mediated expression of corresponding RNAi constructs in
+identify putative virulence/avirulence effectors. Our aim      wheat [38]. If established as a large-scale functional assay
+was to integrate genomics, transcriptomics and effector-       system, transient expression could be utilized to enable
+focused annotation to generate a rich source of informa-       high-throughput loss-of-function screening of a diverse
+tion that could be utilized to identify effector candidates    array of PST effector candidates in wheat.
+in PST. However, this raises the challenge of developing
+methods that can utilize the vast abundance of data to         Conclusions
+address clearly defined biological questions. The cluster-     This study provides valuable information including (i) an
+ing and classification methods used here allowed us to         estimate of the distribution of genetic diversity within
+organize the complexity of these large datasets. Providing     and among PST isolates, (ii) characterization of the ex-
+the data in an easily comprehensible format (Figure 4) will    pression of PST genes in infected tissue and haustoria
+enhance accessibility and help the wider rust research         using RNAseq analysis, (iii) a bioinformatics pipeline to
+community to rapidly access effector candidates. Moreover,     organize and prioritize candidate effector genes for
+ Cantu et al. BMC Genomics 2013, 14:270                                                                              Page 14 of 18
+http://www.biomedcentral.com/1471-2164/14/270
+functional studies and (iv) a list of candidate avirulence      Assessing genetic diversity
+genes which display polymorphisms specifically between          Illumina pair-end genomic sequence reads from each iso-
+two UK isolates. As additional races and divergent iso-         late were mapped onto each other isolate used as a refer-
+lates are re-sequenced, polymorphic effectors will be           ence using Novoalign (version 2.07.18 [45]; parameters
+more easily distinguished from underlying genetic diver-        used: -R99, -i PE 500,400 -Q30 -o SAM). Custom perl
+sity between isolates, streamlining the cataloging of po-       scripts were used to extract the mapping counts from the
+tential avirulence/virulence proteins for testing. The          SAM files and determine the sequencing coverage of each
+functional validation of these will ultimately lead to a        gene. Mapping metrics are reported in Additional file 4.
+more comprehensive understanding of the PST patho-              Genes were classified as absent when no reads mapped to
+genesis system, an important step towards developing            the coding region of a particular gene. SAM files were
+more effective surveillance and management strategies           converted into BAM format, sorted, indexed, and analyzed
+for one of the most devastating pathogens of wheat.             using Picard tools (version 1.55 [46]). Single nucleotide
+                                                                polymorphisms (SNPs) were determined using the Gen-
+                                                                ome Analyzer Toolkit pipeline (GATK, version 1.65; [47]).
+Methods                                                         The GATK RealignerTargetCreator and IndelRealigner
+Genome sequencing, assembly and gene prediction                 programs were applied to realign the reads mapped on
+Genomic DNA was extracted for each isolate from dried           indel sites. The GATK UnifiedGenotyper with parame-
+urediniospores using the CTAB method as described by            ters --outputmode EMIT_VARIANT_ONLY and -glm
+Chen et al. [41]. DNA libraries were prepared as described      SNP was then used to identify SNPs. The alignment of
+previously for PST-130 [14]. Library quality was confirmed      sequencing reads to the correct genomic location is crit-
+before sequencing using the Agilent 2100 Bioanalyzer            ical for the accurate identification of genetic variants.
+(Agilent Technologies, UK). Sequencing was carried out          Thus, the variant calling was restricted to those sites
+on an Illumina HiSeq machine at the DNA Technolo-               that did not display either too low (minimum 5x cover-
+gies Service core at UC Davis. Adapter and barcode              age) or too high coverage. Genomic regions that display
+trimming and quality filtering were carried out using           a higher than expected number of aligned reads are
+the FASTX-Toolkit [42]. Terminal nucleotides at the 3′          likely to be stretches of similar or repetitive sequences
+end with sequencing quality below Q20 were removed              that have been assembled together [14]. To reduce the
+and reads that after trimming were shorter than 40 nu-          number of false positive identified (i.e. SNPs between
+cleotides were discarded. FASTQ files of high-quality           non-orthologous region), we imposed a maximum
+trimmed sequences were used for downstream analysis.            coverage threshold equivalent to 1.5 times the median
+The pair-end trimmed and filtered reads were de novo            coverage over the entire assembly. To determine whether
+assembled using the CLC Genomic Workbench 4.0                   the calculated median coverage is a valid proxy of the
+software [43]. The following parameters were applied:           coverage associated with single copy genes, sequencing
+mismatch, insert, and deletion cost = 3; length fraction = 0.3; reads were remapped on a set of 10 single copy genes
+similarity = 1.0 no global alignment; conflict resolution =     previously identified in the PST-130 assemblies [14].
+vote; ignore nonspecific matches; min contig length =           The sequencing coverage on these single copy genes
+300 bp; paired-end distance = 100–600 bp. Contigs with          was very similar to the median coverage over the entire
+homology with non-fungal sequences in the complete NCBI         assembly [e.g. 63.9x coverage (SD: ±6.7) and 59.9x (SD:
+nt collection were considered contaminant and discarded.        ±5.7) in PST-21 and PST-130, respectively]. Assuming
+Assemblies were deposited at GenBank and the SRA and            that the coverage of a repetitive region increases pro-
+WGS accession numbers are listed in Additional file 1 to-       portionally with the copy number, the maximum cover-
+gether with the general sequencing and assembly metrics.        age threshold we selected is expected to reduce both
+To assess genome completeness reads from each isolate           Type I and Type II errors of calling a single copy locus
+were filtered for contaminants and then mapped to the           to less than 0.001 for all races. Heterokaryotic sites were
+assembled PST-130 contigs. PST ESTs used for assessment         identified as sites with allelic frequency = 0.5. If a site in
+of genome completeness were obtained from GenBank.              the reference had allelic frequency of 0.5 or the mapped
+Gene prediction was undertaken following the MAKER              reads from another isolate had allelic frequency = 0.5
+pipeline [25] using PST ESTs, de novo transcript assemblies     the site was considered heterokaryotic (Additional File 5).
+generated in this work (see below), and PGT and P. triticina    Homokaryotic variants were identified as sites that are
+(PT) peptide sequences as templates for gene model dis-         homokaryon both in the reference (allelic frequency = 1.0)
+covery. The homology based gene prediction implemented          and in the mapped reads (frequency of the alternative
+in MAKER was integrated with the ab initio prediction           allele = 1.0). The overall ratio of transition over transversion
+program SNAP [44] using as training dataset the above           mutations across all five isolates was 2.30 ± 0.17. These
+mentioned PST, PGT, and PT datasets.                            values are consistent with human studies [48] and as
+ Cantu et al. BMC Genomics 2013, 14:270                                                                     Page 15 of 18
+http://www.biomedcentral.com/1471-2164/14/270
+expected, are higher than the 0.5 ratio that would be      Agilent 2100 Bioanalyzer (Agilent Technologies, UK). Se-
+obtained if all substitutions were equally probable.       quencing was carried out on an Illumina Genome Analyzer
+   To assess genetic diversity between isolates synthetic  II at The Sainsbury Laboratory. The 76 bp pair-end reads
+gene sets were generated. Each gene for a given refer-     were filtered for quality as described above and aligned to
+ence was taken in turn and any homozygous SNPs in-         genomic PST assemblies using Bowtie (version 0.12.7 [51])
+corporated for each isolate mapped (Additional File 5).    in global alignment mode allowing a maximum of two mis-
+The five genes (one reference gene and four synthetic      matches (parameters: -v 2 --best -k 1). SAM output files
+copies) were then subjected to pair-wise polymorphism      were parsed with custom Perl scripts to determine the
+and positive selection analysis using the bioinformatics   number of reads mapping to a single PST transcript. DEseq
+program Yn00 [49]. Any pair-wise comparisons that          [35] was used to normalize raw transcript counts and to
+yielded a dN value > 0 were classified as polymorphic      compare libraries from PST infected tissue and enriched
+and those with dN/dS values > 1 were classified as under   haustoria preparations in order to determine potential
+positive selection. The polymorphism and positive selec-   transcript enrichment in isolated haustoria compared to
+tion analysis was automated using custom Perl scripts.     whole infected material (version 1.10.1). The reads were
+                                                           also assembled de novo using the Trinity package [52]
+Preparation of PST infected plant material for mRNAseq     with default settings to serve as additional evidence for
+analysis                                                   gene prediction. The Illumina reads were deposited in
+Two sample types were selected for mRNAseq analysis,       the National Center for Biotechnology Information’s Gene
+infected wheat leaf material and purified haustoria.       Expression Omnibus (GEO) and are accessible through
+Wheat seedlings (cv Avocet ‘S’) were infected with PST-    GEO (GSE42496; [53]).
+08/21 and incubated in the dark at 10ºC with high rela-
+tive humidity for 24 hours. Plants were then transferred   Secretome prediction and Markov clustering
+to a 16 h/8 h day/night cycle at 18ºC. For infected leaf   The predicted proteomes of all five PST isolates were
+samples material was collected at 6 and 14 days post-      combined and secreted proteins predicted using SignalP2
+inoculation (dpi) and pooled prior to RNA extraction.      with parameters described in [54]. Transmembrane do-
+Alternatively, haustoria were isolated from infected leaf  main containing proteins and proteins with mitochondrial
+material 7 dpi. Two independent haustorial isolations      signal peptides were removed using TMHMM [55] and
+were undertaken, each from ~2,500 infected wheat seed-     TargetP [56], respectively. To reduce redundancy secreted
+lings. A total of 20 g of infected leaf segments were col- proteins were clustered that displayed 99% sequence iden-
+lected that displayed localized infection, as determined   tity over 50% of the sequence length, using CD-HIT [57].
+by small white flecks without rust sporulation. The seg-   A single representative sequence was selected from each
+ments were washed with 70% ethanol for 1 min,              protein cluster and used for downstream analysis. Pre-
+followed by water for 1 min, then haustoria isolation      dicted proteomes of M. larici-populina and P. graminis
+performed as described in Song et al. [50] using either    f. sp. tritici were obtained from Duplessis et al. [13]. The
+three (H1) or two (H2) rounds of sucrose gradient          secretomes were predicted as above for PST using
+purification.                                              PexFinder, followed by TMHMM and TargetP analysis.
+   Total RNA was extracted from both the infected wheat    Proteins from the three predicted secretomes were then
+leaf material and purified haustoria using TRIzol reagent  clustered based on sequence similarity using TribeMCL
+(Invitrogen, UK) and treated with DNA™-free DNase          [26] following methods described in [58].
+(Manufacturer) and the Removal Reagents kit (Ambion,
+UK) following the manufacturer’s instructions. The         Annotation of secreted protein tribes with effector
+quantity and quality of RNA extracted was assessed         features
+using the Agilent 2100 Bioanalyzer (Agilent Technolo-      Automated BlastP-based annotation was performed on
+gies, UK).                                                 proteins included in the secretome tribes using Blast2GO
+                                                           [59] with default parameters. In addition, BlastP analysis
+Transcriptome sequencing, de novo assembly and             of proteins in the secretome tribes was conducted using
+alignment                                                  the haustorial EST database constructed previously [12],
+cDNA libraries were prepared using the Illumina TruSeq     with an e-value cutoff of 10-5. We searched each protein
+RNA Sample preparation Kit (Illumina, US) for RNA          for the effector motifs [L/I]xAR [19,60], [R/K]CxxCx12H
+extracted from infected material and the haustoria H2 sam- [19], RxLR [61], [Y/F/W]xC [62,63], YxSL[R/ K] [64] and
+ple, whereas RNA extracted from the haustoria H1 sample    G[I/F/Y][A/L/S/T]R [7] between amino acids 10 to 110
+was processed using the Clontech SMARTer Ultra Low         using Perl scripts. Nuclear localisation signals were pre-
+Input RNA Kit (Clontech, Takara Bio Europe, France).       dicted with PredictNLS [65]. Protein internal repeats were
+Library quality was confirmed before sequencing using the  predicted using T-Reks [66]. We also assessed the length
+ Cantu et al. BMC Genomics 2013, 14:270                                                                                       Page 16 of 18
+http://www.biomedcentral.com/1471-2164/14/270
+of the flanking intergenic regions (FIRs) between genes      Additional files
+and the cysteine content of proteins using custom Perl
+scripts. Proteins cataloged as small and cysteine rich were   Additional file 1: Summary of raw and trimmed reads and
+                                                              assemblies of PST-21, 43, 130, 87/7, and 08/21 genomic DNA.
+less than 150 amino acids long and had a cysteine content
+                                                              Additional file 2: Quality assessment of genome assembly using
+higher than 3% as defined in Saunders et al. [12].            CEGMA for five PST isolates. Of the 248 core eukaryotic genes (CEGs)
+                                                              88.7% could be identified in the three PST US isolate genomes (PST-130,
+                                                              PST-43 and PST-21). The CEGMA pipeline distinguishes between CEGs
+Scoring secreted protein tribes for the likelihood of         found in complete (A) copies or as partial fragments (B) and separates
+containing effector proteins                                  the CEGs based on levels of conservation across higher eukaryotes, with
+First, the method described in Saunders et al. [12] was       group 4 being the most conserved. The levels of complete gene
+                                                              coverage were high for all US isolates, indicating few core eukaryotic
+used to assign an e-value to each feature within a tribe.     genes were split across contigs. For the two UK isolates (PST-08/21 and
+The e-value was based on the number of proteins within        PST-87/7) complete gene coverage was reduced compared to partial
+a tribe that displayed a particular feature, relative to the  gene coverage, indicating higher levels of fragmentation for these
+                                                              genomes.
+likelihood of a tribe of the given size containing the
+                                                              Additional file 3: Variant calls in the pairwise comparisons between
+same number of proteins with that particular feature by       all PST isolates used in this study.
+chance (Additional file 13). Next, the individual e-values    Additional file 4: Summary of the reciprocal mapping of sequence
+were log converted into a score and a combined score          reads for the 5 genomes using each in turn as a reference.
+calculated giving more weight to features that may be         Additional file 5: Assessing the genetic diversity both within and
+more indicative of effector proteins which included high      between PST isolates. A. Summary of the main steps used to identify
+                                                              genetic variants between PST isolates. B. Diagram to illustrate how we
+expression in haustoria (a, in top 100 expressed genes; b,    defined heterokaryotic (het) and homokaryotic (hom) variants between
+in top 500 expressed) or infected material (c, in top 100     isolates. C. Illustration to show how synthetic genes were generated from
+expressed genes, d, in top 500 expressed), similarity to      homokaryotic SNPs identified in Illumina reads of isolate B mapped to
+                                                              the reference isolate A.
+previously characterized HESPs or AVR effector proteins
+                                                              Additional file 6: Number of SNPs identified in each gene of the 5
+(e). A lower weight was given to other effector-related       PST genomes.
+criteria that included the absence of any annotation (f) and  Additional file 7: Pairwise dN values calculated using Yn00 for each
+the score associated with small cysteine-rich proteins (g).   gene of the 5 PST genomes, comparing all isolates.
+                                                              Additional file 8: Pairwise dN/dS values calculated using Yn00 for
+                                                              each gene of the 5 PST genomes, comparing all isolates.
+     Combined score ¼ roundðlogða þ b þ c þ d þ e þ 1; 2Þ     Additional file 9: (PST21_04206 displays sequence polymorphisms
+                                                              and positive selection between UK isolates and US PST-43 when
+                           ð1 þ 0:1  ðf þ gÞÞ; 3Þ           compared to the synthetic gene from PST-130. A. Sequence
+                                                              alignment of PST21_04206 and the synthetic genes that incorporate the
+                                                              SNP information from the other four isolates sequenced, illustrating
+   The combined score was then used to rank the tribes        sequence polymorphisms between isolates. Polymorphic residues are
+based on their likelihood of containing potential effector    indicated below the sequence by red stars. B. Positive selection analysis
+                                                              on the PST21_04206 synthetic gene set demonstrated positive selection
+proteins. The features associated with the top 100 ranked     when US PST-43, UK PST-87/7 and PST-08/21 when compared against
+secreted protein tribes were visualized using Circos [67].    the US PST-130 sequence.
+                                                              Additional file 10: Depth, fold, and breath mapping coverage
+                                                              values for individual gene sequences that were identified as absent
+qRT-PCR of effector candidates during infection               in any isolate.
+Wheat seedlings (cv Avocet ‘S’) were infected with PST-       Additional file 11: Summary of RNAseq reads from PST-08/21
+08/21 and incubated as described above. Six biological        infected tissue and haustorial libraries 1 and 2.
+replicates were sampled at each time point (20 hours, 1       Additional file 12: Raw and DESeq normalized Illumina counts of
+dpi, 6 dpi or 14 dpi). For each sample, 2.5 μg of total       reads mapped onto each of the transcripts of the 5 PST genomes
+                                                              with the fold enrichments in the haustoria libraries and the
+RNA was extracted and used for cDNA synthesis with            associated P-values calculated using the DESeq statistical analysis.
+the SuperScript First-Strand Synthesis System for RT-         Additional file 13: Complete list of tribes with full annotation data
+PCR (Invitrogen, UK). qRT-PCR was undertaken for 22           and matching features. The file contains (i) the list of proteins included
+candidate effectors described in Additional file 15. Tran-    in the tribe analysis with full annotation including effector properties, and
+                                                              (ii) the list of tribes with the number of proteins matching effector
+script levels were determined on a LightCycler® 480 instru-   properties they contain.
+ment (Roche Applied Science, UK) using LightCycler 480        Additional file 14: Summary of the relative gene expression values
+SYBR Green I Master (Roche) and the following condi-          measured using quantitative RT-PCR for 22 selected effector
+tions: 5 minutes at 95ºC; 40 cycles of 15 sec at 95ºC,        candidates.
+15 sec at 60ºC, 20 sec at 72ºC. The PCR amplification spe-    Additional file 15: Primers used in the quantitative RT-PCR
+                                                              experiments.
+cificity was checked by dissociation curve analysis (from
+60ºC to 95ºC). Transcript levels were normalized with
+P. striiformis elongation factor 1 [15,68] and linearised    Competing interest
+values determined using the 2-ΔΔCT method [69].              The authors declare that they have no competing interests.
+ Cantu et al. BMC Genomics 2013, 14:270                                                                                                                    Page 17 of 18
+http://www.biomedcentral.com/1471-2164/14/270
+Authors’ contributions                                                              13. Duplessis S, Cuomo CA, Lin Y-C, Aerts A, Tisserant E, Veneault-Fourrey C,
+DC, DS and CU wrote the manuscript; VS, SK, JD contributed corrections and              Joly DL, Hacquard S, Amselem J, Cantarel BL, et al: Obligate biotrophy
+suggestions; DC, DM, DS performed the bioinformatic analysis; VS conducted              features unraveled by the genomic analysis of rust fungi. Proc Natl Acad
+the wet-lab experiments; RB and XC conducted pathology tests on PST                     Sci 2011, 108(22):9166–9171.
+isolates; DC, DS, CU analyzed the data; DC, VS, SK, JD, DS, CU conceived and        14. Cantu D, Govindarajulu M, Kozik A, Wang M, Chen X, Kojima KK, Jurka J,
+designed the experiments. All authors read and approved the final                       Michelmore RW, Dubcovsky J: Next generation sequencing provides rapid
+manuscript.                                                                             access to the genome of Puccinia striiformis f. sp. tritici, the causal agent
+                                                                                        of wheat stripe rust. PLoS One 2011, 6(8):e24230.
+                                                                                    15. Dong YL, Yin CT, Hulbert S, Chen XM, Kang ZS: Cloning and expression
+Acknowledgements                                                                        analysis of three secreted protein genes from wheat stripe rust fungus
+This project was funded by the Sustainable Crop Production Research for                 Puccinia striiformis f. sp. tritici. World J Microbiol Biotechnol 2011,
+International Development (SCPRID) programme (BB/J012017/1) from the                    27(5):1261–1265.
+Biotechnology and Biological Sciences Research Council (BBSRC) to CU, SK            16. Ma J, Huang X, Wang X, Chen X, Qu Z, Huang L, Kang Z: Identification of
+and RB, by BBSRC and the John Innes Foundation (BB/J004553/1, BB/                       expressed genes during compatible interaction between stripe rust
+J004596/1) to CU, the National Research Initiative Competitive Grant                    (Puccinia striiformis) and wheat using a cDNA library. BMC Genomics 2009,
+2009-65300-05640 and 2011-68002-30029 from USDA- NIFA, the Howard                       10(1):586.
+Hughes Medical Institute and the Gordon and Betty Moore Foundation                  17. Yin C, Chen X, Wang X, Han Q, Kang Z, Hulbert SH: Generation and
+Grant No. GBMF3031, and grant OPPGD1389 from the “Durable Rust                          analysis of expression sequence tags from haustoria of the wheat stripe
+Resistance in Wheat” to JD, and a Leverhulme Early Career Fellowship to DS.             rust fungus Puccinia striiformis f. sp. tritici. BMC Genomics 2009, 10(1):626.
+We thank Meinan Wang (Department of Plant Pathology, WSU) and Amelia                18. Zhang Y, Qu Z, Zheng W, Liu B, Wang X, Xue X, Xu L, Huang L, Han Q, Zhao J,
+Hubbard (NIAB) for providing PST spores, Xiaodong Wang (UC Davis) for help              et al: Stage-specific gene expression during urediniospore germination in
+with primer design, Kentaro Yoshida (TSL) for assistance with polymorphism              Puccinia striiformis f. sp tritici. BMC Genomics 2008, 9(1):203.
+analysis and Sylvain Raffaele (INRA - Institut National de la Recherche             19. Yoshida K, Saitoh H, Fujisawa S, Kanzaki H, Matsumura H, Yoshida K, Tosa Y,
+Agronomique) for constructive comments on bioinformatic analysis.                       Chuma I, Takano Y, Win J, et al: Association genetics reveals three novel
+                                                                                        avirulence genes from the rice blast fungal pathogen Magnaporthe
+Author details                                                                          oryzae. The Plant Cell Online 2009, 21(5):1573–1591.
+1
+ Department of Viticulture & Enology, University of California Davis, Davis,        20. Cooke DEL, Cano LM, Raffaele S, Bain RA, Cooke LR, Etherington GJ, Deahl
+USA. 2John Innes Centre, Norwich Research Park, Norwich, UK. 3The                       KL, Farrer RA, Gilroy EM, Goss EM, et al: Genome Analyses of an Aggressive
+Sainsbury Laboratory, Norwich Research Park, Norwich, UK. 4National Institute           and Invasive Lineage of the Irish Potato Famine Pathogen. PLoS Pathog
+of Agricultural Botany, Cambridge, UK. 5Department of Plant Pathology,                  2012, 8(10):e1002940.
+Washington State University, Pullman, USA. 6USDA-ARS, Pullman, USA.
+7                                                                                   21. Line RF, Qayoum A: Virulence, aggressiveness, evolution and distribution
+ Department of Plant Sciences, University of California Davis, Davis, USA.
+8                                                                                       of races of Puccinia striiformis (the cause of stripe rust of wheat) in
+ Howard Hughes Medical Institute, Chevy Chase, MD, USA. 9Gordon & Betty
+                                                                                        North America, 1968-87. US Dep Agric Tech Bull 1992, 1788.
+Moore Foundation, Palo Alto, CA, USA.
+                                                                                    22. Chen X, Penman L, Wan A, Cheng P: Virulence races of Puccinia striiformis
+                                                                                        f. sp. tritici in 2006 and 2007 and development of wheat stripe rust and
+Received: 17 December 2012 Accepted: 11 April 2013
+                                                                                        distributions, dynamics, and evolutionary relationships of races from
+Published: 22 April 2013
+                                                                                        2000 to 2007 in the United States. Canadian Journal of Plant Pathology
+                                                                                        2010, 32(3):315–333.
+References                                                                          23. Parra G, Bradnam K, Korf I: CEGMA: a pipeline to accurately annotate core
+1. Chen X: Epidemiology and control of stripe rust Puccinia striiformis f. sp.          genes in eukaryotic genomes. Bioinformatics 2007, 23(9):1061–1067.
+      tritici on wheat. Canadian Journal of Plant Pathology 2005, 27(3):314–337.    24. Parra G, Bradnam K, Ning Z, Keane T, Korf I: Assessing the gene space in
+2. Hovmøller MS, Walter S, Justesen AF: Escalating threat of wheat rusts.               draft genomes. Nucleic Acids Res 2009, 37(1):289–297.
+      Science 2010, 329(5990):369–369.                                              25. Cantarel BL, Korf I, Robb SMC, Parra G, Ross E, Moore B, Holt C, Alvarado AS,
+3. Wellings CR: Global status of stripe rust: a review of historical and current        Yandell M: MAKER: an easy-to-use annotation pipeline designed for
+      threats. Euphytica 2011, 179(1):129–141.                                          emerging model organism genomes. Genome Res 2008, 18(1):188–196.
+4. Brown JKM, Hovmøller MS: Aerial dispersal of pathogens on the global             26. Enright AJ, Van Dongen S, Ouzounis CA: An efficient algorithm for
+      and continental scales and its impact on plant disease. Science 2002,             large-scale detection of protein families. Nucleic Acids Res 2002,
+      297(5581):537–541.                                                                30(7):1575–1584.
+5. Milus EA, Kristensen K, Hovmøller MS: Evidence for increased                     27. Cornell MJ, Alam I, Soanes DM, Wong HM, Hedeler C, Paton NW, Rattray M,
+      aggressiveness in a recent widespread strain of Puccinia striiformis f. sp.       Hubbard SJ, Talbot NJ, Oliver SG: Comparative genome analysis across a
+      tritici causing stripe rust of wheat. Phytopathology 2009, 99(1):89–94.           kingdom of eukaryotic organisms: specialization and diversification in
+6. Hogenhout SA, Van der Hoorn RAL, Terauchi R, Kamoun S: Emerging                      the fungi. Genome Res 2007, 17(12):1809–1822.
+      concepts in effector biology of plant-associated organisms. Mol Plant         28. Hovmøller MS, Sørensen CK, Walter S, Justesen AF: Diversity of Puccinia
+      Microbe Interact 2009, 22(2):115–122.                                             striiformis on cereals and grasses. Annu Rev Phytopathol 2011, 49:197–217.
+7. Catanzariti AM, Dodds PN, Lawrence GJ, Ayliffe MA, Ellis JG: Haustorially        29. Win J, Chaparro-Garcia A, Belhaj K, Saunders DGO, Yoshida K, Dong S,
+      expressed secreted proteins from flax rust are highly enriched for                Schornack S, Zipfel C, Robatzek S, Hogenhout SA, et al: Effector biology of
+      avirulence elicitors. The Plant Cell Online 2006, 18(1):243–256.                  plant-associated organisms: concepts and perspectives. Cold Spring
+8. Dodds PN, Lawrence GJ, Catanzariti AM, Ayliffe MA, Ellis JG: The                     Harbor Symposia on Quantitative Biology 2012, LXXVII. doi:10.1101/
+      Melampsora lini AvrL567 avirulence genes are expressed in haustoria and           sqb.2012.77.015933.
+      their products are recognized inside plant cells. The Plant Cell Online 2004, 30. Vleeshouwers VGAA, Raffaele S, Vossen JH, Champouret N, Oliva R, Segretin ME,
+      16(3):755–768.                                                                    Rietman H, Cano LM, Lokossou A, Kessel G, et al: Understanding and exploiting
+9. Dodds PN, Rafiqi M, Gan PHP, Hardham AR, Jones DA, Ellis JG: Effectors of            late blight resistance in the age of effectors. Annu Rev Phytopathol 2011,
+      biotrophic fungi and oomycetes: pathogenicity factors and triggers of             49(1):507–531.
+      host resistance. New Phytol 2009, 183(4):993–1000.                            31. Spanu PD: The genomics of obligate (and nonobligate) biotrophs. Annu
+10. Dodds PN, Rathjen JP: Plant immunity: towards an integrated view of                 Rev Phytopathol 2012, 50:91–109.
+      plant–pathogen interactions. Nat Rev Genet 2010, 11(8):539–548.               32. Dodds PN, Lawrence GJ, Catanzariti A-M, Teh T, Wang C-IA, Ayliffe MA, Kobe B,
+11. Jones JDG, Dangl JL: The plant immune system. Nature 2006,                          Ellis JG: Direct protein interaction underlies gene-for-gene specificity and
+      444(7117):323–329.                                                                coevolution of the flax resistance genes and flax rust avirulence genes.
+12. Saunders DGO, Win J, Cano LM, Szabo LJ, Kamoun S, Raffaele S: Using                 Proc Natl Acad Sci 2006, 103(23):8888–8893.
+      hierarchical clustering of secreted protein families to classify and rank     33. Wang C-IA, Gunčar G, Forwood JK, Teh T, Catanzariti A-M, Lawrence GJ,
+      candidate effectors of rust fungi. PLoS One 2012, 7(1):e29847.                    Loughlin FE, Mackay JP, Schirra HJ, Anderson PA, et al: Crystal Structures of
+ Cantu et al. BMC Genomics 2013, 14:270                                                                                                                        Page 18 of 18
+http://www.biomedcentral.com/1471-2164/14/270
+     Flax Rust Avirulence Proteins AvrL567-A and -D Reveal Details of the               60. Li W, Wang B, Wu J, Lu G, Hu Y, Zhang X, Zhang Z, Zhao Q, Feng Q, Zhang H,
+     Structural Basis for Flax Disease Resistance Specificity. The Plant Cell                 et al: The Magnaporthe oryzae avirulence gene AvrPiz-t encodes a predicted
+     Online 2007, 19(9):2898–2912.                                                            secreted protein that triggers the immunity in rice mediated by the blast
+34.  Hovmøller MS, Yahyaoui AH, Milus EA, Justesen AF: Rapid global spread of two             resistance gene Piz-t. Mol Plant Microbe Interact 2009, 22(4):411–420.
+     aggressive strains of a wheat rust fungus. Mol Ecol 2008, 17(17):3818–3826.        61. Whisson SC, Boevink PC, Moleleki L, Avrova AO, Morales JG, Gilroy EM,
+35.  Anders S, Huber W: Differential expression analysis for sequence count                   Armstrong MR, Grouffaud S, van West P, Chapman S, et al: A translocation
+     data. Genome Biol 2010, 11(10):R106.                                                     signal for delivery of oomycete effector proteins into host plant cells.
+36.  DESeq reference manual. http://bioconductor.org/packages/2.11/bioc/html/                 Nature 2007, 450(7166):115–118.
+     DESeq.html.                                                                        62. Godfrey D, Bohlenius H, Pedersen C, Zhang Z, Emmersen J, Thordal-Christensen H:
+37.  Armstrong MR, Whisson SC, Pritchard L, Bos JIB, Venter E, Avrova AO,                     Powdery mildew fungal effector candidates share N-terminal Y/F/WxC-motif.
+     Rehmany AP, Böhme U, Brooks K, Cherevach I, et al: An ancestral oomycete                 BMC Genomics 2010, 11(1):317.
+     locus contains late blight avirulence gene Avr3a, encoding a protein               63. Hacquard S, Joly DL, Lin Y-C, Tisserant E, Feau N, Delaruelle C, Legue V,
+     that is recognized in the host cytoplasm. Proc Natl Acad Sci USA 2005,                   Kohler A, Tanguay P, Petre B, Frey P, Van de Peer Y, Rouze P, Martin F,
+     102(21):7766–7771.                                                                       Hamelin RC, Duplessis S: A comprehensive analysis of genes encoding
+38.  Panwar V, McCallum B, Bakkeren G: Endogenous silencing of Puccinia                       small secreted proteins identifies candidate effectors in Melampsora
+     triticina pathogenicity genes through in planta-expressed sequences leads                larici-populina (poplar leaf rust). Mol Plant Microbe Interact 2012,
+     to suppression of rust diseases on wheat. Plant J 2012, 75(3):521–532.                   25(3):279–293.
+39.  Yin C, Hulbert S: Prospects for functional analysis of effectors from cereal       64. Levesque CA, Brouwer H, Cano L, Hamilton J, Holt C, Huitema E, Raffaele S,
+     rust fungi. Euphytica 2011, 179(1):57–67.                                                Robideau G, Thines M, Win J, et al: Genome sequence of the necrotrophic
+40.  Lee W-S, Hammond-Kosack KE, Kanyuka K: Barley stripe mosaic virus-mediated               plant pathogen Pythium ultimum reveals original pathogenicity
+     tools for investigating gene function in cereal plants and their pathogens:              mechanisms and effector repertoire. Genome Biol 2010, 11(7):R73.
+     VIGS, HIGS, VOX. Plant Physiology 2012, 160(2):582–590.                            65. Nair R, Rost B: Better prediction of sub-cellular localization by combining
+41.  Chen X, Line RF, Leung H: Relationship between virulence variation and                   evolutionary and structural information. Proteins: Structure, Function, and
+     DNA polymorphism in Puccinia striiformis. Phytopathology 1993,                           Bioinformatics 2003, 53(4):917–930.
+     83(12):1489–1497.                                                                  66. Jorda J, Kajava AV: T-REKS: identification of Tandem REpeats in sequences
+42.  FASTX-Toolkit. http://hannonlab.cshl.edu/fastx_toolkit.                                  with a K-meanS based algorithm. Bioinformatics 2009, 25(20):2632–2638.
+43.  CLC Genomic Workbench. http://www.clcbio.com.                                      67. Krzywinski M, Schein J, Birol İ, Connors J, Gascoyne R, Horsman D, Jones SJ,
+44.  Korf I: Gene finding in novel genomes. BMC Bioinformatics 2004, 5(1):59.                 Marra MA: Circos: An information aesthetic for comparative genomics.
+45.  Novoalign. http://www.novocraft.com.                                                     Genome Res 2009, 19(9):1639–1645.
+                                                                                        68. Ling P, Wang M, Chen X, Campbell KG: Construction and characterization
+46.  Picard tools. http://picard.sourceforge.net.
+                                                                                              of a full-length cDNA library for the wheat stripe rust pathogen (Puccinia
+47.  DePristo MA, Banks E, Poplin R, Garimella KV, Maguire JR, Hartl C, Philippakis AA,
+                                                                                              striiformis f. sp. tritici). BMC Genomics 2007, 8(1):145.
+     del Angel G, Rivas MA, Hanna M, et al: A framework for variation discovery
+                                                                                        69. Livak KJ, Schmittgen TD: Analysis of relative gene expression data using
+     and genotyping using next-generation DNA sequencing data. Nat Genet
+                                                                                              real-time quantitative PCR and the 2− ΔΔCT method. Methods 2001,
+     2011, 43(5):491–498.
+                                                                                              25(4):402–408.
+48.  Durbin RM, Altshuler D, Abecasis GR, Bentley DR, Chakravarti A, Clark AG,
+     Collins FS, et al: A map of human genome variation from population-scale
+     sequencing. Nature 2010, 467(7319):1061–1073.                                        doi:10.1186/1471-2164-14-270
+                                                                                          Cite this article as: Cantu et al.: Genome analyses of the wheat yellow
+49.  Yang Z: PAML 4: phylogenetic analysis by maximum likelihood. Mol Biol
+                                                                                          (stripe) rust pathogen Puccinia striiformis f. sp. tritici reveal polymorphic
+     Evol 2007, 24(8):1586–1591.
+                                                                                          and haustorial expressed secreted proteins as candidate effectors. BMC
+50.  Song X, Rampitsch C, Soltani B, Mauthe W, Linning R, Banks T, McCallum B,            Genomics 2013 14:270.
+     Bakkeren G: Proteome analysis of wheat leaf rust fungus, Puccinia
+     triticina, infection structures enriched for haustoria. Proteomics 2011,
+     11(5):944–963.
+51.  Langmead B, Trapnell C, Pop M, Salzberg SL: Ultrafast and memory-efficient
+     alignment of short DNA sequences to the human genome. Genome Biol
+     2009, 10(3):R25.
+52.  Grabherr MG, Haas BJ, Yassour M, Levin JZ, Thompson DA, Amit I, Adiconis X,
+     Fan L, Raychowdhury R, Zeng Q, et al: Full-length transcriptome assembly
+     from RNA-Seq data without a reference genome. Nat Biotechnol 2011,
+     29(7):644–652.
+53.  Gene Expression Omnibus. http://www.ncbi.nlm.nih.gov/geo.
+54.  Torto TA, Li S, Styer A, Huitema E, Testa A, Gow NAR, Van West P, Kamoun S:
+     EST mining and functional expression assays identify extracellular effector
+     proteins from the plant pathogen Phytophthora. Genome Res 2003,
+     13(7):1675–1685.
+55.  Krogh A, Larsson BÈ, Von Heijne G, Sonnhammer ELL: Predicting
+     transmembrane protein topology with a hidden Markov model:
+     application to complete genomes. J Mol Biol 2001, 305(3):567–580.                         Submit your next manuscript to BioMed Central
+56.  Emanuelsson O, Brunak S, von Heijne G, Nielsen H: Locating proteins in the                and take full advantage of:
+     cell using TargetP, SignalP and related tools. Nat Protoc 2007, 2(4):953–971.
+57.  Li W, Godzik A: Cd-hit: a fast program for clustering and comparing                       • Convenient online submission
+     large sets of protein or nucleotide sequences. Bioinformatics 2006,
+     22(13):1658–1659.                                                                         • Thorough peer review
+58.  Haas BJ, Kamoun S, Zody MC, Jiang RHY, Handsaker RE, Cano LM, Grabherr M,                 • No space constraints or color ﬁgure charges
+     Kodira CD, Raffaele S, Torto-Alalibo T, et al: Genome sequence and analysis of
+                                                                                               • Immediate publication on acceptance
+     the Irish potato famine pathogen Phytophthora infestans. Nature 2009,
+     461(7262):393–398.                                                                        • Inclusion in PubMed, CAS, Scopus and Google Scholar
+59.  Conesa A, Götz S, García-Gómez JM, Terol J, Talón M, Robles M: Blast2GO: a                • Research which is freely available for redistribution
+     universal tool for annotation, visualization and analysis in functional
+     genomics research. Bioinformatics 2005, 21(18):3674–3676.
+                                                                                               Submit your manuscript at
+                                                                                               www.biomedcentral.com/submit

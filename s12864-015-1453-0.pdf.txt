@@ -1,0 +1,474 @@
+Yang et al. BMC Genomics (2015) 16:211
+DOI 10.1186/s12864-015-1453-0
+  RESEARCH ARTICLE                                                                                                                                 Open Access
+Pistillody mutant reveals key insights into stamen
+and pistil development in wheat (Triticum
+aestivum L.)
+Zaijun Yang, Zhengsong Peng*, Shuhong Wei, Mingli Liao, Yan Yu and Zeyan Jang
+  Abstract
+  Background: The pistillody mutant wheat (Triticum aestivum L.) plant HTS-1 exhibits homeotic transformation of
+  stamens into pistils or pistil-like structures. Unlike common wheat varieties, HTS-1 produces three to six pistils per
+  floret, potentially increasing the yield. Thus, HTS-1 is highly valuable in the study of floral development in wheat. In
+  this study, we conducted RNA sequencing of the transcriptomes of the pistillody stamen (PS) and the pistil (P) from
+  HTS-1 plants, and the stamen (S) from the non-pistillody control variety Chinese Spring TP to gain insights into pistil
+  and stamen development in wheat.
+  Results: Approximately 40 Gb of processed reads were obtained from PS, P, and S. De novo assembly yielded
+  121,210 putative unigenes, with a mean length of 695 bp. Among these high-quality unigenes, 59,199 (48.84%) had
+  at least one significant match with an existing gene model. A total of 23, 263, and 553 differentially expressed genes
+  were identified in PS vs. P, PS vs. S, and P vs. S, respectively, with differences in expression greater than five-fold.
+  Among the differentially expressed genes, 206 were highly correlated with stamen and pistil development. These
+  genes include WM27B, DL, YAB1, YABBY4, WM 5, CER 1, and WBLH1, which have been implicated in flower development.
+  The expression patterns of 25 differentially expressed genes were confirmed through quantitative real-time
+  reverse transcription PCR.
+  Conclusions: Analysis of this transcriptome resource enabled us to characterize gene expression profiles, examine
+  differential gene expression, and produce a candidate gene list related to wheat stamen and pistil development. This
+  work is significant for the development of genomic resources for wheat, and provides important insights into the
+  molecular mechanisms of wheat stamen and pistil development.
+  Keywords: Pistillody, Pistil, Stamen, RNA sequencing, Wheat
+Background                                                                              include supernumerary spikelets, multi-spikelet [3], and
+Wheat (Triticum aestivum L.) is a major staple food                                     multi-row spikes [4]. Peng [5] selected a three-pistil (TP)
+crop in several parts of the world, in terms of its cultiva-                            mutant with normal spike morphology that produced
+tion area and use as a food source. Increasing yield to                                 three pistils per floret. Consequently, a floret could
+meet the increasing global demand for the crop is the                                   develop into three seeds, thereby increasing the seed
+main goal of wheat production. One way to improve the                                   number per spike. Meanwhile, the novel pistillody mu-
+wheat yield potential is to increase the grain number per                               tant, HTS-1, was screened from Chinese Spring TP
+spike and unit area [1,2]. For this purpose, wheat scien-                               (CSTP), which is a near-isogenic line of the common
+tists have considered a wide range of genetic variations                                wheat variety Chinese Spring with the Pis1 gene derived
+in the morphological structure of wheat to obtain high                                  from the TP mutant [6]. HTS-1 plants exhibit a novel
+grain numbers per spike. These morphological variations                                 phenotype that transforms all or parts of the stamen into
+                                                                                        pistils or pistil-like structures. In recent years, the allo-
+                                                                                        plasmic lines N26 [7] and (cr)-CSdt7BS [8] have been
+* Correspondence: pzs8833@163.com
+Key Laboratory of Southwest China Wildlife Resources Conservation, College              used to determine the genetic and molecular mecha-
+of Life Science, China West Normal University, Nanchong 637009, Sichuan, China          nisms of wheat pistillody [9-12]. Nuclear-cytoplasm
+                                          © 2015 Yang et al.; licensee BioMed Central. This is an Open Access article distributed under the terms of the Creative
+                                          Commons Attribution License (http://creativecommons.org/licenses/by/4.0), which permits unrestricted use, distribution, and
+                                          reproduction in any medium, provided the original work is properly credited. The Creative Commons Public Domain
+                                          Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies to the data made available in this article,
+                                          unless otherwise stated.
+ Yang et al. BMC Genomics (2015) 16:211                                                                                             Page 2 of 10
+interaction [8,12] causes pistillody in N26 and (cr)-                     In the present study, we used RNA-seq to investigate
+CSdt7BS. However, pistillody in HTS-1 is caused by the                  and compare the transcriptomes of pistillody stamen
+interaction of the recessive karyogenes hts1 and hts2 [6].              (PS) and the pistil (P) from HTS-1 plants, and of the sta-
+Therefore, HTS-1 is genetically different from the previ-               men (S) from the non-pistillody control variety CSTP.
+ously reported lines (cr)-CSdt7BS and N26. Wheat flo-                   The results of this study provide insights into P and S
+rets are considered extremely stable and have a few                     development in wheat.
+reported mutants. Previous studies on floret mutants
+only provided a superficial understanding of floral organ               Results
+identity determination in wheat plants. Consequently,                   Comparison of the morphological structures of PS, P, and
+HTS-1 is a significant genetic material to study the floral             S
+development of wheat; this line also has the potential to               Peng et al. [6] observed pistillody in HTS-1. HTS-1 is a
+increase wheat yield.                                                   CSTP sib-line that carries the Pis1 gene. However, HTS-
+   Compared with studies on the functions of single or few              1 plants exhibit different florets; i.e., some HTS-1 sta-
+genes during flower development [13,14], the underlying                 mens turn into pistils or a combination of stamens and
+genetic determinants that control flower development                    pistils. As shown in Figure 1-a, the anther-like structure
+have received relatively little attention in wheat. Moreover,           bears a tuft of ‘stigma hair’ at the right. A normal pistil
+the genes and their corresponding expression patterns re-               and stamen are shown in Figure 1-b and 1-c. To com-
+lated to pistil and stamen development have yet to be re-               pare the structures of PS, P, and S, each part was
+ported. Previous studies on expressed sequence tag                      sectioned longitudinally and examined for histological
+sequences generated a large number of cDNA sequences                    modifications. The P showed well-developed ovules
+for the wheat TriFLDB database (http://trifldb.psc.riken.               (Figure 1-e) and S contained normal pollen grains
+jp/index.pl), which contains approximately 16,000 full-                 (Figure 1-f ). PS (partially transformed stamen) contained
+length cDNAs [15]. Traditional sequencing methods have                  ovule-like structures and had a pistil-like form; however,
+been used on randomly selected cDNA clones from vari-                   the ovules were underdeveloped and sometimes con-
+ous tissues; however, these methods obtained a low cover-               tained deformed pollen grains (Figure 1-d).
+age of less-abundant or rare transcripts, which usually
+have vital functions. A novel approach to transcriptome                 Transcriptome sequencing and de novo assembly
+profiling, called RNA sequencing (RNA-seq) has been                     Three cDNA libraries (PS, P, and S; Figure 1) were con-
+developed recently, this method is based on next-                       structed with the respective total RNA from PS, P, and
+generation sequencing (NGS) technologies [16,17]. RNA-                  S., The prepared libraries were sequenced on an Illumina
+seq has been widely applied in plant biology, particularly              Hiseq 2000 platform. A total of 134,561,846, 122,116,204,
+in model species, such as Arabidopsis [18], and crop                    and 152,071,674 bp paired-end reads were obtained for
+plants, such as rice [19], maize [20], and wheat [21].                  PS, P, and S, respectively, which corresponded to a total
+  Figure 1 Comparison of morphological structure of pistillody stamen, pistil and stamen (a) pistilldoy stamen (b) normal pistil (c)
+  normal stamen (d) longitudinal section of pistillody stamen (e) longitudinal section of normal pistil (f) longitudinal section of normal
+  stamen. Ov: ovule, Pg: pollen grain. Bars = 1 mm.
+ Yang et al. BMC Genomics (2015) 16:211                                                                         Page 3 of 10
+size of 40.88 Gbp after low-quality reads and adapter se-      the same transcript. The analysis produced 21,037 assign-
+quences were removed (Table 1). All paired-end reads           ments to biological processes, 14,548 to cellular compo-
+were pooled together and assembled de novo using Trinity       nents, and 11,022 to molecular functions (Figure 2). Most
+(v2012-10-05) [22]. Finally, we obtained 330,912 tran-         of the biological process categories were related to meta-
+scripts with lengths ≥200 bp. The mean length of these         bolic processes (GO: 0008152, 23.23%) and cellular
+transcripts was 1,071 bp, and the maximum length was           processes (GO: 0009987, 23.68%). Under the category of
+20,603 bp (Table 1). The transcripts were assembled into       cellular components, 20.60% and 20.61% of the unigenes
+121,210 putative unigenes. The sequence information of         were located in cell parts (GO: 0044464) and cells (GO:
+all Illumina reads was deposited in the National Center for    0005623), respectively. Among the molecular functions,
+Biotechnology Information (NCBI) under the accession           the majority of the GO terms were grouped into either
+number SRP038912. The mean length of the putative uni-         binding (GO: 0005488, 48.15%) or catalytic activity (GO:
+genes was 695 bp. Among all the putative unigenes,             0008152, 37.55%).
+23,137 were longer than 1000 bp, which represented               To further understand the biological functions and
+19.1% of the total (Table 1). The size distribution of the as- interactions of the gene products, a pathway-based
+sembly transcripts and unigenes is shown in Additional         analysis was conducted using the Kyoto Encyclopedia of
+file 1: Figure S1. The 121,210 putative unigenes were          Genes and Genomes (KEGG) pathway database. KEGG
+aligned against the draft sequence of the bread wheat gen-     records the molecular interaction networks in cells with
+ome (IWGSP 1.21); 100,401 unigenes (82.2%) could be            variants that are specific to particular organisms.
+mapped to the exon regions.                                    Unigenes with annotated Nr and Pfam proteins were
+                                                               mapped to the KO database using KOBAS (KEGG
+Functional annotation of the unigenes                          Orthology-Based Annotation System, v2.0) [24]. The re-
+The entire set of unigenes was annotated on the basis of       sults showed that 11,848 unigenes could be assigned to
+their similarities with known or putative annotations in       243 KEGG pathways for PS, P, and S transcriptomes
+public databases, including GenBank NR, GenBank NT,            (Additional file 2: Table S1). Most unigenes of the 243
+KO, SwissProt, PFAM, GO, and KOG (E values ≤1e − 5             KEGG pathways were ribosome pathways (324 genes).
+for GenBank NR, GenBank NT, and SwissProt; E values            Glucosinolate biosynthesis, peptidoglycan biosynthesis,
+≤1e − 3 for KOG [23]). Among the 121,210 high-quality          geraniol degradation, and polyketide sugar unit biosyn-
+unique sequences, only 59,199 (48.84%) had at least one        thesis had the least number of unigenes (one gene).
+significant match with an existing gene model in BLAST
+searches (Table 2).                                            Differentially expressed genes (DEGs) among PS, P, and S
+   Gene ontology (GO) was employed to identify the             The tag frequency differences that appeared in the PS, P,
+functional categories of the annotated unigenes and to         and S libraries were used to estimate the gene expression
+classify the transcripts with known annotated proteins.        levels that corresponded to stamen and pistil develop-
+35,481 unigenes (29.27%) had significant similarities to       ment (0.3 reads per kilobase of transcript per million
+Nr and Pfam proteins and were assigned under GO                reads mapped was used as an expression threshold that
+terms. In several cases, multiple terms were assigned to       was well above the background). The numbers of DEGs
+                                                               in PS vs. P, PS vs. S, and P vs. S were 95, 1,889 and
+Table 1 Summary of RNA-seq and de novo assembly of T.
+                                                               2,020, respectively, for transcripts detected with |log2
+aestivum unigenes
+                                                               fold change| > 2 (Figure 3a). A total of 4,004 unigenes
+Number of clean reads                                408749724
+                                                               were identified as DEGs in at least two libraries. Among
+Number of ≥200 bp transcripts                        330912    these shared DEGs, 1,626 common DEGs were found
+Number of ≥2000 bp transcripts                       48158     between PS vs. S and P vs. S, which may contribute to
+Number of ≥1000 bp transcripts                       131321    stamen and pistil development. The DEGs with |log2
+Mean length of transcripts (bp)                      1071      fold change| > 5 are shown in Figure 3b; at this level, PS
+Max length of transcripts (bp)                       20603
+                                                               vs. P, PS vs. S, and P vs. S had 23, 263, and 553 DEGs,
+                                                               respectively. Among the DEGs within this threshold, 206
+N50 length of transcripts (bp)                       1684
+                                                               DEGs were common in PS vs. S and P vs. S, including
+Number of Unigenes                                   121210    83 upregulated genes and 123 downregulated genes
+Number of ≥2000 bp Unigenes                          8553      (Additional file 3: Table S2). These 206 genes may have
+Number of ≥1000 bp Unigenes                          23137     a high correlation with stamen and pistil development.
+Mean length of Unigenes (bp)                         695       PS vs. P had the least DEGs for |log2 fold change| > 2 or
+Max length of Unigenes (bp)                          20603
+                                                               |log2 fold change| > 5, with only 95 and 23 DEGs, re-
+                                                               spectively. This trend suggested that the PS and P have
+N50 length of Unigenes (bp)                          1174
+                                                               similar transcript profiles.
+ Yang et al. BMC Genomics (2015) 16:211                                                                                             Page 4 of 10
+Table 2 Summary statistics of functional annotation for T.               Functional annotation analysis of DEGs
+aestivum unigenes in public protein databases                            The set of 206 common DEGs between PS vs. S and P
+                                     No. of unigene   Percentage (%)     vs. S was mapped in accordance with the GO biological
+                                     hits                                process database to understand the functions of these
+Annotated in NR                      42865            35.36              DEGs; the gene expression profiles were compared with
+Annotated in NT                      39521            32.6               the whole transcriptome background to identify the
+Annotated in KO                      5491             4.53               genes involved in important biological processes. After
+Annotated in SwissProt               24130            19.9
+                                                                         GO Term Enrichment Analysis, 141 genes among the
+                                                                         common DEGs were assigned to at least one term in the
+Annotated in PFAM                    30735            25.35
+                                                                         GO cellular component, molecular function, and bio-
+Annotated in GO                      35481            29.27              logical process categories; these terms included 57
+Annotated in KOG                     12087            9.97               upregulated genes and 84 downregulated genes. Tran-
+Annotated in all Databases           2519             2.07               scripts from the three categories were further classified
+Annotated in at least one Database 59199              48.84              into 25 functional groups, which provided an overview
+Total Unigenes                       121210           100
+                                                                         of the ontology of each transcriptome (Figure 4). Among
+                                                                         the 25 functional groups, catalytic activity (33.5%), meta-
+                                                                         bolic process (30.1%), and cellular process (29.1%) were
+                                                                         prominently represented. This result indicated that the
+                                                                         three functional groups might be related to pistil and
+                                                                         stamen development. At least seven unigenes with high
+  Figure 2 Gene Ontology (GO) classification of unigenes derived from pistilldoy stamen, pistil and stamen in wheat (a) biological processes
+  (b) molecular function (c) cellular components.
+ Yang et al. BMC Genomics (2015) 16:211                                                                                            Page 5 of 10
+  Figure 3 Venn diagram showing differentially expressed genes among pistillody stamen, pistil and stamen (a) transcripts detected with |log2
+  fold change| > 2 (b) transcripts detected with |log2 fold change| > 5.
+percentage identity to known flower development genes                    compared the results obtained from qRT-PCR with
+from wheat, barley, and Brachypodium distachyon                          those generated from the RNA-seq analysis of the tran-
+(Table 3), were identified by comparing the DEGs found                   scripts. The trends of expression were consistent for all
+in this study with the NCBI databases.                                   transcripts in both analyses, with a correlation coeffi-
+                                                                         cient of R2 = 0.9251 (Figure 5). The expression profiles
+Quantitative real-time reverse transcription PCR (qRT-PCR)               of WM27B, DL, YAB1, YABBY 4, WM5, CER1, and
+analysis                                                                 WBLH1 are listed in Table 4. The five genes, WM27B,
+qRT-PCR was performed on 25 unigenes, including 13                       DL, YAB1, YABBY 4, and WM5, were indeed expressed
+upregulated genes and 12 downregulated genes, to valid-                  at higher levels in PS and P compared with S (26 ~ 2339-
+ate the results of expression profiling obtained from                    fold changes). CER1 and WBLH1 were downregulated
+RNA-seq. Among the 25 unigenes, 18 unigenes were                         genes in PS and S, and the transcript levels in S were 47
+randomly selected from the 206 common DEGs, and the                      ~ 1038-fold higher than in PS and P.
+other seven unigenes were previously reported to influ-
+ence flower development namely, MIKC-type MADS-                          Discussion
+box transcription factor WM27B (TaAG-4), a DL related                    Low-cost and high-throughput NGS technologies, par-
+gene, YAB1, YABBY 4, WM5, CER1, and WBLH1. We                            ticularly RNA-seq, have become useful, not only for de
+  Figure 4 Gene Ontology (GO) annotations of common differentially expressed genes between PS vs S and P vs S.
+ Yang et al. BMC Genomics (2015) 16:211                                                                                       Page 6 of 10
+Table 3 List of previously reported genes to contribute to flower development
+Unigene ID         Size (bp)  BLAST matching     Gene description                                                  Sequence       E value
+                              accession No.                                                                        identity (%)
+comp108229_c0      1098       AM502895.1         MIKC-type MADS-box transcription factor WM27B [Triticum aestivum] 98             0
+comp110066_c0      1385       AB470269.1         DL related protein [Triticum aestivum]                            99             0
+comp110106_c0      1718       AY330228.1         YABBY protein (YAB1) [Triticum aestivum]                          99             0
+comp112313_c0      1680       XM_003569922.1     protein YABBY 4-like [Brachypodium distachyon]                    90             0
+comp113007_c0      1600       AY792974.1         wheat meiosis 5 (WM5) [Triticum aestivum]                         97             0
+comp112668_c1      1114       DQ493457.1         putative aldehyde decarbonylase enzyme CER1 [Hordeum vulgare]     90             0
+comp122918_c0      3622       AB546642.1         BEL1-type homeodomain protein WBLH1[Triticum aestivum]            99             0
+novo genome assembly, molecular marker development,                       compare the gene expression profiles among PS, P, and
+and genome diversity studies, but also to discover novel                  S to identify candidate genes related to pistil and stamen
+genes and to investigate gene expression profiles [16]. In                development.
+model species, transcriptome profiling and gene expres-                     In this study, Illumina sequencing from wheat PS, P,
+sion quantification are generally performed by mapping                    and S produced 121,210 putative unigenes, of which
+reads from the NGS analysis to a reference genome se-                     only 59,199 unigenes (48.84%) had at least one signifi-
+quence and then annotating the selected genes. The                        cant match with an existing gene models in BLAST
+strategies for model species are not feasible in wheat be-                searches (Table 2). This result may be attributed to the
+cause the reference genome sequence and gene annota-                      absence of the completely sequenced genome for wheat.
+tion of wheat remain incomplete. However, an                                Common wheat (2n = 6× = 42) has a large genome (16
+international project to achieve these goals is currently                 Gb) and a high proportion of repetitive sequences
+under way (International Wheat Genome Sequence                            (>80%); therefore, it is difficult to de novo assemble the
+Consortium, http://www.wheatgenome.org/). This pro-                       hexaploid wheat transcriptome. Oono et al. [21] verified
+ject may take a considerable time because of the difficul-                the three de novo assembly tools (e.g., Trans-Abyss,
+ties involved in sequencing the large (40 times larger                    Velvet-Oases, and Trinity) by comparing analyses from
+than rice), highly repetitive, hexaploid genome of wheat.                 several programs using short-read sequence data ob-
+For this reason, biological analyses of wheat based on                    tained from wheat cultivar CS seedlings grown under re-
+NGS data are challenging. The present study used NGS                      duced phosphorus. Their results indicated that Trinity
+technology for wheat RNA-seq to characterize and                          produced the largest number of contigs and the longest
+  Figure 5 Comparison of expression levels measured by RNA-Seq and qRT-PCR for selected 25 transcripts from 206 common differentially
+  expressed genes.
+ Yang et al. BMC Genomics (2015) 16:211                                                                             Page 7 of 10
+Table 4 The expression profiling of previously reported genes to contribute to flower development
+Unigene ID                 Gene name            Mean relative expression                              fold changes
+                                                PS                 P                 S                PS vs. S          P vs. S
+comp108229_c0              WM27B                0.64               1.33              0.03             21                44
+comp110066_c0              DL                   1.38               1.37              0.00059          2339              2322
+comp110106_c0              YAB1                 1.53               1.23              0.013            118               95
+comp112313_c0              YABBY4               1.18               0.93              0.036            33                26
+comp113007_c0              WM5                  1.78               1.52              0.051            35                30
+comp112668_c0              CER1                 0.0013             0.0034            1.35             1/1038            1/397
+comp122918_c0              WBLH1                0.035              0.012             1.63             1/47              1/136
+unigenes. In this study, 121,210 unigenes, which were de         organs [29]. In rice, YAB1 plays a major role in meristem
+novo assembled by Trinity, were aligned against the draft        development and causes extra stamens and carpels [30].
+sequence of the bread wheat genome (IWGSP 1.21), and             Thus, YAB1 may have an important function in wheat
+82.2% unigenes could be mapped to the exonic regions.            pistil and stamen development. Yamaguchi et al. [31] in-
+This result further justified the use of Trinity to de novo      dicated that the DL gene in rice interacts antagonistically
+assemble the hexaploid wheat transcriptome.                      with class B genes and controls floral meristem deter-
+   Our analysis identified 206 DEGs, each with differ-           minacy. Severe DL loss-of-function mutations caused
+ences greater than five-fold, which were common in the           the complete homeotic transformation of carpels into
+comparisons of PS vs. S and P vs. S. We deduced that             rice stamens. No literature has indicated that the YABBY
+these 206 genes may be highly correlated with stamen             4 gene is related to flower development. As a member of
+and pistil development because the PS and P have simi-           the YABBY gene family, YABBY 4 may have similar func-
+lar morphological structure and transcript profiles. The         tions to other YABBY proteins. Moreover, the YABBY 4
+steady-state transcript levels for 25 genes were con-            gene is upregulated in PS and P. Thus, YABBY 4 may
+firmed by qRT-PCR. Although the differences in gene              contribute to pistil development.
+expression based on qRT-PCR did not match the magni-               Previous studies have shown that the wheat Meiosis 5
+tude of those detected using RNA-seq, the upregulation           (WM5) gene is expressed in young flowers during mei-
+and downregulation trends were similar. The lower ex-            osis, and encodes a novel protein that appears to be in-
+pression levels detected by qRT-PCR could reflect the            volved in meristem development, and flower and pollen
+different sensitivities between the two technologies [25].       formation [32]. According to Dong et al. [32], expression
+Illumina sequencing has been documented to be more               of the Meiosis 5 gene may be upregulated in stamens.
+sensitive for the estimation of gene expression, particu-        However, Meiosis 5 showed upregulated expression in
+larly for low-abundance transcripts, compared with               PS and P. Thus, the function of Meiosis 5 in pistil and
+microarrays and qRT-PCR [26]. Among the 206 genes,               stamen development remains unclear and needs further
+at least seven unigenes were previously reported to influ-       experimental verification.
+ence flower development: MIKC-type MADS-box tran-                  The Arabidopsis CER1 gene encodes a novel protein
+scription factor WM27B (TaAG-4), a DL related gene,              involved in the conversion of long chain aldehydes to al-
+YAB1, YABBY 4, WM5, CER1, and WBLH1.                             kanes, which is a key step in wax biosynthesis. The cer1
+   The MADS-box transcription factor, WM27, belongs              mutants, which are conditionally male sterile, display
+to the class D gene group and regulates ovule identity           glossy green stems and fruit [33]. CER1 was downregu-
+specification according to the “ABCDE” model in flower           lated in PS and P or upregulated in S. This result indi-
+development [27]. In the present study, WM27 expres-             cated that CER1 is involved in stamen development.
+sion was upregulated in PS and P. This result is similar         This result agrees with that of Aarts et al. [33].
+to the finding of Paolacci et al. [28] that TaAG-4 is              The unigene comp122918_c0 is homologous to the
+highly expressed during late spike development, with             wheat BEL1 gene WBLH1. Plant BEL1-like homeobox
+weak expression in stamens, but high expression in pis-          (BLH) genes form a small gene family that functions in
+tils and caryopses. Therefore, the result demonstrated           various developmental aspects, such as seed shattering
+that WM27 may be involved in pistil development.                 in rice [34], or leaf shape establishment and ovule devel-
+   YAB1, the DL related gene, and YABBY 4 belong to              opment in Arabidopsis [35,36]. Mizumoto et al. [37] iso-
+the YABBY gene family; their upregulated expressions             lated four BLH genes in wheat, designated WBLH1 to
+were detected in PS and S. The genes of YABBY family             WBLH4. Expression analysis indicated that the WBLH1
+in Arabidopsis determine the abaxial cell fate of lateral        gene is not related to ovule development. In the present
+ Yang et al. BMC Genomics (2015) 16:211                                                                     Page 8 of 10
+study, the WBLH1 gene was downregulated in PS and P        under a stereo microscope (Olympus, Tokyo, Japan). For
+(upregulated in S). This result agrees with the finding of light microscopy, the PS, P, and S were fixed in 50%
+Mizumoto et al., [37]. Therefore, we speculated that       ethanol, 0.9 mol/L glacial acetic acid and 3.7% formalde-
+WBLH1 has an important function in stamen develop-         hyde at 4 °C for 15 h. The specimens were stained with
+ment. In addition to the seven unigenes, the other 199     Alcian blue and dehydrated through a graded ethanol
+genes probably also contribute to stamen and pistil        series, infiltrated with xylene, and then embedded in par-
+development. However, further research is required to      affin. A 12-μm thick section was attached to the
+determine the mechanisms by which these genes control      gelation-coated glass slides and observed under a light
+wheat stamen and pistil development.                       microscope (Olympus, Tokyo, Japan).
+Conclusions                                                cDNA library preparation and Illumina sequencing
+We sequenced and characterized the transcriptome of        Three micrograms of RNA per sample was used as the
+wheat PS, P from HTS-1 plants and S from the non-          input material for the RNA sample preparations. Se-
+pistillody control CSTP. The use of this transcriptome     quencing libraries were generated using NEB Next®
+resource enabled us to characterize gene expression pro-   Ultra™ Directional RNA Library Prep Kit for Illumina®
+files, examine differential expression profiles, and iden- (San Diego, CA, USA) following the recommendations
+tify functional genes related to wheat stamen and pistil   of the manufacturer. Four index codes were added to as-
+development. This work is significant for the develop-     sign sequences for each sample. In brief, mRNA was
+ment of genomic resources for wheat and provides           purified from total RNA using poly-T oligo-attached
+important insights into the molecular mechanisms of        magnetic beads. Fragmentation was performed using di-
+wheat stamen and pistil development.                       valent cations under elevated temperature in the Illu-
+                                                           mina proprietary fragmentation buffer. First-strand
+Methods                                                    cDNA was synthesized using random oligonucleotides
+Plant materials and RNA extraction                         and SuperScript II. Second-strand cDNA synthesis was
+HTS-1 is a novel common pistillody wheat mutant            subsequently performed using DNA polymerase I and
+maintained in our laboratory. CSTP is a near-isogenic      RNase H. The remaining overhangs were converted into
+line of Chinese Spring, which is a common wheat variety    blunt ends via exonuclease/polymerase activities and the
+that carries the Pis1 gene derived from the TP mutant      enzymes were removed. After adenylation of the 3′ ends
+[38]. HTS-1 was selected during the development            of DNA fragments, Illumina PE adapter oligonucleotides
+process of CSTP [6]. Thus, CSTP and HTS-1 are sib-         were ligated to prepare for hybridization. To select
+lines that show similar phenotypes, except for pistillody. cDNA fragments of the preferred 200 bp in length, the
+CSTP and HTS-1 were cultivated in a field in the China     library fragments were purified using an AMPure XP
+West Normal University, Nanchong, China. Ten HTS-1         system (Beckman Coulter, Beverly, CA, USA). DNA
+plants and ten CSTP plants were pooled as two samples,     fragments with ligated adaptor molecules on both ends
+respectively. The PS (Figure 1a) and P (Figure 1b) in the  were selectively enriched using Illumina PCR Primer
+HTS-1 pool, and the S (Figure 1c) in the CSTP pool at      Cocktail in a 12-cycle PCR reaction. The products were
+the heading stage were selected for RNA extraction. The    purified (AMPure XP system) and quantified using the
+PS, P, and S were independently collected twice, creating  Agilent high-sensitivity DNA assay on the Agilent Bioa-
+two biological replicates.                                 nalyzer 2100 system (Agilent, Santa Clara, CA, USA).
+   RNA was isolated from PS, P, and S using a modified        The clustering of the index-coded samples was per-
+cetyl trimethylammonium bromide-based protocol [39],       formed on a cBot Cluster Generation System using
+with high salt concentrations and was further purified     TruSeq PE Cluster Kit v3-cBot-HS (Illumina), in accord-
+with the RNeasy Plant Mini Kit (Qiagen, Shanghai,          ance with the manufacturer’s instructions. After cluster
+China). An equal amount of total RNA was pooled from       generation, the library preparations were sequenced on
+each plant for each wheat line. RNA quality and quantity   an Illumina Hiseq 2000 platform and 100-bp paired-end
+were determined using a NanoDrop ND-2000 Spectro-          reads were generated.
+photometer (Nanodrop Technologies, Wilmington, DE,
+USA) and were verified for degradation using a 2100        De novo assembly
+Bioanalyser RNA Nanochip (Agilent, Palo Alto, CA,          Raw reads of the fastq format were first processed
+USA).                                                      through in-house Perl scripts. In this step, clean reads
+                                                           were obtained by removing reads that contained an
+Morphological observation                                  adapter and vector contamination (the reads were
+For the anatomical observations, the PS, P, and S in       screened against the Univec database http://www.ncbi.nlm.
+HTS-1 or CSTP at the heading stage were observed           nih.gov/VecScreen/UniVec.html), reads that contained
+ Yang et al. BMC Genomics (2015) 16:211                                                                                               Page 9 of 10
+poly-N sequences (number of poly-Ns greater than 10%),       particular gene were performed three times synchronously
+and low-quality reads (Q20, Q30 and GC content were          under identical conditions, and RNA transcript fold
+used for data filtering) from the raw data. The Trinity      changes were calculated through the 2-ΔΔCtmethod [42]
+method [40] was used for the de novo assembly of wheat       with the wheat housekeeping genes Ubiq (DQ086482) and
+Illumina reads with the minimum kmer_cov set to 2 as the     Actin (AB181911) as internal controls [13,43].
+default, and all other parameters set to default. To avoid
+redundant transcripts, in-house Perl scripts were applied    Additional files
+to extract the longest transcripts as unigenes. Unigenes
+generated with the assembly were used for downstream           Additional file 1: Figure S1. Distribution of assembly transcripts and
+analysis. To evaluate the assembly strategies using Trinity,   unigenes lengths.
+the unigenes were aligned to the draft sequence of the         Additional file 2: Table S1. KEGG pathways represented in PS, P and S.
+bread wheat genome (IWGSP 1.21, E value <10−5).                Additional file 3: Table S2. The common differentially expressed genes
+                                                               between PS vs S and P vs S.
+                                                               Additional file 4: Table S3. The primers designed for qRT-PCR.
+Functional annotation
+We annotated the unigenes based on a set of sequential
+                                                             Competing interests
+BLAST searches, designed to find the most descriptive        The authors declare that they have no competing interests.
+annotation for each sequence. The assembled unigenes
+were compared with sequences in the NCBI non-                Authors’ contributions
+                                                             ZY and ZP conceived and designed the experiments; ZY and ZJ performed
+redundant (Nr) protein and nucleotide (Nt) databases         the tissue collection and RNA isolation; SW, ML, and YY performed the data
+(http://www.ncbi.nlm.nih.gov), the Protein family (Pram)     analysis; ZY performed the quantitative real-time PCR experiments; ZY wrote
+database (http://en.wikipedia.org/wiki/Protein_family), the  the manuscript drafts; ZP edited the manuscript; all authors read and
+                                                             approved the final manuscript.
+Cluster of Orthologous Group of proteins (KOG/COG)
+database (http://www.ncbi.nlm.nih.gov/COG), the Swiss-       Acknowledgments
+Prot protein database (http://www.expasy.ch/sprot), the      This work was financially supported by the National Natural Science Foundation
+                                                             of China (Grant No. 31301319), and the key project of the Chinese Ministry of
+KEGG Ortholog (KO) database (http://www.genome.jp/           Education (Grant No. 211164). The funders had no role in the study design, data
+kegg/pathway.html), and the Gene Ontology (GO) data-         collection and analysis, publishing decision, or manuscript preparation.
+base (http://www.geneontology.org/). Further functional
+                                                             Received: 13 September 2014 Accepted: 9 March 2015
+enrichment analysis of DEGs was carried out using ToGO
+(Bioconductor package for R) (http://www.bioconductor.
+org/packages/release/bioc/html/topGO.html).                  References
+                                                             1. Dencic S. Designing a wheat ideotype with increased sink capacity. Plant
+                                                                  Breeding. 1994;112:311–7.
+Differential gene expression analysis                        2. Frederic JR, Bauer PJ. Physiological and numerical components of wheat
+Before differential gene expression analysis, the read            yield. In: Satorre EH, Slafer GA, editors. Wheat ecology and physiologyof
+counts were adjusted using an edgeR program package               yield determination (Chapter No. 3). New York: Food ProductsPress;
+                                                                  2000. p. 45–65.
+for each sequenced library through one scaling normal-       3. Peng ZS, Yen C, Yang JL. Chromosomal location of genes for supernumerary
+ized factor. A differential gene expression analysis of two       spikelet in bread wheat. Euphytica. 1998;103:109–14.
+samples (PS vs. P, PS vs. S, and P vs. S) was performed      4. Martinek P, Bednar J. Changes of spike morphology (multirowspike-MRS,
+                                                                  long glumes-LG) in wheat (Triticum aestivum L.) and their importance for
+using the DEGseq R package. The p value was adjusted              breeding. In: The proceedings of international conference ‘genetic
+using a q value [41]. Q Value <0.005 and |log2 fold               collections, isogenic and alloplasmiclines’ Novosibirsk, Russia. 2001. p. 192–4.
+change| > 2 ware set as the threshold to judge the signifi-  5. Peng ZS. A new mutation in wheat producing three pistils in a floret.
+                                                                  J Agron Crop Sci. 2003;189:270–2.
+cance of gene expression difference. A large fold-change     6. Peng ZS, Yang ZJ, Ouyang ZM, Yang H. Characterization of a novel pistillody
+value (|log2 fold change| > 5) was also used to identify          mutant in common wheat. Aust J Crop Sci. 2013;7:159–64.
+DEGs.                                                        7. Murai K, Tsunewaki K. Photoperiod-sensitive cytoplasmic male sterility in
+                                                                  wheat with Aegilops crassacytoplasm. Euphytica. 1993;67:41–8.
+                                                             8. Murai K, Takumi S, Koga H, Ogihara Y. Pistillody, homeotictransformation of
+Validation by qRT-PCR                                             stamens into pistil-like structures, caused bynuclear–cytoplasm interaction
+Twenty-five primer pairs (Additional file 4: Table S3)            in wheat. Plant J. 2002;29:169–82.
+                                                             9. Meguro A, Takumi S, Ogihara Y, Murai K. WAG, a wheat AGAMOUS
+were designed to generate amplicons to validate the               homolog, is associated with development of pistil-like stamens in alloplasmic
+RNA-seq data. Aliquots of the total RNA extracted for             wheats. Sex Plant Reprod. 2003;15:221–30.
+sequencing were used for quantitative real-time PCR          10. Mizumoto K, Hatano H, Hirabayashi C, Murai K, Takumi S. Altered expression
+                                                                  of wheat AINTEGUMENTA homolog, WANT-1, in pistil and pistil-like
+experiments in accordance with manufacturer’s instruc-            transformed stamen of an alloplasmic line with Aegilops crassacytoplasm.
+tions (Qiagen, Shanghai, China). Real-time assays were            Dev Genes Evo. 2009;l219:175–87.
+performed with SYBR Green Dye (Takara, Dalian, China)        11. Saraike T, Shitsukawa N, Yamamoto Y, Hagita H, Iwasaki Y, Takumi S, et al.
+                                                                  Identification of a protein kinase gene associated with pistillody, homeotic
+using a Bio-Rad CFX96 real-time PCR platform (Bio-                transformation of stamens into pistil-like structures, in alloplasmic wheat.
+Rad Laboratories, Hercules, CA, USA). All assays for a            Planta. 2007;227:211–21.
+ Yang et al. BMC Genomics (2015) 16:211                                                                                                                  Page 10 of 10
+12. Zhu Y, Saraike T, Yamamoto Y, Hagita H, Takumi S, Murai K. orf260cra, a              act redundantly to regulate KNOX expression spatially in leaf margins. Plant
+    Novel mitochondrial gene, is associated with the homeotic transformation             Cell. 2007;19:2719–35.
+    of stamens into pistil-like structures (Pistillody) in Alloplasmic wheat. Plant  36. Reiser L, Modrusan Z, Margossian L, Samach A, Ohad N, Haughn GW, et al.
+    Cell Physiol. 2008;49:1723–33.                                                       The BELL1 gene encodes a homeodomain protein involved in pattern
+13. Hama E, Takumi S, Ogihara Y, Murai K. Pistillody is caused by alterations to         formation in the Arabidopsis ovule primordium. Cell. 1995;83:735–42.
+    the class-B MADS-box gene expression pattern in alloplasmic wheats. Planta.      37. Mizumoto K, Hatano H, Hirabayashi C, Murai K, Takumi S. Characterization of
+    2004;218:712–20.                                                                     wheat Bell1-type homeobox genes in floral organs of alloplasmic lines with
+14. Yang ZJ, Peng ZS, Wei SH, Yu Y. Cloning and characterization of endo-β-1,4-          Aegilops crassa cytoplasm. BMC Plant Biol. 2011;11:2–17.
+    glucanase genes in the common wheat line three pistils. Genet Mol Boil.          38. Yang ZJ, Peng ZS, Zhou YH, Peng LJ, Wei SH. Evaluation on the background
+    2013;36:400–7.                                                                       of wheat near isogentic line for three pistils character by SRAP markers.
+15. Mochida K, Yoshida T, Sakurai T, Ogihara Y, Shinozaki K. TriFLDB: a database         J Nucl Agri Sci. 2012;26:22–7.
+    of clustered full-length coding sequences from Triticeae with applications to    39. Chang SJ, Puryear J, Cairney J. A simple and efficient method for isolating
+    comparative grass genomics. Plant Physiol. 2009;150:1135–46.                         RNA from pine trees. Plant Mol Biol Rep. 1993;11:l13–116.
+16. Varshney RK, Nayak SN, May GD, Jackson SA. Next generation sequencing            40. Grabherr MG, Haas BJ, Yassour M, Levin JZ, Thompson DA, Amit I, et al.
+    technologies and their implications for crop genetics and breeding. Trends           Full-length transcriptome assembly from RNA-Seq data without a reference
+    Biotechnol. 2009;27:522–30.                                                          genome. Nature Biot. 2011;29:644–52.
+17. Wang Z, Gerstein M, Snyder M. RNA-Seq: a revolutionary tool for transcriptomics. 41. Storey JD, Tibshirani R. Statistical significance for genome wide studies. Proc
+    Nat Rev Genet. 2009;10:57–63.                                                        Natl Acad Sci. 2003;100:9440–5.
+18. Weber AP, Weber KL, Carr K, Wilkerson C, Ohlrogge JB. Sampling the               42. Livak KJ, Schmittgen TD. Analysis of relative gene expression data using
+    Arabidopsis transcriptome with massively parallel pyrosequencing. Plant              real-time quantitative PCR and the 2-ΔΔCt method. Methods. 2001;25:402–8.
+    Physiol. 2007;144:32–42.                                                         43. Yamada K, Saraike T, Shitsukawa N, Hirabayashi C, Takumi S, Murai K. Class D
+19. Lu T, Lu G, Fan D, Zhu C, Li W, Zhao Q, et al. Function annotation of the            and Bsister MADS-box genes are associated with ectopic ovule formation in
+    rice transcriptome at single-nucleotide resolution by RNA-seq. Genome Res.           the pistil-like stamens of alloplasmic wheat (Triticum aestivum L.). Plant Mol
+    2010;20:1238–49.                                                                     Biol. 2009;71:1–14.
+20. Li P, Ponnala L, Gandotra N, Wang L, Si Y, Tausta SL, et al. The
+    developmental dynamics of the maize leaf transcriptome. Nat Genet.
+    2010;42:1060–7.
+21. Oono Y, Kobayashi F, Kawahara Y, Yazawa T, Handa H, Itoh T, et al.
+    Characterisation of the wheat (Triticum aestivum L.) transcriptome by de
+    novo assembly for the discovery of phosphate starvation-responsive genes:
+    gene expression in Pi-stressed wheat. BMC Genomics. 2013;14:77–91.
+22. Grabherr MG, Haas BJ, Yassour M, Levin JZ. Full-length transcriptome assembly
+    from RNA-Seq data without a reference genome. Nat Bio. 2011;29:644–52.
+23. Altschul SF, Madden TL, Schäffer AA, Zhang J, Zhang Z, Miller W, et al.
+    Gapped BLAST and PSI-BLAST: a new generation of protein database search
+    programs. Nucleic Acids Res. 1997;25:3389–402.
+24. Xie C, Mao XZ, Huang JJ, Ding Y, Wu JM, Dong S, et al. CKOBAS 2.0: a web
+    server for annotation and identification of enriched pathways and diseases.
+    Nucleic Acids Res. 2011;39:316–22.
+25. Wu J, Zhang Y, Zhang H, Huang H, Folta KM, Lu J. Whole genome wide
+    expression profiles of Vitis amurensis grape responding to downy mildew
+    by using Solexa sequencing technology. BMC Plant Biol. 2010;10:234–49.
+26. AC’t Hoen P, Ariyurek Y, Thygesen HH, Vreugdenhil E, Vossen RHAM, de
+    Menezes RX, et al. Deep sequencing-based expression analysis shows major
+    advances in robustness, resolution and inter-lab portability over five
+    microarray platforms. Nucleic Acids Res. 2008;36:e141.
+27. Pinyopich A, Ditta GS, Savidge B, Liljegren SJ, Baumann E, Wisman E, et al.
+    Assessing the redundancy of MADS-box genes during carpel and ovule
+    development. Nature. 2003;424:85–8.
+28. Paolacci AR, Tanzarella OA, Porceddu E, Varotto S, Ciaffi M. Molecular and
+    phylogenetic analysis of MADS-box genes of MIKC type and chromosome
+    location of SEP-like genes in wheat (Triticum aestivum L.). Mol Genet
+    Genomics. 2007;278:689–708.
+29. Bowman JL. The YABBY gene family and abaxial cell fate. Curr Opin Plant
+    Biol. 2000;3:17–22.
+30. Jang S, Hur J, Kim SJ, An G. Ectopic expression of OsYAB1 causes extra
+    stamens and carpels in rice. Plant Mol Biol. 2004;56:133–43.
+31. Yamaguchi T, Nagasawa N, Kawasaki S, Matsuoka M, Nagato Y, Hirano HY.                 Submit your next manuscript to BioMed Central
+    The YABBY gene DROOPING LEAF regulates carpel specification and midrib                and take full advantage of:
+    development in Oryza sativa. Plant Cell. 2004;16:500–9.
+32. Dong C, Thomas S, Becker D, Lörz H, Whitford R, Sutton T, et al. WM5:
+                                                                                          • Convenient online submission
+    Isolation and characterisation of a gene expressed during early meiosis and
+    shoot meristem development in wheat. Funct Plant Biol. 2005;32:249–58.                • Thorough peer review
+33. Aarts MGM, Keijzer CJ, Stiekema WJ, Pereira A. Molecular characterization of          • No space constraints or color ﬁgure charges
+    the CER1 gene of Arabidopsis involved in epicuticular wax biosynthesis and
+    pollen fertility. Plant Cell. 1995;7:2115–27.                                         • Immediate publication on acceptance
+34. Konishi S, Izawa T, Lin SY, Ebana K, Fukuta Y, Sasaki T, et al. An SNP                • Inclusion in PubMed, CAS, Scopus and Google Scholar
+    caused loss of seed shattering during rice domestication. Science.                    • Research which is freely available for redistribution
+    2006;312:1392–6.
+35. Kumar R, Kushakappa K, Godt D, Oidkowich MS, Pastorelli S, Hepworth SR,
+    et al. The Arabidopsis BEL1-LIKE HOMEODOMAIN protein SAW1 and SAW2                    Submit your manuscript at
+                                                                                          www.biomedcentral.com/submit

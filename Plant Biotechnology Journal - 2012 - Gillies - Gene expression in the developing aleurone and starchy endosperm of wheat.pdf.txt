@@ -1,0 +1,631 @@
+Plant Biotechnology Journal (2012) 10, pp. 668–679                                                                                 doi: 10.1111/j.1467-7652.2012.00705.x
+Gene expression in the developing aleurone and starchy
+endosperm of wheat
+Susan A. Gillies1,*, Agnelo Futardo1,2 and Robert J. Henry2
+1
+  Southern Cross Plant Science, Southern Cross University, Lismore, NSW, Australia
+2
+  Queensland Alliance for Agriculture and Food Innovation, The University of Queensland, St Lucia, Qld, Australia
+Received 17 January 2012;                       Summary
+revised 1 April 2012;                           Wheat is a critical food source globally. Food security is an increasing concern; current pro-
+accepted 5 April 2012.                          duction levels are not expected to keep pace with global demand. New technologies have
+*Correspondence (Tel (61-2) 6620 3466;          provided a vast array of wheat genetic data; however, best use of this data requires placing it
+fax (61-2) 6622 2080; email                     within a framework in which the various genes, pathways and interactions can be examined.
+susan.gillies@scu.edu.au)                       Here we present the first systematic comparison of the global transcriptomes of the aleurone
+Accession number for National Centre for
+                                                and starchy endosperm of the developing wheat seed (Triticum aestivum), at time points criti-
+Biotechnology Information ⁄ Gene
+                                                cal to the development of the aleurone layer; 6-, 9- and 14-day post-anthesis. Illumina
+Expression Omnibus No: X.
+                                                sequencing gave 25—55 million sequence reads per tissue, of the trimmed reads,
+                                                70%—81% mapped to reference expressed sequence transcripts. Transcript abundance was
+                                                analysed by performing RNA-Seq normalization to generate reads per kilobase of exon model
+                                                per million mapped reads values, and these were used in comparative analyses between the
+                                                tissues at each time point using Kal’s Z-test. This identified 9414—13 202 highly differentially
+                                                expressed transcripts that were categorized on the basis of tissue and time point expression
+                                                and functionally analysed revealing two very distinct tissues. The results demonstrate the fun-
+                                                damental biological reprogramming of the two major biologically and economically significant
+Keywords: Triticum aestivum, aleu-              tissues of the wheat seed over this time course. Understanding these changes in gene expres-
+rone, endosperm, transcriptome, next            sion profiles is essential to mining the potential these tissues hold for human nutrition and
+generation sequencing, grain.                   contributing to the systems biology of this important crop plant.
+                                                                                       was selected to provide a standardized vocabulary for
+Introduction
+                                                                                       functional analysis.
+The most recent Food and Agriculture Organization and Inter-                               The starchy endosperm of the mature wheat seed is presently
+national Grain Council estimates give the global estimates for                         a primary source of nutrition, particularly in the western diet. It
+harvested wheat grain (Triticum aestivum) in 2010 ⁄ 11 at over                         consists principally of carbohydrates in the form of simple
+650 million tonnes (http://faostat.fao.org/; http://www.igc.int/).                     starches, typically 55%—75% of total dry grain weight, with a
+Although principally grown for human nutrition, wheat is also a                        storage protein content of 10%—20%. The aleurone layer
+source of food for livestock and is easily processed to provide                        develops at the perimeter of this tissue, where its primary bio-
+the raw materials for a myriad of other foodstuffs and industrial                      logical role is in the digestion of the starchy endosperm to
+commodities.                                                                           release nutrients in the form of free sugars and amino acids
+    The economic and nutritional importance of wheat grain                             to the germinating embryo. A secondary role is in protection of
+and the need for a better understanding of grain development                           the endosperm by storage of proteins which protect against
+to underpin any future potential manipulation of the seed                              stress and pathogens (Jerkovic et al., 2010). In the wheat seed
+have led to an abundance of studies addressing aspects of the                          and in maize this layer is a single cell thick, whereas in other
+grain transcriptome. These, however, examine the total grain                           major cereals there are often multiple layers; in barley, there
+or one tissue in isolation, or have followed the progress of                           are typically three, and in rice one to several.
+specific genes and use a variety of sources for functional                                 The aleurone layer is the most concentrated source of vita-
+annotation (Laudencia- Chingcuanco et al., 2007; Stamova                               mins and minerals in the wheat seed and is additionally rich in
+et al., 2009; Wan et al., 2008, 2009). The work presented                              proteins and lipids (Geisler-Lee and Gallie, 2005; Liu, 2011;
+here follows the parallel development of the transcriptomes of                         Regvar et al., 2011). Recent clinical trials have demonstrated its
+two of the most important tissues of the wheat seed.                                   potential for beneficial health outcomes. Aleurone flour is a rich
+Although our primary focus is in understanding the genetic                             source of natural folate, a B-group vitamin critical in nucleotide
+mechanisms behind development of the aleurone layer, its                               synthesis, DNA methylation and gene expression, essential for
+derivation from endosperm makes interpretation of the data                             the prevention of neurological deficits in the newborn.
+difficult if removed from the context of the endosperm.                                Increased consumption of aleurone has been shown to increase
+Consequently, both tissues have been included at each time                             plasma folate (Fenech et al., 2005) or increase plasma betaine
+point in our analysis to provide a direct comparison. Addi-                            and lower plasma homocysteine and low density lipoproteins
+tionally, the controlled gene ontology vocabulary provided by                          (Price et al., 2010), the latter three of which are associated with
+the Gene Ontology project (http://www.geneontology.org/)                               a lower risk of heart disease. Additionally, wheat aleurone is
+                                                                                                                                                            ª 2012 The Authors
+668                                           Plant Biotechnology Journal ª 2012 Society for Experimental Biology, Association of Applied Biologists and Blackwell Publishing Ltd
+                                                                                                             Aleurone and endosperm transcriptome comparison 669
+abundant in dietary fibre that is fermented in the gut, releasing                             http://www.wheatbp.net), which is enriched for the developing
+short-chain fatty acids, which have potential roles in cancer pre-                            aleurone layer (Drea et al., 2005). At 14 DPA, the aleurone
+vention. Recent in vitro and animal studies indicate a possible                               layer in wheat is expected to be and was consistently found
+role for aleurone intake in intestinal cancer prevention and                                  experimentally to be in its mature form 9 DPA represents a mid-
+treatment (McIntosh et al., 2001; Stein et al., 2010).                                        point in development. Visibly the layer at 9 DPA resembled
+   Aleurone development and maintenance is a dynamic process.                                 more the 6 DPA tissue, however, with a clearly more ordered
+This layer develops at the latter stages of endosperm specifica-                              and robust cell structure (Figure 2). During the time course
+tion. In a mechanism common amongst angiosperms, the endo-                                    studied starchy endosperm almost completes cellularization, it is
+sperm is produced from a double fertilization event when a                                    complete by 16 DPA (Drea et al., 2005; Wegel et al., 2005).
+single sperm nuclei fuses with the two polar nuclei in the central                            Seed was collected from appropriately aged wheat plants; the
+cell. This is followed by a series of free nuclear divisions and                              tissues were surgically separated, isolated and snap frozen; and
+directed migration of this nuclear material to the periphery of the                           cDNA was prepared and sequenced using an Illumina system.
+central cell. Cell walls are formed from microtubular systems aris-                           The level of cross contamination of tissues was low as demon-
+ing from the nuclear membranes. An initial anticlinal plane of cell                           strated by the ability to detect genes with highly differential
+division is followed by a periclinal plane of division, accompanied                           expression between the two tissues. A highly expressed gene
+by cytokinesis which completes the first peripheral layer (Brown                              originally detected in SAGE analysis (McIntosh et al., 2007) has
+et al., 1994). In wheat seed, this layer is complete by 6—7 days                              been the subject on ongoing analysis (Furtado unpublished) and
+(S. Gillies, unpublished data, http://www.wheatbp.net).                                       was found to be expressed only in starchy endosperm at 6 and
+   Starchy endosperm cellularization is finalized by repetition of                            9 DPA and at more than ten times the level in starchy endo-
+this process extending into the centre of the endosperm cavity,                               sperm at 14 DPA. Sequences were optimized by stringent
+with progressive loss of the strict control of the planes of cell                             removal of poor-quality reads and contaminating sequences.
+division (Becraft, 2001; Brown et al., 1994; Olsen, 2001). Inner                                  RNA-Seq analysis using CLC Genomics Workbench (Version
+cells grow in size as they accumulate starch and protein bodies.                              4.0) (Katrinebjerg, Aarhus N, Denmark) was performed on the
+The initial periclinal division signals the initiation of aleurone                            sequences after trimming. The Dana Farber Cancer Institute
+specification and gives rise to daughter cells which have distinct                            (DFCI) (Boston, MA) Wheat Gene Index was used as the
+fates. As cellularization nears completion, the inner cells                                   reference database (Release 12.0, http://compbio.dfci.harvard.
+become starchy endosperm, the perimeter cells become aleu-                                    edu). This DFCI EST database is comprised of 93 508 tentative
+rone (Becraft, 2001; Becraft and Yi, 2011; Olsen, 2001, 2004)                                 consensus sequences, 128 166 singleton ESTs and 251 mature
+which becomes resistant to desiccation, developing the capacity                               transcripts for a total of 221 925 unique EST sequences. Of the
+to remain living in the mature seed until germination of the                                  trimmed sequences, 69.9%—81.4% mapped back to the DFCI
+embryo (Young and Gallie, 2000; Young et al., 2004). In                                       ESTs. Of the mapped sequences, 42.1%—52.9% mapped spe-
+wheat, maturation of the aleurone is complete by 12 days after                                cifically to one reference sequence, and 41.2%—57.9% non-
+anthesis (personal observation, http://www.wheatbp.net).                                      specifically (Table 1). Nonunique reads were discarded if
+   The current understanding of the molecular mechanisms                                      matching more than ten distinct sequences, and if <10, reads
+involved in aleurone development in cereals arises primarily                                  were proportionately assigned. Sequenced transcripts were
+from studies in maize. Aleurone fate is plastic and appears                                   analysed after normalization of the counts to give reads per
+determined by positional cues, as it develops at the periphery of                             kilobase of exon model per million mapped reads (RPKM)
+starchy endosperm masses of both a maize endosperm mutant                                     (Mortazavi et al., 2008).
+and in vitro endosperm cultures (Geisler-Lee and Gallie, 2005;                                    Hierarchical cluster of sample analysis gives an overview of
+Gruis et al., 2006; Olsen, 2004). Starchy endosperm, however,                                 the total data. Cluster analysis of all RPKM values displays the
+appears to be the default cell type as aleurone fails to develop                              close relationship between 6 and 9 DPA aleurone tissue
+at the periphery in the absence of appropriate cues (Becraft                                  (Figure 3). In contrast, in endosperm the 9 DPA and 14 DPA
+and Asuncion-Crabb, 2000; Becraft et al., 1996; Gruis et al.,                                 tissues are far more closely aligned. Of particular interest, 14
+2006; Lid et al., 2002; Shen et al., 2003).                                                   DPA aleurone tissue, after it has achieved its mature form, is
+   Despite the importance of the wheat seed, the mechanism of
+development is far from established. Here we report the com-
+parison of the transcriptomes of the developing aleurone and
+starchy endosperm of the wheat grain at time points critical in
+aleurone development using next generation sequencing.
+This work demonstrates two distinct tissues which undergo
+dynamic shifts over the time course examined and provides a
+genetic resource which may be used to promote further crop
+improvement.
+Results
+Experimental design
+Six-, 9- and 14-day post-anthesis (DPA) tissues were selected as
+representative of pre ⁄ initial, mid and completed aleurone layer
+development. Six DPA was determined in preliminary experi-                                    Figure 1 Schematic of development of the aleurone and endosperm
+ments to be the first time point at which the initial peripheral                              layers. (Adapted from: Wheat: The big picture http://www.wheat-
+layer of the endosperm could be isolated (Figures 1 and 2,                                    bp.net).
+ª 2012 The Authors
+Plant Biotechnology Journal ª 2012 Society for Experimental Biology, Association of Applied Biologists and Blackwell Publishing Ltd, Plant Biotechnology Journal, 10, 668–679
+ 670 Susan A. Gillies et al.
+                                       (a)                                   (b)                                     (c)
+    Figure 2 Development of the aleurone layer. Light microscopy at 10 · magnification demonstrates the increasing order and strength within this layer
+    over time. (a) 6 day post-anthesis (DPA). (b) 9 DPA. (c) 14 DPA.
+    Table 1 Summary statistics for Illumina reads
+                                    6 DPA                                               9 DPA                                               14 DPA
+                                    Al                        En                        Al                        En                        Al                         En
+    Total reads                     53 580 004                48 126 050                25 897 678                25 523 822                56 859 592                 55 417 756
+    Mapped sequences (%)            27 150 859 (78.4)         30 581 013 (78.3)         4 549 034 (69.9)          4 104 682 (71.9)          38 911 327 (80.3)          37 502 901 (81.4)
+    Uniquely (%)                    14 161 063 (52.1)         16 154 259 (52.9)         2 051 587 (45.1)          1 726 574 (42.1)          18 965 616 (50.0)          16 034 744 (42.8)
+    Non specifically (%)            12 989 796 (47.8)         14 426 759 (47.2)         2 497 447 (54.9)          2 378 108 (57.9)          18 945 711 (50.0)          21 466 157 (57.2)
+    The total reads produced by Illumina sequencing at each time point were trimmed and mapped against the Dana Farber Cancer Institute Wheat EST reference
+    data base (Mapped sequences). Of the trimmed sequences 69.9–81.4% mapped back to the DFCI ESTs. Of these 42.1–52.9% mapped specifically to one
+    reference sequence (Uniquely), and 41.2–57.9% non-specifically. Al, aleurone; En, starchy endosperm.
+                                                                                                  Figure 4 Differentially expressed transcripts over time. RNA-Seq reads
+                                                                                                  per kilobase of exon model values were used in paired expression analy-
+                                                                                                  sis between tissues at each time point using Kal’s test. Multiple testing
+                                                                                                  was corrected for by false discovery rate analysis of p-values and those
+    Figure 3 Hierarchical clustering of samples using all reads per kilobase                      with values less than or equal to 0.05 retained. Total, All differentially
+    of exon model values displays the relationship between each tissue and                        expressed transcripts at each time point. Al, up-regulated in aleurone;
+    each time point. Clustering is calculated using the 1-Pearson correlation                     En, up-regulated in endosperm.
+    and single linkage. Al, aleurone; En, starchy endosperm.
+                                                                                                  expressed in the endosperm. As shown in Figure 4, the number
+    determined to be a very distinct tissue, as closely related to the                            of ESTs significantly up-regulated in the aleurone was relatively
+    endosperm tissues as aleurone tissues at earlier time points.                                 constant across the time points, in contrast the numbers of DE
+                                                                                                  ESTs in the endosperm was highly variable.
+    Differentially expressed (DE) transcripts
+                                                                                                      These significantly differentially expressed ESTs were further
+    Aleurone (Al) was compared to starchy endosperm (En) at each                                  divided into those expressed at one time point and those
+    time point. RPKM values were used in two-group comparisons                                    expressed at overlapping time points (Figure 5). Throughout the
+    using Kal’s Z-test for statistical analysis, and false discovery rate                         major stages of development of the aleurone layer, the
+    (FDR) corrected p-values were generated to correct for multiple                               numbers of these transcripts in aleurone remain relatively
+    testing. ESTs that were expressed significantly differently (FDR-                             consistent (Figure 5a). Only an increase in the number of genes
+    corrected P-value of 0.05 or less) were separated into those                                  differentially expressed at 14 DPA exclusively is notable when
+    more highly expressed in the aleurone and those more highly                                   the tissue has completed development, an observation
+                                                                                                                                                                       ª 2012 The Authors
+             Plant Biotechnology Journal ª 2012 Society for Experimental Biology, Association of Applied Biologists and Blackwell Publishing Ltd, Plant Biotechnology Journal, 10, 668–679
+                                                                                                             Aleurone and endosperm transcriptome comparison 671
+   (a)                                      (b)                                               similar at level 2 (Figure 7a,c,e). However, although the GO
+                                                                                              terms identified are the same, the individual sequences within
+                                                                                              each category are unique to each tissue.
+                                                                                                  Biological process terms describe the operations or sets of
+                                                                                              molecular events with a defined beginning and end (http://
+                                                                                              www.geneontology.org/). Figure 6a demonstrates one of the
+                                                                                              few differences in terms is that aleurone has a greater proportion
+                                                                                              of transcripts identified as involved in localization (GO:0051179).
+                                                                                              These are the processes involved in transport to and
+                                                                                              maintenance of substances in a specific location. In endosperm,
+                                                                                              transcripts involved in response to stimulus (GO:0050896) are
+                                                                                              more frequently identified. These are described as transcripts
+Figure 5 Differentially Expressed transcripts over time. Transcripts were
+                                                                                              involved in a change in state or activity of a cell as a result of a
+categorized on the basis of those detected at one time point alone and
+                                                                                              stimulus (http://www.geneontology.org/).
+those found at overlapping time points. (a) aleurone, (b) endosperm.
+                                                                                                  Analysis of biological process terms using the more detailed
+                                                                                              level 4 GO vocabulary, however, shows the emergence of clear
+supported by Figure 3, where 14 DPA aleurone is displayed as a                                differences between the tissues (Figure 7b). In aleurone, a
+very distinct tissue from 6 to 9 DPA aluerone. As expected                                    higher proportion of DE transcripts are principally involved in
+based on visual inspection of the tissues (Figure 2) and hierar-                              processes which could be expected to be required for the devel-
+chical clustering (Figure 3), the overlap between 6 and 9 DPA                                 opment of specialized cells at a specific site. These processes
+aleurone is far more extensive than the overlap between other                                 include transport (transport (GO:0006810)) and definition of cell
+time points. Over half (53%) of the DE transcripts identified in                              structure (regulation of anatomical structure size (GO:0090066);
+6 DPA aleurone are also detected at 9 DPA. Endosperm,                                         anatomical structure morphogenesis (GO:0009653); cell differ-
+however, (Figure 5b) exhibits a greater fluctuation in numbers                                entiation (GO:0030154); signal transmission (GO:0023060)).
+of highly differentially expressed genes as the seed moves from                               Additionally, as expected, transcripts identified as involved in
+grain growth to grain filling. Interestingly, in both aleurone and                            lipid and protein metabolism (Geisler-Lee and Gallie, 2005; Reg-
+endosperm the proportion of DE transcripts common to all time                                 var et al., 2011) (lipid metabolic process (GO:0046493); cellular
+points is relatively low, comprising just 9.1% of the total in                                amino acid and derivative metabolic process (GO:0006519); cel-
+aleurone and 8.1% in starchy endosperm.                                                       lular nitrogen compound metabolic process (GO:0034641)), are
+                                                                                              more prevalent in aleurone.
+Functional annotation of differentially expressed
+                                                                                                  Conversely, transcripts that promote the rapid accumulation
+transcripts identified all time points in aleurone or
+                                                                                              of carbohydrate and other storage macromolecules are more
+endosperm
+                                                                                              frequently detected in endosperm as predicted from previous
+The sequences represented in each sector of Figure 4 were sub-                                analysis (Emes et al., 2003; Morrison et al., 1975b), including
+ject to functional analysis. Annotation relied upon homology                                  those involved in carbohydrate metabolic processes
+with distant species in many cases because of our relatively                                  (GO:0005975); generation of precursor metabolites and energy
+poor knowledge of the wheat genome. Repeated analysis of                                      (GO:0006091); cellular biosynthetic processes (GO:0044249);
+this data with more species-specific annotation will be worth-                                cellular macromolecule metabolic process (GO:0044260); and
+while in the future. Analysis using the Mapman metabolic over-                                macromolecule biosynthetic process (GO:0009059).
+view pathway (Usadel et al., 2005, 2009) (Figure 6a) shows the                                    Examining molecular function terms, which describe the ele-
+expected results of high concentrations of transcripts binned                                 mental activities of a gene product, again at level 2 GO analysis
+into lipid metabolism (exotics, arrow 1; fatty acid synthesis and                             the differences between the tissues are not marked (Figure 7c).
+degradation, arrow 2) (Geisler-Lee and Gallie, 2005; Regvar                                   However, consistent with above (Figure 7b), there are a higher
+et al., 2011) and a high proportion of transcripts identified as                              proportion of sequences identified as being involved in trans-
+associated with cell wall synthesis (arrow 3) in this tissue under-                           port (transporter activity (GO:0005215)) in aleurone. Endosperm
+going rapid cellularization. Less expected may be the significant                             has a higher proportion of transcripts having enzyme regulator
+concentration of transcripts identified as involved in the tricar-                            activity (GO:0030234). These transcripts could be expected to
+boxylic acid cycle and mitochondrial electron transport (arrows                               assist in control of the rate of cellularization.
+4, 5). These are not identified in DE expressed transcripts in                                    Level 4 molecular function analysis shows pronounced differ-
+endosperm and are indicative of the energy-intensive nature of                                ences in activities between the tissues (Figure 7d). Aleurone has
+aleurone development in comparison with endosperm.                                            a higher ratio of sequences identified as involved in receptor
+    Transcripts identified at all time points in endosperm                                    activity (GO:0004872). This is defined as combining with an
+(Figure 6b) are grouped primarily into the major carbohydrate                                 extracellular or intracellular messenger to initiate a change in
+bins of starch synthesis and degradation (arrows 1 and 2)                                     cell activity and is consistent with this tissue also identified as
+(Morrison et al., 1975a,b). Examination of secondary metabo-                                  having a higher proportion of sequences involved in signal
+lites also displays distinct differences between aleurone and                                 transmission (Figure 7b). There is also a small proportion of
+endosperm.                                                                                    transcripts involved in hydrolase activity, acting on acid anhy-
+    Analysis using level 2 GO terms gives an alternate overview                               drides (GO:0016817), a category not found in starchy endo-
+of this DE data. Graphing each term as a proportion of the total                              sperm. This corresponds to a cluster of enzymes that hydrolyse
+demonstrates those DE transcripts common to all time points in                                the diphosphate bonds in nucleosidic phosphates and sulfonyl
+either tissue (central region of Figure 5a,b) are, as expected                                containing anhydrides (Enzyme Nomenclature, 1992, EC 3.6.,
+for two closely related tissues at identical time points, broadly                             http://enzyme.expasy.org/) such as those involved in hydrolysis
+ª 2012 The Authors
+Plant Biotechnology Journal ª 2012 Society for Experimental Biology, Association of Applied Biologists and Blackwell Publishing Ltd, Plant Biotechnology Journal, 10, 668–679
+ 672 Susan A. Gillies et al.
+                   (a)
+                   (b)
+    Figure 6 Mapman metabolic overview pathway of transcripts differentially expressed at all time points in either tissue. (a) aleurone, (b) endosperm.
+                                                                                                                                                                     ª 2012 The Authors
+           Plant Biotechnology Journal ª 2012 Society for Experimental Biology, Association of Applied Biologists and Blackwell Publishing Ltd, Plant Biotechnology Journal, 10, 668–679
+                                                                                                             Aleurone and endosperm transcriptome comparison 673
+   (a)                                                                   (b)
+   (c)                                                                   (d)
+   (e)                                                                   (f)
+Figure 7 Gene Ontology (GO) classification of differentially expressed (DE) transcripts. The Level 4 and Level 2 GO vocabulary provided by the Gene
+Ontology project was used for functional annotation of DE transcripts detected at all time points in either tissue. (a, b) biological process terms. (c, d)
+molecular function terms. (e, f) cellular component terms. Al, aleurone; En, starchy endosperm.
+of ATP and GTP to provide energy, which in agreement with                                     sequences identified as being targeted to the membrane
+Figure 6 indicates aleurone differentiation is a highly energy-                               enclosed lumen (GO:0031974), a category not detected in
+intensive process.                                                                            endosperm. Level 4 analysis (Figure 7f) shows only endosperm
+   In contrast, endosperm produces a small proportion of                                      identifies sequences as being present in the extracellular space
+sequences identified as involved in hydrolase activity, acting on                             (GO:0005615), consistent with a tissue in the process of com-
+ester bonds (GO:0016788), a term not detected in DE tran-                                     pleting cellularization (Becraft, 2001; Drea et al., 2005; Wegel
+scripts up-regulated in aleurone. This group of hydrolases                                    et al., 2005). In aleurone, a higher proportion of sequences
+includes the deoxyribonucleases, ribonucleases, endonucleases,                                are predicted to be found in membrane enclosed spaces identi-
+exonucleases and the phosphoric ester hydrolases (Enzyme                                      fied by such terms as membrane (GO:0016020), organelle
+Nomenclature, 1992, EC 3.1., http://enzyme.expasy.org/). This                                 lumen (GO:0043233) and intracellular organelle part
+indicates rapid DNA ⁄ RNA turnover as phosphodiester bonds                                    (GO:0044446).
+form the backbone of DNA ⁄ RNA molecules. Starchy endosperm
+                                                                                              Shifts in Level 4 GO categories in differentially
+additionally produces a far higher proportion of transcripts
+                                                                                              expressed transcripts of aleurone and endosperm
+involved with RNA binding (GO:0003723) and translation factor
+                                                                                              during aleurone development
+activity, nucleic acid binding (GO:0008135).
+   Level 2 cellular component analysis (the parts of a cell or its                            Further analysis demonstrates the changes in each tissue over
+extracellular environment) (Figure 7e) reflects the differing                                 the time period critical to aleurone development. GO analyses
+states of each tissue. Aleurone as a single layer tissue in wheat                             use Level 4 terms. This level was selected as it was found to
+displays far fewer sequences identified as located in the extra-                              provide sufficiently detailed terms to clearly reveal the changes
+cellular region (GO:0005576) and has a small proportion of                                    over time in each of the tissues. Those sequences that were
+ª 2012 The Authors
+Plant Biotechnology Journal ª 2012 Society for Experimental Biology, Association of Applied Biologists and Blackwell Publishing Ltd, Plant Biotechnology Journal, 10, 668–679
+ 674 Susan A. Gillies et al.
+                     (a)
+                     (b)
+                     (c)
+    Figure 8 Functional Annotation of differentially expressed (DE) transcripts over time. Level 4 GO terms provided by the Gene Ontology project were
+    used to annotate DE transcripts found exclusively at one time point in each tissue. (a) biological process terms; (b), molecular function terms; (c),
+    cellular component terms. Al, aleurone; En, starchy endosperm.
+    found to be differentially expressed exclusively at one time                                  data on which the majority of the analysis rests represents a
+    point only (see Figure 5) were isolated and sent through the                                  meaningful subset of the total data.
+    blast2GO program. Almost identical terms are retrieved for each                                  The biological process data (Figure 8a) show a sudden dra-
+    tissue at each time point to those found for sequences common                                 matic rise in aleurone in the proportion of transcripts associated
+    to all time points (Figure 6) and the total complement of                                     with transport from 9 DPA. This is maintained at 14 DPA
+    sequences DE at any one time point (Figure S1). There are,                                    (transport (GO:0006810)), one of the few terms to display a
+    however, clear changes in the proportion of transcripts in par-                               proportional increase over time. This indicates that although by
+    ticular categories over time. Figure 8 shows the level 4 gene                                 14 DPA the tissue is in its final form, it remains very much an
+    ontology terms retrieved at each time point, demonstrating the                                active tissue. Other increasing categories include generation of
+    proportion of transcripts associated with that process ⁄ func-                                precursor metabolites and energy (GO:0006091), with a slight
+    tion ⁄ component over and above those produced at all time                                    increase in carbohydrate metabolic process (GO:0005975) as
+    points. Figure S1 graphs the total data. This is the functional                               the tissue matures and moves towards accumulation of storage
+    annotation of the total complement of all DE transcripts identi-                              molecules (Becraft, 2001; Becraft and Yi, 2011). Consistent with
+    fied at any one time point. This is shown in comparison with                                  this completion of differentiation is the down-regulation of
+    DE transcripts identified at one time point exclusively (Only) and                            transcripts identified as involved in cell specification including
+    those transcripts differentially expressed at all time points (All).                          cell differentiation (GO:0030154), anatomical structure morpho-
+    For almost every GO term, the total data produced proportions                                 genesis (GO:0006810), signal transmission (GO:0023060) and
+    intermediate between ‘Only’ and ‘All’, demonstrating the ‘Only’                               regulation of cellular process (GO:0050794). Macromolecule
+                                                                                                                                                                       ª 2012 The Authors
+             Plant Biotechnology Journal ª 2012 Society for Experimental Biology, Association of Applied Biologists and Blackwell Publishing Ltd, Plant Biotechnology Journal, 10, 668–679
+                                                                                                             Aleurone and endosperm transcriptome comparison 675
+modification (GO:0043412) and lipid metabolic process                                             The Mapman cellular response overview visualization tool
+(GO:0046493) are also reduced, indicating as expected, these                                  (Figure 9) displays the quite distinct stress responses of the two
+constituents are nearing their final form.                                                    tissues. At 6 DPA, the majority of aleurone transcripts associ-
+   Figure 8a demonstrates the endosperm is clearly in the pro-                                ated with abiotic stress are binned as touch ⁄ wounding tran-
+cess of reprogramming from rapid biosynthesis of a restricted                                 scripts (Figure 9a). At 9 DPA (Figure 9c), a greater proportion is
+range of storage macromolecules to a tissue requiring a broader                               identified as associated with drought ⁄ salt tolerance, while at 14
+range of molecules, with the requisite regulation required for                                DPA (Figure 9e), heat and cold transcripts are commonly identi-
+the control of this diversified requirement. Cellular biosynthetic                            fied. In contrast, in endosperm the proportion of DE transcripts
+processes are down-regulated (GO:0044249) as are macromole-                                   associated with heat reduces over the time course examined
+cule biosynthetic process (GO:0009059) and cellular macromol-                                 (Figure 9b,d,f), and touch ⁄ wounding transcripts increase over
+ecule metabolic process (GO:0044260), with an abrupt drop in                                  time. Both tissues display a dynamic stress response which alters
+transcripts involved in generation of precursor metabolites and                               rapidly over this short time course.
+energy (GO:0006139) after 9 DPA. There is a concurrent sharp                                      Of the antioxidant defence pathways, thioredoxin and ascor-
+rise in transcripts involved in regulation of metabolic process                               bate ⁄ glutathione become increasingly important in aleurone.
+(GO:0019222) and macromolecule modification (GO:0043412),                                     Interestingly, the peroxiredoxins become suddenly apparent at
+with an increase in regulation of cellular process (GO:0019222),                              14 DPA, the importance of this group in redox regulatory
+signal transmission (GO:0023060), transport (GO:0006810) and                                  reactions has recently been revealed (Dietz et al., 2006; Tovar-
+anatomical structure morphogenesis (GO: 0009653). Additionally,                               Mendez et al., 2011). In endosperm, few DE transcripts are
+there is an increase in lipid metabolism (lipid metabolic process                             identified as involved in redox reactions by 14 DPA, suggesting
+GO:0046493) and cellular amino acid and derivative metabolic                                  this stress response pathway has a narrow window for activa-
+process (GO:0006519). However, the number of transcripts                                      tion for wheat endosperm.
+involved in carbohydrate metabolic processes (GO:0005975)                                         Aleurone displays a decreasing proportion of transcripts asso-
+continues to increase over time reflecting that endosperm                                     ciated with cell division as expected as the tissue matures,
+remains principally a carbohydrate storage tissue. Interestingly,                             whereas the proportion of transcripts identified as associated
+there is also a noticeable decline in the number of transcripts                               with cell cycling and cell development increase. Endosperm
+identified as involved in gene expression. This broad term                                    shows the proportion of DE transcripts binned as associated
+describes the process by which a gene’s sequence is converted                                 with cell division also reduces over time; however, in this tissue
+into a mature gene product or products (proteins or RNA)                                      cell cycling also reduces, while development associated tran-
+(http://www.geneontology.org/). The decline in the proportion                                 scripts remains fairly static in proportions.
+of these transcripts may be associated with a reduction in the
+rate of molecule accumulation.
+                                                                                              Discussion
+   Analysis of the molecular function data (Figure 8b) shows
+aleurone, as seen in previous analyses, changes little from 6 to                              Transcriptome sequencing provides a vast array of valuable
+9 DPA. By 14 DPA, there is a drop in the number of                                            data, in this analysis generating a total of over 250 million reads
+sequences identified as involved in transferase activity, transfer-                           of approximately 75 base pairs. One of the challenges to be
+ring phosphorus-containing groups (GO:0016772). This term                                     overcome is to reduce the complexity inherent in data sets of
+covers a broad range of phosphotransferases and kinases.                                      this size so as to provide an overview from which the tissue as
+There is additionally a decline in receptor activity                                          a whole can be viewed and a framework in which the complex
+(GO:0004872). However, there is an increase in translation fac-                               interplay of processes, functions and components can be inte-
+tor activity, nucleic acid binding (GO:0008135), again indicat-                               grated. To create this framework, the strategy of directly com-
+ing at 14 DPA this tissue is still involved with the manufacture                              paring each tissue at critical time points was selected,
+of new compounds.                                                                             extracting the highly differentially expressed transcripts and
+   Changes in endosperm are more marked. In contrast to aleu-                                 annotating these. Here the GO vocabulary of the Gene Ontol-
+rone, there is a large increase in the proportion of transcripts                              ogy project was utilized so that these standardized terms can
+involved in the transfer of phosphorus-containing groups                                      be directly applied to other analyses. Further overviews of the
+(GO:0016772), and additionally in transcripts associated with                                 data were examined using the Mapman tool. These data will
+the hydrolysis of ester bonds (GO:0016788), again indicating                                  provide a basis from which more detailed analysis can be begun
+rapid nucleotide turnover is necessary during starchy endosperm                               in any number of experimental settings, particularly as wild-type
+cellularization. Consistent with this is a large drop in transcripts                          wheat plants were examined. These can be used in comparisons
+involved in RNA binding (GO:0003723). There is also an                                        with other wild-type varieties or treated ⁄ mutant plants. Here
+increase in the proportion of terms identified as involved in                                 we provide a direct comparison of the most important biologi-
+receptor activity (GO:0004872).                                                               cal and economic tissues of the wheat seed.
+   Cellular component analysis (Figure 8c) shows the positional
+                                                                                              Endosperm is principally a carbohydrate storage tissue,
+association of DE aleurone transcripts changing little over the
+                                                                                              and aleurone additionally accumulates lipids and
+time course examined, as expected as this is a single layer tis-
+                                                                                              proteins
+sue. Again as endosperm becomes increasingly cellularized, this
+tissue exhibits more dynamic changes with transcripts moving                                  These data validate findings from previous analyses. Figure 5b
+from a simple intracellular location (intracellular GO:0005622)                               shows that of the DE transcripts detected at all time points, in
+to being more commonly found at the membrane                                                  starchy endosperm almost half are in the categories of carbohy-
+(GO:0016020) in proportions similar to that of aleurone. This                                 drate metabolic process and generation of precursor metabo-
+finding is consistent with the finding of an increase in signal                               lites and energy, as expected of what is principally a
+transmission over the time course examined (Figure 8a).                                       carbohydrate storage tissue (Emes et al., 2003; Morrison et al.,
+ª 2012 The Authors
+Plant Biotechnology Journal ª 2012 Society for Experimental Biology, Association of Applied Biologists and Blackwell Publishing Ltd, Plant Biotechnology Journal, 10, 668–679
+ 676 Susan A. Gillies et al.
+       (a)                                                                                     (b)
+       (c)                                                                                     (d)
+       (e)                                                                                     (f)
+    Figure 9 Mapman cellular response overview showing transcripts differentially expressed at each time point. 6 day post-anthesis (DPA) a, b, 9 DPA c,
+    d, 14 DPA e, f. Al, aleurone; En, endosperm.
+    1975b; Stamova et al., 2009). Additionally, as expected, aleu-                                 It is essential to note, however, this analysis required the                     use
+    rone shows a comparable proportion of DE transcripts for lipid                              of the more detailed Level 4 GO terms to clearly reveal the                         dif-
+    metabolic process, carbohydrate metabolic process and cellular                              ferences between the tissues, reinforcing the view that                             the
+    amino acid metabolic process (Liu, 2011; Morrison et al.,                                   selection of appropriate and consistent terms is critical in                        the
+    1975a; Regvar et al., 2011). Figure 7 demonstrates the consis-                              meaningful interpretation of the data.
+    tent gradual changes in the proportions of the GO terms over
+                                                                                                Aleurone and endosperm develop at significantly
+    the time course examined in each of the tissues, which when
+                                                                                                different rates
+    combined with the expected relationships shown by the hierar-
+    chical structure analysis demonstrates the validity of the                                  A combination of hierarchical sample clustering, DE transcript
+    approach taken. Additionally, this investigation demonstrates                               number and GO term analysis demonstrates the close yet dis-
+    that although wheat currently does not have a completed                                     tinct relationship between aleurone and starchy endosperm.
+    annotated genomic sequence, an EST database can be used as                                  Cluster analysis (Figure 3) demonstrates by 6 DPA, when aleu-
+    a valid reference source.                                                                   rone is still being defined, it is already a very distinct tissue from
+                                                                                                                                                                     ª 2012 The Authors
+           Plant Biotechnology Journal ª 2012 Society for Experimental Biology, Association of Applied Biologists and Blackwell Publishing Ltd, Plant Biotechnology Journal, 10, 668–679
+                                                                                                             Aleurone and endosperm transcriptome comparison 677
+the endosperm from which it has been derived, far more closely                                identify particular windows of vulnerability to particular stressors
+related to 9 DPA aleurone than starchy endosperm. Clearly a                                   in early grain development.
+large proportion of genes involved in aleurone development
+have already been activated by 6 DPA. Additionally, these data
+                                                                                              Conclusion
+in combination with visual inspection (Figure 2) demonstrate 14
+DPA aleurone is a very distinct tissue to aleurone at earlier time                            By 6 DPA, aleurone and endosperm are distinct tissues which
+points. This observation is consistent with Figure 5, which                                   develop at different rates. In aleurone, highly differentially
+shows the number of DE transcripts up-regulated in aleurone at                                expressed transcripts are fairly evenly distributed between lipid,
+14 DPA alone is double that of 6 and 9 DPA. This finding, how-                                protein and carbohydrate biogenesis. In endosperm, carbohy-
+ever, would not be detected by examining total numbers of DE                                  drate accumulation is by far the dominant activity. However,
+transcripts alone (Figure 4) or by examining the changes in                                   the proportions of transcripts associated with this activity
+proportions of transcripts identified by GO terms over time                                   reduce over time, perhaps surprisingly as cellularization of the
+(Figure 7).                                                                                   endosperm is not yet complete. Rapid development of the star-
+                                                                                              chy endosperm appears facilitated by post-transcriptional fac-
+Aleurone and endosperm reprogram over the time
+                                                                                              tors, and these tissues have disparate and fast altering
+course examined
+                                                                                              responses to stress.
+Examination of the functional annotation of DE transcripts                                        This work provides a framework for future analysis of the
+emphasizes the marked differences between these tissues and                                   developing cereal grain. It will be of particular value when
+reveals the reprogramming of each of these tissues over time.                                 the annotated wheat sequence becomes available so that the
+Starchy endosperm shifts from a tissue dominated by the rapid                                 analysis of transcription start sites, polyadenylation signals,
+accumulation of storage macromolecules as discussed above                                     alternative splice sites and post-transcriptional modifications
+(Figures 6 and 7) to one requiring a broader array of molecules,                              can be applied to these data. While this overview reinforces
+evidenced by the increasing proportion of transcripts associated                              much current experimental data on the development of the
+with lipid metabolic process (GO:0005975), cellular amino acid                                aleurone and starchy endosperm layers, it additionally throws
+and derivative metabolic process (GO:0006575) together with                                   up new possible avenues for investigation. These data con-
+transcripts identified as involved in regulation of metabolic pro-                            tribute to the understanding of the development of the aleu-
+cess (GO:0019222) and regulation of cellular process                                          rone and starchy endosperm layers in cereal grains and
+(GO:0050794). Aleurone, in contrast, as it finalizes cell specifi-                            contribute in particular to the systems biology of the wheat
+cation, shows a slight shift towards accumulation of storage                                  seed, an essential food source.
+macromolecules as evidenced by the accumulation of the pro-
+portion of transcripts associated with generation of precursor
+metabolites and energy and carbohydrate metabolic process                                     Experimental procedures
+(Figure 7). Interestingly, however, the high and increasing pro-
+                                                                                              Plant tissue collection
+portion of transcripts identified as involved in transport indicate
+aleurone remains a very active tissue even after differentiation                              The Triticum aestivum cultivar Banks (Australian Spring wheat)
+is complete.                                                                                  was planted at four seeds per pot in 25-cm pots in soils con-
+                                                                                              taining equal parts Lithuanian peatmoss, perlite (size P500) and
+Aleurone and endosperm display different molecular
+                                                                                              vermiculite (size 2) with 5 kg ⁄ m3 long-term release fertilizer,
+functions
+                                                                                              1 kg ⁄ m3 trace element mix and 1 kg ⁄ m3 dolomite and grown
+An important finding is the fundamental differences in molecu-                                to maturity in a greenhouse during spring and early summer
+lar function between the two tissues, which may point the way                                 under natural light. Greenhouses were kept below 37C by
+for manipulation of these tissues in the future. Although the                                 evaporative cooling. Plants were tagged at anthesis and seed
+proportion of sequences predicted to be involved in DNA bind-                                 was collected from appropriately aged (6, 9 and 14 DPA) plants
+ing is consistent between the tissues and across the time course                              from the central third of the spike. The stages of development
+(Figures 7b and 8b), there is significant differences and quite                               in this study correspond to those analysed in an earlier SAGE
+profound changes in all other categories, particularly in the star-                           study of whole seed transcripts (McIntosh et al., 2007) with the
+chy endosperm which has a far higher proportion of sequences                                  14 DPa point being at a midpoint of seed development prior to
+involved with RNA binding and translation factor activity. This                               seed desiccation and with a wide diversity of genes being tran-
+indicates that endosperm utilizes extensive post-transcriptional                              scribed. Generally, aleurone was separated from endosperm by
+control of the cellular machinery, allowing the cell to rapidly                               microdissection over ice by incision of the whole seed, prising
+manipulate protein production without new mRNA synthesis,                                     off the pericarp and dissecting away the embryo ⁄ presumptive
+processing or export (Dever, 2002; Mata et al., 2005). Interest-                              embryo. The testa was then gently scraped from the endosperm
+ingly, the proportion of each of these transcripts drops signifi-                             layers. The starchy endosperm was rolled from the aleu-
+cantly as the tissue approaches complete cellularization,                                     rone ⁄ presumptive aleurone layer and the desired tissue quickly
+suggesting post-transcriptional control is a particularly important                           rinsed in ice-cold phosphate buffer saline, then snap frozen in
+process to facilitate rapid cellularization.                                                  liquid nitrogen. At 6 and 9 DPA, the endosperm is not com-
+                                                                                              pletely cellularized, and therefore the contents of the central
+Aleurone and endosperm have distinct stress responses
+                                                                                              cavity were scraped into a cooled tube and snap frozen. At 6
+Both aleurone and endosperm displayed rapidly changing stress                                 DPA, these contents are principally liquid and at 9 DPA princi-
+response particularly in association with abiotic stress and redox                            pally cellular. A minimum of five individual seeds from three
+reactions. Endosperm, however, identified few DE transcripts as                               separate spikes from three individual plants were pooled for
+involved in any redox pathway by 14 DPA. These data may help                                  each tissue preparation.
+ª 2012 The Authors
+Plant Biotechnology Journal ª 2012 Society for Experimental Biology, Association of Applied Biologists and Blackwell Publishing Ltd, Plant Biotechnology Journal, 10, 668–679
+ 678 Susan A. Gillies et al.
+    RNA isolation                                                                                which separates the annotations into the three vocabularies
+                                                                                                 of biological processes, molecular function and cellular
+    Total RNA was prepared using a Trizol (Invitrogen, Carlsbad,
+                                                                                                 components. To expand and refine the annotation data, the
+    CA) protocol and purified using an RNeasy Plant Kit (Qiagen,
+                                                                                                 InterPro Scan, ANNEX and GOSlim functions were applied to
+    Hilden, Germany). Total RNA quality and concentration were
+                                                                                                 the GO annotations from within the BLAST2GO program
+    determined using the RNA 6000 Pico kit (Agilent, Santa Clara,
+                                                                                                 (BioBam Bioinformatics, Valencia, Spain). InterPro combines a
+    CA) on a 2100 Bioanalyzer (Agilent).
+                                                                                                 number of protein signature searches (Zdobnov and Apweiler,
+    cDNA construction                                                                            2001), the results of which were attached to the GO terms.
+                                                                                                 ANNEX deduces new relationships between the GO terms
+    Approximately 1.5 lg of purified cDNA was prepared from each
+                                                                                                 (Botton et al., 2008; Myhre et al., 2006), and these results
+    tissue. Total cDNA was prepared using the Ambion Message-
+                                                                                                 were further incorporated adding on average a further 18%
+    Amp II aRNA Amplification Kit (Invitrogen) essentially as per the
+                                                                                                 of annotations. To refine the annotations to allow adequate
+    manufacturer’s instructions. However, the first-strand synthesis
+                                                                                                 visualization, GOslim was applied using the GOPlant database.
+    primer was replaced by one designed to contain a BpuE1 site
+                                                                                                 GOSlim reduces the annotations used to those of the
+    (CTTGAG(N)16 ⁄ 14) 19 bp upstream from a VN clamp adjacent
+                                                                                                 selected level of categories or nodes. This allows a higher-
+    to the polyA tail. This site was used to remove the polyA tail
+                                                                                                 level simplified visualization of the data. The GOSlim function
+    after cDNA synthesis following BpuE1 digestion (NEB, Ipswich,
+                                                                                                 was applied in a species-specific context (plant.obo), which
+    MA). The polyA tails were removed by spinning through
+                                                                                                 has been observed to increase retrieval of plant-specific termi-
+    Qiaquick PCR purification (Qiagen) size exclusion columns after
+                                                                                                 nology and reduce category fragmentation (Botton et al.,
+    enzymatic digestion.
+                                                                                                 2008).
+    Sequencing                                                                                      Alternately, DE ESTs were visualized using the Mapman tools
+                                                                                                 (Usadel et al., 2005, 2009). Mapping files were created using
+    Sequencing was performed in-house on the Illumina GAIIx
+                                                                                                 the Mercator tool (http://mapman.gabipd.org/web/guest/merca-
+    system with a paired end 75-bp system.
+                                                                                                 tor) which bins all DE transcripts according to hierarchical ontol-
+    Data analysis                                                                                ogies. Default parameters were retained and ORYZA TIGR5 rice
+                                                                                                 protein and IPR Interpro scans selected. Experimental files were
+    Approximately 25—55 million reads were obtained per tissue.
+                                                                                                 created using the test statistic calculated from the Kal’s test
+    Sequences were initially trimmed using default quality parame-
+                                                                                                 described above.
+    ters of the CLC Genomics Workbench Version 4.0. (CLC bio,
+    Aarhus, Denmark). Remaining contaminating sequences were
+    removed using an editing package (010 Editor, http://                                        Acknowledgement
+    www.sweetscape.com/010editor/) and the reads returned to
+                                                                                                 This work was supported by the Grain Foods Cooperative
+    CLC for a further round of trimming based on quality scores to
+                                                                                                 Research Centre.
+    optimize the quality of the sequences used in subsequent analy-
+    ses. The trimmed sequences were sent through the RNA-Seq
+    analysis program of the CLC platform, mapping against the
+    unannotated reference sequences derived from the DFCI Wheat
+                                                                                                 References
+    Gene Index, Release 12.0 (The Computational Biology and                                      Becraft, P.W. (2001) Cell fate specification in the cereal endosperm. Semin.
+    Functional Genomics Laboratory, Dana Farber Cancer Institute                                   Cell Dev. Biol. 12, 387–394.
+    and Harvard School of Public Health) using default parameters.                               Becraft, P.W. and Asuncion-Crabb, Y. (2000) Positional cues specify and
+    The minimum length fraction was 0.9 and the minimum similar-                                   maintain aleurone cell fate in maize endosperm development.
+    ity fraction was 0.8. RPKM was selected as the normalized                                      Development, 127, 4039–4048.
+    expression value. Dataset S1 provides the complete set of raw                                Becraft, P.W. and Yi, G. (2011) Regulation of aleurone development in cereal
+                                                                                                   grains. J. Exp. Bot., 62, 1669–1675.
+    sequences and RNA-Seq data for each tissue.
+                                                                                                 Becraft, P.W., Stinard, P.S. and McCarty, D.R. (1996) CRINKLY4: a TNFR-like
+       Tissues that had undergone RNA-Seq analysis were used in
+                                                                                                   receptor kinase involved in maize epidermal differentiation. Science, 273,
+    paired expression analysis experiments between aleurone and
+                                                                                                   1406–1409.
+    starchy endosperm at 6, 9 and 14 DPA using a two-group                                       Botton, A., Galla, G., Conesa, A., Bachem, C., Ramina, A. and Barcaccia, G.
+    comparison (Kal’s test) and existing RPKM expression values.                                   (2008) Large-scale Gene Ontology analysis of plant transcriptome-derived
+    Multiple testing was corrected for by obtaining FDR analysis of                                sequences retrieved by AFLP technology. BMC Genomics, 9, 347.
+    p-values. Sequences with a FDR-corrected P-value of less than                                Brown, R.C., Lemmon, B.E. and Olsen, O.A. (1994) Endosperm development
+    or equal to 0.05 were selected. These were separated into                                      in barley: microtubule involvement in the morphogenetic pathway. Plant
+    those differentially expressed highly in the aleurone and those                                Cell, 6, 1241–1252.
+    expressed in the starchy endosperm. These were then catego-                                  Conesa, A. and Gotz, S. (2008) Blast2GO: a comprehensive suite
+                                                                                                   for functional analysis in plant genomics. Int J Plant Genomics, 2008,
+    rized into those DE at one time point or at common time
+                                                                                                   619832.
+    points.
+                                                                                                 Conesa, A., Gotz, S., Garcia- Gomez, J.M., Terol, J., Talon, M. and Robles,
+       Each category of ESTs was submitted to the BLAST2GO
+                                                                                                   M. (2005) Blast2GO: a universal tool for annotation, visualization and
+    program         (http://www.blast2go.org/,              (Bioinformatics         and            analysis in functional genomics research. Bioinformatics, 21, 3674–3676.
+    Genomics Department, Centro de Investigación Prı́ncipe                                      Dever, T.E. (2002) Gene-specific regulation by general translation factors.
+    Valencia, Valencia, Spain), (Conesa and Gotz, 2008; Conesa                                     Cell, 108, 545–556.
+    et al., 2005) for functional annotation. This retrieves the gene                             Dietz, K.J., Jacob, S., Oelze, M.L., Laxa, M., Tognetti, V., de Miranda, S.M.,
+    ontology (GO) terms using the structured vocabulary provided                                   Baier, M. and Finkemeier, I. (2006) The function of peroxiredoxins in plant
+    by the Gene Ontology project (http://www.geneontology.org/)                                    organelle redox metabolism. J. Exp. Bot. 57, 1697–1709.
+                                                                                                                                                                      ª 2012 The Authors
+            Plant Biotechnology Journal ª 2012 Society for Experimental Biology, Association of Applied Biologists and Blackwell Publishing Ltd, Plant Biotechnology Journal, 10, 668–679
+                                                                                                             Aleurone and endosperm transcriptome comparison 679
+Drea, S., Leader, D.J., Arnold, B.C., Shaw, P., Dolan, L. and Doonan, J.H.                    Shen, B., Li, C., Min, Z., Meeley, R.B., Tarczynski, M.C. and Olsen, O.A.
+   (2005) Systematic spatial analysis of gene expression during wheat                            (2003) sal1 determines the number of aleurone cell layers in maize
+   caryopsis development. Plant Cell, 17, 2172–2185.                                             endosperm and encodes a class E vacuolar sorting protein. Proc. Natl.
+Emes, M.J., Bowsher, C.G., Hedley, C., Burrell, M.M., Scrase- Field, E.S. and                    Acad. Sci. USA, 100, 6552–6557.
+   Tetlow, I.J. (2003) Starch synthesis and carbon partitioning in developing                 Stamova, B.S., Laudencia-Chingcuanco, D. and Beckles, D.M. (2009)
+   endosperm. J. Exp. Bot. 54, 569–575.                                                          Transcriptomic analysis of starch biosynthesis in the developing grain of
+Fenech, M., Noakes, M., Clifton, P. and Topping, D. (2005) Aleurone flour                        hexaploid wheat. Int. J. Plant Genomics, 2009, 407426.
+   increases red-cell folate and lowers plasma homocyst(e)ine substantially in                Stein, K., Borowicki, A., Scharlau, D. and Glei, M. (2010) Fermented
+   man. Br. J. Nutr. 93, 353–360.                                                                wheat aleurone induces enzymes involved in detoxification of carcinogens
+Geisler-Lee, J. and Gallie, D.R. (2005) Aleurone cell identity is suppressed                     and in antioxidative defence in human colon cells. Br. J. Nutr. 104, 1101–1111.
+   following connation in maize kernels. Plant Physiol. 139, 204–212.                         Tovar-Mendez, A., Matamoros, M.A., Bustos-Sanmamed, P., Dietz, K.J.,
+Gruis, D.F., Guo, H., Selinger, D., Tian, Q. and Olsen, O.A. (2006) Surface                      Cejudo, F.J., Rouhier, N., Sato, S., Tabata, S. and Becana, M. (2011)
+   position, not signaling from surrounding maternal tissues, specifies                          Peroxiredoxins and NADPH-dependent thioredoxin systems in the model
+   aleurone epidermal cell fate in maize. Plant Physiol. 141, 898–909.                           legume Lotus japonicus. Plant Physiol. 156, 1535–1547.
+Jerkovic, A., Kriegel, A.M., Bradner, J.R., Atwell, B.J., Roberts, T.H. and                   Usadel, B., Nagel, A., Thimm, O., Redestig, H., Blaesing, O.E., Palacios-Rojas,
+   Willows, R.D. (2010) Strategic distribution of protective proteins within                     N., Selbig, J., Hannemann, J., Piques, M.C., Steinhauser, D., Scheible, W.R.,
+   bran layers of wheat protects the nutrient-rich endosperm. Plant Physiol.                     Gibon, Y., Morcuende, R., Weicht, D., Meyer, S. and Stitt, M. (2005)
+   152, 1459–1470.                                                                               Extension of the visualization tool MapMan to allow statistical analysis of
+Laudencia- Chingcuanco, D.L., Stamova, B.S., You, F.M., Lazo, G.R., Beckles,                     arrays, display of corresponding genes, and comparison with known
+   D.M. and Anderson, O.D. (2007) Transcriptional profiling of wheat                             responses. Plant Physiol. 138, 1195–1204.
+   caryopsis development using cDNA microarrays. Plant Mol. Biol., 63, 651–                   Usadel, B., Poree, F., Nagel, A., Lohse, M., Czedik-Eysenberg, A. and Stitt, M.
+   668.                                                                                          (2009) A guide to using MapMan to visualize and compare Omics data in
+Lid, S.E., Gruis, D., Jung, R., Lorentzen, J.A., Ananiev, E., Chamberlin, M.,                    plants: a case study in the crop species, Maize. Plant Cell Environ. 32,
+   Niu, X., Meeley, R., Nichols, S. and Olsen, O.A. (2002) The defective kernel                  1211–1229.
+   1 (dek1) gene required for aleurone cell development in the endosperm of                   Wan, Y., Poole, R.L., Huttly, A.K., Toscano-Underwood, C., Feeney, K.,
+   maize grains encodes a membrane protein of the calpain gene superfamily.                      Welham, S., Gooding, M.J., Mills, C., Edwards, K.J., Shewry, P.R. and
+   Proc. Natl. Acad. Sci. USA, 99, 5460–5465.                                                    Mitchell, R.A. (2008) Transcriptome analysis of grain development in
+Liu, K. (2011) Comparison of lipid content and fatty acid composition and                        hexaploid wheat. BMC Genomics, 9, 121.
+   their distribution within seeds of 5 small grain species. J. Food Sci. 76,                 Wan, Y., Underwood, C., Toole, G., Skeggs, P., Zhu, T., Leverington, M.,
+   C334–C342.                                                                                    Griffiths, S., Wheeler, T., Gooding, M., Poole, R., Edwards, K.J., Gezan, S.,
+Mata, J., Marguerat, S. and Bahler, J. (2005) Post-transcriptional control of                    Welham, S., Snape, J., Mills, E.N., Mitchell, R.A. and Shewry, P.R. (2009)
+   gene expression: a genome-wide perspective. Trends Biochem. Sci. 30,                          A novel transcriptomic approach to identify candidate genes for grain
+   506–514.                                                                                      quality traits in wheat. Plant Biotechnol. J. 7, 401–410.
+McIntosh, G.H., Royle, P.J. and Pointing, G. (2001) Wheat aleurone flour                      Wegel, E., Pilling, E., Calder, G., Drea, S., Doonan, J., Dolan, L. and Shaw, P.
+   increases cecal beta-glucuronidase activity and butyrate concentration and                    (2005) Three-dimensional modelling of wheat endosperm development.
+   reduces colon adenoma burden in azoxymethane-treated rats. J. Nutr. 131,                      New Phytol. 168, 253–262.
+   127–131.                                                                                   Young, T.E. and Gallie, D.R. (2000) Programmed cell death during
+McIntosh, S., Watson, L., Bundock, P.C., Crawford, A.C., White, J., Cordeiro,                    endosperm development. Plant Mol. Biol. 44, 283–301.
+   G.M., Barbary, D., Rooke, L. and Henry, R.J. (2007) SAGE of the                            Young, T.E., Meeley, R.B. and Gallie, D.R. (2004) ACC synthase expression
+   developing wheat Caryopsis. Plant Biotechnol. J. 5, 69–83.                                    regulates leaf performance and drought tolerance in maize. Plant J. 40,
+Morrison, I.N., Kuo, J. and O’ Brien, T.P. (1975a) Histochemistry and fine                       813–825.
+   structure of developing wheat aleurone cells. Planta, 123, 105–116.                        Zdobnov, E.M. and Apweiler, R. (2001) InterProScan – an integration
+Morrison, W.R., Mann, D.L., Soon, W. and Coventry, A.M. (1975b) Selective                        platform for the signature-recognition methods in InterPro. Bioinformatics,
+   extraction and quantitative analysis of non-starch and starch lipids from                     17, 847–848.
+   wheat flour. J. Sci. Food Agric. 26, 507–521.
+Mortazavi, A., Williams, B.A., McCue, K., Schaeffer, L. and Wold, B. (2008)
+   Mapping and quantifying mammalian transcriptomes by RNA-Seq. Nat.                          Supporting information
+   Methods, 5, 621–628.
+                                                                                              Additional Supporting information may be found in the online
+Myhre, S., Tveit, H., Mollestad, T. and Laegreid, A. (2006) Additional gene
+                                                                                              version of this article:
+   ontology structure for improved biological reasoning. Bioinformatics, 22,
+   2020–2027.                                                                                 Figure S1 Level 4 Gene Ontology analysis of all differentially
+Olsen, O.A. (2001) ENDOSPERM DEVELOPMENT: cellularization and Cell Fate                       expressed transcripts at each time point (Total) in comparison
+   Specification. Annu. Rev. Plant Physiol. Plant Mol. Biol. 52, 233–267.
+                                                                                              with transcripts DE at one time point (Only) and those common
+Olsen, O.A. (2004) Nuclear endosperm development in cereals and
+                                                                                              to all time points (All). A, Biological process terms; B, molecular
+   Arabidopsis thaliana. Plant Cell, 16(Suppl), S214–S227.
+Price, R.K., Keaveney, E.M., Hamill, L.L., Wallace, J.M., Ward, M., Ueland,
+                                                                                              function terms; C, cellular component terms. Al, aleurone;
+   P.M., McNulty, H., Strain, J.J., Parker, M.J. and Welch, R.W. (2010)                       En, starchy endosperm.
+   Consumption of wheat aleurone-rich foods increases fasting plasma                          Dataset S1 NCBI ⁄ GEO Submission. Raw Illumina sequencing
+   betaine and modestly decreases fasting homocysteine and LDL-cholesterol                    data files and RNA-Seq analysis files are provided.
+   in adults. J. Nutr. 140, 2153–2157.
+                                                                                              Please note: Wiley-Blackwell are not responsible for the content
+Regvar, M., Eichert, D., Kaulich, B., Gianoncelli, A., Pongrac, P., Vogel-Mikus,
+   K. and Kreft, I. (2011) New insights into globoids of protein storage                      or functionality of any supporting materials supplied by the
+   vacuoles in wheat aleurone using synchrotron soft X-ray microscopy. J.                     authors. Any queries (other than missing material) should be
+   Exp. Bot. 62, 3929–3939.                                                                   directed to the corresponding author for the article.
+ª 2012 The Authors
+Plant Biotechnology Journal ª 2012 Society for Experimental Biology, Association of Applied Biologists and Blackwell Publishing Ltd, Plant Biotechnology Journal, 10, 668–679

@@ -1,0 +1,805 @@
+                                                                                                                             ADVERTISEMENT
+  /                                                                                                                                                                                                                       0
+                                                                                                                                                                                brought to you by
+    NEWS CAREERS       COMMENTARY             JOURNALS
+                                                            .         |        COVID-19                                                                                    University of East An…                                 LOG IN   BECOME A MEMBER
+                                                                                     Current Issue      First release papers    Archive    About          Submit manuscript                                               GET OUR E-ALERTS
+              HOME   ! SCIENCE ! VOL. 345, NO. 6194 ! GENOME INTERPLAY IN THE GRAIN TRANSCRIPTOME OF HEXAPLOID BREAD WHEAT
+              !    | SPECIAL ISSUE RESEARCH ARTICLE
+                                                                                                                                      "#$%                  󡀆   '             CURRENT ISSUE
+              Genome interplay in the grain transcriptome of hexa-
+              ploid bread wheat
+              MATTHIAS PFEIFER, KARL G. KUGLER, SIMEN R. SANDVE, BUJIE ZHAN, HEIDI RUDI, TORGEIR R. HVIDSTEN, INTERNATIONAL WHEAT GENOME SEQUENCING CONSORTIUM,
+              KLAUS F. X. MAYER, AND ODD-ARNE OLSEN     Authors Info & A1liations
+              SCIENCE     18 Jul 2014  Vol 345, Issue 6194  DOI: 10.1126/science.1250091
+                   731        190
+                                                                                                                                         # $ ",
+                  Abstract
+-                                                                                                                                                            &
+                  Allohexaploid bread wheat (Triticum aestivum L.) provides approximately 20% of
+                                                                                                                                                             '
+                  calories consumed by humans. Lack of genome sequence for the three homeolo-
+                  gous and highly similar bread wheat genomes (A, B, and D) has impeded expres-                                                              (
+                  sion analysis of the grain transcriptome. We used previously unknown genome in-                                                            )
+                  formation to analyze the cell type–specific expression of homeologous genes in                                                                              LLPS of FXR1 drives spermiogenesis by activating
+                  the developing wheat grain and identified distinct co-expression clusters reflect-                                                         *                translation of stored mRNAs
+                  ing the spatiotemporal progression during endosperm development. We observed                                                               1
+                                                                                                                                                                              BY JUN-YAN KANG, ZE WEN, ET AL.
+                  no global but cell type– and stage-dependent genome dominance, organization of
+                                                                                                                                                             +                Prokaryotic innate immunity through pattern
+                  the wheat genome into transcriptionally active chromosomal regions, and asym-                                                                               recognition of conserved viral proteins
+                  metric expression in gene families related to baking quality. Our findings give in-                                                                         BY LINYI ALEX GAO, MAX E. WILKINSON, ET AL.
+                  sight into the transcriptional dynamics and genome interplay among individual
+                                                                                                                                                                              Deep-learning seismology
+                  grain cell types in a polyploid cereal genome.
+                                                                                                                                                                              BY S. MOSTAFA MOUSAVI, GREGORY C. BEROZA
+                                                                                                                                                                                                                TABLE OF CONTENTS    !
+              The vast majority (90 to 95%) of wheat produced in the world is the allohexaploid
+                                                                                                                                                                                                      ADVERTISEMENT
+              bread wheat (Triticum aestivum L., 2n = 6x = 42, AABBDD) accounting for ~20% of calo-
+              ries consumed by humans worldwide. Because of global economic and social trends,
+              wheat-processing industries put great emphasis on enhancing specific grain-quality
+              attributes. However, an allopolyploid genome composition requires regulatory mecha-                                                                             LATEST NEWS
+              nisms within the cell that can orchestrate the complex intergenomic gene expression
+              through genetic or epigenetic modifications. This may result in genomic asymmetry                                                                               NEWS     11 AUG 2022
+                                                                                                                                                                              News at a glance: South Korea’s lunar orbiter, the
+              and favored expression of individual genes from specific, single genomes [reviewed in                                                                           U.S. monkeypox response, and a lost Earth-science
+              (1)]. For allopolyploid wheat, partial or complete genome dominance has been indicat-                                                                           satellite
+              ed as affecting traits such as grain size and form. However, the extent and characteris-
+              tics of gene expression divergence between genomes in different tissues at the whole-                                                                           NEWS FEATURE       11 AUG 2022
+                                                                                                                                                                              Are space scientists ready for Starship—the biggest
+              genome level is largely unknown. The lack of a genome sequence for bread wheat that                                                                             rocket ever?
+              could enable the measurement of A, B, and D genome-specific transcription has previ-
+              ously hindered examination (2) of the genetic control of grain components (3, 4).                                                                               NEWS     11 AUG 2022
+                                                                                                                                                                              Your simple throat is the reason you don’t sound like
+                                                                                                                                                                              a chimp
+              The global landscape of endosperm gene expression
+                                                                                                                                                                              NEWS     11 AUG 2022
+              We surveyed the genome-wide patterns of cell-type–specific gene expression, provid-
+                                                                                                                                                                              Mentally exhausted? Study blames buildup of key
+              ing detailed insights into the contributions of the A, B, and D genomes to the grain                                                                            chemical in brain
+              transcriptome. The bread wheat endosperm is composed of three main cell types (Fig.
+              1A) (5). The starchy endosperm (SE) accumulates starch and storage proteins and                                                                                 NEWS     10 AUG 2022
+              forms the bulk of the grain. The aleurone layer (AL) is a single cell layer surrounding                                                                         Nearby star’s midlife crisis illuminates the future of
+                                                                                                                                                                              our own Sun
+              the SE, except on the ventral crease side, where transfer cells (TCs) develop. Aleurone
+              cells accumulate lipids and play an essential role in grain germination, whereas the
+                                                                                                                                                                              SCIENCEINSIDER      10 AUG 2022
+              TCs actively transport sucrose from the photosynthetic tissues to the endosperm and                                                                             How effective is the monkeypox vaccine? Scientists
+              embryo. We applied RNA sequencing (RNA-seq) in order to monitor gene expression in                                                                              scramble for clues as trials ramp up
+              different cell types at three different developmental stages that reflect the progression
+              of starch and storage protein accumulation [10, 20, or 30 days post anthesis (DPA)]
+              (Fig. 1A). The International Wheat Genome Sequencing Consortium (IWGSC) bread                                                                                                           ADVERTISEMENT
+              wheat genome survey sequence and annotation (6) were used as a reference, enabling
+              assignment of the endosperm transcriptome to the three homeologous genomes A, B,
+              and D and allowing the identification of previously unidentified transcripts and iso-
+              forms (7).                                                                                                                                                      RELATED JOBS
+                                                                                                                                                                              Postdoctoral Associate Position in RNA
+                                                                                                                                                                              Turnover
+                                                                                                                                                      % OPEN IN VIEWER        Rutgers University
+                                                                                                                                                                              Piscataway, New Jersey
+                                                                                                                                                                              Assistant Research Professor/Biostatistician -
+                                                                                                                                                                              Radiation Oncology or Immune Effector Cell
+                                                                                                                                                                              (Remote)
+                                                                                                                                                                              City of Hope
+                                                                                                                                                                              Duarte, California
+                                                                                                                                                                              RNA Accelerator Postdoctoral Fellow
+                                                                                                                                                                              BioMedicine Design
+                                                                                                                                                                              P<zer
+                                                                                                                                                                              Andover, Massachusetts
+                                                                                                                                                                                MORE JOBS ▶
+                                                                                                                                                                              RECOMMENDED
+                                                                                                                                                                              RESEARCH ARTICLES       JULY 2014
+                                                                                                                                                                              A chromosome-based draft sequence of the
+                                                                                                                                                                              hexaploid bread wheat (Triticum aestivum) genome
+                                                                                                                                                                              RESEARCH ARTICLES       JULY 2014
+                                                                                                                                                                              Structural and functional partitioning of bread wheat
+                                                                                                                                                                              chromosome 3B
+              Fig. 1 Overview of the wheat endosperm transcriptome.                                                                                                           RESEARCH ARTICLES       AUGUST 2018
+              (A) At 10 DPA, we sampled the whole endosperm (W). At 20 DPA, we also separated the SE, the AL, and the                                                         Shifting the limits in wheat research and breeding
+              TC layer by means of manual dissection. At 30 DPA, the AL adheres tightly to the outermost SE cells, caus-                                                      using a fully annotated reference genome
+              ing aleurone tissue to contain contamination from SE cells (ALSE). (B) The number of wheat genes ex-
+              pressed (dark gray outside line) and not expressed (lighter gray outside line) in endosperm (all cell types
+              and developmental stages), distributed across the three genomes (green, A; purple, B; orange, D). (C) The                                                       REPORTS      JULY 2017
+              number of genes expressed (open bars) and preferentially expressed (solid bars) in each cell type and de-                                                       Wild emmer genome architecture and diversity
+              velopmental stage. Genes are considered preferentially expressed in a sample if they are up-regulated in                                                        elucidate wheat evolution and domestication
+              that sample as compared with the other samples. (D) Hierarchical clustering of gene expression similarities
+              of the samples across all genes. Bootstrap values indicate the strength of the clustering [red, approximately
+              unbiased (au) P value; green, bootstrap probability (bp) P value].
+                                                                                                                                                                                                      ADVERTISEMENT
+              In total, 46,487 out of 85,173 high-confidence (HC) wheat genes [55%; HC1 to HC3 (6)]
+              were expressed during endosperm development (Fig. 1B), which is consistent with ob-
+              servations in Arabidopsis thaliana and barley (8, 9). The number of genes from any
+              genome preferentially expressed in individual cell types and developmental stages
+              [up-regulated compared with the other samples (7)] varied substantially from 136 in
+              TCs 20 DPA to 644 in AL cells 20 DPA (Fig. 1C). Genes that were preferentially ex-
+              pressed in endosperm at 10 DPA were enriched for gene ontology (GO) (10) terms re-
+              lated to carbohydrate metabolic processes and glycolysis (4, 9); AL-specific genes were
+              enriched for lipid metabolism, structural development, carbohydrate metabolic pro-
+              cesses, and amino acid biosynthesis (4); SE-specific genes were enriched for carbohy-
+              drate and saccharide metabolism (11); and TC-specific genes were enriched for prote-
+              olysis and defense-response genes (12). Low numbers of preferentially expressed genes
+              in grain development have also been observed in A. thaliana (8). This suggests that
+              there may be conserved regulatory principles across >100 million years of angiosperm
+              evolution. Moreover, the three wheat genomes contribute about equally to the number
+              of expressed genes in the endosperm as a whole (18 to 19%) (Fig. 1B) in each of the in-
+              dividual cell types and developmental stages (Fig. 1C), as well as to the number of pref-
+              erentially expressed genes in each cell type and stage (Fig. 1C).
+              Morphologically, as well as functionally, aleurone and SE cells are widely different in
+              that aleurone cells accumulate lipid bodies and are desiccation-tolerant, whereas SE
+              cells accumulate starch granules and storage proteins and die toward grain maturation
+              (13). The difference between aleurone cells and SE cells was also apparent from our
+              whole-genome transcriptome analysis, in which aleurone cells exhibit a separate ex-
+              pression cluster from all other samples (Fig. 1D). In addition, gene expression profiles
+              related to the developmental stages were more similar than that of cell type–expres-
+              sion patterns; samples from the 20-DPA stage cluster together (SE, TC, and W at 20
+              DPA), whereas the clean SE sample from 30 DPA (SE at 30 DPA) and endosperm from
+              10 DPA (W at 10 DPA) form separate clusters. Although TCs and SE cells are highly dif-
+              ferent in that TCs have extended cell walls to facilitate sucrose transport, the TC sam-
+              ple clustered with the SE samples, which most likely is due to tightly attached SE cells.
+              Taken together, these observations fit with characterized endosperm cell function and
+              the progression of endosperm development toward grain maturation (5, 13, 14).
+              Spatiotemporal gene expression control
+              Endosperm development progresses through four phases: the syncytial phase, the cel-
+              lularization phase, the differentiation phase, and the maturation phase (13). We identi-
+              fied one group of genes with spatiotemporal unspecific gene expression (cluster 0) and
+              seven clusters of co-expressed genes (clusters I to VII) (Fig. 2). The latter reflected
+              phases of endosperm differentiation and maturation, in which the industrially impor-
+              tant characteristics of the wheat grain are developed. They contained from 2257 to
+              5369 genes (24,826 in total) without evident genome dominance. Each cluster showed
+              clear and distinct characteristics in terms of gene expression profiles, enrichments of
+              preferentially expressed genes, and gene function enrichment (7). For example, cluster
+              I exhibited increased expression in 10 DPA whole endosperm (W) when cell divisions
+              were still occurring in the periphery of the endosperm and the transcription of storage
+              proteins and the accumulation of starch had been initiated. Cluster II was expressed
+              during the early differentiation phase, in which storage protein and starch accumula-
+              tion reach their maximum. Cluster IV included a significant proportion of genes pref-
+              erentially expressed in AL cells 20 DPA and was enriched for processes related to cat-
+              alytic activity, lipid metabolic processes, and carbohydrate metabolism. The remaining
+              clusters were characteristic for specific cell types (IV and VI, AL; III and VII, SE; and V,
+              TCs) in the intermediate (III, IV, and V) and late phase (VI and VII).
+                                                                                                                                                      % OPEN IN VIEWER
+              Fig. 2 Spatiotemporal control of endosperm gene expression.
+              Seven co-expression clusters (nodes I to VII) that span the phases of progression of starch and storage
+              protein accumulation were identified with k-means clustering and spatially arranged so as to reflect the
+              phases of maturation. For homeologous triplets, spatiotemporal differences of expression patterns be-
+              tween individual (triplet) gene members were analyzed (7). Partitioning of expression for individual triplet
+              genes was frequently observed (for example, homeologous A and B genome–encoded genes were located
+              in cluster I, whereas the D genome copy clustered in cluster II). Bidirectional arrows connect pairs of clus-
+              ters with a significant enrichment for expression partitioning among homeologous triplets. Assignment of
+              different triplet members to different co-expression clusters is biased toward spatiotemporally related clus-
+              ters (such as clusters IV and VI, late differentiation and maturation phase of aleurone cells). Gene expres-
+              sion profiles across developmental stages and cell types of each cluster are visualized by use of boxplots.
+              Boxes span the data range between the first and the third quartiles, and the median is represented as hori-
+              zontal lines. Whiskers extend to the most extreme data point, which is no more than 1.5 times the interquar-
+              tile range away from the first and the third quartile.
+              We identified 6576 homeologous gene loci that had exactly one representative member
+              from each genome (referred to as homeologous triplets; 6576 × 3 = 19,728 genes).
+              Among these homeologous triplets, 5939 (88%) had at least one homeolog assigned to
+              one of the co-expression clusters (7). We found that only 28% of the homeologous
+              triplets (1663) had all three homeoalleles assigned to the same co-expression cluster.
+              For 41% (2416) of the triplets, two out of three homeoalleles were assigned to the same
+              co-expression cluster, whereas for the remaining 31% (1860), all homeoalleles fell in
+              separate clusters. Co-expressed homeoalleles were uniformly distributed across
+              genome pairs (A and B, 818 genes, 12%; A and D, 794 genes, 12%; B and D, 804 genes,
+              12%) (7). Therefore, if major expression divergence between A and B homeologs oc-
+              curred in the ancestral tetraploid, our data suggests that this expression divergence
+              has been reprogrammed in the hexaploid genome. Clusters that are spatiotemporally
+              related (for example, early and intermediate development) often shared significant
+              numbers of homeoalleles from the same triplets, whereas functionally different co-ex-
+              pression clusters only rarely did (one-sided Fisher’s exact test with Bonferroni adjust-
+              ed P < 0.05) (Fig. 2). Analyzing homeologous genes with single copies in only two of
+              the genomes gave similar results (7). Therefore, although there is apparent expression
+              divergence among homeologs, most of this divergence is due to nonradical alterations
+              in spatiotemporal expression. Thus sub-functionalization, rather than neo-functional-
+              ization, appears to be occurring among the three bread wheat genomes.
+              Endosperm cell type function and module-associated genome
+              dominance in the grain transcriptional network
+              We carried out analysis of genome-wide expression patterns of the homeologous
+              triplets using principal component analysis and hierarchical clustering. Samples
+              grouped according to genomes rather than cell types (7)—a finding that is consistent
+              with observations of transcriptomes from different wheat organs (6). This result
+              demonstrated that genome-specific gene expression dominates over tissue-specific
+              gene expression also during endosperm development. To gain deeper insights into the
+              transcriptional dynamics of homeologs, we inferred a co-expression network that was
+              partitioned into 25 modules (Fig. 3A) (7). These transcriptional modules display differ-
+              ent spatiotemporal characteristics, as revealed by integrating the information on gene
+              expression at different developmental stages and in different cell types. We found spa-
+              tiotemporal clustering of the network that separated cell types, but also a clustering of
+              grain developmental stages (7). AL-related modules (Fig. 3A, left, turquoise nodes)
+              formed a large cluster of genes that were expressed at 20 and 30 DPA and were en-
+              riched for functions connected to, for example, energy metabolism, vitamin biosynthe-
+              sis, and hydrolase activity. SE-related modules (Fig. 3A, left, red nodes) were more
+              scattered and could be linked to, for example, polysaccharide catabolism, the glyoxy-
+              late cycle, and autophagy. TCs (Fig. 3A, yellow nodes) formed dense, separated clusters
+              enriched for “response to stimulus” functionality. Transcriptional modules enriched
+              for more general functionalities (such as transport or translation) without cell type or
+              developmental phase specificity were also found (Fig. 3A, gray nodes). In total, AL-re-
+              lated modules constituted more than one third of the nodes (2207), whereas the other
+              cell types contributed to a lesser extent (SE, 658 nodes, 11%; TC, 149 nodes, 2%). The
+              remaining nodes grouped either with the early phase of endosperm development or
+              unspecific clusters.
+                                                                                                                                                      % OPEN IN VIEWER
+              Fig. 3 Analysis of homeologous gene expression.
+              (A) The dynamics of homeologous triplet gene expression patterns were captured in a co-expression net-
+              work. Node coloring in the bottom central inset depicts the segmentation into 25 co-expression network
+              modules. The inset denotes the network, with red circles around those modules that were significantly en-
+              riched for hub genes. The transcriptional network is colored for cell type and developmental stage (left) and
+              genome dominance (right) (7). Selected GO categories in the center exemplify the relationship between the
+              spatiotemporal layer and genome asymmetry (green, A; purple, B; orange, D). (B) Significantly enriched bio-
+              logical process GO categories were projected onto a two-dimensional semantic space (7, 16). Semantic
+              representation of GO categories was colored according to the significant overrepresentation in co-expres-
+              sion modules (green, A; purple, B; orange, D). Color intensity reflects significance of enrichment test, with
+              dark colors corresponding to lower P values and white to P > 0.05. Circle radiuses depict the size of aggre-
+              gated GO terms.
+              We tested the transcriptional network for genome asymmetry. Different genomes dom-
+              inated expression for 23 of the modules (92%), and no single genome proved to be
+              overly dominant (Fig. 3A, right) (7). Highly connected genes in the network (hub
+              genes) were significantly more likely to show a genome bias than were non-hub genes
+              (one-sided Fisher’s exact test; P < 0.001). They were significantly enriched in modules
+              that serve as connecting layers among different regions of the network (one-sided
+              Fisher’s exact test; P < 0.001) (Fig. 3A, inset, highlighted red). Because hub genes dis-
+              play characteristic expression profiles for network modules (15), our observations sug-
+              gest that these genes might play an important role in orchestrating genome-specific
+              expression in the grain transcriptome network.
+              We superimposed the observed genome asymmetry to a semantic aggregation (16) of
+              significantly overrepresented GO categories. Both general cellular functions as well as
+              specific functions during bread wheat grain development were attributable to distinct
+              contributions from individual genomes (Fig. 3B). These findings illustrate at least par-
+              tial functional compartmentalization of the endosperm transcriptome among the
+              three genomes.
+              Sequence divergence analysis comparing homeologous gene pairs corroborated the
+              hypothesis of homoploid hybrid speciation of the D genome lineage (7, 17). The num-
+              bers of synonymous substitutions per synonymous site between A-D and B-D homeol-
+              ogous genes were similar and significantly smaller than for homeologous gene pairs
+              from the A and B genomes. Expression profiles of homeologs and expression domi-
+              nance within the co-expression modules were independent of evolutionary history and
+              relatedness (7). This suggests other genetic or epigenetic regulatory mechanisms as
+              the cause of genome asymmetry (18–20).
+              Regulation of endosperm gene expression linked to chromo-
+              somal domains
+              Although the regulation of gene expression is expected to affect genes at different loci
+              in the genome, epigenetic mechanisms often influence neighboring genes (21). To in-
+              vestigate the impact of chromosomal positioning of genes on mRNA abundance, we
+              mapped 57,903 (67%) bread wheat genes to seven Triticeae prototype chromosomes (7)
+              that reflect the inferred ancestral linear gene order in the A, B, and D genomes (22, 23).
+              Along all chromosomes, the gene expression oscillated to form chromosomal domains
+              (24, 25) with only minor divergence between the spatiotemporal endosperm conditions
+              (Fig. 4A) (7). This spatial distribution of gene expression was to a large extent similar
+              between genomes. However, we also observed chromosomal domains with asyn-
+              chronous homeologous expression patterns, which indicates local genome asymmetry
+              affecting neighboring genes (Fig. 4B). One of these domains (Fig. 4, blue rectangle)
+              showed elevated gene expression in the D genome. We also found overrepresentation
+              of differentially expressed homeologous triplets that were dominated by the D genome
+              (Fisher’s exact test; P < 0.05), which excludes gene expression divergence because of
+              variation in local gene content between genomes. Genes located in this chromosomal
+              domain encoded proteins involved in basal cellular processes such as DNA packaging
+              and transport activity. The genome-wide contribution of each genome appears to be
+              balanced, but as well as genetic effects such as variation in gene copy number, there is
+              local genome asymmetry for neighboring genes. This suggests that epigenetic regula-
+              tory mechanisms act differently on particular corresponding domains of homeologous
+              chromosomes.
+                                                                                                                                                      % OPEN IN VIEWER
+              Fig. 4 Local regulatory divergence at chromosomal domains.
+              Distribution of gene expression in 20 DPA AL and 20 DPA SE was analyzed along Triticeae prototype (Tp)
+              chromosome 1 by using a sliding window algorithm (sliding window, size 50 Tp loci and shift 10 Tp loci).
+              (A) Line charts show the median gene expression measured in aleurone and SE cells at 20 DPA. We ob-
+              served a strong correlation between the expression within chromosomal domains among the three
+              genomes. However, in several cases a single genome dominates the expression at specific domains, such
+              as in the region indicated by the rectangle. (B) Heat maps display the pairwise log2-fold changes in gene ex-
+              pression for each window between genomes. Triangles indicate chromosomal regions that are significantly
+              enriched for homeologous triplets up-regulated in a single genome (Fisher’s exact test; P < 0.05). In the
+              marked area, the D genome expression strongly dominates, indicating at a chromosomal-specific regulation
+              of expression.
+              Copy number and homeologous expression in baking-quality
+              genes
+              Our data set enabled us to discriminate between transcripts from A, B, and D homeolo-
+              gous genes and to identify genes encoding major protein families known to affect
+              dough quality (7). Genes identified include the high- and low-molecular-weight
+              glutenin genes (HMW-Glu and LMW-Glu); the α-, γ-, and ω-gliadins (Gli) (14); the
+              grain-hardness locus genes encoding puroindoline A (pin-A) and puroindoline B (pin-
+              B) (26); and last, the storage protein activators (SPAs) (Fig. 5A) (27). For both subunit
+              types of glutenin genes, expression levels varied substantially, reflecting remarkable
+              differences in the contribution of individual genomes to overall gene expression.
+              Whereas the total gene expression of the LMW-Glu was dominated by the B genome
+              (68%), genes of the D genome accounted for two thirds of the total expression of the
+              HMW-Glu subunit. For genes of the A genome, we measured only marginal contribu-
+              tion (2%), which supports the observed inactivation of Glu-A homeoalleles in hexa-
+              ploid wheat (28, 29). We found dominance of the D genome in the wheat hardness lo-
+              cus, including the pin-A and pin-B genes, which are exclusively encoded on the short
+              arm of chromosome 5D (26, 30) and were expressed at high levels, as well as the three
+              homeologous genes of the pin-B2 locus that were expressed at substantially lower lev-
+              els (31). For the single-copy gene in each genome encoding the SPA (27), B genome
+              expression strongly dominated over the expression of the A and the D homeologous
+              gene copies. Although the B and the D genome copies were predominantly expressed
+              at 10 DPA, the A genome–derived SPA allele was almost uniformly expressed at 10 DPA
+              and in SE cells at 20 DPA. For the highly repetitive α-, γ-, and ω-gliadins (32–34), ex-
+              pression levels varied substantially both in the number of genes and their expression
+              levels between the A, B, and D genomes (Fig. 5B). Whereas gene copies of the B and D
+              genome dominated total gene family expression, copies of the A genome accumulated
+              fewer transcripts. For the α-gliadins, encoded on chromosome 6S, we found several
+              gene copies for the A and B genomes, but strikingly, the entire α-Gli locus was absent
+              from the D genome. Most likely, this lack was caused by a previously undescribed dele-
+              tion of a small segment of chromosome 6DS (comprising ~200 genes) (Fig. 5C). We
+              found the corresponding chromosomal region to be present in Aegilops tauschii, which
+              suggests a partial chromosomal deletion that likely occurred after the hybridization
+              event that formed hexaploid bread wheat.
+                                                                                                                                                      % OPEN IN VIEWER
+              Fig. 5 Genome asymmetry in gene families affecting baking quality.
+              Gene family composition and gene expression was analyzed for major seed storage proteins affecting bak-
+              ing quality of bread wheat. (A) Dendrograms depict phylogenetic trees for the SPA, low-molecular-weight
+              glutenin subunit (LMW-Glu), high-molecular-weight glutenin subunit (HMW-Glu), and puroindoline (pin) A, B,
+              and B-2 gene families. ψ indicates genes for which the predicted protein sequence is interrupted by prema-
+              ture stop codons, frame shifts, or repetitive elements (putative pseudogenes). Heat maps depict relative
+              spatiotemporal gene expression, and bar charts visualize the contribution of individual genes and genomes
+              to the total expression measured for each gene family. (B) The bread wheat genome and gene annotation
+              were surveyed for α-, γ-, and ω-gliadin genes (7). Coverage of query gliadin gene sequences is indicated by
+              the connectors. Bar height in the outer circle indicates the relative contribution of all samples to the overall
+              gene expression of the respective family. (C) Comparative analysis between Ae. tauschii and bread wheat
+              revealed a previously undescribed deletion of a small segment on chromosome 6DS in bread wheat “Chi-
+              nese Spring,” including the locus encoding the α-gliadins. Lines connect putative orthologous gene pairs of
+              Ae. tauschii (41) and the three bread wheat genomes as ordered by IWGSC (6).
+              For the inspected gene families, we found large genome-specific variation in the num-
+              ber and abundance of genes, which implies the presence of genomic asymmetry and
+              preferential expression of mostly the B and D genomes. Moreover, we observed dis-
+              crepancies in genome expression dominance in the absence of homeologous counter-
+              parts (α-Gli), potentially indicating trans-regulatory mechanisms and cross-talk be-
+              tween genomes [discussed in (1)]. This comprehensive analysis of major grain-quality
+              gene families in Chinese Spring, although not a wheat used for making bread, illus-
+              trates the utility of measuring the number and expression levels of homologous genes
+              in order to provide a complete picture of relevant genes for a trait under study. Valu-
+              able information of associations between homeologous gene levels and traits of inter-
+              est for wheat breeding, including baking quality, has to be learned from crosses be-
+              tween appropriate genotypes. This asks for future experimentation, and our work and
+              findings build an important foundation that allows monitoring similarities and differ-
+              ences from genomic, transcriptional, and network-derived angles.
+              Conclusions
+              Our findings reveal the complex interplay in gene expression regulation during grain
+              development in the hexaploid bread wheat at several levels. Genome autonomy, asym-
+              metric contribution of genomes to particular functions, as well as indications for regu-
+              lation of chromosomal domains were found. The study forms an important basis for
+              addressing the inter- and intragenomic regulation within a polyploid genome. It en-
+              ables studying the functional output in a wide range of wheat cultivars and under dif-
+              ferent environmental regimes so as to allow the identification of the underlying genet-
+              ic and epigenetic factors and their interplay. This will affect the improvement of agro-
+              nomical and industrial traits of one of the world’s most important crops and contribute
+              to global food security.
+              Materials and methods
+              Plant material and transcriptome sequencing
+              Grains of bread wheat cultivar Chinese Spring were of the same origin as those used
+              for generating the reference genome sequence (6). Plants were grown in two phytotron
+              chambers, and grains were harvested at 10, 20, and 30 DPA and hand-dissected into
+              individual cell types. RNA was isolated and prepared for RNA-seq by using paired-end
+              libraries with 200–base pair inserts for 30 samples with four biological replicates per
+              cell type and time point (two replicates per room) and two additional technical repli-
+              cates. Libraries were sequenced with Illumina HiSeq. 2000 (Illumina, San Diego, Cali-
+              fornia).
+              Gene annotation, RNA-seq mapping, and expression proXling
+              RNA-seq reads were aligned against the repeat-masked chromosome-sorted sequence
+              (CSS) sequence assembly (6) with Bowtie2 (35) and Tophat2 (36). Returned alignments
+              were stringently filtered so as to remove ambiguously mapped reads and read pairs
+              with conflicting alignments. The transcriptome information was used to refine the
+              IWGSC reference gene annotation and to identify endosperm-specific genes and alter-
+              native splicing transcripts following the procedure of (6) and using a reference-guided
+              gene assembly with Cufflinks (37). Gene expression and tests for differentially ex-
+              pressed genes were computed on RNA-seq data by using CuffDiff 2 (38), and expres-
+              sion levels were log2(FPKM+1)–transformed. To exclude small gene fragments and
+              pseudogenes, further statistical analysis was constrained on HC bread wheat genes of
+              the class levels HC1 to HC3 (6). Reproducibility of expression measurements were
+              evaluated based on Pearson’s correlation of gene expression between biological and
+              technical replicates. The accuracy of computed expression levels was elucidated by
+              means of an in silico simulation of an RNA-seq experiment of comparable size. Hierar-
+              chical clustering of gene expression was performed based on Pearson’s correlation dis-
+              tance and average linkage method Preferentially expressed genes were defined by
+              comparing the 95% confidence interval of gene expression and significance tests of
+              differential gene expression (false discovery rate–adjusted P < 0.05) between groups of
+              samples.
+              IdentiXcation of homeologous gene triplets and duplets
+              Homeologous gene triplets were defined by the protein sequence homology between
+              the predicted protein sequences of genes from the A, B, and D genomes [Basic Local
+              Alignment Search Tool, Protein (BLASTP), e value ≤ 10−5, alignment identity ≥90%], re-
+              quiring strictly persistent best-bidirectional hits in all pairwise combinations. Homeol-
+              ogous duplets (one gene copy is absent in one genome) were determined from a global
+              OrthoMCL (39) gene family clustering of individual wheat genomes and A. thaliana
+              (40) and Ae. tauschii (41).
+              IdentiXcation of co-expression clusters and analysis of homeologous genes sub-
+              functionalization
+              k-means clustering was performed by using Pearson’s correlation distance on log2-
+              transformed gene expression levels to group genes that showed similar spatiotemporal
+              expression profiles. Different values for k were validated, and k = 10 was selected as the
+              most appropriate cluster number according to highest overall Silhouette coefficient.
+              Thereby, all co-expression clusters with instable gene-to-cluster assignments and neg-
+              ative Silhouette coefficients were combined to a “zero” cluster. The distribution of
+              homeologous genes among the co-expression clusters was evaluated and tested for a
+              significant number of transitions of homeologs between co-expression clusters by us-
+              ing a one-sided Fisher’s exact test (Bonferroni corrected P < 0.05).
+              Analysis of single-copy homeologous genes
+              For identifying homeologous genes that were significantly differentially expressed be-
+              tween the genomes, we performed a permutation test (1000 iterations) for each condi-
+              tion and genome pairing. To analyze the expression of strict single-copy homeologous
+              genes, expression values from the A, B, and D genomes were concatenated into a
+              triplet expression matrix. A co-expression network was then inferred by using the
+              Weighted Correlation Network Analysis (WGCNA) approach (42), and network modules
+              were defined accordingly (43). Module-related genome dominance and cell type– and
+              stage-specific expression were assessed by use of the presence of differentially ex-
+              pressed homeologs, module-wise gene expression profiles, and correlation of module
+              eigengenes to predefined spatiotemporal expression patterns. We performed function-
+              al analysis for individual modules using the GO terms inferred from the bread wheat
+              gene annotation (6) and hypergeometric tests as implemented in the GOstats package
+              (P < 0.05) (44). These enrichments were summarized and visualized with the REVIGO
+              Web server, which arranges semantically similar GO terms in a two-dimensional space
+              (16). For each genome, we colored those terms, which were significantly enriched in
+              the respective genome-dominated co-expression modules, according to the enrich-
+              ment tests (P values). For sequence-divergence analysis of homeologous genes, we es-
+              timated the number of synonymous substitutions per synonymous site (KS) and the
+              number of nonsynonymous substitutions per nonsynonymous site (KA) based on the
+              pairwise best-scoring protein alignments (BLASTP) (45) using the yn00 module of the
+ PAML 4 suite (46).
+Gene expression along the Triticeae prototype
+The strong conservation of synteny between grass genomes and the availability of
+high-quality grass genomes allowed for an approximation of linear gene order. To po-
+sition the A, B, and D genes in a common sequential order, they were mapped onto
+seven chromosome scaffolds named the Triticeae prototype chromosomes. These arti-
+ficial scaffolds were generated by integrating syntenic genes from Brachypodium (47),
+rice (48), and sorghum (49) by using gene order information from barley (50). Bread
+wheat genes were anchored on the scaffolds by using BLASTP and a first best-hit crite-
+rion. Gene expression distribution along the chromosomes was analyzed by use of a
+sliding window approach and median gene expression.
+IdentiXcation and analysis of wheat grain-quality genes
+Grain-quality genes were identified by use of orthologous genes from Ae. tauschii (41)
+and publically available wheat sequence information deposited at the National Center
+for Biotechnology Information. The corresponding genes within the bread wheat
+genome and gene annotation were defined with BLAST (45) and GenomeThreader (51)
+sequence homology searches as well as OrthoMCL gene family clustering (39). On the
+basis of this collective evidence and considering the RNA-seq alignment information,
+the candidate loci were manually refined. Gene expression for these genes was quanti-
+fied as reads per kilobase per million (RPKM) (52) using HTSeq (www-huber.em-
+bl.de/users/anders/HTSeq) and custom python scripts. Phylogenetic trees were in-
+ferred by using multiple protein sequence alignments (CLUSTALW algorithm) (53), a
+neighborhood-joining algorithm, and the average percentage identity method. Circo-
+letto (54) was used for comparative analysis of bread wheat genome sequences with
+known gliadin query proteins.
+Acknowledgments
+This work was supported by research grant 199387 from the Norwegian Research
+Council to the Norwegian University of Life Sciences and Graminor AS to O.A.O.
+K.F.X.M. acknowledges generous funding by the Deutsche Forschungsgemeinschaft
+(DFG) to project SFB924 “Molecular mechanisms regulating yield and yield stability in
+plants,” the German Federal Ministry of Education and Research (BMBF) in frame of
+the Synbreed project, and the European Commission’s 7th Framework Program in
+frame of the TransPLANT project. The data reported in this paper are tabulated in the
+supplementary materials and archived at the ArrayExpress database www.ebi.ac.uk/ar-
+rayexpress, accession no. E-MTAB-2137. No conflict of interest is known for the au-
+thors of this manuscript regarding data reported herein. S. I. Chi, E. I. Ako, A. Mahara-
+jan, and Ø. Jørgensen are thankfully acknowledged for grain dissection and plant culti-
+vation. We thank P. Langridge, P. Shewry, B. Keller, and two anonymous reviewers for
+helpful suggestions on the manuscript. The RNA-seq was carried out at the Norwegian
+Sequencing Centre of University of Oslo. Graminor AS is acknowledged for generous
+support throughout this work.
+Supplementary Material
+Summary
+Materials and Methods
+Supplementary Text
+Figs. S1 to S25
+Tables S1 to S31
+References (55–69)
+IWGSC Author List
+Resources
+File (pfeifer-sm-tables-s1-s4.xlsx)
+    DOWNLOAD
+File (pfeifer-sm.pdf)
+    DOWNLOAD
+References and Notes
+  1     Feldman M., Levy A. A., Fahima T., Korol A., Genomic asymmetry in allopolyploid plants: Wheat as a
+        model. J. Exp. Bot. 63, 5045–5059 (2012).
+          2 SEE ALL REFERENCES      •  CROSSREF   •   PUBMED •   ISI • GOOGLE SCHOLAR
+  2     Akhunova A. R., Matniyazov R. T., Liang H., Akhunov E. D., Homoeolog-specific transcriptional bias in
+        allopolyploid wheat. BMC Genomics 11, 505 (2010).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+  3     Pellny T. K., Lovegrove A., Freeman J., Tosi P., Love C. G., Knox J. P., Shewry P. R., Mitchell R. A., Cell walls
+        of developing wheat starchy endosperm: Comparison of composition and RNA-Seq transcriptome. Plant
+        Physiol. 158, 612–627 (2012).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+  4     Gillies S. A., Futardo A., Henry R. J., Gene expression in the developing aleurone and starchy endosperm
+        of wheat. Plant Biotechnol. J. 10, 668–679 (2012).
+          2 SEE ALL REFERENCES      •  CROSSREF   •   PUBMED •   ISI • GOOGLE SCHOLAR
+  5     Drea S., Leader D. J., Arnold B. C., Shaw P., Dolan L., Doonan J. H., Systematic spatial analysis of gene ex-
+        pression during wheat caryopsis development. Plant Cell 17, 2172–2185 (2005).
+          2 SEE ALL REFERENCES      •  CROSSREF   •   PUBMED •   ISI • GOOGLE SCHOLAR
+  6     International Wheat Genome Sequencing Consortium, A chromosome-based draft sequence of the hexa-
+        ploid bread wheat genome. Science 345, 1251788 (2014).
+          2 SEE ALL REFERENCES      •  CROSSREF   •   PUBMED •   ISI • GOOGLE SCHOLAR
+  7     Materials and methods are available as supplementary materials on Science Online.
+          2 SEE ALL REFERENCES
+  8     Belmonte M. F., Kirkbride R. C., Stone S. L., Pelletier J. M., Bui A. Q., Yeung E. C., Hashimoto M., Fei J.,
+        Harada C. M., Munoz M. D., Le B. H., Drews G. N., Brady S. M., Goldberg R. B., Harada J. J., Comprehensive
+        developmental profiles of gene activity in regions and subregions of the Arabidopsis seed. Proc. Natl.
+        Acad. Sci. U.S.A. 110, E435–E444 (2013).
+          2 SEE ALL REFERENCES      •  CROSSREF   •   PUBMED •   ISI • GOOGLE SCHOLAR
+  9     Sreenivasulu N., Usadel B., Winter A., Radchuk V., Scholz U., Stein N., Weschke W., Strickert M., Close T.
+        J., Stitt M., Graner A., Wobus U., Barley grain maturation and germination: Metabolic pathway and regu-
+        latory network commonalities and differences highlighted by new MapMan/PageMan profiling tools.
+        Plant Physiol. 146, 1738–1758 (2008).
+          2 SEE ALL REFERENCES      •  CROSSREF   •   PUBMED •   ISI • GOOGLE SCHOLAR
+ 10     Ashburner M., Ball C. A., Blake J. A., Botstein D., Butler H., Cherry J. M., Davis A. P., Dolinski K., Dwight S.
+        S., Eppig J. T., Harris M. A., Hill D. P., Issel-Tarver L., Kasarskis A., Lewis S., Matese J. C., Richardson J. E.,
+        Ringwald M., Rubin G. M., Sherlock G.The Gene Ontology Consortium, Gene ontology: Tool for the unifi-
+        cation of biology. Nat. Genet. 25, 25–29 (2000).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 11     Vensel W. H., Tanaka C. K., Cai N., Wong J. H., Buchanan B. B., Hurkman W. J., Developmental changes in
+        the metabolic protein profiles of wheat endosperm. Proteomics 5, 1594–1611 (2005).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 12     Serna A., Maitz M., O’Connell T., Santandrea G., Thevissen K., Tienens K., Hueros G., Faleri C., Cai G.,
+        Lottspeich F., Thompson R. D., Maize endosperm secretes a novel antifungal protein into adjacent mater-
+        nal tissue. Plant J. 25, 687–698 (2001).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 13     Olsen O. A., Nuclear endosperm development in cereals and Arabidopsis thaliana. Plant Cell 16, S214–
+        S227 (2004).
+          2 SEE ALL REFERENCES      •  CROSSREF   •   PUBMED •   ISI • GOOGLE SCHOLAR
+ 14     Shewry P. R., Halford N. G., Cereal seed storage proteins: Structures, properties and role in grain utiliza-
+        tion. J. Exp. Bot. 53, 947–958 (2002).
+          2 SEE ALL REFERENCES      •  CROSSREF   •   PUBMED •   ISI • GOOGLE SCHOLAR
+ 15     Horvath S., Dong J., Geometric interpretation of gene coexpression network analysis. PLOS Comput. Biol.
+        4, e1000117 (2008).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 16     Supek F., Bošnjak M., Škunca N., Šmuc T., REVIGO summarizes and visualizes long lists of gene ontology
+        terms. PLOS ONE 6, e21800 (2011).
+          2 SEE ALL REFERENCES      •  CROSSREF   •   PUBMED •   ISI • GOOGLE SCHOLAR
+ 17     Marcussen T., et al., Ancient hybridizations among the ancestral genomes of bread wheat. Science 245,
+        1250092 (2014).
+          3 GO TO REFERENCE      •  CROSSREF   •  ISI  • GOOGLE SCHOLAR
+ 18     Comai L., The advantages and disadvantages of being polyploid. Nat. Rev. Genet. 6, 836–846 (2005).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 19     Shitsukawa N., Tahira C., Kassai K., Hirabayashi C., Shimizu T., Takumi S., Mochida K., Kawaura K., Ogi-
+        hara Y., Murai K., Genetic and epigenetic alteration among three homoeologous genes of a class E MADS
+        box gene in hexaploid wheat. Plant Cell 19, 1723–1737 (2007).
+        CROSSREF    • PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 20     Hu Z., Han Z., Song N., Chai L., Yao Y., Peng H., Ni Z., Sun Q., Epigenetic modification contributes to the
+        expression divergence of three TaEXPA1 homoeologs in hexaploid wheat (Triticum aestivum). New Phytol.
+        197, 1344–1352 (2013).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 21     Finnegan E. J., Sheldon C. C., Jardinaud F., Peacock W. J., Dennis E. S., A cluster of Arabidopsis genes with
+        a coordinate response to an environmental stimulus. Curr. Biol. 14, 911–916 (2004).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 22     Moore G., Foote T., Helentjaris T., Devos K., Kurata N., Gale M., Was there a single ancestral cereal chro-
+        mosome? Trends Genet. 11, 81–82 (1995).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 23     Bolot S., Abrouk M., Masood-Quraishi U., Stein N., Messing J., Feuillet C., Salse J., The ‘inner circle’ of the
+        cereal genomes. Curr. Opin. Plant Biol. 12, 119–125 (2009).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 24     Nakabayashi K., Okamoto M., Koshiba T., Kamiya Y., Nambara E., Genome-wide profiling of stored mRNA
+        in Arabidopsis thaliana seed germination: Epigenetic and genetic regulation of transcription in seed.
+        Plant J. 41, 697–709 (2005).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 25     Rustenholz C., Choulet F., Laugier C., Safár J., Simková H., Dolezel J., Magni F., Scalabrin S., Cattonaro F.,
+        Vautrin S., Bellec A., Bergès H., Feuillet C., Paux E., A 3,000-loci transcription map of chromosome 3B
+        unravels the structural and functional features of gene islands in hexaploid wheat. Plant Physiol. 157,
+        1596–1608 (2011).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 26     Morris C. F., Puroindolines: The molecular genetic basis of wheat grain hardness. Plant Mol. Biol. 48, 633–
+        647 (2002).
+          2 SEE ALL REFERENCES      •  CROSSREF   •   PUBMED •   ISI • GOOGLE SCHOLAR
+ 27     Ravel C., Martre P., Romeuf I., Dardevet M., El-Malki R., Bordes J., Duchateau N., Brunel D., Balfourier F.,
+        Charmet G., Nucleotide polymorphism in the wheat transcriptional activator Spa influences its pattern of
+        expression and has pleiotropic effects on grain protein composition, dough viscoelasticity, and grain
+        hardness. Plant Physiol. 151, 2133–2144 (2009).
+          2 SEE ALL REFERENCES      •  CROSSREF   •   PUBMED •   ISI • GOOGLE SCHOLAR
+ 28     Payne P., Lawrence G., Catalogue of alleles for the complex gene loci, Glu-A1, Glu-B1, and Glu-D1 which
+        code for high-molecular-weight subunits of glutenin in hexaploid wheat. Cereal Res. Commun. 11, 29–35
+        (1983).
+          3 GO TO REFERENCE      •  GOOGLE SCHOLAR
+ 29     Thompson R. D., Bartels D., Harberd N. P., Flavell R. B., Characterization of the multigene family coding
+        for HMW glutenin subunits in wheat using cDNA clones. Theor. Appl. Genet. 67, 87–96 (1983).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 30     Chantret N., Salse J., Sabot F., Rahman S., Bellec A., Laubin B., Dubois I., Dossat C., Sourdille P., Joudrier
+        P., Gautier M. F., Cattolico L., Beckert M., Aubourg S., Weissenbach J., Caboche M., Bernard M., Leroy P.,
+        Chalhoub B., Molecular basis of evolutionary events that shaped the hardness locus in diploid and poly-
+        ploid wheat species (Triticum and Aegilops). Plant Cell 17, 1033–1045 (2005).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 31     Wilkinson M., Wan Y., Tosi P., Leverington M., Snape J., Mitchell R. A. C., Shewry P. R., Identification and
+        genetic mapping of variant forms of puroindoline b expressed in developing wheat grain. J. Cereal Sci. 48,
+        722–728 (2008).
+          3 GO TO REFERENCE      •  CROSSREF   •  ISI  • GOOGLE SCHOLAR
+ 32     Dupont F. M., Vensel W. H., Tanaka C. K., Hurkman W. J., Altenbach S. B., Deciphering the complexities of
+        the wheat flour proteome using quantitative two-dimensional electrophoresis, three proteases and tan-
+        dem mass spectrometry. Proteome Sci. 9, 10 (2011).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 33     Anderson O. D., Huo N., Gu Y. Q., The gene space in wheat: The complete γ-gliadin gene family from the
+        wheat cultivar Chinese Spring. Funct. Integr. Genomics 13, 261–273 (2013).
+        CROSSREF    • PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 34     Anderson O. D., Gu Y. Q., Kong X., Lazo G. R., Wu J., The wheat omega-gliadin genes: Structure and EST
+        analysis. Funct. Integr. Genomics 9, 397–410 (2009).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 35     Langmead B., Trapnell C., Pop M., Salzberg S. L., Ultrafast and memory-efficient alignment of short DNA
+        sequences to the human genome. Genome Biol. 10, R25 (2009).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 36     Trapnell C., Pachter L., Salzberg S. L., TopHat: Discovering splice junctions with RNA-Seq. Bioinformatics
+        25, 1105–1111 (2009).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 37     Trapnell C., Williams B. A., Pertea G., Mortazavi A., Kwan G., van Baren M. J., Salzberg S. L., Wold B. J.,
+        Pachter L., Transcript assembly and quantification by RNA-Seq reveals unannotated transcripts and iso-
+        form switching during cell differentiation. Nat. Biotechnol. 28, 511–515 (2010).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 38     Trapnell C., Hendrickson D. G., Sauvageau M., Goff L., Rinn J. L., Pachter L., Differential analysis of gene
+        regulation at transcript resolution with RNA-seq. Nat. Biotechnol. 31, 46–53 (2013).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 39     Li L., Stoeckert C. J., Roos D. S., OrthoMCL: Identification of ortholog groups for eukaryotic genomes.
+        Genome Res. 13, 2178–2189 (2003).
+          2 SEE ALL REFERENCES      •  CROSSREF   •   PUBMED •   ISI • GOOGLE SCHOLAR
+ 40     The Arabidopsis Genome Initiative, Analysis of the genome sequence of the flowering plant Arabidopsis
+        thaliana. Nature 408, 796–815 (2000).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 41     Jia J., Zhao S., Kong X., Li Y., Zhao G., He W., Appels R., Pfeifer M., Tao Y., Zhang X., Jing R., Zhang C., Ma
+        Y., Gao L., Gao C., Spannagl M., Mayer K. F., Li D., Pan S., Zheng F., Hu Q., Xia X., Li J., Liang Q., Chen J.,
+        Wicker T., Gou C., Kuang H., He G., Luo Y., Keller B., Xia Q., Lu P., Wang J., Zou H., Zhang R., Xu J., Gao J.,
+        Middleton C., Quan Z., Liu G., Wang J., Yang H., Liu X., He Z., Mao L., Wang J., Aegilops tauschii draft
+        genome sequence reveals a gene repertoire for wheat adaptation. Nature 496, 91–95 (2013).
+          2 SEE ALL REFERENCES      •  CROSSREF   •   PUBMED •   ISI • GOOGLE SCHOLAR
+ 42     Langfelder P., Horvath S., WGCNA: An R package for weighted correlation network analysis. BMC Bioin-
+        formatics 9, 559 (2008).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 43     Langfelder P., Zhang B., Horvath S., Defining clusters from a hierarchical cluster tree: The Dynamic Tree
+        Cut package for R. Bioinformatics 24, 719–720 (2008).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 44     Falcon S., Gentleman R., Using GOstats to test gene lists for GO term association. Bioinformatics 23, 257–
+        258 (2007).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 45     Altschul S. F., Gish W., Miller W., Myers E. W., Lipman D. J., Basic local alignment search tool. J. Mol. Biol.
+        215, 403–410 (1990).
+          2 SEE ALL REFERENCES      •  CROSSREF   •   PUBMED •   ISI • GOOGLE SCHOLAR
+ 46     Yang Z., PAML 4: Phylogenetic analysis by maximum likelihood. Mol. Biol. Evol. 24, 1586–1591 (2007).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 47     International Brachypodium Initiative, Genome sequencing and analysis of the model grass Brachypodi-
+        um distachyon. Nature 463, 763–768 (2010).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 48     International Rice Genome Sequencing Project, The map-based sequence of the rice genome. Nature 436,
+        793–800 (2005).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 49     Paterson A. H., Bowers J. E., Bruggmann R., Dubchak I., Grimwood J., Gundlach H., Haberer G., Hellsten
+        U., Mitros T., Poliakov A., Schmutz J., Spannagl M., Tang H., Wang X., Wicker T., Bharti A. K., Chapman J.,
+        Feltus F. A., Gowik U., Grigoriev I. V., Lyons E., Maher C. A., Martis M., Narechania A., Otillar R. P., Pen-
+        ning B. W., Salamov A. A., Wang Y., Zhang L., Carpita N. C., Freeling M., Gingle A. R., Hash C. T., Keller B.,
+        Klein P., Kresovich S., McCann M. C., Ming R., Peterson D. G., Mehboob-ur-Rahman D., Ware P., Westhoff
+        K. F., Mayer J., Messing D. S., Rokhsar, The Sorghum bicolor genome and the diversification of grasses.
+        Nature 457, 551–556 (2009).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 50     Mayer K. F., Martis M., Hedley P. E., Simková H., Liu H., Morris J. A., Steuernagel B., Taudien S., Roessner
+        S., Gundlach H., Kubaláková M., Suchánková P., Murat F., Felder M., Nussbaumer T., Graner A., Salse J.,
+        Endo T., Sakai H., Tanaka T., Itoh T., Sato K., Platzer M., Matsumoto T., Scholz U., Dolezel J., Waugh R.,
+        Stein N., Unlocking the barley genome by chromosomal and comparative genomics. Plant Cell 23, 1249–
+        1263 (2011).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 51     Gremme G., Brendel V., Sparks M. E., Kurtz S., Engineering a software tool for gene structure prediction
+        in higher organisms. Inf. Softw. Technol. 47, 965–978 (2005).
+          3 GO TO REFERENCE      •  CROSSREF   •  ISI  • GOOGLE SCHOLAR
+ 52     Mortazavi A., Williams B. A., McCue K., Schaeffer L., Wold B., Mapping and quantifying mammalian tran-
+        scriptomes by RNA-Seq. Nat. Methods 5, 621–628 (2008).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 53     Larkin M. A., Blackshields G., Brown N. P., Chenna R., McGettigan P. A., McWilliam H., Valentin F., Wal-
+        lace I. M., Wilm A., Lopez R., Thompson J. D., Gibson T. J., Higgins D. G., Clustal W and Clustal X version
+        2.0. Bioinformatics 23, 2947–2948 (2007).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 54     Darzentas N., Circoletto: Visualizing sequence similarity with Circos. Bioinformatics 26, 2620–2621
+        (2010).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 55     Min X. J., Butler G., Storms R., Tsang A., OrfPredictor: Predicting protein-coding regions in EST-derived
+        sequences. Nucleic Acids Res. 33 (Web Server), W677–W680 (2005).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 56     Schnable P. S., Ware D., Fulton R. S., Stein J. C., Wei F., Pasternak S., Liang C., Zhang J., Fulton L., Graves
+        T. A., Minx P., Reily A. D., Courtney L., Kruchowski S. S., Tomlinson C., Strong C., Delehaunty K., Fronick
+        C., Courtney B., Rock S. M., Belter E., Du F., Kim K., Abbott R. M., Cotton M., Levy A., Marchetto P., Ochoa
+        K., Jackson S. M., Gillam B., Chen W., Yan L., Higginbotham J., Cardenas M., Waligorski J., Applebaum E.,
+        Phelps L., Falcone J., Kanchi K., Thane T., Scimone A., Thane N., Henke J., Wang T., Ruppert J., Shah N.,
+        Rotter K., Hodges J., Ingenthron E., Cordes M., Kohlberg S., Sgro J., Delgado B., Mead K., Chinwalla A.,
+        Leonard S., Crouse K., Collura K., Kudrna D., Currie J., He R., Angelova A., Rajasekar S., Mueller T., Lomeli
+        R., Scara G., Ko A., Delaney K., Wissotski M., Lopez G., Campos D., Braidotti M., Ashley E., Golser W., Kim
+        H., Lee S., Lin J., Dujmic Z., Kim W., Talag J., Zuccolo A., Fan C., Sebastian A., Kramer M., Spiegel L.,
+        Nascimento L., Zutavern T., Miller B., Ambroise C., Muller S., Spooner W., Narechania A., Ren L., Wei S.,
+        Kumari S., Faga B., Levy M. J., McMahan L., Van Buren P., Vaughn M. W., Ying K., Yeh C. T., Emrich S. J., Jia
+        Y., Kalyanaraman A., Hsia A. P., Barbazuk W. B., Baucom R. S., Brutnell T. P., Carpita N. C., Chaparro C.,
+        Chia J. M., Deragon J. M., Estill J. C., Fu Y., Jeddeloh J. A., Han Y., Lee H., Li P., Lisch D. R., Liu S., Liu Z.,
+        Nagel D. H., McCann M. C., SanMiguel P., Myers A. M., Nettleton D., Nguyen J., Penning B. W., Ponnala L.,
+        Schneider K. L., Schwartz D. C., Sharma A., Soderlund C., Springer N. M., Sun Q., Wang H., Waterman M.,
+        Westerman R., Wolfgruber T. K., Yang L., Yu Y., Zhang L., Zhou S., Zhu Q., Bennetzen J. L., Dawe R. K.,
+        Jiang J., Jiang N., Presting G. G., Wessler S. R., Aluru S., Martienssen R. A., Clifton S. W., McCombie W. R.,
+        Wing R. A., Wilson R. K., The B73 maize genome: Complexity, diversity, and dynamics. Science 326, 1112–
+        1115 (2009).
+        CROSSREF    • PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 57     Tatusov R. L., Koonin E. V., Lipman D. J., A genomic perspective on protein families. Science 278, 631–637
+        (1997).
+        CROSSREF    • PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 58     Binsl T. W., Mullen K. M., van Stokkum I. H., Heringa J., van Beek J., FluxSimulator: An R package to simu-
+        late isotopomer distributions in metabolic networks. J. Stat. Softw. 18, 1–18 (2007).
+        CROSSREF    • ISI • GOOGLE SCHOLAR
+ 59     Suzuki R., Shimodaira H., Pvclust: An R package for assessing the uncertainty in hierarchical clustering.
+        Bioinformatics 22, 1540–1542 (2006).
+        CROSSREF    • PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 60     Rousseeuw P. J., Silhouettes: A graphical aid to the interpretation and validation of cluster analysis. J.
+        Comput. Appl. Math. 20, 53–65 (1987).
+        CROSSREF    • ISI • GOOGLE SCHOLAR
+ 61     Yip A. M., Horvath S., Gene network interconnectedness and the generalized topological overlap mea-
+        sure. BMC Bioinformatics 8, 22 (2007).
+        CROSSREF    • PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 62     Shannon P., Markiel A., Ozier O., Baliga N. S., Wang J. T., Ramage D., Amin N., Schwikowski B., Ideker T.,
+        Cytoscape: A software environment for integrated models of biomolecular interaction networks. Genome
+        Res. 13, 2498–2504 (2003).
+        CROSSREF    • PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 63     Csardi G., Nepusz T., The igraph software package for complex network research. InterJournal Complex
+        Systems 1695, 1695 (2006).
+        GOOGLE SCHOLAR
+ 64     Mayer K. F., Taudien S., Martis M., Simková H., Suchánková P., Gundlach H., Wicker T., Petzold A., Felder
+        M., Steuernagel B., Scholz U., Graner A., Platzer M., Dolezel J., Stein N., Gene content and virtual gene
+        order of barley chromosome 1H. Plant Physiol. 151, 496–505 (2009).
+        CROSSREF    • PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 65     Salse J., Bolot S., Throude M., Jouffe V., Piegu B., Quraishi U. M., Calcagno T., Cooke R., Delseny M., Feuil-
+        let C., Identification and characterization of shared duplications between rice and wheat provide new in-
+        sight into grass genome evolution. Plant Cell 20, 11–24 (2008).
+        CROSSREF    • PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 66     Hernandez P., Martis M., Dorado G., Pfeifer M., Gálvez S., Schaaf S., Jouve N., Šimková H., Valárik M.,
+        Doležel J., Mayer K. F., Next-generation sequencing and syntenic integration of flow-sorted arms of
+        wheat chromosome 4A exposes the chromosome structure and gene content. Plant J. 69, 377–386 (2012).
+        CROSSREF    • PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 67     Miftahudin K., Ross K., Ma X. F., Mahmoud A. A., Layton J., Milla M. A., Chikmawati T., Ramalingam J.,
+        Feril O., Pathan M. S., Momirovic G. S., Kim S., Chema K., Fang P., Haule L., Struxness H., Birkes J.,
+        Yaghoubian C., Skinner R., McAllister J., Nguyen V., Qi L. L., Echalier B., Gill B. S., Linkiewicz A. M., Dub-
+        covsky J., Akhunov E. D., Dvorák J., Dilbirligi M., Gill K. S., Peng J. H., Lapitan N. L., Bermudez-Kandianis
+        C. E., Sorrells M. E., Hossain K. G., Kalavacharla V., Kianian S. F., Lazo G. R., Chao S., Anderson O. D., Gon-
+        zalez-Hernandez J., Conley E. J., Anderson J. A., Choi D. W., Fenton R. D., Close T. J., McGuire P. E.,
+        Qualset C. O., Nguyen H. T., Gustafson J. P., Analysis of expressed sequence tag loci on wheat chromo-
+        some group 4. Genetics 168, 651–663 (2004).
+        CROSSREF    • PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 68     Devos K. M., Dubcovsky J., Dvořák J., Chinoy C. N., Gale M. D., Structural evolution of wheat chromo-
+        somes 4A, 5A, and 7B and its impact on recombination. Theor. Appl. Genet. 91, 282–288 (1995).
+        CROSSREF    • PUBMED   • ISI  •  GOOGLE SCHOLAR
+ 69     Waterhouse A. M., Procter J. B., Martin D. M., Clamp M., Barton G. J., Jalview Version 2—A multiple se-
+        quence alignment editor and analysis workbench. Bioinformatics 25, 1189–1191 (2009).
+          3 GO TO REFERENCE      •  CROSSREF   •  PUBMED   • ISI  •  GOOGLE SCHOLAR
+eLetters (0)
+eLetters is an online forum for ongoing peer review. Submission of eLetters are open to all.
+eLetters are not edited, proofread, or indexed. Please read our Terms of Service before submitting
+your own eLetter.
+    LOG IN TO SUBMIT A RESPONSE
+No eLetters have been published for this article yet.
+ Recommended articles from TrendMD
+ Shifting the limits in wheat research and breeding                Transcriptome analysis of wheat grain using RNA-
+ using a fully annotated reference genome                          Seq
+ The International Wheat Genome Sequencing                         Liu WEI et al., Frontiers of Agricultural Science and
+ Consortium et al., Science, 2018                                  Engineering, 2014
+ Genome mapping of seed-borne allergens and                        Genomic Identification of Low-Density
+ immunoresponsive proteins in wheat                                Granulocytes and Analysis of Their Role in the
+ Angéla Juhász et al., Sci Adv, 2018                               Pathogenesis of Systemic Lupus Erythematosus
+                                                                   Brian J. Kegerreis et al., J Immunol, 2019
+ The transcriptional landscape of polyploid wheat
+ R. H. Ramírez-González et al., Science, 2018                      Evidence for Ig Light Chain Isotype Exclusion in
+                                                                   Shark B Lymphocytes Suggests Ordered
+ Early allopolyploid evolution in the post-Neolithic               Mechanisms
+ Brassica napus oilseed genome                                     Anna Iacoangeli et al., J Immunol, 2017
+ Boulos Chalhoub et al., Science, 2014
+                                                                   The role of genomic structural variation in the
+ Genome-Wide Demethylation of Arabidopsis                          genetic improvement of polyploid crops
+ Endosperm                                                         Sarah-Veronica Schiessl et al., The Crop Journal,
+ Tzung-Fu Hsieh et al., Science, 2009                              2019
+                                                                   Exploring the mechanisms behind long noncoding
+                                                                   RNAs and cancer
+                                                                   Balas et al., Non-coding RNA Research, 2018
+Powered by
+View Full Text       Download PDF
+NEWS                                    CAREERS                                COMMENTARY                           JOURNALS                       AUTHORS & REVIEWERS       FOLLOW US
+All News                                Careers Articles                       Opinion                              Science                        Information for Authors
+ScienceInsider                          Find Jobs                              Analysis                             Science Advances               Information for Reviewers   4            5           (
+News Features                           Employer Prosles                       Blogs                                Science Immunology
+Subscribe to News from Science                                                                                      Science Robotics
+News from Science FAQ                                                                                               Science Signaling
+                                                                                                                                                                               6            7           󡀆
+About News from Science                                                                                             Science Translational Medicine
+                                                                                                                    Science Partner Journals
+LIBRARIANS                              ADVERTISERS                            RELATED SITES                        ABOUT US                       HELP
+                                                                                                                                                                             © 2022 American Association
+Manage Your Institutional               Advertising Kits                       AAAS.org                             Leadership                     FAQs                      for the Advancement of Science.
+Subscription                            Custom Publishing Info                 AAAS Communities                     Work at AAAS                   Access and Subscriptions  All rights reserved. AAAS is a
+Library Admin Portal                                                                                                                                                         partner of HINARI, AGORA,
+                                        Post a Job                             EurekAlert!                          Prizes and Awards              Order a Single Issue
+                                                                                                                                                                             OARE, CHORUS, CLOCKSS,
+Request a Quote                                                                Science in the Classroom                                            Reprints and Permissions  CrossRef and COUNTER. Science
+Librarian FAQs                                                                                                                                     TOC Alerts and RSS Feeds  ISSN 0036-8075.
+                                                                                                                                                   Contact Us
+Terms of Service | Privacy Policy | Accessibility

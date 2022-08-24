@@ -52,11 +52,18 @@ class File(object):
 
     def create_text_article(self, name):
         with open(name) as f:
+           # first_line = f.readline()
+           # print('first line', first_line)
+
             log = f.readlines()
         text_article = ''
         for line in log:
             text_article += line
         return text_article
+
+
+
+    #publication date, keywords: Published:, Accepted:, first sentence year date, avoid references, Received:
 
     # TODO the create_text_article should return just the text_article as we need it for other functions
     #  maybe see if create_text_file function can run the create_text_article function first and add the extra line for tokenisation
@@ -85,24 +92,25 @@ class File(object):
                 print('found query match with bigram match', " | " + onto_id + " | " + query)
                 bigram_matches.append(query + " | " + onto_id)
         print(bigram_matches)
-        return (bigram_matches)
+        return bigram_matches
 
     def find_ngrams(self, data_tokenised, dict_po):
         ngram_matches = []
         n = 6
         for i in range(1, n + 1):
             n_grams = list(ngrams(data_tokenised, i))
-            print(i, n_grams)
+            #print(i, n_grams)
             res = [' '.join(tups) for tups in n_grams]
-            print('res', i, res)
+            #print('res', i, res)
             for query, onto_id in dict_po.items():
                 if query in res:
-                    print('found ontology match with n_gram match', " | ", i, onto_id + " | " + query)
-                    ngram_matches.append(query + " | " + onto_id)
-        print(ngram_matches)
+                    #print('found ontology match with n_gram match', " | ", i, onto_id + " | " + query)
+                    ngram_matches.append((query,onto_id))
+        #print(ngram_matches)
         return ngram_matches
 
-    def get_all_phrases_containing_tar_wrd(self, target_word, tar_passage, left_margin=30, right_margin=30):
+    def get_all_phrases_containing_tar_wrd(self, target_word, tar_passage, left_margin=5, right_margin=5):
+        # code for this function adjusted from https://simply-python.com/2014/03/14/saving-output-of-nltk-text-concordance/
         ## Create list of tokens using nltk function
         tokens = nltk.word_tokenize(tar_passage)
 
@@ -138,14 +146,17 @@ class File(object):
                 metadata = []
                 for hit in soup.find_all("value"):
                     metadata.append(hit.text.strip())
-                print('this is metadata', metadata)
+                #print('this is metadata', metadata)
             return set_article_accession_numbers, metadata
 
+
+    #to bypass issue with EBI blocking API-Request if too many hits in a short period of time for the same search
+    #from the same IP address
     def processing_xml(self, article_text):
         accession_url = "https://www.ebi.ac.uk/arrayexpress/xml/v3/experiments/"
         accession_numbers_in_article = re.findall("E-[A-Z]{4}-[0-9]*", article_text)
         set_article_accession_numbers = set(accession_numbers_in_article)  # {'E-MTAB-1729'}
-        print(set_article_accession_numbers)
+        #print(set_article_accession_numbers)
         if len(set_article_accession_numbers) == 0:
             return None
         else:
@@ -162,15 +173,13 @@ class File(object):
                         metadata = []
                         for hit in soup.find_all("value"):
                             metadata.append(hit.text.strip())
-                        print('this is metadata', metadata)
+                        #print('this is XML metadata under the <value> tag', metadata)
 
 
                     except:
-                        print("Connection refused by the server...")
-                        print("Let me sleep for 5 seconds")
-                        print("ZZzzzz")
+                        print("Connection refused by the server...will retry in 5 seconds")
                         time.sleep(5)
-                        print("this was a nice sleep, now let me continue...")
+                        print("5 seconds have passed, now let me continue...")
                         continue
 
                         #getxml = requests.request('GET', api_url_concatenated)
@@ -181,7 +190,7 @@ class File(object):
                         metadata = []
                         for hit in soup.find_all("value"):
                             metadata.append(hit.text.strip())
-                        print('this is metadata', metadata)
+                        #print('this is XML metadata under the <value> tag', metadata)
                 return set_article_accession_numbers, metadata
 
     def find_project_accession_number(self, article_text, accession_url):
@@ -197,6 +206,10 @@ class File(object):
                 file.writelines(getxml.text)
                 file.close()
             return project_accession_number
+
+
+    #TODO function that compares the output of ontologies found in the paper, and those in xml file. See if there is any overlap
+    # and compute a score based on that. e.g. if any overlap add 2 points in the score
 
 
 # returning sentences containing particular phrases: e.g. "Supporting data"
@@ -215,8 +228,8 @@ for line in open('plant-ontology-dev.txt'):
     if len(split) > 2:
         po_dict[split[1]] = split[0]
 
-header = ['name', 'ngram matches in the article', 'array express number', 'project accession number', 'score for ontology matching at xml file',
-          'ontology matches between XML file and ontology database', 'score for finding Project Accession number', 'Reproducibility Metric Score (RMS)']
+header = ['name', 'ngram matches in the article', 'array express number', 'project accession number', 'XML metadata',
+          'ontology matches between XML file and ontology database', 'common ontologies', 'score for ontology matching at xml file', 'score for finding Project Accession number', 'Reproducibility Metric Score (RMS)']
 
 with open('scores.csv', 'w', encoding='UTF8', newline='') as f:
     writer = csv.writer(f)
@@ -226,13 +239,11 @@ with open('scores.csv', 'w', encoding='UTF8', newline='') as f:
 
 
 def main(articlename):
-    print("working on pdf article file named:", articlename)
     file1 = File(articlename)
 
     convertpdf = file1.convert_pdf_to_text(file1.name)
     textarticlecreation = file1.create_text_file(convertpdf)
     text_article = file1.create_text_article(convertpdf)
-
     ngram_matches = file1.find_ngrams(textarticlecreation, po_dict)
 
     from sklearn.feature_extraction.text import CountVectorizer
@@ -247,40 +258,31 @@ def main(articlename):
     phrases_from_article = []
     for word in data_reproducibility_keywords:
         phrases_from_article = file1.get_all_phrases_containing_tar_wrd(word, text_article)
-        print('phrases from text article:', word,
-              phrases_from_article)  # it doesn't return all the occurences or the complete
+       # phrases_from_article.append(file1.get_all_phrases_containing_tar_wrd(word, text_article))
+       # print('phrases in article', phrases_from_article)
+       # print('phrases from text article:', word, phrases_from_article)
+
+        # it doesn't return all the occurences or the complete
         # sentences because it is two column text.
-
-    # TODO run the working version of code_text_ontology_copy code to see what the function fetching the phraes does, coz here it returns empty list
-    # TODO 1. copy from Github the old code_text_ontology_copy.py code, 2. run it, 3. compare the outputs here 4. solve the code you go it
-
-    # TODO how to compensate for the two column text? is there a parameter with pdf2text that can bypass this?
-
-    # find_phrases = file1.regex_search('ontopaper_usecase.pdf.txt', 'accession number')
-
-    # TODO add the punctuation and stopwords code
-    # examples of keywords in the onto {} (Plant ontologies dictionary) have punctuation, thus keep punctuation in tokens.
-    # e.g. 'root-derived cultured plant cell': 'PO:0000008'
-
-
-#TODO need to fix this: requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.ebi.ac.uk', port=443): Max retries exceeded with url: /arrayexpress/xml/v3/experiments/E-MTAB-1729 (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x129e2c090>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+        #TODO produce a list instead of printing them individually
 
 
     #xml_metadata = file1.processing_array_express_info(text_article)
     xml_metadata = file1.processing_xml(text_article)
 
     score_for_xml_ontology_matching = 0
+    xml_and_onto_matching =[]
     if xml_metadata is not None:
         if len(xml_metadata) == 0:
             print('xml metadata is empty')
         else:
             for query, onto_id in po_dict.items():
                 if query in xml_metadata[1]:
-                    print('found matches between PO onto dict and xml metadata:', query,
-                          onto_id)  # these should be tabulated as well.
-                    xml_and_onto_matching = [query, onto_id]
+                    #print('found matches between PO onto dict and xml metadata:', query, onto_id)
+                    #xml_and_onto_matching = [query, onto_id]
+                    xml_and_onto_matching.append((query, onto_id))
                     score_xml = score_for_xml_ontology_matching + 1
-                    print('this is score xml', score_xml)
+                    #print('this is score xml', score_xml)
                     array_express_number = xml_metadata[0]
     else:
         score_xml = score_for_xml_ontology_matching
@@ -309,7 +311,7 @@ def main(articlename):
 
     project_url_to_concatenate = 'https://www.ebi.ac.uk/ena/browser/api/xml/'
     project_accession = file1.find_project_accession_number(text_article, project_url_to_concatenate)
-    print('this is project accesssion number', project_accession)
+    #print('this is project accesssion number', project_accession)
 
     # TODO can add scoring for the find_project_accession_number. But do I have a function separately depending
     #  on the value of project_accession? or whilst running the command to run the function find_project_accession_number
@@ -328,10 +330,38 @@ def main(articlename):
         print('could not find a Project Accession')
         score_for_finding_project_accession_number = score_for_project_accession_number
 
+    xml_metadata = file1.processing_xml(text_article)
+#TODO why two different scores? not supposed to be score = score + 2?
+
+    #common ontologies comparison between the ontologies found in research article and XML metadata
+    #check if any of the lists is not empty (NoneType) to error-proof TypeError: argument of type 'NoneType' is not iterable
+    common_ontologies = ''
+    score_for_finding_common_ontologies_between_journal_xml = 0
+    if xml_and_onto_matching and ngram_matches is not None:
+        print(ngram_matches, xml_and_onto_matching)
+        for tuple_element in ngram_matches:
+            #print('tuple element',tuple_element)
+            if tuple_element in xml_and_onto_matching:
+                print('common tuple elements/ontologies',tuple_element)
+                common_ontologies = tuple_element
+                score_for_finding_common_ontologies_between_journal_xml = score_for_finding_common_ontologies_between_journal_xml + 2
+               #will this add more scores as it finds more matches?
+    print('score for common ontologies', score_for_finding_common_ontologies_between_journal_xml)
+
+    # score_for_finding_common_elements = 0
+    # if common_ontologies is not None:
+    #     if len(common_ontologies) == 0:
+    #         print('the common elements:', common_ontologies)
+    #     else:
+    #         score_for_finding_common_elements = score_for_finding_common_elements + 2
+    # else:
+    #     print('could not find any common elements')
+    #     score_for_finding_common_elements = score_for_finding_common_elements
+
     # TODO check the score for ontology matching xml file and 'score for ontology matching between xml file and ontology database'. are they the same? what about article onto file match?
 
     # header = ['name', 'ngram matches in the article', 'project accession number','score for ontology matching at xml file', 'ontology matches between XML file and ontology database', 'score for finding Project Accession number']
-    data = [[file1.name, ngram_matches, array_express_number, project_accession, score_xml, xml_and_onto_matching, score_for_finding_project_accession_number, (score_xml+score_for_finding_project_accession_number)]]
+    data = [[file1.name, ngram_matches, array_express_number, project_accession, xml_metadata, xml_and_onto_matching, common_ontologies, score_xml, score_for_finding_project_accession_number,  (score_xml+score_for_finding_project_accession_number)]]
 
     with open('scores.csv', 'a', encoding='UTF8', newline='') as f:
         writer = csv.writer(f)
@@ -343,34 +373,11 @@ def main(articlename):
         writer.writerows(data)
 
 
-
 if __name__ == "__main__":
 
     for file in os.listdir("papers_collection_folder"):
         if file.endswith(".pdf"):
-            print(os.path.join("papers_collection_folder", file))
+            #print(os.path.join("papers_collection_folder", file))
             print(file)
             main(file)
 
-
-
-'''
-
-if __name__ == "__main__":
-    yourpath = os.getcwd()
-    data_folder = Path("papers_collection_folder")
-    text_article_folder = Path("text_article_folder")
-
-    folder = yourpath / Path(data_folder)
-    files_in_folder = data_folder.iterdir()
-    for item in files_in_folder:
-        if item.is_file():
-            pdfarticlename = item.name
-            print(pdfarticlename)
-
-        main(pdfarticlename)
-
-
-# can this pdfarticlename be fed from main.py??? item.name (for item being the pdf article file in the article folder?)
-
-'''

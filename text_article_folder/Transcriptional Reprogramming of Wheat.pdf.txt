@@ -1,0 +1,808 @@
+Transcriptional Reprogramming of Wheat and the
+Hemibiotrophic Pathogen Septoria tritici during Two
+Phases of the Compatible Interaction
+Fen Yang1*☯, Wanshun Li2☯, Hans J. L. Jørgensen1
+1 Department of Plant and Environmental Sciences, Faculty of Science, University of Copenhagen, Frederiksberg, Denmark, 2 BGI-Tech, BGI, Shenzhen,
+China
+     Abstract
+     The disease septoria leaf blotch of wheat, caused by fungal pathogen Septoria tritici, is of worldwide concern. The
+     fungus exhibits a hemibiotrophic lifestyle, with a long symptomless, biotrophic phase followed by a sudden transition
+     to necrotrophy associated with host necrosis. Little is known about the systematic interaction between fungal
+     pathogenicity and host responses at specific growth stages and the factors triggering the transition. In order to gain
+     some insights into global transcriptome alterations in both host and pathogen during the two phases of the
+     compatible interaction, disease transition was monitored using pathogenesis-related gene markers and H2O2
+     signature prior to RNA-Seq. Transcriptome analysis revealed that the slow symptomless growth was accompanied by
+     minor metabolic responses and slightly suppressed defences in the host, whereas necrotrophic growth was
+     associated with enhanced host responses involving energy metabolism, transport, signalling, defence and oxidative
+     stress as well as a decrease in photosynthesis. The fungus expresses distinct classes of stage-specific genes
+     encoding potential effectors, probably first suppressing plant defence responses/facilitating the symptomless growth
+     and later triggering life style transition and inducing host necrosis/facilitating the necrotrophic growth. Transport,
+     signalling, anti-oxidative stress mechanisms and apoplastic nutrient acquisition play important roles in the entire
+     infection process of S. tritici. Our findings uncover systematic S. tritici-induced expression profiles of wheat related to
+     specific fungal infection strategies and provide a transcriptome resource for studying both hosts and pathogens in
+     plant-Dothideomycete interactions.
+  Citation: Yang F, Li W, Jørgensen HJL (2013) Transcriptional Reprogramming of Wheat and the Hemibiotrophic Pathogen Septoria tritici during Two
+  Phases of the Compatible Interaction. PLoS ONE 8(11): e81606. doi:10.1371/journal.pone.0081606
+  Editor: Yong-Hwan Lee, Seoul National University, Korea, Republic Of
+  Received June 24, 2013; Accepted October 15, 2013; Published November 26, 2013
+  Copyright: © 2013 Yang et al. This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits
+  unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.
+  Funding: This work was supported by a postdoctoral grant from the Danish Research Council for Technology and Production (11-105997) to Dr. Fen
+  Yang. The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.
+  Competing interests: The authors have declared that no competing interests exist.
+  * E-mail: yangf@plen.ku.dk
+  ☯ These authors contributed equally to this work.
+Introduction                                                                        process involves cell-wall degradation and accumulation of
+                                                                                    H2O2, resulting in massive collapse of mesophyll tissue,
+   Septoria tritici (teleomorph Mycosphaerella graminicola) is                      leakage of nutrients from dying plant cells into the apoplastic
+the causal agent of septoria leaf blotch, a foliar disease of                       spaces, rapid increase of fungal biomass and sporulation in
+wheat (Triticum aestivum) that poses a significant threat to                        characteristic necrotic foliar blotches [3,5,7,8]. The key features
+global food production [1]. S. tritici penetrates host leaves                       of this fungus, distinguishing it from most other current models,
+through the stomata and grows slowly as filamentous hyphae                          are a very long period of symptomless growth prior to a rapid
+in the intercellular spaces between the wheat mesophyll cells,                      transition to necrotrophy and that it remains extracellular with
+typically up to 9–11 days [2,3]. Subsequently, the fungus                           respect to host cells during the entire infection process without
+exhibits a rapid switch to necrotrophy immediately prior to                         forming any specialised feeding structures [2,3,6]. However,
+symptom expression at 12–20 days after penetration [3–5].                           the molecular basis underlying this transition remains unclear.
+This transition is associated with induction of host defence                        This basis includes what the pathogen relies on to facilitate the
+responses that have been suggested to share characteristics                         long initial symptomless growth and subsequently trigger the
+with host programmed cell death (PCD) and differential                              transition of its lifestyle associated with host cell death and how
+regulation of signalling pathways [4,6]. The necrotrophic                           the fungus copes with the activation of plant responses during
+PLOS ONE | www.plosone.org                                                      1                          November 2013 | Volume 8 | Issue 11 | e81606
+                                                                                            Transcriptomics of the Wheat-S.tritici Interaction
+the different infection phases. To address these issues, several       it can shed light on the shifts of metabolic and cellular
+investigations have attempted to understand S. tritici gene            processes due to the interaction. Among the various
+function, particularly the role of small secreted protein effectors.   technologies of transcriptome profiling, RNA-Seq has become
+Likewise, fungal transcriptome profiles have been studied in           a revolutionary tool and has recently been employed in the
+adaption to environmental changes as well as host responses            study of plant-pathogen interactions. It can distinguish between
+in cultivars with different susceptibility to infection. The           paralogous genes, detect and quantify transcripts of low or high
+research has been facilitated by the publication of the full           abundance and identify transcript sequence polymorphisms
+genome sequence of S. tritici, revealing 10933 genes [9].              and novel trans-splicing and splice isoforms [17]. Moreover,
+   Effectors are believed to enable colonisation by the pathogen       there is no strict requirement for a reference genome
+by interfering with a variety of plant-encoded virulence targets       sequence, which is required in hybridization-based approaches
+and to effectively suppress or activate defence responses.             such as microarray. Although transcriptome studies have been
+They can be recognised by disease resistance proteins, which           carried out in S. tritici in vitro and in planta, limited information
+subsequently trigger plant immunity [8]. In S. tritici, it has been    about fungal gene expression has been obtained, in particular
+suggested that the effectors may trigger disease transition,
+                                                                       during the initial symptomless stage, due to low fungal biomass
+appearance of disease lesions and host cell death [10]. The
+                                                                       hardly detected by previous technologies. In addition, lack of
+only effector described in S. tritici is a LysM homologue shown
+                                                                       large-scale systematic studies of host responses to S. tritici at
+to contribute to virulence in wheat [8]. Genes encoding
+                                                                       RNA level strongly encouraged us to investigate the host
+secreted proteins with intragenic coding repeats within S. tritici
+                                                                       transcriptome responses to infection.
+populations were suggested to play potential roles as effectors
+                                                                          Therefore, we used RNA-Seq in the present study to follow
+[11]. In silico prediction of the secretome based on the full
+                                                                       the transcriptional reprogramming with a key focus on both
+genome sequence identified 492 candidate virulence effectors
+                                                                       host and fungus simultaneously at distinct stages of the
+and revealed a protein family encoding secreted
+                                                                       compatible interaction. These stages and disease transition
+(chloro)peroxidases, which is expanded within all family
+members of Mycosphaerellaceae [12]. Transcription profiling of         were clearly defined by characterisation of fungal biomass, two
+S. tritici in planta using a microarray containing 2563 genes or       essential plant PR genes/proteins (β-1,4-glucanase and
+expressed sequence tag (EST) libraries identified genes                chitinase) and ROS prior to transcriptome analysis. For the first
+encoding cell-wall-degrading enzymes (CWDEs) and genes                 time, we were not only able to study transcriptome changes
+involved in signal transduction and transport [5] and revealed         (approx. 1800 transcripts) across the different growth phases in
+fungal physiological adaption with respect to membrane                 S. tritici, but also to obtain broad-spectrum insights into the
+transport, chemical and oxidative stress mechanisms and                host molecular responses corresponding to the distinct lifestyle
+metabolism during the rapid growth transition [4,13]. However,         phases of this pathogen. To our best knowledge, this is the first
+these transcriptome studies provide limited or ambiguous               RNA-Seq study performed in a member of the
+information on fungal pathogenicity based on a low number of           Dothideomycetes. Our study has considerably expanded the
+identifications (150 genes in the biotrophic phase and max. 450        knowledge obtained from previous gene expression
+genes in the necrotrophic phase).                                      investigations in S. tritici.
+   Studies on host responses in the wheat-S. tritici interaction
+revealed that H2O2 is important in the defence of wheat against        Materials and Methods
+the pathogen. During a compatible interaction, H2O2 levels
+increased dramatically and peaked at the late necrotrophic             Plant growth and inoculation
+stage, implying that this was likely a stress-response and not            Growth of the susceptible wheat cv. Sevin, preparation of
+involved in defence [3,7]. Other responses reported include
+                                                                       inoculum of S. tritici isolate IPO323 and inoculation were
+expression of a wheat protein disulfide isomerase gene and
+                                                                       performed as described by Shetty et al. [3]. Control plants were
+pathogenesis-related (PR) genes [14,15] as well as structural
+                                                                       mock-inoculated with water. Approximately 20 leaves were
+defence        responses     [15].   Biochemical     investigations
+                                                                       collected from two separate pots, serving as one biological
+furthermore showed DNA laddering, translocation of
+                                                                       replicate. Two biological replicates for inoculated and control
+cytochrome c from mitochondria to the cytosol, loss of host cell
+                                                                       samples were harvested every day from 3 to 14 days after
+membrane integrity, degradation of host total RNA and
+                                                                       inoculation (dai) and immediately frozen in liquid nitrogen. The
+differential regulation of host mitogen-activated protein kinase
+                                                                       leaf samples were ground in liquid nitrogen and stored at -80
+(MAPK) pathways during symptom development in a
+compatible interaction [4,6]. Recently, large-scale shotgun            °C until use.
+proteomics and phosphoproteomics have been conducted on
+S. tritici-infected wheat leaves from the symptomless stage,           Histochemical staining for H2O2 and visualization of
+suggesting that resistance is likely related to rapidly and            fungal structures
+intensively triggered signal transduction cascades resulting in a         In vivo detection of H2O2 was carried out using 3,3’-
+multiple-level activation of transcription and translation             diaminobenzidine (DAB, Sigma) as described by Shetty et al.
+processes of defence responses [16].                                   [3]. The leaves were then cleared, stained by 0.1% Evans blue
+   Transcriptomics is an important tool to investigate the             in lactoglycerol to visualise the fungal surface structures and
+regulatory mechanisms between the host and the pathogen as             studied by light microscopy [3].
+PLOS ONE | www.plosone.org                                           2                      November 2013 | Volume 8 | Issue 11 | e81606
+                                                                                                Transcriptomics of the Wheat-S.tritici Interaction
+Quantification of fungal biomass                                           strand-specific method according to Wang et al. [22]. After
+   Total DNA was extracted from infected and control samples               quality control of the cDNA libraries, pair-end sequencing
+using the DNeasy Plant Mini Kit (Qiagen, Venlo, The                        analysis was carried out via Illumina HiSeq™ 2000 at the
+Netherlands). Fungal DNA was determined by qPCR using                      Beijing Genomics Institute (Shenzhen, China) according to the
+primers for S. tritici mating type gene 1-1 [18] with total DNA as         Illumina manufacturer’s protocol.
+template as previously described [19].                                         To ensure the accuracy of subsequent analysis, raw
+                                                                           sequences were cleaned by removal of adaptors and
+Enzyme assay and western blotting                                          sequencing errors. The reads containing the sequencing
+                                                                           adaptor, more than 5% unknown nucleotides and more than
+   Water-soluble protein was extracted in 50 mM sodium
+                                                                           30% bases of quality value less than 10, were eliminated. This
+acetate (pH 5.2) at 4 °C. Protein concentration in the extracts
+                                                                           output was termed ‘clean reads’, which was used for alignment.
+was determined by the Bio-Rad Protein Assay (Bio-Rad) with
+                                                                           All the clean reads were deposited in the National Center for
+bovine serum albumin as standard. β-1,3-glucanase activity
+                                                                           Biotechnology Information (NCBI) and can be accessed in the
+was assayed as described by Shetty et al. [15]. Briefly, protein
+                                                                           Short Read Archive (SRA) linking to BioProject accession
+samples were incubated with 0.1% (w/v) laminarin in 0.05 M
+                                                                           number: 196595. Prior to de novo assembly, the low-quality
+sodium acetate buffer (pH 5.2) for 15 min at 37 °C. The
+                                                                           nucleotides at 3-ends were trimmed using a customer Perl
+reaction was stopped by adding DNS reagent containing 0.5%
+                                                                           script (CONDETRI: http://code.google.com/p/condetri) with the
+(w/v) 3,5-dinitrosalicylic acid (Sigma) and 15% (w/v) potassium
+                                                                           following parameters: hq=20, lq=10, frac=0.8, lfrac=0.1,
+sodium tartrate tetrahydrate (Sigma) followed by boiling for 10
+                                                                           minlen=40, mh=4, ml=1 and sc=64 [23]. To reduce the data
+min. The absorbance was measured in an ELISA-reader at 540
+                                                                           complexity, two groups were generated from the clean reads
+nm. A standard curve relating the amount of glucose
+                                                                           from control (C4, C10 and C13) and fungal infected (I4, I10 and I13)
+equivalents to the absorbance at 540 nm was used to
+                                                                           samples for separate de novo assembly. The publicly available
+determine the activity. Chitinase activity was measured by the
+                                                                           program        Trinity      (trinityrnaseq_r2012-05-18;         http://
+Chitinase Assay Kit (Sigma) following the manufacturer’s
+                                                                           trinityrnaseq.sourceforge.net/) was used for de novo
+protocol. Five µg protein were separated on CriterionTM XT
+                                                                           transcriptome assembly of either group of trimmed clean reads
+Precast Gels (12% Bis-Tris, Bio-Rad) followed by blotting to
+                                                                           to generate a set of contigs/transcripts with the following
+nitrocellulose membranes (Whatman). Western blotting using
+                                                                           parameters: min_glue=2, SS_lib_type=RF, V=10, edge-
+rabbit antibodies against barley chitinase (kindly provided by
+                                                                           thr=0.05, min_kmer_cov=3, path_reinforcement_distance=80
+David B. Collinge, University of Copenhagen) was performed
+                                                                           and group_pairs_distance=250 [24]. After the contigs from all
+as described by Yang et al. [20].
+                                                                           samples were combined, the redundancy of contigs was
+                                                                           removed and the contigs with partly overlap were elongated by
+RNA extraction and qPCR                                                    the TGICL and Phrap assemblers [25]. The following
+   RNA extraction, gDNA removal, cDNA synthesis and qPCR                   parameters were used to ensure quality of assembly: a
+were performed as previously described [20,21]. Primers for                minimum of 95% identity between contigs, a minimum of 35
+genes encoding wheat β-1,3-glucanase and chitinase were                    overlapping bases, a minimum of 35 scores and a maximum of
+used according to Shetty et al. [15]. The wheat 25S rRNA gene              20 unmatched overhanging bases at sequence ends. Finally,
+(Forward            primer:     5’-AAGGCCGAAGAGGAGAAAGGT-3’;               based on the sequence similarity, the transcripts were divided
+Reversed              primer:    5’-CGTCCCTTAGGATCGGCTTAC-3’)              into two classes: clusters (prefixed with ‘CL’) and singletons
+served as reference gene. Relative expression of genes was                 (prefixed with ‘unigene’). In each ‘CL’, the sequence similarity
+determined using the formula: relative expression = 2-(ΔCt target          between transcripts was more than 70% and the transcripts
+gene - ΔCt reference gene)
+                           where Ct refers to the threshold cycle in PCR   were splice isoforms from one gene or paralogous gene.
+[20]. All relative expression values of genes are reported as
+means ±SD. Analysis to reveal significant differences in gene              Identification of fungal transcripts, sequence
+expression in infected Sevin versus the respective controls at             annotation and bioinformatics analysis
+each time point was performed by Student’s t-test.                            To identify the fungal transcripts, we BLAST searched all
+                                                                           transcripts in the S. tritici genome (http://genome.jgi-psf.org/
+Construction of cDNA library, data filtering and                           Mycgr3/Mycgr3.home.html). More than 80% in sequence
+transcript assembly                                                        similarity with regard to the alignment length was required to be
+   Total RNA (minimal 10 µg, 400 ng µl-1) was extracted from               considered as a fungal transcript. BLAST search against the
+pooled leaf powder from two biological samples for each                    fungal genome using a threshold of 50% similarity was
+treatment using the SpectrumTM Plant Total RNA Kit (Sigma).                performed as well. Fungal proteins were assessed for signal
+RNA samples were subjected to DNase (Sigma) digestion to                   peptides using SignalP (http://www.cbs.dtu.dk/services/
+remove remaining DNA. mRNA was purified and enriched from                  SignalP). For annotation, wheat and fungal transcripts,
+total RNA samples by using poly-T oligo-coated magnetic                    respectively, were aligned to four public databases [non-
+beads (Invitrogen). Following purification and fragmentation,              redundant protein database (Nr) in NCBI, non-redundant
+first-strand cDNA was generated using Superscript II reverse               nucleotide database (Nt) in NCBI, Swiss-Prot and Kyoto
+transcriptase (Invitrogen) and random hexamer primers. The                 Encyclopedia of Genes and Genomes (KEGG) pathway
+cDNA was further converted into double stranded DNA using a                database] by BLAST (E-value <10-5). Gene ontology (GO)
+PLOS ONE | www.plosone.org                                               3                      November 2013 | Volume 8 | Issue 11 | e81606
+                                                                                         Transcriptomics of the Wheat-S.tritici Interaction
+Figure 1. Detection of hydrogen peroxide in S. tritici-infected wheat leaves from 3 to 14 dai. DAB was used for staining H2O2
+(red-brown staining). Fungal surface structures were stained with Evans blue. Arrows indicate attempted fungal penetration through
+the stomata.
+doi: 10.1371/journal.pone.0081606.g001
+classification was analysed by the Blast2GO software (v2.5.0)       Results
+based on Nr annotation.
+   After annotation, the clean reads of each sample were            Development of a bioassay to determine the disease
+mapped to all fungal and wheat transcripts using the                transition
+SOAPaligner/soap2             software (BGI, China),     allowing      Given that the period of symptomless growth of S. tritici in
+mismatches of no more than three bases, to obtain the               wheat leaves can vary between experiments ranging from one
+transcripts from each sample. To minimize the influence of          week to several weeks and disease symptoms (Figure S1) are
+sequencing depth between samples, the total number of               not uniform between leaves, we used the characteristic
+mapped reads was normalised by multiplying with a                   features of the biotrophic and necrotrophic phases in a
+normalisation factor [26]. Expression level of the transcript was   bioassay to enable an interaction transcriptome analysis in the
+based on the number of unique match reads calculated and            two distinct phases. The bioassay was based on
+normalised to fragments per kilobase per million mapped             characterisation of fungal biomass, H2O2 accumulation and
+fragments (FPKM) [27]. Analysis of differentially expressed         plant PR-genes/proteins (β-1,4-glucanase and chitinase). The
+wheat transcripts was performed as described by Chen et al.         onset of a measurable increase in S. tritici growth has been
+[28], which was based on the Poisson distribution [29] and          shown to occur at day 9 and 10 [4,7]. Shetty et al. [3,15]
+normalisation for differences in sequencing depth between           additionally reported dramatically enhanced expression of
+samples and gene length. A threshold of FPKM >2 in at least         β-1,3-glucanase and chitinase genes from 9 dai followed by
+one sample, false discovery rate (FDR) <0.05 and at least two-      extensive H2O2 accumulation, cell collapse and appearance of
+fold change in FPKM of the transcript from infected versus          macroscopic symptoms from 12 dai during the compatible
+control samples at minimum one time point was used to define        interaction. Therefore, we performed these assays over time in
+differentially expressed wheat transcripts (performed by the in-    the compatible interaction to define the disease transition state.
+house Perl script).                                                 In the present study, fungal hyphae penetrated the stomata in
+   Principal component analysis (PCA) of sequencing data from       the epidermis directly causing relatively little H 2O2 accumulation
+all samples was performed by R script using log2FPKM values         up to day 8 (Figure 1). Increased accumulation of H2O2 in the
+of transcripts in the samples. The expression profiles of the       substomatal cavities correlated with arrest of the progressing
+differentially expressed wheat transcripts [log2Ratio(infected/     hypha was observed by day 9 and 10 (Figure 1), when strongly
+control)] and fungal transcripts (log2FPKM; FPKM>2 at               enhanced PR-gene expression and activity occurred in
+                                                                    response to the fungus (Figure 2B–D). From 12 dai, the
+minimum one time point) over the time course were determined
+                                                                    massive H2O2 accumulation in the mesophyll and hyphal
+by clustering analysis based on the k-means method using
+                                                                    development (Figure 1) were consistent with a significant
+Euclidean distance. Heat map analysis of the differentially
+                                                                    increase in the levels of fungal biomass (Figure 2A). These
+expressed wheat transcripts [log2Ratio(infected/control)] over
+                                                                    results collectively show that following a long period of slow
+the time course was performed using R script.
+                                                                    symptomless growth, the fungus switched to necrotrophy by
+                                                                    day 9–10, advancing the increase in the biomass and massive
+                                                                    H2O2 production by day 12.
+PLOS ONE | www.plosone.org                                        4                      November 2013 | Volume 8 | Issue 11 | e81606
+                                                                                        Transcriptomics of the Wheat-S.tritici Interaction
+Figure 2. The bioassay to follow disease transition from 3 to 14 dai. (A) Fungal biomass expressed as content of S. tritici
+DNA. Significant increases (P < 0.05) in levels of fungal DNA are indicated by asterisks. (B) Wheat β-1,3-glucanase and chitinase
+gene expression analysed by qPCR. (C) β-1,3-glucanase and chitinase protein activities expressed as released glucose (μM) and
+OD405 measurement based on the assays, respectively. Significant differences (P < 0.05) between infected and control samples are
+indicated by asterisks. (D) Chitinase protein expression in protein extracts from control (upper panel) and S. tritici-infected leaves
+(lower panel) analysed by western blotting. Bands indicate chitinase. Representatives of two biological replicates at each time point
+are shown for the control and infected plants.
+doi: 10.1371/journal.pone.0081606.g002
+A snapshot of transcript profiles during the wheat-S.                comprehensive information on the molecular and physiological
+tritici interaction                                                  bases during particular stages of the interaction between wheat
+   It is believed that the changes of lifestyle in a fungal          and S. tritici, we explored the complexity of transcriptional
+pathogen and process of disease development are                      reprogramming of both host and pathogen at three time points
+accompanied by stage-specific molecular events [30]. To gain         (day 4, 10 and 13) by RNA-Seq analysis. The time points were
+PLOS ONE | www.plosone.org                                        5                     November 2013 | Volume 8 | Issue 11 | e81606
+                                                                                                                  Transcriptomics of the Wheat-S.tritici Interaction
+Table 1. Overview of sequencing transcriptome data from wheat leaves.
+                                                                     C4       C10                 C13                 I4                     I10                 I13
+Number of reads                                                      12330423 12375478            12583655            12757779               12426764            13020331
+Total base pairs (Mbp)                                               2220     2228                2265                2297                   2237                2344
+Q20 (%)                                                              95.65    97.84               95.61               97.43                  96.06               98.12
+Total number of contigs                                              89315                                            59389
+Length of contigs (bp)                                               70551835                                         31332619
+N50 length of contigs (bp)                                           1233                                             692
+Number of mapped fungal transcripts                                  9        11                  32                  1578                   1692                1822
+Number of wheat transcripts                                          81976    79407               79642               79032                  77927               75461
+Highly expressed fungal transcripts                                  0        0                   0                   107                    142                 761
+Highly expressed wheat transcripts                                   10158    11908               9563                9372                   12715               13690
+The transcripts with FPKM>10 are considered highly expressed. C4, control at 4 dai; C10, control at 10 dai; C13, control at 13 dai; I4, S. tritici-infected wheat at 4 dai; I10, S.
+tritici-infected wheat at 10 dai; I13, S. tritici-infected wheat at 13 dai.
+doi: 10.1371/journal.pone.0081606.t001
+selected based on the bioassay of marker genes/proteins and
+H2O2 accumulation and represented the initial symptomless
+phase, the intermediate transition stage and the necrotrophic
+phase, respectively.
+     Table 1 summarises the sequencing data from S. tritici-
+infected wheat leaves and their respective controls. The mRNA
+sequencing workflow is shown in Figure S2. After the pre-
+processing of the reads, we obtained more than 12 million
+clean pair-end sequencing reads and 2G high-quality bases
+(Q20 bases approximately 97%) from both control samples and
+the mixed transcriptome samples (Table 1). In order to conduct
+dual sequencing analysis without the host reference genome,
+we used the de novo assembly method for control and infected
+samples separately. In total, 88770 non-redundant transcripts
+were obtained from all the samples including 12695 clusters
+(38680 transcripts) and 50090 singletons, the total length and
+N50 length of which were 63937118 bp and 1109 bp,                                      Figure 3.              Principal component analysis of the
+respectively. Subsequently, we filtered the fungal transcripts by                      transcriptome data. Principal components (PCs) 1, 2 and 3
+mapping all assembled transcripts to the fungal genome,                                account for 73.9, 11.6 and 7% of the variance, respectively. C4,
+resulting in identification of 1829 and 1811 fungal transcripts                        control at 4 dai; C10, control at 10 dai; C13, control at 13 dai; I4,
+with a threshold of 50% and 80% sequence similarity,                                   S. tritici-infected wheat at 4 dai; I10, S. tritici-infected wheat at
+respectively (Table S1). In total, 313 fungal transcripts encoded                      10 dai; I13, S. tritici-infected wheat at 13 dai.
+proteins that were predicted to contain signal peptides.                               doi: 10.1371/journal.pone.0081606.g003
+Functional categories were assigned to all annotated
+transcripts using GO classification and KEGG pathway                                   between plant and the fungus. To further examine an overall
+analysis, resulting in 67610 and 1626 annotated wheat and                              relationship of the transcriptome data from different samples
+fungal transcripts, respectively. Fungal (Table S1) and wheat
+                                                                                       and effects of both fungal infection and interaction phases,
+(Tables S2, S3) transcripts with known function were grouped
+                                                                                       PCA was conducted and clearly revealed that the greatest
+into 14 and 19 GO functional categories based on GO
+                                                                                       changes in host transcriptome were caused by the fungal
+biological processes as well as 90 and 127 pathways,
+                                                                                       infection following the interaction process (Figure 3). In
+respectively.
+                                                                                       particular, the 13 day-infected sample was separated from all
+     Mapping the reads of each sample to wheat and fungal
+                                                                                       other samples by principal component 1, accounting for 73.9%
+transcripts resulted in the identification of 1578, 1692 and 1822
+                                                                                       of the variance, strongly suggesting the accelerated host-
+fungal transcripts from infected samples at 4, 10 and 13 dai,
+respectively, as well as approximately 80000 non-redundant                             pathogen interplay during the necrotrophic stage.
+plant transcripts from each sample (Table 1). Nine, eleven and
+thirty-two low-expressed transcripts encoding tubulins,                                Fungal transcriptome during the compatible interaction
+ATPases, ribosomal proteins and cytochrome b, respectively,                                Figure 4 presents ten clusters of expression profiles of fungal
+were mapped as fungal transcripts from control samples, which                          transcripts as well as functional category distribution
+is very likely due to the homology of these conserved genes                            frequencies of the transcripts in each cluster. Not surprisingly,
+PLOS ONE | www.plosone.org                                                          6                             November 2013 | Volume 8 | Issue 11 | e81606
+                                                                                         Transcriptomics of the Wheat-S.tritici Interaction
+the transcripts with known function annotated in metabolic and       Wheat leaf transcriptome in response to infection
+cellular processes were dominating in each cluster. The                 In total, 33314 wheat transcripts, fulfilling the selection
+clusters fell into three groups based on the major profiling over    criteria, were identified in response to the pathogen (Table S2).
+the time course: group A consisted of cluster 1, 5, 9 and 10, the    Cluster analysis and category distribution were performed to
+majority of 660 transcripts showing constant abundance; group        assess the overall patterns of host transcriptome changes over
+B consisted of cluster 2, 3, 6, 7 and 8, the majority of 963         the time course of infection (Figure S4). Clusters 1 and 3
+transcripts showing increased abundance; group C consisted           contained 3266 transcripts mainly regulated by the fungus at 4
+of cluster 4, the majority of 206 transcripts showing decreased      dai. Clusters 5, 6, 7 and 9 contained 16543 transcripts mainly
+abundance at 10 dai and highest abundance at 13 dai. A               regulated at 13 dai. Clusters 2, 4 and 8 contained 11324
+substantially higher number of transcripts annotated in              transcripts mainly regulated at 10 dai. Additionally, cluster 10
+                                                                     contained 2181 transcripts down-regulated and up-regulated at
+signalling, responses to stimuli, reproduction, localisation,
+                                                                     4 and 13 dai, respectively. The major transcripts in each cluster
+metabolic and cellular processes and cellular component
+                                                                     were annotated in signalling, response to stimuli, reproduction,
+organisation or biogenesis were represented in group B
+                                                                     regulation of biological process, metabolic and cellular
+compared to other two groups (Figure 4). In addition, several
+                                                                     processes, locomotion, localisation, development, cellular
+transcripts involved in primary and energy metabolism and a          component organisation or biogenesis and biological adhesion.
+considerable number of highly abundant transcripts annotated         Considerably higher numbers of transcripts involved in
+as ribosomal proteins were present in group B (Table S1). The        metabolism, transport, defence and stress, signalling and
+FPKM values of housekeeping transcripts such as ribosomal            cellular component organisation changed in abundance at 10
+and tubulin transcripts increased approximately 10-fold at 13        and 13 dai (Figure S4; Table S2), suggesting a strong induction
+dai compared to the symptomless stage. These data suggest a          of metabolic and defence-activities from 10 dai, which was
+highly active metabolic growth and an increase in fungal             associated with increased H2O2 production (Figure 1).
+biomass at the destructive necrotrophic phase.                          To gain further insights into the responses of specific
+   Since the transcripts with the highest expression levels at       functions of host genes in fungal infection at different stages,
+specific growth stages likely play important roles in the control    we carried out a heat map analysis of the transcripts. This
+of the disease transition, we selected several transcripts with      included genes specifically annotated in primary metabolism
+the highest expression levels at 4 dai (biotrophy) or 13 dai         (e.g., metabolism of carbohydrates, nitrogen and amino acids
+(necrotrophy) and listed them in Table 2. Besides the                as well as photosynthesis), transport (e.g., ATPases, ABC
+                                                                     transporters, aquaporins and sugar, amino acid, peptide,
+transcripts annotated as hypothetical proteins, most of which
+                                                                     nucleic acid and lipid transporters) and signalling [e.g.,
+contained signal peptides and more than six cysteines, the
+                                                                     membrane-bond receptors, receptor kinases, G proteins,
+transcripts were involved in pathogenesis and virulence,
+                                                                     phospholipids, calcium-dependent protein kinases, MAPK
+metabolism, signalling, transport, stress and defence, cell
+                                                                     pathways, WRKYs and other transcription factors, hormone
+adhesion and cell wall degradation and remodelling (Table 2).        pathways (salicylic acid, jasmonate, ethylene, auxin, gibberellic
+Notably, these highly expressed transcripts at 4 and 13 dai          acid and brassinosteroid)] as well as genes involved in stress
+precisely belonged to group A and B, respectively, indicating        and defence (e.g., oxidative stress, detoxification, PR-genes,
+that the transition of S. tritici lifestyle was likely accompanied   heat shock proteins, the phenylpropanoid pathway, LRR
+and regulated by the expression of stage-specific sets of            domain proteins and other stress-related genes) (Figure 5).
+genes. More interestingly, although seven transcripts involved       The analysis revealed two distinct gene expression patterns of
+in host cell wall degradation including glycoside hydrolase          the host in response to the fungus during the biotrophic and
+families 5, 16 and 76 in group A and glycoside hydrolase             necrotrophic stages. At the early symptomless stage, the
+families 3 and clan CH-D in group C were identified, none of         fungus caused minor alterations in the expression of host
+them were of high abundance at either stage (FPKM <8; Table          transcripts involved in primary metabolism, transport and
+S1).                                                                 signalling, although some transcripts significantly changing in
+   Furthermore, since fungal secreted proteins may have              abundance were observed. By contrast, a considerable number
+potential roles as effectors, 313 transcripts encoding proteins      of transcripts involved in defence and defence-related
+                                                                     signalling, encoding proteins such as antioxidants, PR-proteins,
+containing signal peptides, the majority of which were
+                                                                     heat shock proteins, disease resistance proteins, WRKY
+hypothetical proteins, peptidases, glycoside hydrolases,
+                                                                     transcription factors and NAC domain proteins were slightly
+antioxidants,      kinases,     heat       shock    proteins  and
+                                                                     down-regulated at this stage, even though some, such as
+oxidoreductases, were clustered to obtain the expression
+                                                                     receptor-like kinases and phytohormone-inducing proteins,
+patterns (Figure S3A). Their expression levels increased             could be up-regulated (Figure 5; Table S2). At the necrotrophic
+(clusters 1, 3, 4, 7–10) or remained constant (clusters 2, 5 and     stage, great changes were observed in expression of host
+6) over the time course. Likewise, of 492 candidate virulence        transcripts involved in host metabolism, transport, signalling
+effectors previously predicted in silico [12], 246 fungal            and defence with up-regulation of a substantial number of
+transcripts were identified in the present study with increased      transcripts (Figure 5). Furthermore, it is worth to note that
+or constant expression levels during infection (Figure S3B;          levels of the major transcripts annotated in carbohydrate
+Table S1).                                                           metabolism were up-regulated at this stage, whereas major
+PLOS ONE | www.plosone.org                                         7                      November 2013 | Volume 8 | Issue 11 | e81606
+                                                                                      Transcriptomics of the Wheat-S.tritici Interaction
+Figure 4. Functional category distribution in the ten expression clusters of fungal transcripts. The fungal transcripts were
+identified from S. tritici-infected wheat at 4, 10 and 13 dai. Expression level of the transcripts was calculated by log2FPKM.
+Histogram representation of the category distribution is expressed as percentage of the amount of transcripts belonging to the
+cluster. Transcripts coding for unknown products were included in the analysis. The clusters fall into three groups (A, B and C)
+based on the major profiling over the time course.
+doi: 10.1371/journal.pone.0081606.g004
+PLOS ONE | www.plosone.org                                      8                     November 2013 | Volume 8 | Issue 11 | e81606
+                                                                                        Transcriptomics of the Wheat-S.tritici Interaction
+Table 2. Expression patterns of selected S. tritici transcripts during infection.
+                                                              FPKM
+ID                  Annotation                                4d     10 d  13 d   Biological process                            S      C
+Transcripts highly expressed (FPKM ≥ 8) at 4 d
+96543               Hydrophobin 2                             9.9    23.1  15.6   Pathogenesis and virulence                    Yes    5
+70312               Peptidase S8 and S53                      10.2   12.4  23.3   Metabolism                                    Yes    5
+74298               Glucoamylase                              15.9   16.0  19.0   Metabolism                                    Yes    5
+77672               Esterase/lipase/thioesterase              19.5   15.8  8.8    Metabolism                                    No     5
+81692               β-1,6-N-acetylglucosaminyltransferase     13.2   5.7   6.9    Metabolism                                    Yes    5
+104538              β-1,6-N-acetylglucosaminyltransferase     52.0   44.5  47.8   Metabolism                                    No     1
+86867               NADPH-dependent FMN reductase             33.7   36.0  102.0  Metabolism                                    Yes    1
+100165              Fumarate lyase                            39.3   11.8  32.3   Metabolism                                    No     1
+108219              Autophagy-related protein 8               11.9   9.9   28.6   Metabolism                                    No     5
+109517              Carbohydrate kinase, PfkB                 17.0   6.4   10.1   Metabolism                                    No     5
+102849              Homeobox transcription factor prospero    14.2   11.2  37.2   Metabolism                                    Yes    1
+44262               Thiamine biosynthesis Thi4 protein        11.0   6.9   13.0   Metabolism                                    No     5
+104937              Pyridoxamine 5'-phosphate oxidase         17.8   5.3   14.2   Metabolism                                    No     5
+104409              Similar to bacterial rhodopsin            29.3   40.3  70.2   Signalling                                    No     1
+109991 93710        Serine/threonine protein kinase           62.4   57.3  247.0  Signalling                                    Yes    1
+99917               Serine/threonine protein kinase           19.9   12.9  16.9   Signalling                                    Yes    5
+97868               Tyrosine protein kinase                   16.6   25.4  72.0   Signalling                                    Yes    1
+110667              PAS-domain protein                        63.8   70.2  222.0  Signalling                                    Yes    1
+39898               Aquaporin                                 24.9   10.8  11.8   Transport                                     No     5
+42411               GPR1/FUN34/yaaH membrane protein          20.9   20.1  12.4   Transport                                     No     5
+58200               ABC transporter                           11.1   6.8   10.2   Transport                                     No     5
+76071               Phosphate transporter                     19.9   13.6  12.3   Transport                                     Yes    5
+105313              Sugar transporter superfamily             20.8   12.9  12.4   Transport                                     No     5
+64952               Cyclophilin                               10.5   11.9  40.6   Stress and defence                            No     1
+72265               Cyclophilin                               12.2   4.5   11.0   Stress and defence                            No     5
+106153              Carbohydrate-binding WSC                  18.2   19.1  25.2   Stress and defence                            No     1
+59219               Haem peroxidase                           9.7    5.7   2.7    Stress and defence                            No     10
+94368               Chloroperoxidase                          10.9   14.5  6.7    Stress and defence                            Yes    5
+101235              Chloroperoxidase                          12.1   16.5  14.8   Stress and defence                            Yes    5
+103393              Allergen V5/Tpx-1 related                 23.1   24.8  63.8   Stress and defence                            Yes    1
+103593              Cu2+/Zn2+ superoxide dismutase 1          12.8   20.1  57.3   Stress and defence                            No     1
+105791              Aldehyde dehydrogenase                    28.6   19.4  20.4   Stress and defence                            No     1
+101210              Zinc-containing alcohol dehydrogenase     9.6    2.3   4.3    Stress and defence                            No     10
+56432               Fasciclin                                 9.1    1.8   5.2    Cell adhesion                                 Yes    10
+104730              von Willebrand factor                     24.4   21.6  31.4   Cell adhesion                                 Yes    1
+100647              Chitinase                                 9.6    1.4   9.4    Cell wall degradation and remodelling         Yes    10
+106219              Glycolipid anchored surface protein GAS1  12.4   3.3   21.3   Cell wall degradation and remodelling         Yes    5
+90001               Yeast PIR protein repeat-like             38.4   36.7  73.6   Cell wall degradation and remodelling         Yes    1
+69789               Hypothetical protein                      21.6   9.9   19     --                                            Yes    5
+94290               Hypothetical protein                      112    88.1  54.4   --                                            Yes    1
+106329              Hypothetical protein                      25.4   22.5  9.5    --                                            Yes    5
+103950              Hypothetical protein                      14.7   7.6   26.1   --                                            Yes    5
+111606              Hypothetical protein                      8.2    10.0  14.3   --                                            Yes    5
+Transcripts highly expressed (FPKM ≥ 10) at 13 d
+39947               Cerato-platanin                           1.2    2.9   44.3   Host immune system                            Yes    3
+105487              Peptidoglycan-binding LysM                1.2    12.7  119.8  Pathogenesis and virulence                    Yes    3
+111221              Peptidoglycan-binding LysM                3.0    12.1  105.3  Pathogenesis and virulence                    Yes    7
+88451               Necrosis-inducing protein NPP1            0.7    3.5   10.5   Pathogenesis and virulence
+104853              Ubiquinol-cytochrome C reductase          4.0    4.5   23.5   Metabolism                                    Yes    7
+107092              β-1,6-N-acetylglucosaminyltransferase     2.6    2.4   20.9   Metabolism                                    Yes    8
+108724              Cysteine peptidase                        3.3    3.9   29.1   Metabolism                                    No     7
+95071               Nucleoside diphosphate kinase             5.1    3.4   33.3   Metabolism                                    No     7
+PLOS ONE | www.plosone.org                                         9                    November 2013 | Volume 8 | Issue 11 | e81606
+                                                                                                                     Transcriptomics of the Wheat-S.tritici Interaction
+Table 2 (continued).
+                                                                                  FPKM
+ID                     Annotation                                                 4d       10 d     13 d       Biological process                            S      C
+57734                  G-protein beta WD-40 repeat                                3.1      1.3      23.9       Signalling                                    No     8
+86648                  G-protein beta WD-40 repeat                                2.9      4.9      22.1       Signalling                                    No     7
+69026                  Translationally controlled tumor protein                   5.7      7.3      31.9       Signalling                                    No     7
+78859                  EGF-like                                                   0.9      2.5      34.4       Signalling                                    No     3
+103900                 EGF-like                                                   0.2      21.2     120.3      Signalling                                    Yes    3
+106452                 Serine/threonine protein kinase                            3.5      11.8     71.2       Signalling                                    Yes    7
+100205                 Phox-like                                                  5.5      5.2      24.2       Signalling                                    No     7
+65946                  Amino acid permease                                        0.6      5.3      29.7       Transport                                     No     3
+73144                  Ammonium transporter                                       0.1      7.1      24.4       Transport                                     No     3
+77435                  Porin, eukaryotic type                                     6.0      3.1      26.8       Transport                                     No     7
+65963                  Cytochrome b561                                            0.1      0.7      26.6       Transport                                     Yes    2
+90089                  Ankyrin                                                    0.1      7.0      42.7       Transport                                     Yes    3
+82936                  Plastocyanin-like                                          4.9      6.3      32.8       Transport                                     Yes    7
+98411                  Cytochrome P450                                            0.4      3.4      20.6       Stress and defence                            No     3
+55916                  Glutathione S-transferase                                  3.4      2.5      20.6       Stress and defence                            No     8
+71387                  Alkyl hydroperoxide reductase                              3.6      3.6      29.4       Stress and defence                            No     7
+101587                 Thioredoxin                                                2.2      5.0      41.4       Stress and defence                            Yes    7
+104975                 Peroxiredoxin                                              3.4      4.6      26.3       Stress and defence                            No     7
+72449                  Heat shock protein Hsp70                                   2.7      6.2      23.3       Stress and defence                            No     7
+83835                  Heat shock protein Hsp70                                   1.6      3.3      24.3       Stress and defence                            Yes    8
+103427                 von Willebrand factor                                      4.5      12.8     141.1      Cell adhesion                                 Yes    7
+106780                 von Willebrand factor                                      2.6      3.3      36.7       Cell adhesion                                 Yes    7
+102341                 Glycolipid anchored surface protein GAS1                   7.3      4.7      28.3       Cell wall degradation and remodelling         Yes    7
+102481                 Yeast PIR protein repeat-like                              0.7      2.3      43.1       Cell wall degradation and remodelling         Yes    3
+104794                 Chitinase                                                  0.4      2.0      36.0       Cell wall degradation and remodelling         Yes    3
+44596                  Kinesin, motor region                                      4.1      21.5     40.4       Locomotion                                    No     7
+83064                  Hypothetical protein                                       0.6      3.4      56.2       --                                            Yes    3
+79161                  Hypothetical protein                                       1.4      3.8      36.8       --                                            Yes    3
+89705                  Hypothetical protein                                       0        0        23.0       --                                            Yes    7
+92097                  Hypothetical protein                                       0.7      6.7      24.3       --                                            Yes    3
+97031                  Hypothetical protein                                       0.6      3.6      22.4       --                                            Yes    3
+110220                 Hypothetical protein                                       2.4      9.8      68.2       --                                            Yes    7
+102792                 Hypothetical protein                                       5.4      63.7     277.0      --                                            Yes    1
+104404                 Hypothetical protein                                       0.4      12.2     60.0       --                                            Yes    3
+104444                 Hypothetical protein                                       1.0      24.9     102.7      --                                            Yes    3
+105825                 Hypothetical protein                                       0.8      14.9     74.9       --                                            Yes    3
+105826                 Hypothetical protein                                       1.5      9.7      35.7       --                                            Yes    3
+108482                 Hypothetical protein                                       0.1      0.3      20.7       --                                            Yes    2
+107904                 Hypothetical protein                                       0.3      3.7      43.8       --                                            Yes    3
+107286                 Hypothetical protein                                       0.9      3.3      29.8       --                                            Yes    3
+FPKM indicates the expression level of the transcript. Most of the hypothetical proteins are small cysteine-rich proteins.
+S, SignalP; C, cluster number in Figure 4; d, days after inoculation.
+doi: 10.1371/journal.pone.0081606.t002
+transcripts annotated in photosynthesis were down-regulated.                               Discussion
+Additionally, several transcripts involved in anti-oxidative stress
+were strongly down-regulated at the late necrotrophic stage                                   Understanding the molecular mechanisms underlying fungal
+(Table S2), which was correlated to massive accumulation of                                infection and host plant defence is a prerequisite for
+H2O2 (Figure 1).                                                                           understanding the host-pathogen interaction and can contribute
+                                                                                           to development of new strategies of crop protection against
+                                                                                           pathogen. A global study of host and fungal transcriptional
+                                                                                           reprogramming during the interaction allows us to gain insights
+                                                                                           into such mechanisms. Here, we report the first use of RNA-
+PLOS ONE | www.plosone.org                                                             10                            November 2013 | Volume 8 | Issue 11 | e81606
+                                                                                            Transcriptomics of the Wheat-S.tritici Interaction
+Figure 5. Heat map visualization of differentially expressed wheat transcripts. The plant transcripts are mainly involved in
+primary metabolism, signalling, transport and stress and defence in response to S. tritici. Differential expression patterns are based
+on the log2 fold changes of transcript abundance in S. tritici-infected wheat versus controls at 4, 10 and 13 dai.
+doi: 10.1371/journal.pone.0081606.g005
+Seq technique in the compatible interaction between wheat and           regulation of several proteins involved in photosynthesis have
+S. tritici, with particular focus on the metabolic and                  been observed at the biotrophic stage as revealed by
+physiological alterations of both host and pathogen during the          proteomics [16]. Down-regulation of several defence-related
+shift from biotrophic to necrotrophic growth stages.                    transcripts and no alteration in the levels of several
+    It has been suggested that the transition from slow biotrophic      photosynthesis-related transcripts appear not to be correlated
+growth to rapid necrotrophic growth is associated with distinct         to the regulation behaviour of their protein products. The poor
+expression patterns of genes regulated by nutrient status,              correlation between transcript and protein levels has been well
+revealed by comparison of transcriptomes between in planta              demonstrated due to the regulation of transcription, RNA
+transition/necrotrophic stage and in vitro nutrition-rich/limited       processing, translation and protein modifications and turnover
+conditions [4,13]. Our interaction transcriptome analysis directly      and furthermore suggests that integrated ‘omics’ studies are
+demonstrates two different phases of the compatible                     required to comprehensively understand the molecular
+interaction: i) slow symptomless growth associated with minor           processes in the biological system. On the other hand, the
+host molecular responses and ii) necrotrophic feeding/high              necrotrophic growth of S. tritici triggers the plant cells to create
+metabolic growth associated with enhanced metabolic and                 a highly defensive and metabolic active environment,
+defence responses in plant. The symptomless growth of S.                generating ROS and strongly inducing defence, signalling and
+tritici was achieved by suppressing or attenuating host defence         metabolism-related genes. The crosstalk between induced
+responses at transcription level (Figure 5), despite up-                signalling    events,   including      receptor-mediated       signal
+regulation of some defence-related genes such as receptor               perception, protein phosphorylation, ion fluxes, production of
+kinases, phytohormone-inducing proteins and PR-2 and 3 as               ROS, generation and regulation of secondary signalling
+well as accumulation of stress-related compounds such as                molecules (e.g., phytohormones and WRKYs), leading to the
+ROS. This symptomless growth is analogous with most                     activation of defence genes, has been well established as the
+biotroph lifestyles of both repression of plant defence                 mechanisms of host plant defence to different pathogens [31].
+responses and induction of host specific genes. However,                More interestingly, the highly oxidative cell environment in
+accumulation of several defence-related proteins and down-              wheat during the necrotrophic stage was accompanied by
+PLOS ONE | www.plosone.org                                           11                     November 2013 | Volume 8 | Issue 11 | e81606
+                                                                                               Transcriptomics of the Wheat-S.tritici Interaction
+down-regulation of large number of plant transcripts encoding             inducing protein effectors have been identified in barley
+ROS-scavenging enzymes, thus allowing the ROS to                          pathogen Rhynchosporium commune and shown their
+accumulate. For some necrotrophic pathogens, it has been                  contribution to disease development [39]. Cerato-platanin in
+suggested that ROS accumulation and depletion of host                     phytopathogenic fungi acts as a phytotoxin and a pathogen-
+antioxidants can result in increased susceptibility as well as            associated molecular pattern (PAMP) due to the induction of
+host necrosis [32]. Interestingly, this is not the case for S. tritici    defence responses including phytoalexin synthesis and plant
+that is able to tolerate the high amounts of H2O2 accumulating            cell death [40]. Their strong expression at the transition and the
+during the necrotrophic growth phase, but does not thrive in              necrotrophic stages, which was associated with the enhanced
+this environment since scavenging of H2O2 boosts fungal                   host defence responses, indicates a potential role in induction
+growth [3,7]. Furthermore, levels of transcripts involved in              of the disease transition and/or facilitation of the necrotrophic
+photosynthesis were suppressed during the necrotrophic                    growth. Fungal secreted small cysteine-rich hydrophobins have
+phase, whereas carbohydrate and energy metabolism was up-                 been implied in pathogenesis through acting as toxins or
+regulated in the host and associated with enhanced defence                attaching fungal structures to the host surface [41]. Eight
+responses [7]. It has been demonstrated that the activation of            hydrophobin-like proteins are predicted in the annotated S.
+plant defence responses is cost-intensive and causes a                    tritici genome, four of which are secreted [12]. In addition to
+decrease in photosynthesis and an increased demand for                    one highly expressed hydrophobin shown in Table 2, four
+assimilates, energy, reducing equivalents and carbon skeleton             additional hydrophobins were identified with one containing a
+components that are provided by the primary metabolic                     signal peptide here (Table S1). We speculate that
+pathways [33]. Simultaneously, the pathogen will put pressure             hydrophobins play a role in facilitating the initial symptomless
+on the host carbohydrate metabolism for its own needs, which              growth through its ability of mediating fungal hypha to attack
+will further increase the demand for assimilates.                         the host cells.
+    To date, little is known of the molecular mechanisms in S.                The coverage of the transcripts encoding the proteins
+tritici that promote an early symptomless, biotrophic phase and           involved in transport, signalling and stress responses among
+a late highly destructive necrotrophic stage or those that                the identified fungal transcripts was remarkable at both stages,
+mediate the transition between the two. Previous investigations           indicating their important roles in facilitating both biotrophic and
+focused on the secreted protein effectors for facilitating the            necrotrophic growth. Strongly expressed transcripts involved in
+initial symptomless growth and triggering PCD [10]. We                    defence-related signalling included G proteins, serine/threonine
+observed strong, differential and growth stage-specific                   protein kinases (likely involved in MAPK pathways or Ca2+
+expression of transcripts encoding several small secreted                 signalling), PAS-domain proteins functioning as sensors of
+cysteine-rich proteins with unknown function at the two stages,           oxygen, redox potential, light and other stimuli [42] and EGF-
+a hydrophobin 2 during the biotrophic stage and two LysM                  like proteins known for a role in the immune system [43]. Some
+proteins, a necrosis-inducing protein and a cerato-platanin               of these identifications differed from the 74 transcripts involved
+during the necrotrophic stage, which may have potential roles             in four MAPK pathways, the cAMP-dependent pathways and
+in pathogenesis or suppressing plant defence. This observation            G-signalling identified in a previous in planta EST sequencing
+suggests that S. tritici secretes distinct classes of proteins that       study [5]. Disruption of S. tritici signalling genes can
+may first suppress plant defence responses and later induce               significantly affect and regulate the invasive growth,
+host necrosis. It has been reported that some fungal effectors,           penetration or pathogenicity [44]. With respect to highly
+for instance, P. infestans Avr3a and SNE1 and P. sojae Avr1b,             expressed transport-related transcripts, different classes
+can suppress PCD or host defences during biotrophic stages                corresponding to two growth stages were identified. The
+[34–36]. On the other hand, the P. infestans PiNPP1.1 gene                nutrient uptake and transport facilitation appeared to be active
+encoding a NLP effector, which is only highly expressed during            particularly during the biotrophic stage in contrast to the
+necrotrophy, induces necrosis and is suppressed by the SNE1               primary metabolism-related transport during the necrotrophic
+effector [37]. Both LysM proteins identified in the present study         growth. As described above, ROS accumulated in the host
+have been functionally characterised, one of which was                    from 3 to 14 dai (Figure 1) and is considered as one of the
+proposed to be an effector to facilitate the symptomless leaf             primary responses to S. tritici, starting at the infection site
+colonisation of S. tritici through its activity in suppressing chitin-    during the biotrophic stage and spreading to the entire tissue at
+mediated plant defences [8]. Surprisingly, LysM transcripts               the late necrotrophic stage [3]. ROS are effective in stopping
+were highly expressed during the necrotrophic stage here,                 growth of biotrophic pathogens. However, the roles of ROS in
+which was associated with increased fungal chitin/biomass and             interactions with necrotrophic fungi are still ambiguous. It can
+plant defence responses. Thus, our data suggest that S. tritici           both benefit and inhibit infection by necrotrophs, which may be
+manipulates the suppression of chitin-mediated wheat                      able to produce ROS themselves and stimulate the ROS
+defences during the entire infection process and may be                   production from the hosts as well [7,45]. To survive in the harsh
+important for disease development due to the increased level              oxidative environments and colonise host cells, S. tritici,
+of biomass or chitin. Expression of a necrosis-inducing protein           therefore, has to develop mechanisms to scavenge ROS and
+has also been found in the oomycete Phytophthora sojae                    protect against ROS-induced damage, particularly during the
+during transition from biotrophy to necrotrophy in soybean,               necrotrophic stage when massive ROS accumulation occurs
+which suggests that this protein facilitates the plant colonisation       [3]. This was evident in the present study by increased
+during the necrotrophic growth [38]. Three secreted necrosis-             expression levels of several fungal transcripts during infection
+PLOS ONE | www.plosone.org                                             12                      November 2013 | Volume 8 | Issue 11 | e81606
+                                                                                                Transcriptomics of the Wheat-S.tritici Interaction
+encoding ROS-scavenging proteins including peroxidases,                    enhanced host responses including anti-stress and defences,
+Cu2+/Zn2+ superoxide dismutases, glutathione S-transferases,               energy metabolism, signalling and transport as well as
+hydroperoxide reductases, thioredoxins and peroxiredoxins as               decreased photosynthesis. This transcriptome study paves the
+well as other stress-response proteins like cyclophilins and               way for more detailed work on S. tritici pathogenicity and wheat
+heat shock proteins (Table S1). Furthermore, excessive ROS                 resistance to S. tritici, which will be important for future crop
+production in the fungal cells after expose to the stress can              protection.
+give rise to the accumulation of aldehydes and alcohols [46]. S.
+tritici may rescue itself by increased expression of aldehyde
+                                                                           Supporting Information
+dehydrogenase and alcohol dehydrogenase for detoxification
+of alcohols and aldehydes (Table 2).
+    During the entire infection cycle, S. tritici grows intercellularly    Figure S1. Macroscopic appearance of susceptible wheat
+throughout the leaf mesophyll cell layer and the host cell walls           leaves after treatment with water (controls) or S. tritici. The
+appear not to be breached [2,3], although the fungus can                   leaves were photographed from 3 to 14 dai.
+express a series of genes encoding CWDEs in planta, in                     (TIF)
+particular a large number during the very late necrotrophic
+stage when the foliar tissue is fully necrotic, reflecting that            Figure S2. Schematic representation of RNA-Seq analysis
+stage of pathogenesis [4,5]. CWDEs are known to play a role in             of the interaction transcriptome between wheat and S.
+nutrient acquisition, host colonisation and pathogenicity in               tritici. Total RNA was extracted from control and S. tritici-
+phytopathogenic fungi. However, scanning the S. tritici genome             infected samples at 4, 10 and 13 dai. Illumina RNA-Seq was
+indeed revealed a relatively small number of genes annotated               performed on cDNA libraries generated from each sample. All
+as CWDEs compared to some saprophytes and                                  pre-processed reads of controls as well as the infected
+phytopathogenic        fungi    like    Fusarium       graminearum,        samples were combined and assembled. Subsequently, the
+Magnaporthe oryzae and Stagonospora nodorum [9,12]. Little                 transcripts from all the samples were combined, mapped to the
+is understood about the biological explanations for the strictly           fungal genome to filter out fungal transcripts prior to annotation.
+apoplastic colonising hyphae of S. tritici which do not breach             Finally, the clean reads of each sample were mapped to wheat
+host cell walls. In the present study, we identified relatively few        and fungal transcripts. Bioinformatics analysis was conducted
+transcripts encoding CWDEs expressed during the biotrophic                 to obtain expression levels of both wheat and fungal transcripts
+and initial necrotrophic stages out of the total identifications
+                                                                           in each sample and define differentially expressed wheat
+and none of them was of high abundance, indicating that
+                                                                           transcripts at each time point.
+degradation of host cell walls may not play an essential role for
+                                                                           (TIF)
+nutrient acquisition and explaining the reduced capacity for
+breaching living host cell walls. Correspondingly, Rohel et al.
+                                                                           Figure S3. Expression profiles of S. tritici transcripts
+[47] found that during the transition to necrotrophic growth
+where sporulation started, the fungus actually starved,                    encoding potential effector proteins identified from S.
+indicating deficiency in obtaining sufficient nutrients. However,          tritici-infected wheat at 4, 10 and 13 dai. Expression levels of
+the fungus has to survive on the nutrients in the apoplast full of         the transcripts were calculated by log2FPKM. (A) Ten
+proteins, metabolites, sugars and ions [47]. Here, the                     expression clusters of 313 fungal transcripts encoding proteins
+identification of several transcripts annotated as peptidases,             containing signal peptides. (B) Ten expression clusters of 246
+lipases and amylases with high abundance at two stages                     fungal transcripts which have been identified in the present
+(Table 1, S2) suggests that degradation of host cell proteins,             study and in silico predicted as effectors by do Amaral et al.
+lipids and sugars can be an important source of fungal                     [12].
+nutrients during colonisation. This is in agreement with the               (TIF)
+genomic mapping analysis revealing that several protease
+encoding gene families are expanded and 39 proteins have                   Figure S4. Functional category distribution in the ten
+functions related to protein degradation [12].                             expression clusters of differentially expressed wheat
+    In summary, the disease transition was clearly defined by              transcripts. Differentially expressed plant transcripts in
+characterising accumulation of H2O2, PR-proteins and fungal                response to S. tritici at 4, 10 and 13 dai are presented by
+biomass in order to carry out the transcriptome analysis at the            expression ratios of the transcripts in infected (I) versus control
+biotrophic and necrotrophic stages of the compatible interaction           (C) samples in log2-scale. Histogram representation of the
+between wheat and S. tritici. RNA-Seq enabled the                          category distribution is expressed as percentage of the amount
+identification of considerable numbers of fungal and wheat                 of transcripts belonging to the cluster. Transcripts coding for
+transcripts in response to the infection at both stages. The
+                                                                           unknown products were included in the analysis.
+results suggest that successful leaf colonisation is achieved by
+                                                                           (TIFF)
+suppressing host defence responses during the symptomless
+biotrophic stage, activation of signalling, transport and
+                                                                           Table S1. List of identified S. tritici transcripts during
+antioxidative mechanisms, apoplastic nutrient acquisition and
+                                                                           infection of wheat leaves at 4, 10 and 13 dai.
+secretion of distinct classes of stage-specific molecules
+including potential effectors. The necrotrophic growth triggers            (XLSX)
+PLOS ONE | www.plosone.org                                              13                      November 2013 | Volume 8 | Issue 11 | e81606
+                                                                                                         Transcriptomics of the Wheat-S.tritici Interaction
+Table S2. List of differentially expressed wheat transcripts                     Author Contributions
+in response to S. tritici at 4, 10 and 13 dai.
+(XLSB)                                                                           Conceived and designed the experiments: FY. Performed the
+                                                                                 experiments: FY WL HJLJ. Analyzed the data: FY WL HJLJ.
+                                                                                 Contributed reagents/materials/analysis tools: FY WL HJLJ.
+Table S3. List of identified wheat transcripts with no
+                                                                                 Wrote the manuscript: FY WL.
+change in abundance during S. tritici infection at 4, 10 and
+13 dai.
+(XLSB)
+Acknowledgements
+We thank Daniel Amby (University of Copenhagen) for valuable
+scientific discussion and Haiyan Song (BGI) for the project
+coordination.
+References
+  1. Eyal Z (1999) The Septoria tritici and Stagonospora nodorum blotch               profiling.    Mol    Plant     Pathol   6:   527–540.      doi:10.1111/j.
+     diseases of wheat. Eur J Plant Pathol 105: 629–641. doi:10.1023/A:               1364-3703.2005.00304.x. PubMed: 20565677.
+     1008716812259.                                                               14. Ray S, Anderson JM, Urmeev FI, Goodwin SB (2003) Rapid induction
+  2. Kema GHJ, Yu DZ, Rijkenberg FHJ, Shaw MW, Baayen RP (1996)                       of a protein disulfide isomerase and defense-related genes in wheat in
+     Histology of the pathogenesis of Mycosphaerella graminicola in wheat.            response to the hemibiotrophic fungal pathogen Mycosphaerella
+     Phytopathology 86: 777–786. doi:10.1094/Phyto-86-777.                            graminicola. Plant Mol Biol 53: 741–754. doi:10.1023/B:PLAN.
+  3. Shetty NP, Kristensen BK, Newman MA, Møller K, Gregersen PL, et al.              0000019120.74610.52. PubMed: 15010608.
+     (2003) Association of hydrogen peroxide with restriction of Septoria         15. Shetty NP, Jensen JD, Knudsen A, Finnie C, Geshi N et al. (2009)
+     tritici in resistant wheat. Physiol Mol Plant P 62: 333–346                      Effects of β-1,3-glucan from Septoria tritici on structural defence
+  4. Keon J, Antoniw J, Carzaniga R, Deller S, Ward JL et al. (2007)                  responses in wheat. J Exp Bot 60: 4287–4300. doi:10.1093/jxb/erp269.
+     Transcriptional adaptation of Mycosphaerella graminicola to                      PubMed: 19880540.
+     programmed cell death (PCD) of its susceptible wheat host. Mol Plant         16. Yang F, Melo-Braga MN, Larsen MR, Jørgensen HJL, Palmisano G
+     Microbe Interact 20: 178–193. doi:10.1094/MPMI-20-2-0178. PubMed:                (2013) Battle through signaling between wheat and the fungal pathogen
+     17313169.                                                                        Septoria tritici revealed by proteomics and phosphoproteomics. Mol
+  5. Kema GH, van der Lee TA, Mendes O, Verstappen EC, Lankhorst RK                   Cell Proteomics 12: 2497–2508. doi:10.1074/mcp.M113.027532.
+     et al. (2008) Large-scale gene discovery in the septoria tritici blotch          PubMed: 23722186.
+     fungus Mycosphaerella graminicola with a focus on in planta                  17. Wang Z, Gerstein M, Snyder M (2009) RNA-Seq: a revolutionary tool
+     expression. Mol Plant Microbe Interact 21: 1249–1260. doi:10.1094/               for transcriptomics. Nat Rev Genet 10: 57–63. doi:10.1038/nrg2484.
+     MPMI-21-9-1249. PubMed: 18700829.                                                PubMed: 19015660.
+  6. Rudd JJ, Keon J, Hammond-Kosack KE (2008) The Wheat mitogen-                 18. Waalwijk C, Mendes O, Verstappen EC, de Waard MA, Kema GH
+     activated protein kinases TaMPK3 and TaMPK6 are differentially                   (2002) Isolation and characterization of the mating-type idiomorphs
+     regulated at multiple levels during compatible disease interactions with         from the wheat septoria leaf blotch fungus Mycosphaerella graminicola.
+     Mycosphaerella graminicola. Plant Physiol 147: 802–815. doi:                     Fungal Genet Biol 35: 277–286. doi:10.1006/fgbi.2001.1322. PubMed:
+     10.1104/pp.108.119511. PubMed: 18441220.                                         11929216.
+  7. Shetty NP, Mehrabi R, Lütken H, Haldrup A, Kema GHJ et al. (2007)            19. Yang F, Jensen JD, Spliid NH, Svensson B, Jacobsen S et al. (2010)
+     Role of hydrogen peroxide during the interaction between the                     Investigation of the effect of nitrogen on severity of Fusarium head
+     hemibiotrophic fungal pathogen Septoria tritici and wheat. New Phytol            blight in barley. J Proteomics 73: 743–752. doi:10.1016/j.jprot.
+     174: 637–647. doi:10.1111/j.1469-8137.2007.02026.x. PubMed:                      2009.10.010. PubMed: 19895910.
+     17447918.                                                                    20. Yang F, Jensen JD, Svensson B, Jørgensen HJL, Collinge DB et al.
+  8. Marshall R, Kombrink A, Motteram J, Loza-Reyes E, Lucas J et al.                 (2010) Analysis of early events in the interaction between Fusarium
+     (2011) Analysis of two in planta expressed LysM effector homologs                graminearum and the susceptible barley (Hordeum vulgare) cultivar
+     from the fungus Mycosphaerella graminicola reveals novel functional              Scarlett. Proteomics 10: 3748–3755. doi:10.1002/pmic.201000243.
+     properties and varying contributions to virulence on wheat. Plant                PubMed: 20925056.
+     Physiol 156: 756–769. doi:10.1104/pp.111.176347. PubMed:                     21. Yang F, Jensen JD, Svensson B, Jørgensen HJL, Collinge DB et al.
+     21467214.                                                                        (2012) Secretomics identifies Fusarium graminearum proteins involved
+  9. Goodwin SB, M’Barek SB, Dhillon B, Wittenberg AHJ, Crane CF et al.               in the interaction with barley and wheat. Mol Plant Pathol 13: 445–453.
+     (2011) Finished genome of the fungal wheat pathogen Mycosphaerella               doi:10.1111/j.1364-3703.2011.00759.x. PubMed: 22044785.
+     graminicola reveals dispensome structure, chromosome plasticity, and         22. Wang L, Si Y, Dedow LK, Shao Y, Liu P et al. (2011) A low-cost library
+     stealth pathogenesis. PLoS Genet 7: e1002070. PubMed: 21695235.                  construction protocol and data analysis pipeline for Illumina-based
+ 10. Deller S, Hammond-Kosack KE, Rudd JJ (2011) The complex                          strand-specific multiplex RNA-Seq. PLOS ONE 6: e26426. doi:10.1371/
+     interactions between host immunity and non-biotrophic fungal                     journal.pone.0026426. PubMed: 22039485.
+     pathogens of wheat leaves. J Plant Physiol 168: 63–71. doi:10.1016/          23. Smeds L, Künstner A (2011) ConDeTri–a content dependent read
+     j.jplph.2010.05.024. PubMed: 20688416.                                           trimmer for Illumina Data. PLOS ONE 6: e26314. doi:10.1371/
+ 11. Rudd JJ, Antoniw J, Marshall R, Motteram J, Fraaije B et al. (2010)              journal.pone.0026314. PubMed: 22039460.
+     Identification and characterisation of Mycosphaerella graminicola            24. Grabherr MG, Haas BJ, Yassour M, Levin JZ, Thompson DA et al.
+     secreted or surface-associated proteins with variable intragenic coding          (2011) Full-length transcriptome assembly from RNA-Seq data without
+     repeats. Fungal Genet Biol 47: 19–32. doi:10.1016/j.fgb.2009.10.009.             a reference genome. Nat Biotechnol 29: 644–652. doi:10.1038/nbt.
+     PubMed: 19887112.                                                                1883. PubMed: 21572440.
+ 12. do Amaral AM, Antoniw J, Rudd JJ, Hammond-Kosack KE (2012)                   25. Pertea G, Huang XQ, Liang F, Antonescu V, Sultana R et al. (2003)
+     Defining the predicted protein secretome of the fungal wheat leaf                TIGR Gene Indices clustering tools (TGICL): a software system for fast
+     pathogen Mycosphaerella graminicola. PLOS ONE 7: e49904. doi:                    clustering of large EST datasets. Bioinformatics 19: 651–652. doi:
+     10.1371/journal.pone.0049904. PubMed: 23236356.                                  10.1093/bioinformatics/btg034. PubMed: 12651724.
+ 13. Keon J, Rudd JJ, Antoniw J, Skinner W, Hargreaves J et al. (2005)            26. Robinson MD, Oshlack A (2010) A scaling normalization method for
+     Metabolic and stress adaptation by Mycosphaerella graminicola during             differential expression analysis of RNA-seq data. Genome Biol 11: R25.
+     sporulation in its host revealed through microarray transcription                doi:10.1186/gb-2010-11-3-r25. PubMed: 20196867.
+PLOS ONE | www.plosone.org                                                    14                         November 2013 | Volume 8 | Issue 11 | e81606
+                                                                                                       Transcriptomics of the Wheat-S.tritici Interaction
+ 27. Mortazavi A, Williams BA, McCue K, Schaeffer L, Wold B (2008)                   proteins. Plant Signal Behav 5: 769–772. doi:10.4161/psb.5.6.11778.
+     Mapping and quantifying mammalian transcriptomes by RNA-Seq. Nat                PubMed: 20400849.
+     Methods 5: 621–628. doi:10.1038/nmeth.1226. PubMed: 18516045.               38. Qutob D, Kamoun S, Gijzen M (2002) Expression of a Phytophthora
+ 28. Chen S, Yang PC, Jiang F, Wei YY, Ma ZY et al. (2010) De novo                   sojae necrosis-inducing protein occurs during transition from biotrophy
+     analysis of transcriptome dynamics in the migratory locust during the           to necrotrophy. Plant J 32: 361–373. doi:10.1046/j.1365-313X.
+     development of phase traits. PLOS ONE 5: e15633. doi:10.1371/                   2002.01439.x. PubMed: 12410814.
+     journal.pone.0015633. PubMed: 21209894.                                     39. Kirsten S, Navarro-Quezada A, Penselin D, Wenzel C, Matern A et al.
+ 29. Audic S, Claverie JM (1997) The significance of digital gene expression         (2012) Necrosis-inducing proteins of Rhynchosporium commune,
+     profiles. Genome Res 7: 986–995. PubMed: 9331369.                               effectors in quantitative disease resistance. Mol Plant Microbe Interact
+ 30. Vargas WA, Martín JM, Rech GE, Rivera LP, Benito EP et al. (2012)               25: 1314–1325. doi:10.1094/MPMI-03-12-0065-R. PubMed: 22712509.
+     Plant defense mechanisms are activated during biotrophic and                40. de Oliveira AL, Gallo M, Pazzagli L, Benedetti CE, Cappugi G et al.
+                                                                                     (2011) The structure of the elicitor cerato-platanin (CP), the first
+     necrotrophic development of Colletotricum graminicola in maize. Plant
+                                                                                     member of the CP fungal protein family, reveals a double ψβ-barrel fold
+     Physiol 158: 1342–1358. doi:10.1104/pp.111.190397. PubMed:
+                                                                                     and carbohydrate binding. J Biol Chem 286: 17560–17568. doi:
+     22247271.
+                                                                                     10.1074/jbc.M111.223644. PubMed: 21454637.
+ 31. Koornneef A, Pieterse CMJ (2008) Cross talk in defense signaling.           41. Wösten HAB (2001) Hydrophobins: Multipurpose proteins. Annu Rev
+     Plant Physiol 146: 839–844. doi:10.1104/pp.107.112029. PubMed:                  Microbiol 55: 625–646. doi:10.1146/annurev.micro.55.1.625. PubMed:
+     18316638.                                                                       11544369.
+ 32. Mahesh SK, Liu H, Qiu D (2012) The role of radical burst in plant           42. Taylor BL, Zhulin IB (1999) PAS domains: internal sensors of oxygen,
+     defense responses to necrotrophic fungi. J Integr Agricult 11: 1305–            redox potential, and light. Microbiol Mol Biol Rev 63: 479–506.
+     1312. doi:10.1016/S2095-3119(12)60127-0.                                        PubMed: 10357859.
+ 33. Bolton MD (2009) Primary metabolism and plant defense-fuel for the          43. Black CG, Wang L, Wu T, Coppel RL (2003) Apical location of a novel
+     fire. Mol Plant Microbe Interact 22: 487–497. doi:10.1094/                      EGF-like domain-containing protein of Plasmodium falciparum. Mol
+     MPMI-22-5-0487. PubMed: 19348567.                                               Biochem Parasitol 127: 59–68. doi:10.1016/S0166-6851(02)00308-0.
+ 34. Bos JIB, Kanneganti TD, Young C, Cakir C, Huitema E et al. (2006)               PubMed: 12615336.
+     The C-terminal half of Phytophthora infestans RXLR effector AVR3a is        44. Mehrabi R (2006) Signaling pathways involved in pathogenicity and
+     sufficient to trigger R3a-mediated hypersensitivity and suppress INF1-          development of the fungal wheat pathogen Mycosphaerella
+     induced cell death in Nicotiana benthamiana. Plant J 48: 165–176. doi:          graminicola. PhD thesis, Wageningen University.
+     10.1111/j.1365-313X.2006.02866.x. PubMed: 16965554.                         45. Shetty NP, Jørgensen HJL, Jensen JD, Collinge DB, Shetty HS (2008)
+ 35. Dou D, Kale SD, Wang X, Chen Y, Wang Q et al. (2008) Conserved C-               Roles of reactive oxygen species in interactions between plants and
+     terminal motifs required for avirulence and suppression of cell death by        pathogens. Eur J Plant Pathol 121: 267–280. doi:10.1007/
+     Phytophthora sojae effector Avr1b. Plant Cell 20: 1118–1133. doi:               s10658-008-9302-5.
+     10.1105/tpc.107.057067. PubMed: 18390593.                                   46. Asiimwe T, Krause K, Schlunk I, Kothe E (2012) Modulation of ethanol
+ 36. Kelley BS, Lee SJ, Damasceno CMB, Chakravarthy S, Kim BD et al.                 stress tolerance by aldehyde dehydrogenase in the mycorrhizal fungus
+     (2010) A secreted effector protein (SNE1) from Phytophthora infestans           Tricholoma vaccinum. Mycorrhiza 22: 471–484. doi:10.1007/
+     is a broadly acting suppressor of programmed cell death. Plant J 62:            s00572-011-0424-9. PubMed: 22159964.
+     357–366. doi:10.1111/j.1365-313X.2010.04160.x. PubMed: 20128886.            47. Rohel EA, Payne AC, Fraaije BA, Hollomon DH (2001) Exploring
+                                                                                     infection of wheat and carbohydrate metabolism in Mycosphaerella
+ 37. Lee SJ, Rose JKC (2010) Mediation of the transition from biotrophy to
+                                                                                     graminicola transformants with differentially regulated green fluorescent
+     necrotrophy in hemibiotrophic plant pathogens by secreted effector
+                                                                                     protein expression. Mol Plant Microbe Interact 14: 156–163. doi:
+                                                                                     10.1094/MPMI.2001.14.2.156. PubMed: 11204778.
+PLOS ONE | www.plosone.org                                                    15                       November 2013 | Volume 8 | Issue 11 | e81606

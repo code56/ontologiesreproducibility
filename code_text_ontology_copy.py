@@ -19,6 +19,12 @@ from bs4 import BeautifulSoup
 
 # Pre-requisite: put the pdf version of the articles you want to process in the papers_collection_folder
 
+
+for file in os.listdir("papers_collection_folder"):
+    if file.endswith(".pdf"):
+        print(os.path.join("papers_collection_folder", file))
+        print(file)
+
 yourpath = os.getcwd()
 data_folder = Path("papers_collection_folder")
 text_article_folder = Path("text_article_folder")
@@ -64,14 +70,13 @@ for item in text_article_files_in_folder:
 
 # TODO change to the name of the file.
 
-with open('ontopaper_usecase.pdf.txt') as f:
+with open('ontology_usecase1.pdf.txt') as f:
     log = f.readlines()
 
 text_article = ''
 for line in log:
     text_article += line
 #print(text_article)
-
 
 def workingwithtextfiles(text_article_folder):
     global text_article
