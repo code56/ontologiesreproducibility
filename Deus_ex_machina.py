@@ -42,7 +42,6 @@ class File(object):
             f.close()
         return ('%s.txt' % self.name)
 
-#TODO for more tidy code, have the code create the text files and put them in a different directory, not the main directory...
 
     def create_text_file(self, name):
         with open(name) as f:
@@ -67,9 +66,6 @@ class File(object):
 
 
     #publication date, keywords: Published:, Accepted:, first sentence year date, avoid references, Received:
-
-    # TODO the create_text_article should return just the text_article as we need it for other functions
-    #  maybe see if create_text_file function can run the create_text_article function first and add the extra line for tokenisation
 
     # pre-processing of text_article. Remove punctuation
     def remove_punctuation(self, txt):
@@ -102,12 +98,9 @@ class File(object):
         n = 6
         for i in range(1, n + 1):
             n_grams = list(ngrams(data_tokenised, i))
-            #print(i, n_grams)
             res = [' '.join(tups) for tups in n_grams]
-            #print('res', i, res)
             for query, onto_id in dict_po.items():
                 if query in res:
-                    #print('found ontology match with n_gram match', " | ", i, onto_id + " | " + query)
                     ngram_matches.append((query,onto_id))
         return ngram_matches
 
@@ -173,7 +166,6 @@ class File(object):
                         metadata = []
                         for hit in soup.find_all("value"):
                             metadata.append(hit.text.strip())
-                        #print('this is XML metadata under the <value> tag', metadata)
 
 
                     except:
@@ -207,9 +199,6 @@ class File(object):
             return project_accession_number
 
 
-    #TODO function that compares the output of ontologies found in the paper, and those in xml file. See if there is any overlap
-    # and compute a score based on that. e.g. if any overlap add 2 points in the score
-
 
 # returning sentences containing particular phrases: e.g. "Supporting data"
 def regex_search(filename, term):
@@ -228,7 +217,7 @@ for line in open('plant-ontology-dev.txt'):
         po_dict[split[1]] = split[0]
 
 header = ['article file name', 'article ontologies', 'ArrayExpress number', 'project accession number', 'XML metadata',
-          'XML ontologies', 'common ontologies', 'research paper ontologies', 'ArrayExpress score','XML file ontologies score', 'Project Accession score','common ontologies score','Reproducibility Metric Score (RMS)']
+          'XML ontologies', 'common ontologies', 'article ontologies score', 'ArrayExpress score','XML file ontologies score', 'Project Accession score','common ontologies score','Reproducibility Metric Score (RMS)']
 
 with open('scores.csv', 'w', encoding='UTF8', newline='') as f:
     writer = csv.writer(f)
@@ -281,7 +270,7 @@ def main(articlename):
         if len(xml_metadata) == 0:
             print('xml metadata is empty')
         else:
-            array_express_number = xml_metadata[0] #TODO what about when there is more than one ArrayExpress found?
+            array_express_number = xml_metadata[0]
             arrayexpress_score = article_accessionnumber_score + 1
             for query, onto_id in po_dict.items():
                 if query in xml_metadata[1]:
@@ -296,7 +285,6 @@ def main(articlename):
     # other accession numbers. e.g. GenBank HP608076 - HP639668 . See accession number prefixes: https://www.ncbi.nlm.nih.gov/genbank/acc_prefix/
     # so can do another Regex, to find other accession. It is a long list (as per the link above) and I am not sure which one of those are
     # relevant to crop transcriptomics.
-    # TODO read the phrases, 'accession' and add a score. Or make some more Regex searches
 
     # for studies such as ontopaper2 which dont have Array express accession numbers, but maybe including SRP numbers
     # https://www.ebi.ac.uk/ena/browser/view/PRJDB2496?show=reads
@@ -319,7 +307,6 @@ def main(articlename):
     else:
         score_for_finding_project_accession_number = score_for_project_accession_number
 
-        # TODO code for if it has more than one project accession
 
 
     #common ontologies comparison between the ontologies found in research article and XML metadata
@@ -335,7 +322,6 @@ def main(articlename):
 
     #write the outputs and scores in the score.csv file
     data = [[file1.name, ngram_matches, array_express_number, project_accession, xml_metadata, xml_and_onto_matching, common_ontologies, ngram_matches_score, arrayexpress_score, score_xml, score_for_finding_project_accession_number, var1, (ngram_matches_score + arrayexpress_score + score_xml + score_for_finding_project_accession_number + var1)]]
-    #TODO add score because ontologies were found in the paper too! not just the XML file!
 
     with open('scores.csv', 'a', encoding='UTF8', newline='') as f:
         writer = csv.writer(f)
@@ -354,3 +340,10 @@ if __name__ == "__main__":
             print(file)
             main(file)
 
+
+#TODO for more tidy code, have the code create the text files and put them in a different directory, not the main directory.
+#TODO code for if it has more than one project accession & when there is more than one ArrayExpress found?
+#TODO read the phrases, 'accession' and add a score. Or make some more Regex searches
+#TODO parse article text ignoring references (References, References and Notes, LITERATURE CITED, REFERENCES, REFERENCES AND NOTES
+#TODO have the code create the article text files neatly at a separate folder, the same for project accession xml files
+#TODO add more ontology vocabularies (e.g. crop ontologies)
