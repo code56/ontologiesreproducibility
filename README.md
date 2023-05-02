@@ -17,7 +17,7 @@ pip install pandas scikit-learn owlready2
 
 ## Usage
 
-To use this code, you can simply run the main.py file. This file takes as input a CSV file containing data that has been annotated with ontologies, and uses a pre-trained machine learning model to classify the data. The output is a new CSV file containing the classified data.
+To use this code, you can simply run the main.py file (i.e. Deus_ex_machina.py). This file takes as input a CSV file containing data that has been annotated with ontologies, and uses a pre-trained machine learning model to classify the data. The output is a new CSV file containing the classified data.
 
 ## Contributing
 
