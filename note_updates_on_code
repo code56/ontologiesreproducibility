@@ -1,0 +1,13 @@
+Please note that since creating this repository, EBI depricated XML files and is only using JSON files. More information on this 
+is found on https://www.ebi.ac.uk/biostudies/arrayexpress/help#programmatic
+
+Therefore, the code that was programmatically fetching XML files given the ArrayExpress number, doesn't work. However if
+you go to previous commits of this code, namely on August 24th 2022, you will find all of the code outputs including the
+XML files corresponding to the ArrayExpress codes found in the various use-case papers.
+
+Moreover, on the same commit (August 24th 2022) you can see the scores.csv file that shows all
+the computations done by the code. 
+
+Should you wish to work or expand this code with adjustments for the code to be using JSON files
+instead of the XML files feel free to do so. 
+
